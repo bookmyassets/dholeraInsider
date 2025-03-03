@@ -30,7 +30,7 @@ export default function Aboutus() {
             What We Stand For
           </h2>
           <h1 className="text-[#1e3a8b] text-3xl sm:text-4xl font-bold mt-2">
-            We are dedicated to children's rights.
+            We are dedicated to children rights.
           </h1>
 
           <div className="grid md:grid-cols-2 gap-12 mt-12">
