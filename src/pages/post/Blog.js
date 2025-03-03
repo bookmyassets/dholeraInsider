@@ -7,6 +7,11 @@ import { blogQuery } from "@/sanity/lib/query";
 import { PortableText } from "next-sanity";
 import imgbg from "@/assets/bg3.svg";
 
+function truncateText(text, maxLength) {
+  if (!text) return "";
+  return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+}
+
 export default function Blogs({ blogs }) {
   return (
     <>
@@ -51,8 +56,16 @@ export default function Blogs({ blogs }) {
                   <h3 className="text-md sm:text-lg font-semibold text-gray-900 dark:text-white">
                     {blog.title}
                   </h3>
-                  <div className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm mt-2 line-clamp-3">
-                    <PortableText value={blog.body} />
+                  <div className="mt-2 text-gray-700 dark:text-gray-300 text-xs sm:text-sm">
+                    <div
+                      className="whitespace-nowrap overflow-hidden text-ellipsis"
+                      style={{ maxWidth: "100%" }}
+                    >
+                      {truncateText(
+                        project.body?.[0]?.children?.[0]?.text || "",
+                        50
+                      )}
+                    </div>
                   </div>
                   <div className="mt-3 sm:mt-4">
                     <Link href={`/post/${blog.slug?.current}`} passHref>

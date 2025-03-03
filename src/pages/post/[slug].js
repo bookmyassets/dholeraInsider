@@ -21,6 +21,8 @@ const PostDetail = ({ post }) => {
           <Image
             src={value.asset._ref ? urlFor(value).url() : value.asset.url}
             alt={value.alt || "Image"}
+            width={500}
+            height={600}
             className="my-4 w-full rounded-lg"
           />
         );
@@ -34,9 +36,11 @@ const PostDetail = ({ post }) => {
     <div className="flex flex-col w-full h-[50vh] sm:h-screen relative">
       {post.mainImage && (
         <Image
-          src={urlFor(post.mainImage).url()}
+          src={urlFor(post.mainImage).width(800).url()}
           alt={post.mainImage.alt || post.title}
-          fill
+          width={500}
+          height={600}
+          
           className="w-full h-full bg-no-repeat object-cover object-center brightness-50"
         />
       )}
