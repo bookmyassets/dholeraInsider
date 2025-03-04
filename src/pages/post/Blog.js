@@ -62,7 +62,7 @@ export default function Blogs({ blogs }) {
                       style={{ maxWidth: "100%" }}
                     >
                       {truncateText(
-                        project.body?.[0]?.children?.[0]?.text || "",
+                        blog.body?.[0]?.children?.[0]?.text || "",
                         50
                       )}
                     </div>
