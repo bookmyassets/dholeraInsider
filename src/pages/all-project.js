@@ -5,6 +5,7 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { projectQuery } from "@/sanity/lib/query";
 import { PortableText } from "next-sanity";
+import heroD from "@/assets/projectHeroD.webp"
 
 function truncateText(text, maxLength) {
   if (!text) return "";
@@ -16,13 +17,13 @@ export default function Projects({ projects }) {
     <>
       <div>
         {/* Hero Section */}
-        <section className="flex flex-col w-full h-[40vh] sm:h-[50vh] md:h-[70vh] relative">
+        <section className="flex flex-col w-full sm:h-[50vh] h-[50vh] relative">
           <Image
-            src={building}
+            src={heroD}
             alt="bg image"
-            width={500}
-            height={300}
-            className="w-full h-full object-cover brightness-50"
+            width={1800}
+            height={700}
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
             {/* Background Large Text */}
