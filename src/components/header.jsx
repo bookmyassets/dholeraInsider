@@ -3,12 +3,14 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
 import logo from "../../src/assets/icons/logo.webp";
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from 'react-icons/ai';
 import ThemeChanger from './themeChanger';
 
 const Header = () => {
   const [header, setHeader] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [getInTouchDropdown, setGetInTouchDropdown] = useState(false);
+  const [galleryDropdown, setGalleryDropdown] = useState(false);
 
   const handleHeader = () => {
     setHeader(!header);
@@ -16,6 +18,18 @@ const Header = () => {
 
   const handleMobileHeader = () => {
     setHeader(false);
+    setGetInTouchDropdown(false);
+    setGalleryDropdown(false);
+  };
+
+  const toggleGetInTouchDropdown = () => {
+    setGetInTouchDropdown(!getInTouchDropdown);
+    setGalleryDropdown(false); // Close other dropdown
+  };
+
+  const toggleGalleryDropdown = () => {
+    setGalleryDropdown(!galleryDropdown);
+    setGetInTouchDropdown(false); // Close other dropdown
   };
 
   useEffect(() => {
@@ -29,6 +43,17 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setGetInTouchDropdown(false);
+      setGalleryDropdown(false);
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
   return (
@@ -63,13 +88,68 @@ const Header = () => {
           <Link href="/all-blog">Blogs</Link>
         </li>
         <li className="p-4 hover:text-orange-500">
-          <Link href="/Contact">Contact</Link>
+          <Link href="/Contact">Inside Dholera</Link>
+        </li>
+        
+        {/* Gallery Dropdown */}
+        <li className="relative p-4 hover:text-orange-500">
+          <div 
+            className="flex items-center cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleGalleryDropdown();
+            }}
+          >
+            Gallery
+            <AiOutlineDown className={`ml-1 transition-transform duration-200 ${galleryDropdown ? 'rotate-180' : ''}`} />
+          </div>
+          
+          {galleryDropdown && (
+            <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-2 z-50">
+              <Link href="/gallery/photos" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                Photo Gallery
+              </Link>
+              <Link href="/gallery/videos" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                Video Gallery
+              </Link>
+              <Link href="/gallery/virtual-tour" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                Virtual Tour
+              </Link>
+            </div>
+          )}
         </li>
       </ul>
 
-      <p className="hidden sm:flex text-sm font-bold ml-10 mr-5 hover:text-orange-500 cursor-pointer text-white">
-        Get In Touch
-      </p>
+      {/* Get In Touch Dropdown */}
+      <div className="hidden sm:flex relative">
+        <div 
+          className="text-sm font-bold ml-10 mr-5 hover:text-orange-500 cursor-pointer text-white flex items-center"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleGetInTouchDropdown();
+          }}
+        >
+          Get In Touch
+          <AiOutlineDown className={`ml-1 transition-transform duration-200 ${getInTouchDropdown ? 'rotate-180' : ''}`} />
+        </div>
+        
+        {getInTouchDropdown && (
+          <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-2 z-50">
+            <Link href="/contact" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+              Contact Us
+            </Link>
+            <Link href="/inquiry" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+              Make Inquiry
+            </Link>
+            <Link href="/callback" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+              Request Callback
+            </Link>
+            <Link href="/visit" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+              Schedule Visit
+            </Link>
+          </div>
+        )}
+      </div>
 
       <div className="mr-10">
         <ThemeChanger />
@@ -101,11 +181,10 @@ const Header = () => {
             </Link>
           </li>
           <li className="mx-7 py-4 text-4xl hover:text-orange-500">
-            <Link href="/all-projects" onClick={handleMobileHeader}>
+            <Link href="/all-project" onClick={handleMobileHeader}>
               Projects
             </Link>
           </li>
-          
           <li className="mx-7 py-4 text-4xl hover:text-orange-500">
             <Link href="/all-blog" onClick={handleMobileHeader}>
               Blogs
@@ -113,8 +192,65 @@ const Header = () => {
           </li>
           <li className="mx-7 py-4 text-4xl hover:text-orange-500">
             <Link href="/Contact" onClick={handleMobileHeader}>
-              Contact
+              Inside Dholera
             </Link>
+          </li>
+          
+          {/* Mobile Gallery Dropdown */}
+          <li className="mx-7 py-4 text-4xl">
+            <div 
+              className="hover:text-orange-500 cursor-pointer flex items-center justify-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                setGalleryDropdown(!galleryDropdown);
+              }}
+            >
+              Gallery
+              <AiOutlineDown className={`ml-2 transition-transform duration-200 ${galleryDropdown ? 'rotate-180' : ''}`} />
+            </div>
+            {galleryDropdown && (
+              <div className="mt-4 space-y-2">
+                <Link href="/gallery/photos" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Photo Gallery
+                </Link>
+                <Link href="/gallery/videos" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Video Gallery
+                </Link>
+                <Link href="/gallery/virtual-tour" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Virtual Tour
+                </Link>
+              </div>
+            )}
+          </li>
+
+          {/* Mobile Get In Touch Dropdown */}
+          <li className="mx-7 py-4 text-4xl">
+            <div 
+              className="hover:text-orange-500 cursor-pointer flex items-center justify-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                setGetInTouchDropdown(!getInTouchDropdown);
+              }}
+            >
+              Get In Touch
+              <AiOutlineDown className={`ml-2 transition-transform duration-200 ${getInTouchDropdown ? 'rotate-180' : ''}`} />
+            </div>
+            {getInTouchDropdown && (
+              <div className="mt-4 space-y-2">
+                <Link href="/contact" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Contact Us
+                </Link>
+                <Link href="/inquiry" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Make Inquiry
+                </Link>
+                <Link href="/callback" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Request Callback
+                </Link>
+                <Link href="/visit" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Schedule Visit
+                </Link>
+              </div>
+            )}
           </li>
         </ul>
       </div>
