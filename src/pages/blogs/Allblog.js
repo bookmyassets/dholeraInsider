@@ -56,7 +56,7 @@ export default function Blogs({ blogs }) {
                   <h3 className="text-md sm:text-lg font-semibold text-gray-900 dark:text-white">
                     {blog.title}
                   </h3>
-                  <div className="mt-2 text-gray-700 dark:text-gray-300 text-xs sm:text-sm">
+                  {/* <div className="mt-2 text-gray-700 dark:text-gray-300 text-xs sm:text-sm">
                     <div
                       className="whitespace-nowrap overflow-hidden text-ellipsis"
                       style={{ maxWidth: "100%" }}
@@ -66,9 +66,9 @@ export default function Blogs({ blogs }) {
                         50
                       )}
                     </div>
-                  </div>
+                  </div> */}
                   <div className="mt-3 sm:mt-4">
-                    <Link href={`/post/${blog.slug?.current}`} passHref>
+                    <Link href={`/blogs/${blog.slug?.current}`} passHref>
                       <button className="px-3 py-1 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm sm:text-base">
                         Read More
                       </button>

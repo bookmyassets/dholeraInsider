@@ -57,10 +57,10 @@ const Header = () => {
           <Link href="/AboutUs">About</Link>
         </li>
         <li className="p-4 hover:text-orange-500">
-          <Link href="/post/Projects">Projects</Link>
+          <Link href="/project/Allprojects">Projects</Link>
         </li>
         <li className="p-4 hover:text-orange-500">
-          <Link href="/post/Blog">Blogs</Link>
+          <Link href="/blogs/Allblog">Blogs</Link>
         </li>
         <li className="p-4 hover:text-orange-500">
           <Link href="/Contact">Contact</Link>
@@ -101,13 +101,13 @@ const Header = () => {
             </Link>
           </li>
           <li className="mx-7 py-4 text-4xl hover:text-orange-500">
-            <Link href="/post/Projects" onClick={handleMobileHeader}>
+            <Link href="/project/Allprojects" onClick={handleMobileHeader}>
               Projects
             </Link>
           </li>
           
           <li className="mx-7 py-4 text-4xl hover:text-orange-500">
-            <Link href="/post/Blog" onClick={handleMobileHeader}>
+            <Link href="/blogs/Allblog" onClick={handleMobileHeader}>
               Blogs
             </Link>
           </li>

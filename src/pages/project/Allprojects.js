@@ -76,7 +76,7 @@ export default function Projects({ projects }) {
 
                   {/* Read More Button */}
                   <div className="mt-3 sm:mt-4">
-                    <Link href={`/post/${project.slug?.current}`} passHref>
+                    <Link href={`/project/${project.slug?.current}`} passHref>
                       <button className="px-3 py-1 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm sm:text-base">
                         Read More
                       </button>
