@@ -10,7 +10,7 @@ import instaImg7 from '../assets/images/insta7.png';
 import instaImg8 from '../assets/images/insta8.png';
 import instaIcon from '../assets/icons/instaIcon.png';
 
-export default function About({
+export default function about({
   cardTitle1,
   cardTitle2,
   cardTitle3,

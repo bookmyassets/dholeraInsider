@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <div className="bg-[#17202a] text-white">
+    <footer className="bg-[#17202a] text-white">
       <div className="relative pt-10 p-4 mx-[10px] border-t-2 border-solid border-[#EDEFF2]">
         <div className="gap-10 md:grid md:grid-cols-2 justify-items-center items-start max-sm:text-center">
           
@@ -38,7 +38,7 @@ const Footer = () => {
       <p className="text-center pt-2 text-sm">
         Copyright &copy; {year} Dholera Insider | All Rights Reserved
       </p>
-    </div>
+    </footer>
   );
 };
 
