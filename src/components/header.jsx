@@ -88,7 +88,7 @@ const Header = () => {
           <Link href="/all-blog">Blogs</Link>
         </li>
         <li className="p-4 hover:text-orange-500">
-          <Link href="/Contact">Inside Dholera</Link>
+          <Link href="/inside-dholera">Inside Dholera</Link>
         </li>
         
         {/* Gallery Dropdown */}
@@ -133,18 +133,15 @@ const Header = () => {
         
         {getInTouchDropdown && (
           <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-2 z-50">
-            <Link href="/contact" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              Contact Us
-            </Link>
-            <Link href="/inquiry" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              Make Inquiry
-            </Link>
-            <Link href="/callback" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              Request Callback
-            </Link>
-            <Link href="/visit" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              Schedule Visit
-            </Link>
+            <a href="tel:+918130371647" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Call Now
+                </a>
+                <a hrhref="https://wa.me/918130371647" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  WhatsApp Us
+                </a>
+                <a href="/callback" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Book A Free Site Visit
+                </a>
           </div>
         )}
       </div>
@@ -189,7 +186,7 @@ const Header = () => {
             </Link>
           </li>
           <li className="mx-7 py-4 text-4xl hover:text-orange-500">
-            <Link href="/Contact" onClick={handleMobileHeader}>
+            <Link href="/inside-dholera" onClick={handleMobileHeader}>
               Inside Dholera
             </Link>
           </li>
