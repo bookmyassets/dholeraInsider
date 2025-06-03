@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import heroD from "../assets/hero/aboutHero.webp";
+import heroM from "../assets/hero/aboutMhero.webp";
 
 export default function Aboutus() {
   return (
@@ -14,7 +15,14 @@ export default function Aboutus() {
             alt="bg image"
             width={1800}
             height={700}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover max-sm:hidden"
+          />
+          <Image
+            src={heroM}
+            alt="bg image"
+            width={1800}
+            height={700}
+            className="w-full h-full object-cover md:hidden"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
             {/* Background Large Text */}
