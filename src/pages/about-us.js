@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import heroD from "../assets/hero/heroSection.webp";
+import heroD from "../assets/hero/aboutHero.webp";
 
 export default function Aboutus() {
   return (

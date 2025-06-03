@@ -26,7 +26,7 @@ export default function Blogs({ blogs }) {
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
             {/* Background Large Text */}
-            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/20">
+            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/10">
               Dholera Blogs
             </p>
 
