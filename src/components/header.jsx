@@ -112,9 +112,7 @@ const Header = () => {
               <Link href="/gallery/videos" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                 Video Gallery
               </Link>
-              <Link href="/gallery/virtual-tour" className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                Virtual Tour
-              </Link>
+              
             </div>
           )}
         </li>
@@ -215,9 +213,6 @@ const Header = () => {
                 </Link>
                 <Link href="/gallery/videos" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
                   Video Gallery
-                </Link>
-                <Link href="/gallery/virtual-tour" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
-                  Virtual Tour
                 </Link>
               </div>
             )}

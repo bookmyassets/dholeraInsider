@@ -83,9 +83,24 @@ const PostDetail = ({ post }) => {
 };
 
 export async function getStaticPaths() {
-  const paths = await client.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
+  // Debug: First check what posts exist
+  const allPosts = await client.fetch(
+    `*[_type == "post" && defined(slug.current)]{
+      slug,
+      title,
+      "categories": categories[]->title,
+      "author": author->name
+    }`
   );
+  
+  console.log("All posts:", allPosts);
+  
+  // Filter for project posts (case-insensitive)
+  const paths = await client.fetch(
+    `*[_type == "post" && defined(slug.current) && count(categories[lower(title) match "project*"]) > 0][].slug.current`
+  );
+
+  console.log("Project paths:", paths);
 
   return {
     paths: paths.map((slug) => ({ params: { slug } })),
@@ -96,6 +111,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   
+  // Simplified query without strict filtering for debugging
   const query = `*[_type == "post" && slug.current == $slug][0]{
     _id,
     title,
@@ -114,6 +130,8 @@ export async function getStaticProps({ params }) {
   }`;
 
   const post = await client.fetch(query, { slug });
+
+  console.log("Found post:", post);
 
   if (!post) {
     return {
