@@ -5,6 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { projectQuery } from "@/sanity/lib/query";
 import { PortableText } from "next-sanity";
 import heroD from "@/assets/hero/projectHeroD.webp"
+import heroD2 from "@/assets/hero/mobilehero.webp"
 
 function truncateText(text, maxLength) {
   if (!text) return "";
@@ -22,7 +23,14 @@ export default function Projects({ projects }) {
             alt="bg image"
             width={1800}
             height={700}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover max-sm:hidden"
+          />
+          <Image
+            src={heroD2}
+            alt="bg image"
+            width={1800}
+            height={700}
+            className="w-full h-full object-cover md:hidden"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
             {/* Background Large Text */}
