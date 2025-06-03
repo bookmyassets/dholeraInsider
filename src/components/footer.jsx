@@ -28,7 +28,7 @@ const Footer = () => {
                 </h2>
                 <p className="text-slate-300 mt-4 text-lg leading-relaxed max-w-md">
                   Your trusted source for insights, updates, and opportunities
-                  in India's first planned smart city.
+                  in India first planned smart city.
                 </p>
               </div>
 
