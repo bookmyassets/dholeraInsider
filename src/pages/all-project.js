@@ -1,11 +1,10 @@
 import React from "react";
-import building from "@/assets/images/land.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { projectQuery } from "@/sanity/lib/query";
 import { PortableText } from "next-sanity";
-import heroD from "@/assets/projectHeroD.webp"
+import heroD from "@/assets/hero/projectHeroD.webp"
 
 function truncateText(text, maxLength) {
   if (!text) return "";
@@ -27,7 +26,7 @@ export default function Projects({ projects }) {
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
             {/* Background Large Text */}
-            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/5">
+            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/20">
               Projects
             </p>
 

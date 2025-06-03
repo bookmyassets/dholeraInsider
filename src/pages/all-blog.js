@@ -1,11 +1,10 @@
 import React from "react";
-import building from "@/assets/images/land.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { blogQuery } from "@/sanity/lib/query";
 import { PortableText } from "next-sanity";
-import imgbg from "@/assets/bg3.svg";
+import heroD from "@/assets/hero/DIBlogs.webp"
 
 function truncateText(text, maxLength) {
   if (!text) return "";
@@ -15,23 +14,25 @@ function truncateText(text, maxLength) {
 export default function Blogs({ blogs }) {
   return (
     <>
-      <div className="space-y-10">
-        <section className="flex flex-col w-full h-[40vh] sm:h-[50vh] md:h-[70vh] relative">
+<div>
+        {/* Hero Section */}
+        <section className="flex flex-col w-full sm:h-[50vh] h-[50vh] relative">
           <Image
-            src={building}
+            src={heroD}
             alt="bg image"
-            fill
-            className="w-full h-full object-cover brightness-50"
+            width={1800}
+            height={700}
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
             {/* Background Large Text */}
-            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/5">
-              Blogs
+            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/20">
+              Dholera Blogs
             </p>
 
             {/* Foreground Main Text */}
             <p className="absolute text-lg sm:text-2xl md:text-4xl font-bold text-white">
-              Blogs
+              Dholera Blogs
             </p>
           </div>
         </section>

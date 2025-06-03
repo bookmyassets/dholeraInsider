@@ -1,9 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import heroBg from "../assets/images/heroBackground.webp";
-import arrowIcon from "../assets/icons/arrow.png";
-import phoneIcon from "../assets/icons/contact.png";
-import mailIcon from "../assets/icons/mail.png";
+import heroBg from "../assets/hero/heroSection.webp";
 
 const Hero = ({ address, phone, email }) => {
   const showMoreBtn = () => {
@@ -18,8 +15,7 @@ const Hero = ({ address, phone, email }) => {
         src={heroBg}
         alt="bg image"
         fill
-        // className="w-full h-screen bg-no-repeat rounded-b-4xl object-cover object-center"
-        className="w-full h-screen bg-no-repeat rounded-b-4xl object-cover object-center brightness-50"
+        className="w-full h-screen bg-no-repeat rounded-b-4xl object-cover object-center "
       />
       <div className="w-full h-screen  ">
         <div className="w-full relative pt-32 text-center flex flex-col justify-center items-center">

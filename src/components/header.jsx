@@ -232,18 +232,15 @@ const Header = () => {
             </div>
             {getInTouchDropdown && (
               <div className="mt-4 space-y-2">
-                <Link href="/contact" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
-                  Contact Us
-                </Link>
-                <Link href="/inquiry" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
-                  Make Inquiry
-                </Link>
-                <Link href="/callback" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
-                  Request Callback
-                </Link>
-                <Link href="/visit" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
-                  Schedule Visit
-                </Link>
+                <a href="tel:+918130371647" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Call Now
+                </a>
+                <a hrhref="https://wa.me/918130371647" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  WhatsApp Us
+                </a>
+                <a href="/callback" className="block text-2xl hover:text-orange-500" onClick={handleMobileHeader}>
+                  Book A Free Site Visit
+                </a>
               </div>
             )}
           </li>

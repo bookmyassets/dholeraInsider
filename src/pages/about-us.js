@@ -1,27 +1,34 @@
 import React from "react";
 import Image from "next/image";
-import building from "../assets/aboutHero.webp";
+import heroD from "../assets/hero/heroSection.webp";
 
 export default function Aboutus() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative w-full h-[70vh]">
-        <Image
-          src={building}
-          alt="Background"
-          fill
-          className="w-full h-[40vh] object-cover object-center brightness-50"
-        />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-6">
-          <p className="text-9xl max-sm:text-9xl text-white opacity-5 font-black absolute uppercase">
-            About Us
-          </p>
-          <p className="text-6xl max-sm:text-4xl text-white font-bold relative capitalize mt-7 sm:mt-14">
-            About Us
-          </p>
-        </div>
-      </section>
+      <div>
+        {/* Hero Section */}
+        <section className="flex flex-col w-full sm:h-[50vh] h-[50vh] relative">
+          <Image
+            src={heroD}
+            alt="bg image"
+            width={1800}
+            height={700}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
+            {/* Background Large Text */}
+            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/5">
+              About Us
+            </p>
+
+            {/* Foreground Main Text */}
+            <p className="absolute text-lg sm:text-2xl md:text-4xl font-bold text-white">
+              About Us
+            </p>
+          </div>
+        </section>
+      </div>
 
       {/* Content Section */}
       <section className="bg-[#f4efe7] dark:bg-[#171f2a] py-16">
