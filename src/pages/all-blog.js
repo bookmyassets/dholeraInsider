@@ -4,7 +4,7 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { blogQuery } from "@/sanity/lib/query";
 import { PortableText } from "next-sanity";
-import heroD from "@/assets/hero/DIBlogs.webp"
+import heroD from "@/assets/hero/diBlogs.webp"
 
 function truncateText(text, maxLength) {
   if (!text) return "";
