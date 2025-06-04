@@ -21,6 +21,7 @@ const Header = () => {
   const [header, setHeader] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileActiveDropdown, setMobileActiveDropdown] = useState(null); // Separate state for mobile
   const [projects, setProjects] = useState([]);
   const [insideDholeraProjects, setInsideDholeraProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,12 +30,19 @@ const Header = () => {
   const handleMobileHeader = () => {
     setHeader(false);
     setActiveDropdown(null);
+    setMobileActiveDropdown(null); // Reset mobile dropdown state
   };
 
   const toggleDropdown = (dropdownName, e) => {
     e.preventDefault();
     e.stopPropagation();
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
+  const toggleMobileDropdown = (dropdownName, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setMobileActiveDropdown(mobileActiveDropdown === dropdownName ? null : dropdownName);
   };
 
   useEffect(() => {
@@ -158,7 +166,7 @@ const Header = () => {
                 return (
                   <Link
                     key={project._id}
-                    href={`/inside-dholera/${project.slug.current}`}
+                    href={`/all-projects/${project.slug.current}`}
                     className={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm ${
                       isSoldOut
                         ? "opacity-60 text-gray-500"
@@ -186,7 +194,6 @@ const Header = () => {
         </li>
 
         {/* Inside Dholera Dropdown */}
-
         <li className="relative p-4 hover:text-orange-500 dropdown-container">
           <div
             className="flex items-center cursor-pointer dropdown-trigger"
@@ -209,21 +216,12 @@ const Header = () => {
                 return (
                   <Link
                     key={project._id}
-                    href={`/all-project/${project.slug.current}`}
-                    className={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm ${
-                      isSoldOut
-                        ? "opacity-60 text-gray-500"
-                        : "text-gray-700 dark:text-gray-300"
-                    }`}
+                    href={`/inside-dholera/${project.slug.current}`}
+                    className={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm `}
                     onClick={() => setActiveDropdown(null)}
                   >
                     <div className="flex justify-between items-center">
                       <span className="truncate">{project.title}</span>
-                      {isSoldOut && (
-                        <span className="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2 flex-shrink-0">
-                          Sold Out
-                        </span>
-                      )}
                     </div>
                   </Link>
                 );
@@ -325,106 +323,173 @@ const Header = () => {
       <div
         className={`sm:hidden absolute top-0 left-0 w-full h-screen bg-[#020308ea] flex justify-center items-center transition-all duration-300 overflow-y-auto ${header ? "translate-x-0" : "translate-x-full"}`}
       >
-        <ul className="text-white text-center text-xl space-y-4 py-8">
-          <li>
+        <ul className="text-white text-center font-bold space-y-4 py-8">
+          <li className="text-sm p-2 hover:text-orange-500">
             <Link href="/" onClick={handleMobileHeader}>
               Home
             </Link>
           </li>
-          <li>
+          <li className="text-sm p-2 hover:text-orange-500">
             <Link href="/about-us" onClick={handleMobileHeader}>
               About
             </Link>
           </li>
 
           {/* Mobile Projects Section */}
-          <li className="pt-4">
-            <div className="font-bold text-xl">Projects</div>
-            <div className="text-base mt-2 space-y-3 max-h-40 overflow-y-auto">
-              {projects.slice(0, 5).map((project) => (
-                <Link
-                  key={project._id}
-                  href={`/all-project/${project.slug.current}`}
-                  onClick={handleMobileHeader}
-                  className={`block text-sm ${project.categories?.some((cat) => cat.title === "Sold Out") ? "opacity-60" : ""}`}
-                >
-                  {project.title}
-                  {project.categories?.some(
-                    (cat) => cat.title === "Sold Out"
-                  ) && (
-                    <span className="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2">
-                      Sold Out
-                    </span>
-                  )}
-                </Link>
-              ))}
-              {projects.length > 5 && (
-                <div className="text-sm text-orange-400">
-                  Scroll for more projects...
-                </div>
-              )}
+          <li className="text-sm p-2">
+            <div 
+              className="font-bold flex items-center justify-center cursor-pointer hover:text-orange-500"
+              onClick={(e) => toggleMobileDropdown("projects", e)}
+            >
+              Projects
+              <AiOutlineDown
+                className={`ml-1 transition-transform duration-200 ${mobileActiveDropdown === "projects" ? "rotate-180" : ""}`}
+              />
             </div>
+            {mobileActiveDropdown === "projects" && (
+              <div className="mt-2 space-y-2 max-h-40 overflow-y-auto">
+                {insideDholeraProjects.map((project) => (
+                  <Link
+                    key={project._id}
+                    href={`/all-projects/${project.slug.current}`}
+                    onClick={handleMobileHeader}
+                    className={`block text-sm py-1 hover:text-orange-500 ${project.categories?.some((cat) => cat.title === "Sold Out") ? "opacity-60 text-gray-400" : "text-gray-300"}`}
+                  >
+                    <div className="flex justify-center items-center">
+                      <span className="truncate">{project.title}</span>
+                      {project.categories?.some(
+                        (cat) => cat.title === "Sold Out"
+                      ) && (
+                        <span className="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2">
+                          Sold Out
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                ))}
+                {insideDholeraProjects.length > 5 && (
+                  <div className="text-xs text-orange-400">
+                    Scroll for more projects...
+                  </div>
+                )}
+              </div>
+            )}
           </li>
 
-          <li>
+          <li className="text-sm p-2 hover:text-orange-500">
             <Link href="/all-blog" onClick={handleMobileHeader}>
               Blogs
             </Link>
           </li>
 
           {/* Mobile Inside Dholera Section */}
-          <li className="pt-4">
-            <div className="font-bold text-xl">Inside Dholera</div>
-            <div className="text-base mt-2 space-y-3 max-h-40 overflow-y-auto">
-              {insideDholeraProjects.slice(0, 5).map((project) => (
-                <Link
-                  key={project._id}
-                  href={`/inside-dholera/${project.slug.current}`}
-                  onClick={handleMobileHeader}
-                  className={`block text-sm ${project.categories?.some((cat) => cat.title === "Sold Out") ? "opacity-60" : ""}`}
-                >
-                  {project.title}
-                  {project.categories?.some(
-                    (cat) => cat.title === "Sold Out"
-                  ) && (
-                    <span className="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2">
-                      Sold Out
-                    </span>
-                  )}
-                </Link>
-              ))}
-              {insideDholeraProjects.length > 5 && (
-                <div className="text-sm text-orange-400">
-                  Scroll for more projects...
-                </div>
-              )}
+          <li className="text-sm p-2">
+            <div 
+              className="font-bold flex items-center justify-center cursor-pointer hover:text-orange-500"
+              onClick={(e) => toggleMobileDropdown("insideDholera", e)}
+            >
+              Inside Dholera
+              <AiOutlineDown
+                className={`ml-1 transition-transform duration-200 ${mobileActiveDropdown === "insideDholera" ? "rotate-180" : ""}`}
+              />
             </div>
+            {mobileActiveDropdown === "insideDholera" && (
+              <div className="mt-2 space-y-2 max-h-40 overflow-y-auto">
+                {projects.map((project) => (
+                  <Link
+                    key={project._id}
+                    href={`/inside-dholera/${project.slug.current}`}
+                    onClick={handleMobileHeader}
+                    className={`block text-sm py-1 hover:text-orange-500 ${project.categories?.some((cat) => cat.title === "Sold Out") ? "opacity-60 text-gray-400" : "text-gray-300"}`}
+                  >
+                    <div className="flex justify-center items-center">
+                      <span className="truncate">{project.title}</span>
+                      {project.categories?.some(
+                        (cat) => cat.title === "Sold Out"
+                      ) && (
+                        <span className="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2">
+                          Sold Out
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                ))}
+                {projects.length > 5 && (
+                  <div className="text-xs text-orange-400">
+                    Scroll for more projects...
+                  </div>
+                )}
+              </div>
+            )}
           </li>
 
-          <li>
-            <Link href="/gallery/photos" onClick={handleMobileHeader}>
-              Photo Gallery
-            </Link>
+          {/* Mobile Gallery Section */}
+          <li className="text-sm p-2">
+            <div 
+              className="font-bold flex items-center justify-center cursor-pointer hover:text-orange-500"
+              onClick={(e) => toggleMobileDropdown("gallery", e)}
+            >
+              Gallery
+              <AiOutlineDown
+                className={`ml-1 transition-transform duration-200 ${mobileActiveDropdown === "gallery" ? "rotate-180" : ""}`}
+              />
+            </div>
+            {mobileActiveDropdown === "gallery" && (
+              <div className="mt-2 space-y-2">
+                <Link
+                  href="/gallery/photos"
+                  onClick={handleMobileHeader}
+                  className="block text-sm py-1 hover:text-orange-500 text-gray-300"
+                >
+                  Photo Gallery
+                </Link>
+                <Link
+                  href="/gallery/videos"
+                  onClick={handleMobileHeader}
+                  className="block text-sm py-1 hover:text-orange-500 text-gray-300"
+                >
+                  Video Gallery
+                </Link>
+              </div>
+            )}
           </li>
-          <li>
-            <Link href="/gallery/videos" onClick={handleMobileHeader}>
-              Video Gallery
-            </Link>
-          </li>
-          <li>
-            <a href="tel:+918130371647" onClick={handleMobileHeader}>
-              Call Now
-            </a>
-          </li>
-          <li>
-            <a href="https://wa.me/918130371647" onClick={handleMobileHeader}>
-              WhatsApp Us
-            </a>
-          </li>
-          <li>
-            <a href="/callback" onClick={handleMobileHeader}>
-              Book A Site Visit
-            </a>
+
+          {/* Mobile Get In Touch Section */}
+          <li className="text-sm p-2">
+            <div 
+              className="font-bold flex items-center justify-center cursor-pointer hover:text-orange-500"
+              onClick={(e) => toggleMobileDropdown("getInTouch", e)}
+            >
+              Get In Touch
+              <AiOutlineDown
+                className={`ml-1 transition-transform duration-200 ${mobileActiveDropdown === "getInTouch" ? "rotate-180" : ""}`}
+              />
+            </div>
+            {mobileActiveDropdown === "getInTouch" && (
+              <div className="mt-2 space-y-2">
+                <a 
+                  href="tel:+918130371647" 
+                  onClick={handleMobileHeader}
+                  className="block text-sm py-1 hover:text-orange-500 text-gray-300"
+                >
+                  Call Now
+                </a>
+                <a 
+                  href="https://wa.me/918130371647" 
+                  onClick={handleMobileHeader}
+                  className="block text-sm py-1 hover:text-orange-500 text-gray-300"
+                >
+                  WhatsApp Us
+                </a>
+                <a 
+                  href="/callback" 
+                  onClick={handleMobileHeader}
+                  className="block text-sm py-1 hover:text-orange-500 text-gray-300"
+                >
+                  Book A Free Site Visit
+                </a>
+              </div>
+            )}
           </li>
         </ul>
       </div>

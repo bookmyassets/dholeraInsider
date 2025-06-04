@@ -293,28 +293,28 @@ export default async function Post({ params }) {
       image: post.mainImage?.url,
       author: {
         "@type": "Organization",
-        name: "BookMyAssets",
+        name: "Dholera Insider",
       },
-      editor: "BookMyAssets Editorial Team",
+      editor: "Dholera Insider Editorial Team",
       genre: post.genre || "General",
       keywords: post.keywords?.join(", "),
       wordcount: wordCount.toString(),
       publisher: {
         "@type": "Organization",
-        name: "BookMyAssets",
+        name: "Dholera Insider",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.bookmyassets.com/assets/images/logo.png",
+          url: "https://www.dholerainsider.com/assets/images/logo.png",
         },
       },
-      url: `https://www.bookmyassets.com/blogs/${post.slug.current}`,
-      mainEntityOfPage: `https://www.bookmyassets.com/blogs/${post.slug.current}`,
+      url: `https://www.dholerainsider.com/blogs/${post.slug.current}`,
+      mainEntityOfPage: `https://www.dholerainsider.com/blogs/${post.slug.current}`,
       datePublished: post.publishedAt,
       dateModified: post._updatedAt || post.publishedAt,
       description: post.metaDescription,
     };
 
-    const canonicalUrl = `https://www.bookmyassets.com/blogs/${post.slug.current}`;
+    const canonicalUrl = `https://www.dholerainsider.com/blogs/${post.slug.current}`;
 
     return (
 
@@ -327,7 +327,6 @@ export default async function Post({ params }) {
           alt={post.mainImage.alt || post.title}
           width={500}
           height={600}
-          
           className="w-full h-full bg-no-repeat object-cover object-center brightness-50"
         />
       )}
@@ -346,22 +345,8 @@ export default async function Post({ params }) {
       </div>
     </div>
 
-    {/* Categories */}
-    {post.categories?.length > 0 && (
-      <div className="mb-6 flex flex-wrap justify-center gap-2 px-4 sm:px-0">
-        {post.categories.map((category) => (
-          <span 
-            key={category._id}
-            className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm"
-          >
-            {category.title}
-          </span>
-        ))}
-      </div>
-    )} 
-
     {/* Blog Body */}
-    <div className="prose max-w-4xl mx-auto pt-16 sm:pt-28 text-base sm:text-lg px-4 sm:px-0 dark:text-gray-200">
+    <div className="prose max-w-4xl mx-auto  text-base sm:text-lg px-4 sm:px-0 text-black dark:text-white">
       <PortableText value={post.body} components={components}/>
     </div>
   </>
