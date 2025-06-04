@@ -1,8 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
-import Footer from "./components/footer";
+
 import ThemeClientProvider from "./components/ThemeProvider";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "Next.js",
@@ -16,7 +17,7 @@ export default function RootLayout({ children }) {
         <ThemeClientProvider>
           <Header />
           {children}
-          <Footer />
+          <Footer/>
         </ThemeClientProvider>
       </body>
     </html>
