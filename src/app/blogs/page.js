@@ -68,7 +68,7 @@ export default async function Blogs() {
                     </div>
                   </div> */}
                   <div className="mt-3 sm:mt-4">
-                    <Link href={`/all-blog/${blog.slug?.current}`} passHref>
+                    <Link href={`/blogs/${blog.slug?.current}`} passHref>
                       <button className="px-3 py-1 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm sm:text-base">
                         Read More
                       </button>

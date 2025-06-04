@@ -145,15 +145,16 @@ const Header = () => {
 
         {/* Projects Dropdown */}
         <li className="relative p-4 hover:text-orange-500 dropdown-container">
-          <div
+          <Link
             className="flex items-center cursor-pointer dropdown-trigger"
             onClick={(e) => toggleDropdown("insideDholera", e)}
+            href="/projects"
           >
             Projects
             <AiOutlineDown
               className={`ml-1 transition-transform duration-200 ${activeDropdown === "insideDholera" ? "rotate-180" : ""}`}
             />
-          </div>
+          </Link>
           {activeDropdown === "insideDholera" && (
             <div
               className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg py-2 z-50 max-h-96 overflow-y-auto dropdown-container"
@@ -166,7 +167,7 @@ const Header = () => {
                 return (
                   <Link
                     key={project._id}
-                    href={`/all-projects/${project.slug.current}`}
+                    href={`/projects/${project.slug.current}`}
                     className={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm ${
                       isSoldOut
                         ? "opacity-60 text-gray-500"
@@ -190,20 +191,21 @@ const Header = () => {
         </li>
 
         <li className="p-4 hover:text-orange-500">
-          <Link href="/all-blog">Blogs</Link>
+          <Link href="/blogs">Blogs</Link>
         </li>
 
         {/* Inside Dholera Dropdown */}
         <li className="relative p-4 hover:text-orange-500 dropdown-container">
-          <div
+          <Link
             className="flex items-center cursor-pointer dropdown-trigger"
             onClick={(e) => toggleDropdown("projects", e)}
+            href="/inside-dholera"
           >
             Inside Dholera
             <AiOutlineDown
               className={`ml-1 transition-transform duration-200 ${activeDropdown === "projects" ? "rotate-180" : ""}`}
             />
-          </div>
+          </Link>
           {activeDropdown === "projects" && (
             <div
               className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg py-2 z-50 max-h-96 overflow-y-auto dropdown-container"
@@ -337,21 +339,22 @@ const Header = () => {
 
           {/* Mobile Projects Section */}
           <li className="text-sm p-2">
-            <div 
+            <Link
               className="font-bold flex items-center justify-center cursor-pointer hover:text-orange-500"
               onClick={(e) => toggleMobileDropdown("projects", e)}
+              href="/projects"
             >
               Projects
               <AiOutlineDown
                 className={`ml-1 transition-transform duration-200 ${mobileActiveDropdown === "projects" ? "rotate-180" : ""}`}
               />
-            </div>
+            </Link>
             {mobileActiveDropdown === "projects" && (
               <div className="mt-2 space-y-2 max-h-40 overflow-y-auto">
                 {insideDholeraProjects.map((project) => (
                   <Link
                     key={project._id}
-                    href={`/all-projects/${project.slug.current}`}
+                    href={`/projects/${project.slug.current}`}
                     onClick={handleMobileHeader}
                     className={`block text-sm py-1 hover:text-orange-500 ${project.categories?.some((cat) => cat.title === "Sold Out") ? "opacity-60 text-gray-400" : "text-gray-300"}`}
                   >
@@ -377,22 +380,23 @@ const Header = () => {
           </li>
 
           <li className="text-sm p-2 hover:text-orange-500">
-            <Link href="/all-blog" onClick={handleMobileHeader}>
+            <Link href="/blogs" onClick={handleMobileHeader}>
               Blogs
             </Link>
           </li>
 
           {/* Mobile Inside Dholera Section */}
           <li className="text-sm p-2">
-            <div 
+            <Link
               className="font-bold flex items-center justify-center cursor-pointer hover:text-orange-500"
               onClick={(e) => toggleMobileDropdown("insideDholera", e)}
+              href="/inside-dholera"
             >
               Inside Dholera
               <AiOutlineDown
                 className={`ml-1 transition-transform duration-200 ${mobileActiveDropdown === "insideDholera" ? "rotate-180" : ""}`}
               />
-            </div>
+            </Link>
             {mobileActiveDropdown === "insideDholera" && (
               <div className="mt-2 space-y-2 max-h-40 overflow-y-auto">
                 {projects.map((project) => (
