@@ -1,10 +1,12 @@
 "use client"
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import heroBg from "../assets/hero/heroSection.webp";
-import heroBg2 from "../assets/hero/heroSection2.webp";
-import heroBg3 from "../assets/hero/heroSection3.webp";
-import heroM from "../assets/hero/Mhero.webp";
+import heroBg from "../assets/hero/heroSection2.webp";
+import heroBg2 from "../assets/hero/heroSection3.webp";
+import heroBg3 from "../assets/hero/heroSection4.webp";
+import heroM from "../assets/hero/heroSection2M.webp";
+import heroM2 from "../assets/hero/heroSection3M.webp";
+import heroM3 from "../assets/hero/heroSection4M.webp";
 
 const Hero = ({ address, phone, email }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -19,14 +21,14 @@ const Hero = ({ address, phone, email }) => {
     },
     {
       desktopImage: heroBg2, 
-      mobileImage: heroM,   
+      mobileImage: heroM2,   
       title: "Luxury Homes & Apartments",
       subtitle: "Exclusive Listings",
       description: "Explore our curated collection of luxury homes and modern apartments in prime locations."
     },
     {
       desktopImage: heroBg3, 
-      mobileImage: heroM,   
+      mobileImage: heroM3,   
       title: "Investment Opportunities",
       subtitle: "Smart Investments",
       description: "Maximize your returns with our carefully selected investment properties and expert market insights."
