@@ -3,6 +3,7 @@ import Image from "next/image";
 import heroD from "../assets/hero/projectHeroD.webp"
 import Link from "next/link";
 import { projectInfo } from "@/sanity/lib/api";
+import { urlFor } from "@/sanity/lib/image";
 
 function truncateText(text, maxLength) {
   if (!text) return "";
@@ -50,7 +51,7 @@ export default async function Insidedholera() {
               >
                 {/* Project Image */}
                 <Image
-                  src={project.imageUrl}
+                  src={urlFor(project.mainImage).url()}
                   alt={project.title}
                   width={500}
                   height={300}
