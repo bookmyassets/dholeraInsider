@@ -73,7 +73,7 @@ const Hero = ({ address, phone, email }) => {
             src={slide.desktopImage}
             alt={`Slide ${index + 1}`}
             fill
-            className="w-full h-screen bg-no-repeat rounded-b-4xl object-contain object-center max-sm:hidden"
+            className="w-full h-screen bg-no-repeat rounded-b-4xl object-cover object-center max-sm:hidden"
             priority={index === 0}
           />
           {/* Mobile Image */}
