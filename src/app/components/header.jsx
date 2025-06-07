@@ -124,20 +124,20 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-20 shadow-xl flex justify-between items-center z-40 ease-in duration-300 
+      className={`fixed top-0 left-0 w-full h-28  shadow-xl flex justify-between items-center z-40 ease-in duration-300 
         ${scrolled ? "bg-green-400 dark:bg-[#0a5307]" : "bg-transparent"}`}
     >
       {/* Logo */}
       <div className="md:max-w-[1240px] m-5 flex justify-between items-center p-4">
         <Link href="/">
-          <div className="relative h-14 w-14">
+          <div className="relative h-28 w-28">
             <Image src={logo} alt="Logo" fill className="object-contain" />
           </div>
         </Link>
       </div>
 
       {/* Desktop Navigation */}
-      <ul className="text-sm font-bold hidden sm:flex text-white">
+      <ul className="text-xl font-bold hidden sm:flex text-white">
         <li className="p-4 hover:text-orange-500">
           <Link href="/">Home</Link>
         </li>
@@ -323,7 +323,7 @@ const Header = () => {
       </ul>
 
       <div className="mr-10 hidden sm:flex">
-        <ThemeChanger />
+       {/*  <ThemeChanger /> */}
       </div>
 
       {/* Mobile Menu Button */}

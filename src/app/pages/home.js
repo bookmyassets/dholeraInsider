@@ -40,6 +40,7 @@ const HomePage = () => {
         address="620 JMD Megapolis, Sector-48, Sohna Road, Gurugram, India"
         phone="+91 9958993549"
         email="info@dholerinsider.com"
+        className=""
       />
       <Whatsapp/>
       <About

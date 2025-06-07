@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-import { PortableText } from "next-sanity";
 import heroD from "../assets/hero/diBlogs.webp";
 import { getblogs, getPosts, getSub } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
@@ -70,7 +68,7 @@ export default async function Blogs() {
                     isSoldOut
                       ? "shadow-red-400 dark:shadow-red-900 opacity-75"
                       : "shadow-green-400 dark:shadow-green-900"
-                  } dark:bg-gray-900 mb-6 rounded-lg overflow-hidden w-full max-w-xs sm:max-w-none relative`}
+                  } dark:bg-gray-900 mb-6 rounded-lg w-full max-w-xs sm:max-w-none relative`}
                 >
                   {/* Sold Out Badge */}
                   {isSoldOut && (

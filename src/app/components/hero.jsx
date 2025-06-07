@@ -62,7 +62,7 @@ const Hero = ({ address, phone, email }) => {
   };
 
   return (
-    <section className="relative flex flex-col w-full h-screen overflow-hidden">
+    <section className="relative flex flex-col mt-28 w-full h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -75,7 +75,7 @@ const Hero = ({ address, phone, email }) => {
             src={slide.desktopImage}
             alt={`Slide ${index + 1}`}
             fill
-            className="w-full h-screen bg-no-repeat rounded-b-4xl object-center max-sm:hidden"
+            className="w-full h-screen bg-black bg-no-repeat rounded-b-4xl object-center max-sm:hidden"
             priority={index === 0}
           />
           {/* Mobile Image */}
