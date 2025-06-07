@@ -62,7 +62,7 @@ const Hero = ({ address, phone, email }) => {
   };
 
   return (
-    <section className="relative flex flex-col mt-28 w-full h-screen overflow-hidden">
+    <section className="relative flex flex-col mt-16 md:mt-28 w-full h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}

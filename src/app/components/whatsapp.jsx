@@ -10,23 +10,23 @@ export default function Whatsapp() {
       
       <Link href="https://wa.link/bvb3dt">
     <div className="fixed bottom-5 right-5 z-10">
-      <div className="relative h-28 w-28 rounded-full bg-white shadow-lg flex items-center justify-center">
+      <div className="relative h-20 w-20 rounded-full bg-white shadow-lg flex items-center justify-center">
         {/* Rotating Circular Text using SVG */}
-        <svg className="absolute w-32 h-32 animate-spin-slow" viewBox="0 0 100 100">
+        <svg className="absolute w-24 h-24 animate-spin-slow" viewBox="0 0 100 100">
           <defs>
            
             <path id="circlePath" d="M 50,50 m -30,0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" />
           </defs>
-          <text fill="black" fontSize="11" fontWeight="bold">
+          <text fill="black" fontSize="10" fontWeight="bold">
             <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-              TALK TO US  ● &nbsp;  DHOLERA INSIDER  ●
+              TALK TO US &nbsp;  ● &nbsp;&nbsp; DHOLERA INSIDER &nbsp; ●
             </textPath>
           </text>
         </svg>
 
         {/* WhatsApp Icon */}
         <div className="absolute">
-          <Image src={whatsapp} alt="WhatsApp" width={70} height={70} />
+          <Image src={whatsapp} alt="WhatsApp" width={50} height={50} />
         </div>
       </div>
     </div>

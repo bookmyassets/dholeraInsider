@@ -124,13 +124,13 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-28  shadow-xl flex justify-between items-center z-40 ease-in duration-300 
+      className={`fixed top-0 left-0 w-full h-28 max-sm:h-16 shadow-xl flex justify-between items-center z-40 ease-in duration-300 
         ${scrolled ? "bg-green-400 dark:bg-[#0a5307]" : "bg-transparent"}`}
     >
       {/* Logo */}
       <div className="md:max-w-[1240px] m-5 flex justify-between items-center p-4">
         <Link href="/">
-          <div className="relative h-28 w-28">
+          <div className="relative h-28 max-sm:h-16 w-28 max-sm:w-16">
             <Image src={logo} alt="Logo" fill className="object-contain" />
           </div>
         </Link>
@@ -339,7 +339,7 @@ const Header = () => {
       <div
         className={`sm:hidden absolute top-0 left-0 w-full h-screen bg-[#020308ea] flex justify-center items-center transition-all duration-300 overflow-y-auto ${header ? "translate-x-0" : "translate-x-full"}`}
       >
-        <ul className="text-white text-center font-bold space-y-4 py-8">
+        <ul className="text-white text-center font-semibold space-y-3 py-6 px-4 text-base">
           <li className="text-sm p-2 hover:text-orange-500">
             <Link href="/" onClick={handleMobileHeader}>
               Home
