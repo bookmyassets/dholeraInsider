@@ -49,10 +49,10 @@ export default async function Post({ params }) {
               <div className="overflow-hidden rounded-2xl shadow-lg">
                 <Image
                   alt={value.alt || " "}
-                  src={urlFor(value).width(500).url()}
-                  width={500}
+                  src={urlFor(value).width(800).url()}
+                  width={800}
                   height={500}
-                  className="md:w-[50vw] md:h-[50vh] rounded-2xl hover:scale-105 transition-transform duration-500"
+                  className="w-full rounded-2xl hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
