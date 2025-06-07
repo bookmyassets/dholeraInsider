@@ -75,7 +75,7 @@ const Hero = ({ address, phone, email }) => {
             src={slide.desktopImage}
             alt={`Slide ${index + 1}`}
             fill
-            className="w-full h-screen bg-no-repeat rounded-b-4xl object-cover object-center max-sm:hidden"
+            className="w-full h-screen bg-no-repeat rounded-b-4xl object-center max-sm:hidden"
             priority={index === 0}
           />
           {/* Mobile Image */}
@@ -83,7 +83,7 @@ const Hero = ({ address, phone, email }) => {
             src={slide.mobileImage}
             alt={`Slide ${index + 1} mobile`}
             fill
-            className="w-full h-screen bg-no-repeat rounded-b-4xl object-center md:hidden"
+            className="w-full h-screen bg-no-repeat rounded-b-4xl md:hidden"
             priority={index === 0}
           />
         </div>
