@@ -112,7 +112,7 @@ const Hero = ({ address, phone, email }) => {
             
             {/* Left Section - Text Content */}
             <div className="flex flex-col max-sm:justify-end items-center lg:items-start w-full lg:w-1/2 text-center lg:text-left">
-              <Link href="/contact" className="bg-white hover:bg-emerald-800 px-4 py-2 rounded-xl text-emerald-800 hover:text-white h-10 w-auto font-black text-sm uppercase cursor-pointer transition-colors duration-300 mb-6">
+              <Link href="/contact" className="bg-white hover:bg-emerald-800 flex justify-center items-center px-4 py-2 rounded-xl text-emerald-800 hover:text-white h-10 w-auto font-black text-sm uppercase cursor-pointer transition-colors duration-300 mb-6">
                 Contact Us 
               </Link>
 
