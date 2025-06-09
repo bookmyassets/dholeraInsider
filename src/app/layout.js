@@ -14,11 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" >
       <body>
-        <ThemeClientProvider>
+        
           <Header />
           {children}
           <Footer/>
-        </ThemeClientProvider>
+        
       </body>
     </html>
   );
