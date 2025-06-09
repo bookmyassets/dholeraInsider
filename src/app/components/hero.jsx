@@ -5,7 +5,7 @@ import heroBg from "../assets/hero/heroSection2.webp";
 import heroBg2 from "../assets/hero/heroSection3.webp";
 import heroBg3 from "../assets/hero/heroSection4.webp";
 import heroM from "../assets/hero/heroSection2M.webp";
-import heroM2 from "../assets/hero/heroSection3Mb.webp";
+import heroM2 from "../assets/hero/heroSectionMobile3c.webp";
 import heroM3 from "../assets/hero/heroSection4M.webp";
 import Link from "next/link";
 
@@ -63,7 +63,7 @@ const Hero = ({ address, phone, email }) => {
   };
 
   return (
-    <section className="relative flex flex-col w-full h-[90vh] overflow-hidden">
+    <section className="relative flex flex-col w-full  overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -72,21 +72,33 @@ const Hero = ({ address, phone, email }) => {
           }`}
         >
           {/* Desktop Image */}
-          <Image
+         {/*  <Image
             src={slide.desktopImage}
             alt={`Slide ${index + 1}`}
             fill
-            className="w-full h-screen bg-black bg-no-repeat object-center max-sm:hidden"
+            className="w-full h-screen bg-black bg-no-repeat object-center object-cover max-sm:hidden"
             priority={index === 0}
-          />
+          /> */}
           {/* Mobile Image */}
-          <Image
+         {/*  <Image
             src={slide.mobileImage}
             alt={`Slide ${index + 1} mobile`}
             fill
-            className="w-full h-[90vh] bg-no-repeat md:hidden"
+            className="w-full h-[53vh] bg-no-repeat object-contain md:hidden"
             priority={index === 0}
-          />
+          /> */}
+
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          >
+               <source src="/video/video.mp4" type="video/mp4" />
+          </video>
+
         </div>
       ))}
 
@@ -94,13 +106,13 @@ const Hero = ({ address, phone, email }) => {
       <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full h-screen flex items-center">
+      <div className="relative z-10 w-full h-screen flex items-end md:items-center">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20">
             
             {/* Left Section - Text Content */}
-            <div className="flex flex-col  items-center lg:items-start w-full lg:w-1/2 text-center lg:text-left">
-              <Link href="/contact" className="bg-white max-sm:hidden hover:bg-emerald-800 px-4 py-2 rounded-xl text-emerald-800 hover:text-white h-10 w-auto font-black text-sm uppercase cursor-pointer transition-colors duration-300 mb-6">
+            <div className="flex flex-col max-sm:justify-end items-center lg:items-start w-full lg:w-1/2 text-center lg:text-left">
+              <Link href="/contact" className="bg-white hover:bg-emerald-800 px-4 py-2 rounded-xl text-emerald-800 hover:text-white h-10 w-auto font-black text-sm uppercase cursor-pointer transition-colors duration-300 mb-6">
                 Contact Us 
               </Link>
 
@@ -176,7 +188,7 @@ const Hero = ({ address, phone, email }) => {
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+      <div className="absolute bottom-8 left-1/2 max-sm:hidden transform -translate-x-1/2 z-20 flex space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
