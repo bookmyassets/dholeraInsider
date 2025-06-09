@@ -169,7 +169,7 @@ const Hero = ({ address, phone, email }) => {
       </div>
 
       {/* Navigation Arrows */}
-      <button
+      {/* <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300"
       >
@@ -185,10 +185,10 @@ const Hero = ({ address, phone, email }) => {
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
-      </button>
+      </button> */}
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 max-sm:hidden transform -translate-x-1/2 z-20 flex space-x-2">
+      {/* <div className="absolute bottom-8 left-1/2 max-sm:hidden transform -translate-x-1/2 z-20 flex space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -200,7 +200,7 @@ const Hero = ({ address, phone, email }) => {
             }`}
           />
         ))}
-      </div>
+      </div> */}
 
       {/* Show more button */}
       <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 z-20">
