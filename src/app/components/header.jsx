@@ -22,16 +22,11 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about-us" },
     { name: "Blogs", href: "/blogs" },
+    { name: "Projects", href: "/projects/westwynCounty" },
   ];
 
   const dropdownItems = [
-    {
-      name: "Projects",
-      key: "insideDholera",
-      href: "/projects",
-      items: insideDholeraProjects,
-      itemHref: (slug) => `/projects/${slug}`,
-    },
+    
     {
       name: "Inside Dholera",
       key: "projects",
@@ -184,7 +179,7 @@ const Header = () => {
         {navItems.map((item) => (
           <li key={item.name} className="p-4">
             <Link
-              href={item.href}
+              href={item.href || item.itemHref}
               className="font-bold hover:text-orange-500 transition-colors"
             >
               {item.name}

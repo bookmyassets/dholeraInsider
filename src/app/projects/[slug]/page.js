@@ -40,6 +40,7 @@ export default async function Post({ params }) {
 
     const components = {
       types: {
+        
         image: ({ value }) => {
           if (!value?.asset?._ref) {
             return null;
@@ -410,17 +411,6 @@ export default async function Post({ params }) {
                         </div>
                       )}
                       <div className="p-6">
-                        <div className="flex items-center gap-2 mb-3">
-                          <svg className="w-4 h-4 text-[#C69C21]" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
-                          </svg>
-                          <time className="text-sm text-[#C69C21] font-semibold">
-                            {new Date(blog.publishedAt).toLocaleDateString('en-US', {
-                              month: 'short',
-                              day: 'numeric'
-                            })}
-                          </time>
-                        </div>
                         <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-[#C69C21] transition-colors duration-200 line-clamp-2 text-lg leading-tight">
                           {blog.title}
                         </h3>
@@ -433,28 +423,8 @@ export default async function Post({ params }) {
           </div>
         )}
 
-        {/* Tags Section */}
-        <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-              Explore Topics
-            </h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {['Real Estate', 'Investment', 'Dholera', 'Development', 'Market Trends', 'Property Analysis'].map(tag => (
-                <Link
-                  key={tag}
-                  href={`/blogs/tags/${tag.toLowerCase().replace(' ', '-')}`}
-                  className="px-6 py-3 bg-white dark:bg-gray-800 rounded-full text-sm font-semibold hover:bg-[#C69C21] hover:text-white transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 border border-gray-200 dark:border-gray-700"
-                >
-                  #{tag}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Final CTA Section */}
-        <div className="bg-gradient-to-r from-[#C69C21] to-[#FDB913] py-20">
+        <div className="bg-[#ad975e] py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
               <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
@@ -469,10 +439,10 @@ export default async function Post({ params }) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
               <Link
-                href="/blogs"
+                href="/insider-dholera"
                 className="bg-white text-[#C69C21] font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
-                Explore All Articles
+                Explore Dholera
               </Link>
               <Link
                 href="/contact"

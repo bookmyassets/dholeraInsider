@@ -70,7 +70,7 @@ export default async function Blogs() {
                       : "shadow-green-400 dark:shadow-green-900"
                   } dark:bg-gray-900 mb-6 rounded-lg w-full max-w-xs sm:max-w-none relative`}
                 >
-                  {/* Sold Out Badge */}
+
                   {isSoldOut && (
                     <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md text-xs font-semibold z-10">
                       SOLD OUT

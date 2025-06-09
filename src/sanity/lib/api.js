@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 // Fetch all blog posts
 export async function getPosts() {
-  const query = `*[_type == "post" && "Project" in categories[]->title && author-> name == "Dholera Insider" ]{
+    const query = `*[_type == "post" && "Project" in categories[]->title && !("Sold Out" in categories[]->title) && author->name == "Dholera Insider"]{
     _id,
     title,
     slug,
