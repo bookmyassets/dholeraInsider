@@ -29,7 +29,7 @@ export default function Whatsapp() {
                 fontFamily="Arial, sans-serif"
               >
                 <textPath href="#circlePath" startOffset="0%" textAnchor="bold">
-                  DHOLERA INSIDER ●  &nbsp; Let's Connect &nbsp; ● 
+                  DHOLERA INSIDER ● WE'RE ONLINE  ● 
                 </textPath>
               </text>
             </svg>
