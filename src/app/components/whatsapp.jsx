@@ -8,13 +8,13 @@ export default function Whatsapp() {
     <div className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-50 hover:scale-105 transition-transform duration-300">
       <Link href="https://wa.link/bvb3dt" passHref legacyBehavior>
         <a target="_blank" rel="noopener noreferrer">
-          <div className="relative h-20 w-20 md:h-28 md:w-28 rounded-full bg-white shadow-xl flex items-center justify-center">
+          <div className="relative h-20 w-20 md:h-24 md:w-24 rounded-full bg-white shadow-xl flex items-center justify-center">
             
             {/* Rotating SVG Text */}
             <svg
               className="absolute w-full h-full animate-spin-slow"
               viewBox="0 0 100 100"
-              style={{ animationDuration: "20s" }}
+              style={{ animationDuration: "5s" }}
             >
               <defs>
                 <path
@@ -24,24 +24,24 @@ export default function Whatsapp() {
               </defs>
               <text
                 fill="black"
-                fontSize="10"
+                fontSize="12"
                 fontWeight="bold"
                 fontFamily="Arial, sans-serif"
               >
-                <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-                  TALK TO US &nbsp;&nbsp; ● &nbsp;&nbsp; DHOLERA INSIDER &nbsp;&nbsp; ●
+                <textPath href="#circlePath" startOffset="0%" textAnchor="bold">
+                  DHOLERA INSIDER &nbsp;&nbsp; ● We're Online ● &nbsp;&nbsp;
                 </textPath>
               </text>
             </svg>
 
             {/* WhatsApp Icon */}
-            <div className="absolute flex items-center justify-center bg-[#25D366] rounded-full p-2 md:p-3">
+            <div className="absolute flex items-center justify-center rounded-full p-2 md:p-3">
               <Image
                 src={whatsapp}
                 alt="WhatsApp"
-                width={40}
-                height={40}
-                className="w-8 h-8 md:w-12 md:h-12"
+                width={20}
+                height={20}
+                className="w-12 h-12 md:w-16 md:h-16"
               />
             </div>
           </div>
