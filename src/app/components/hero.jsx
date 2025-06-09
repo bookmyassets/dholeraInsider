@@ -7,6 +7,7 @@ import heroBg3 from "../assets/hero/heroSection4.webp";
 import heroM from "../assets/hero/heroSection2M.webp";
 import heroM2 from "../assets/hero/heroSection3M.webp";
 import heroM3 from "../assets/hero/heroSection4M.webp";
+import Link from "next/link";
 
 const Hero = ({ address, phone, email }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -62,7 +63,7 @@ const Hero = ({ address, phone, email }) => {
   };
 
   return (
-    <section className="relative flex flex-col mt-16 md:mt-28 w-full h-screen overflow-hidden">
+    <section className="relative flex flex-col w-full h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -99,9 +100,9 @@ const Hero = ({ address, phone, email }) => {
             
             {/* Left Section - Text Content */}
             <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 text-center lg:text-left">
-              <button className="bg-orange-600 hover:bg-orange-500 px-4 py-2 rounded-full text-white h-10 w-auto font-black text-sm uppercase cursor-pointer transition-colors duration-300 mb-6">
-                Dholera Real Estate
-              </button>
+              <Link href="/contact" className="bg-white hover:bg-emerald-800 px-4 py-2 rounded-xl text-emerald-800 hover:text-white h-10 w-auto font-black text-sm uppercase cursor-pointer transition-colors duration-300 mb-6">
+                Contact Us 
+              </Link>
 
               <h1 className="font-normal text-4xl md:text-5xl lg:text-7xl text-white capitalize leading-tight mb-4 transition-all duration-500">
                 {slides[currentSlide].title}
