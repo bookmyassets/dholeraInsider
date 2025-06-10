@@ -199,7 +199,44 @@ export default function CommonForm({title}) {
              Maximize your ROI with professional market insights
             </p>
 
+{showPopup ? (
+          <div className="text-center py-8">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              className="mb-4 inline-block"
+            >
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+            </motion.div>
+            <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
+            <p className="text-gray-300">
+              Your request has been submitted successfully. We'll contact you
+              shortly.
+            </p>
+          </div>
+        ) : (
+
             <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+                {errorMessage && (
+              <div className="p-3 bg-red-500 bg-opacity-20 border border-red-400 text-red-100 rounded-lg text-sm">
+                {errorMessage}
+              </div>
+            )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -210,8 +247,10 @@ export default function CommonForm({title}) {
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                     placeholder="Enter your name"
@@ -228,6 +267,8 @@ export default function CommonForm({title}) {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.phone}
+                onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
                   placeholder="Enter your phone number"
@@ -235,6 +276,10 @@ export default function CommonForm({title}) {
               </div>
               </div>
               
+               <div className="flex justify-center">
+              <div ref={recaptchaRef}></div>
+            </div>
+
               <div>
                 <button
                   type="submit"
@@ -244,7 +289,7 @@ export default function CommonForm({title}) {
                 </button>
               </div>
             </form>
-          </div>
+         )} </div>
         </div>
       </section>
     </div>
