@@ -382,51 +382,44 @@ export default async function Post({ params }) {
               <PortableText value={post.body} components={components} />
             </div>
           </div>
-        </div> 
+        </div>
       </main>
 
-
       <div className="bg-black py-12 mt-4">
-          <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
-            <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
-              <svg
-                className="w-12 h-12"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <h2 className="text-4xl font-bold mb-6">
-              Ready for More Insights?
-            </h2>
-            <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
-              Join thousands of readers who trust us for the latest industry
-              insights, market analysis, and investment opportunities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
-              <Link
-                href="/insider-dholera"
-                className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                Explore Dholera
-              </Link>
-              <Link
-                href="/contact"
-                className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                Get in Touch
-              </Link>
-            </div>
+        <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
+          <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
+            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <h2 className="text-4xl font-bold mb-6">Ready for More Insights?</h2>
+          <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
+            Join thousands of readers who trust us for the latest industry
+            insights, market analysis, and investment opportunities.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
+            <Link
+              href="/insider-dholera"
+              className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Explore Dholera
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Get in Touch
+            </Link>
           </div>
         </div>
+      </div>
 
-        <div className="max-w-7xl mx-auto">
-           {trendingBlogs && trendingBlogs.length > 0 && (
+      <div className="max-w-7xl mx-auto">
+        {trendingBlogs && trendingBlogs.length > 0 && (
           <div className="py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-8">
@@ -481,7 +474,7 @@ export default async function Post({ params }) {
             </div>
           </div>
         )}
-        </div>
+      </div>
 
       <CommonForm title="Choose Best Plot For You" />
     </div>
