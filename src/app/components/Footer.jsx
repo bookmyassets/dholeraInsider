@@ -10,12 +10,13 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
+import "../about-us/about.css"
 
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-black py-16">
+    <footer className="bg-gradient-to-r from-gray-900 to-teal-900 animate-gradient-x py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Google Maps Section */}
         <div className="bg-white shadow-2xl p-2 mb-12 rounded-lg">
