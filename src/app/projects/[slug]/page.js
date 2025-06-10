@@ -51,10 +51,10 @@ export default async function Post({ params }) {
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   alt={value.alt || "Blog image"}
-                  src={urlFor(value).width(1200).url()}
+                  src={urlFor(value).url()}
                   width={1200}
                   height={600}
-                  className="w-full md:h-[55vh] rounded-2xl hover:scale-105 transition-transform duration-500"
+                  className="max-w-3xl bg-inherit mx-auto md:h-[55vh] rounded-2xl hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
