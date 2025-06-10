@@ -199,7 +199,7 @@ export default function CommonForm({title}) {
              Maximize your ROI with professional market insights
             </p>
 
-            <form className="mt-12 space-y-6">
+            <form onSubmit={handleSubmit} className="mt-12 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
