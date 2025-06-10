@@ -3,6 +3,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { getblogs, getUpdates, getPostBySlug } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
+import CostSheet from "@/app/components/costSheet";
 
 export default async function Post({ params }) {
   const { slug } = params;
@@ -311,6 +312,7 @@ export default async function Post({ params }) {
           <article className="prose prose-xl max-w-none dark:prose-invert prose-headings:font-serif prose-a:text-[#C69C21] prose-blockquote:border-[#C69C21]">
             <PortableText value={post.body} components={components} />
           </article>
+          <CostSheet />
         </div>
 
         {/* Related Posts Section */}

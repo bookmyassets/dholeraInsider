@@ -1,8 +1,8 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { jsPDF } from 'jspdf';
-import 'jspdf-autotable';
-import img1 from "../assets/images/pdficon.png"
+import autoTable from 'jspdf-autotable';
+import icon from "@/pdf/pdficon.webp";
 
 function formatIndianNumber(value) {
   return parseFloat(value).toLocaleString('en-IN', {
@@ -19,15 +19,19 @@ export default function CostSheet() {
     plotNo: '',
     plc: '',
     plotAreaYards: '',
-    plotPriceYards: 6500,
+    basePlotPriceYards: 9250, 
     plotAreaFeet: '',
     totalPaymentYards: '',
+    maintenanceRate: 500, 
     maintenanceCharge: 0,
+    legalFees: 20000,
+    oneTimeMaintenance: 50000, 
     totalCharges: 0,
     plotTotalPayment: 0,
   });
 
-  // Handle field changes
+  const plotPriceWithPLC = parseFloat(formData.basePlotPriceYards) + (parseFloat(formData.plc) || 0);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -36,33 +40,14 @@ export default function CostSheet() {
     });
   };
 
-  // Calculate total payment, charges, and convert yards to feet
-  const calculateTotalPayment = () => {
-    const { plotAreaYards, plc } = formData;
-
-    const totalPayment = plotAreaYards * formData.plotPriceYards;
-    const maintenance = plotAreaYards * 100;
-    const totalCharges = maintenance + 15000; // Legal Fee is Rs15000
-    const plotTotalPayment = totalPayment + totalCharges;
-
-    // Convert plot area from yards to feet (1 yard = 9 sq. feet)
-    const plotAreaFeet = plotAreaYards * 9;
-
-    setFormData({
-      ...formData,
-      plotAreaFeet,
-      totalPaymentYards: totalPayment.toFixed(2),
-      maintenanceCharge: maintenance.toFixed(2),
-      totalCharges: totalCharges.toFixed(2),
-      plotTotalPayment: plotTotalPayment.toFixed(2),
-    });
-  };
-
   useEffect(() => {
-    if (formData.plotAreaYards && formData.plotPriceYards) {
-      const totalPayment = formData.plotAreaYards * formData.plotPriceYards;
-      const maintenance = formData.plotAreaYards * 100;
-      const totalCharges = maintenance + 15000; // Legal Fee is Rs15000
+    if (formData.plotAreaYards && formData.basePlotPriceYards) {
+      const plotPrice = plotPriceWithPLC;
+      const totalPayment = formData.plotAreaYards * plotPrice;
+      const legalFees = parseFloat(formData.legalFees) || 0;
+      const oneTimeMaintenance = parseFloat(formData.oneTimeMaintenance) || 0;
+      const maintenance = formData.plotAreaYards * formData.maintenanceRate; 
+      const totalCharges = maintenance + legalFees + oneTimeMaintenance;
       const plotTotalPayment = totalPayment + totalCharges;
       const plotAreaFeet = formData.plotAreaYards * 9;
   
@@ -75,54 +60,54 @@ export default function CostSheet() {
         plotTotalPayment: plotTotalPayment.toFixed(2),
       }));
     }
-  }, [formData.plotAreaYards, formData.plotPriceYards, formData.plc]);
-  // Function to generate the PDF
+  }, [formData.plotAreaYards, formData.basePlotPriceYards, formData.plc, formData.maintenanceRate, formData.legalFees, formData.oneTimeMaintenance]);
+
   const generatePDF = () => {
     const doc = new jsPDF();
 
-    const { name, phone, email, plc, plotAreaYards, plotAreaFeet, plotPriceYards, totalPaymentYards, maintenanceCharge, totalCharges, plotTotalPayment } = formData;
+    const { name, phone, email, plc, plotNo, plotAreaYards, plotAreaFeet, totalPaymentYards, maintenanceRate, maintenanceCharge, legalFees, oneTimeMaintenance, totalCharges, plotTotalPayment } = formData;
 
-    let startY = 60;
+    let startY = 40;
 
-    // Load image and draw it before adding text
     const img = new Image();
-    img.src = img1.src;
+    img.src = icon.src;
     img.crossOrigin = "anonymous";
 
     img.onload = () => {
-      // Add image to PDF (top left corner)
-      doc.addImage(img, "PNG",  5, 5, 185, 50);
-
-      // Project Heading
+      doc.addImage(img, "WEBP",  5, 5, 185, 38);
       doc.setFontSize(16);
       doc.setFont('helvetica', 'bold');
       let pageWidth = doc.internal.pageSize.getWidth();
       const head = document.querySelector("h1")?.innerText || "Cost Sheet";
       let text = doc.getTextWidth(head);
       let xPosition = (pageWidth - text) / 2;
-      doc.text(head, xPosition, 52);
+      doc.text(head, xPosition, 48);
 
       startY += 10;
 
       // Format Indian Numbers
       const formattedplc = formatIndianNumber(plc);
-      const formattedPricePerYard = formatIndianNumber(plotPriceYards);
+      const formattedPricePerYard = formatIndianNumber(plotPriceWithPLC);
       const formattedTotalPaymentYards = formatIndianNumber(totalPaymentYards);
       const formattedMaintenanceCharge = formatIndianNumber(maintenanceCharge);
+      const formattedLegalFees = formatIndianNumber(legalFees);
+      const formattedOneTimeMaintenance = formatIndianNumber(oneTimeMaintenance);
       const formattedTotalCharges = formatIndianNumber(totalCharges);
       const formattedPlotTotalPayment = formatIndianNumber(plotTotalPayment);
 
       // Table with details
-      doc.autoTable({
+      autoTable(doc,{
         startY: startY,
         body: [
           ['Name', name],
           ['Phone', phone],
           ['Email', email],
+          ['PlotNo', plotNo],
+          ['Plot Area (Sq. Yards)', plotAreaYards],
+          ['Plot Area (Sq. Feet)', plotAreaFeet],
+          ['Plot Price per Sq. Yard', `Rs. ${formatIndianNumber(formData.basePlotPriceYards)}`],
           ['Preffered Location Charges (PLC)', `Rs. ${formattedplc}`],
-          ['Plot Area (Yards)', plotAreaYards],
-          ['Plot Area (Feet)', plotAreaFeet],
-          ['Plot Price per Yard', `Rs. ${formattedPricePerYard}`],
+          ['Final Plot Price per Sq. Yard', `Rs. ${formattedPricePerYard}`],
           ['Total Payment', `Rs. ${formattedTotalPaymentYards}`],
         ],
         theme: 'grid',
@@ -132,21 +117,22 @@ export default function CostSheet() {
         columnStyles: {
           0: { halign: 'left', cellWidth: 'auto' },
           1: { halign: 'right', cellWidth: 80 }
-      }
+        }
       });
 
-      let finalY = doc.lastAutoTable.finalY + 7;
+      let finalY = doc.lastAutoTable.finalY + 6;
 
       // Additional Charges Heading
       doc.setFontSize(14);
       doc.text('Additional Charges', pageWidth / 2, finalY, { align: "center" });
 
       // Table for Additional Charges
-      doc.autoTable({
+      autoTable(doc,{
         startY: finalY + 4,
         body: [
-          ['Maintenance Charge (100 x Size)', `Rs. ${formattedMaintenanceCharge}`],
-          ['Legal Fee (Per Sale Deed)', 'Rs. 15,000.00'],
+          [`Development Charge (${maintenanceRate} x Size)`, `Rs. ${formattedMaintenanceCharge}`],
+          ['Legal Fee (Per Sale Deed)', `Rs. ${formattedLegalFees}`],
+          ['Maintenance For 3 years', `Rs. ${formattedOneTimeMaintenance}`],
           ['Total Charges', `Rs. ${formattedTotalCharges}`],
           ['Plot Total Payment', `Rs. ${formattedPlotTotalPayment}`],
         ],
@@ -164,7 +150,7 @@ export default function CostSheet() {
 
       // Terms & Conditions Section
       doc.setFontSize(10);
-      doc.text('Terms & Conditions:', 15, finalY + 12);
+      doc.text('Terms & Conditions:', 15, finalY + 8);
       doc.setFontSize(9);
       const terms = [
         "1. The booking amount is Rs. 50,000.",
@@ -198,7 +184,7 @@ export default function CostSheet() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-10">
+    <div className="max-w-3xl mx-auto bg-white shadow-xl shadow-gray-500 rounded-lg p-6 mt-10">
       <p className="text-center text-3xl font-bold text-gray-700 mb-4">Plot Price Calculation</p>
       <form>
         <table className="w-full border-collapse">
@@ -247,7 +233,7 @@ export default function CostSheet() {
               <td className="p-2 font-semibold">Plot No</td>
               <td className="p-2">
                 <input
-                  type="number"
+                  type="text"
                   name="plotNo"
                   value={formData.plotNo}
                   onChange={handleChange}
@@ -270,7 +256,7 @@ export default function CostSheet() {
             </tr>
             {/* Plot Area */}
             <tr className="border-b">
-              <td className="p-2 font-semibold">Plot Area (Yards)</td>
+              <td className="p-2 font-semibold">Plot Area (Sq. Yards)</td>
               <td className="p-2">
                 <input
                   type="number"
@@ -283,7 +269,7 @@ export default function CostSheet() {
             </tr>
             {/* Plot Area (Feet) */}
             <tr className="border-b">
-              <td className="p-2 font-semibold">Plot Area (Feet)</td>
+              <td className="p-2 font-semibold">Plot Area (Sq. Feet)</td>
               <td className="p-2">
                 <input
                   type="number"
@@ -294,16 +280,28 @@ export default function CostSheet() {
                 />
               </td>
             </tr>
-            {/* Plot Price per Yard */}
+            {/* Base Plot Price per Yard */}
             <tr className="border-b">
-              <td className="p-2 font-semibold">Plot Price per Yard</td>
+              <td className="p-2 font-semibold">Base Plot Price per Sq. Yard</td>
               <td className="p-2">
                 <input
                   type="number"
-                  name="plotPriceYards"
-                  value={formData.plotPriceYards}
+                  name="basePlotPriceYards"
+                  value={formData.basePlotPriceYards}
                   onChange={handleChange}
                   className="border p-2 w-full rounded"
+                />
+              </td>
+            </tr>
+            {/* Final Plot Price per Yard (calculated) */}
+            <tr className="border-b">
+              <td className="p-2 font-semibold">Final Plot Price per Sq. Yard (Base + PLC)</td>
+              <td className="p-2">
+                <input
+                  type="text"
+                  value={plotPriceWithPLC.toFixed(2)}
+                  className="border p-2 w-full rounded"
+                  readOnly
                 />
               </td>
             </tr>
@@ -326,9 +324,25 @@ export default function CostSheet() {
               <td colSpan="2" className="p-2 font-bold text-center">Additional Charges</td>
             </tr>
 
+            {/* Maintenance Charge Rate Dropdown */}
+            <tr className="border-b">
+              <td className="p-2 font-semibold">Maintenance Charge Rate</td>
+              <td className="p-2">
+                <select
+                  name="maintenanceRate"
+                  value={formData.maintenanceRate}
+                  onChange={handleChange}
+                  className="border p-2 w-full rounded"
+                >
+                  <option value="100">100</option>
+                  <option value="500">500</option>
+                </select>
+              </td>
+            </tr>
+
             {/* Maintenance Charge */}
             <tr className="border-b">
-              <td className="p-2 font-semibold">Maintenance Charge (Rs. 100 x Size)</td>
+              <td className="p-2 font-semibold">Maintenance Charge ({formData.maintenanceRate} x Size)</td>
               <td className="p-2">
                 <input
                   type="text"
@@ -339,15 +353,30 @@ export default function CostSheet() {
               </td>
             </tr>
 
-            {/* Legal Fee */}
+            {/* Legal Fee - Now Editable */}
             <tr className="border-b">
               <td className="p-2 font-semibold">Legal Fee (Per Sale Deed)</td>
               <td className="p-2">
                 <input
-                  type="text"
-                  value="15000.00"
+                  type="number"
+                  name="legalFees"
+                  value={formData.legalFees}
+                  onChange={handleChange}
                   className="border p-2 w-full rounded"
-                  readOnly
+                />
+              </td>
+            </tr>
+
+            {/* One Time Maintenance - Now Editable */}
+            <tr className="border-b">
+              <td className="p-2 font-semibold">One Time Maintenance(for 3 years)</td>
+              <td className="p-2">
+                <input
+                  type="number"
+                  name="oneTimeMaintenance"
+                  value={formData.oneTimeMaintenance}
+                  onChange={handleChange}
+                  className="border p-2 w-full rounded"
                 />
               </td>
             </tr>
