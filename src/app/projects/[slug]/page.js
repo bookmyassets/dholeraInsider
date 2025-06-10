@@ -41,7 +41,7 @@ export default async function Post({ params }) {
           return null;
         }
         return (
-          <figure className="my-12">
+          <figure className="my-8">
             <div className="overflow-hidden rounded-xl shadow-xl">
               <img
                 alt={value.alt || " "}
@@ -376,22 +376,17 @@ export default async function Post({ params }) {
 
         {/* Content Area */}
         <div className="bg-white rounded-2xl shadow-xl">
-          <div className="max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16">
+          <div className="max-w-4xl mx-auto px-6 md:px-12 py-4 md:py-8">
             {/* Content */}
             <div className="prose prose-lg max-w-none">
               <PortableText value={post.body} components={components} />
             </div>
           </div>
-        </div>
-        {/* Trending Posts Section */}
-       
-
-        {/* Final CTA Section */}
-        
+        </div> 
       </main>
 
 
-      <div className="bg-black py-20">
+      <div className="bg-black py-12 mt-4">
           <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
             <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
               <svg
@@ -416,13 +411,13 @@ export default async function Post({ params }) {
             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
               <Link
                 href="/insider-dholera"
-                className="bg-white text-[#C69C21] font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Explore Dholera
               </Link>
               <Link
                 href="/contact"
-                className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-[#C69C21] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Get in Touch
               </Link>
@@ -432,10 +427,10 @@ export default async function Post({ params }) {
 
         <div className="max-w-7xl mx-auto">
            {trendingBlogs && trendingBlogs.length > 0 && (
-          <div className="py-20">
+          <div className="py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <span className="inline-block bg-gradient-to-r from-[#C69C21] to-[#FDB913] text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
+              <div className="text-center mb-8">
+                <span className="inline-block bg-gradient-to-r from-emerald-700 to-emerald-900 text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
                   Trending Now
                 </span>
                 <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -455,7 +450,7 @@ export default async function Post({ params }) {
                   >
                     <article className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform group-hover:-translate-y-1">
                       <div className="absolute top-4 left-4 z-10">
-                        <div className="bg-[#C69C21] text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-lg">
+                        <div className="bg-emerald-800 text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-lg">
                           {index + 1}
                         </div>
                       </div>
