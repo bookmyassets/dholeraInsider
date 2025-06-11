@@ -105,8 +105,6 @@ export default function CommonForm({ title }) {
 
   const onRecaptchaSuccess = async (token) => {
     try {
-      const now = Date.now();
-
       const response = await fetch(
         "https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead",
         {
@@ -116,34 +114,18 @@ export default function CommonForm({ title }) {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_TELECRM_API_KEY}`,
           },
           body: JSON.stringify({
-            fullName: formData.fullName,
-            phone: formData.phone,
-            recaptchaToken: token,
+            fields: {
+              name: formData.fullName,
+              phone: formData.phone,
+              source: "Dholera Insider",
+            },
+            source: "Dholera Insider Website",
+            tags: ["Dholera Investment", "Website Lead"],
           }),
         }
       );
 
-      const text = await response.text(); // Use `.text()` for raw response
-      console.log("Raw API response:", text);
-
-      let data2;
-      try {
-        data2 = JSON.parse(text);
-      } catch {
-        data2 = { message: "Invalid JSON returned" };
-      }
-
-      if (!response.ok) {
-        console.error("API Error:", response.status, data2);
-        setErrorMessage(
-          data2.message || "Submission failed. Please try again."
-        );
-        return;
-      }
-
-      // Handle potential empty response
-      const data =
-        response.status !== 204 ? await response.json().catch(() => ({})) : {};
+      const responseText = await response.text();
 
       if (response.ok) {
         // Success handling
