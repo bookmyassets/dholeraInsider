@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
 import CommonForm from "@/app/components/CommonForm";
+import CostSheet from "@/app/components/costSheet";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -475,6 +476,7 @@ export default async function Post({ params }) {
           </div>
         )}
       </div>
+      <CostSheet/>
 
       <CommonForm title="Choose Best Plot For You" />
     </div>

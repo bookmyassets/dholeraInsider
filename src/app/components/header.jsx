@@ -46,8 +46,8 @@ const Header = () => {
       name: "Get In Touch",
       key: "getInTouch",
       items: [
-        { name: "Call Now", href: "tel:+918130371647" },
-        { name: "WhatsApp Us", href: "https://wa.me/918130371647" },
+        { name: "Call Now", href: "tel:+919211820887" },
+        { name: "WhatsApp Us", href: "https://wa.me/919211820887" },
         { name: "Book A Free Site Visit", href: "/callback" },
       ],
     },

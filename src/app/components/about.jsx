@@ -29,8 +29,7 @@ export default function About({
       <div className="relative ">
         <div className="flex flex-col justify-center items-center mt-20">
           <p
-            className="text-9xl sm:text-10xl text-blue-700 opacity-5 font-black text-center z-0 absolute top-0 left-0 w-full dark:text-white
-          "
+            className="text-9xl sm:text-10xl text-blue-700 opacity-5 font-black text-center z-0 absolute top-0 left-0 w-full dark:text-white"
           >
             Inside Dholera
           </p>
