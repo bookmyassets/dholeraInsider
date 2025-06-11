@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
+import { motion } from "framer-motion"; // Add this import
 import "../about-us/about.css";
 
 export default function CommonForm({ title }) {
@@ -12,6 +13,7 @@ export default function CommonForm({ title }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const recaptchaRef = useRef(null);
+  const recaptchaWidgetId = useRef(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   useEffect(() => {
@@ -91,8 +93,10 @@ export default function CommonForm({ title }) {
     if (hoursPassed >= 24) {
       // Reset counter if 24 hours have passed
       setSubmissionCount(0);
-      localStorage.setItem("formSubmissionCount", "0");
-      localStorage.setItem("lastSubmissionTime", now.toString());
+      if (typeof window !== "undefined") {
+        localStorage.setItem("formSubmissionCount", "0");
+        localStorage.setItem("lastSubmissionTime", now.toString());
+      }
     } else if (submissionCount >= 3) {
       setErrorMessage(
         "You have reached the maximum submission limit. Try again after 24 hours."
@@ -105,25 +109,22 @@ export default function CommonForm({ title }) {
 
   const onRecaptchaSuccess = async (token) => {
     try {
-      const response = await fetch(
-        "https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TELECRM_API_KEY}`,
+      const response = await fetch("https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TELECRM_API_KEY}`,
+        },
+        body: JSON.stringify({
+          fields: {
+            name: formData.fullName,
+            phone: formData.phone,
+            source: "Dholera Insider",
           },
-          body: JSON.stringify({
-            fields: {
-              name: formData.fullName,
-              phone: formData.phone,
-              source: "Dholera Insider",
-            },
-            source: "Dholera Insider Website",
-            tags: ["Dholera Investment", "Website Lead"],
-          }),
-        }
-      );
+          source: "Dholera Insider Website",
+          tags: ["Dholera Investment", "Website Lead"],
+        }),
+      });
 
       const responseText = await response.text();
 
@@ -133,14 +134,21 @@ export default function CommonForm({ title }) {
         setShowPopup(true);
         setSubmissionCount((prev) => {
           const newCount = prev + 1;
-          localStorage.setItem("formSubmissionCount", newCount.toString());
-          localStorage.setItem("lastSubmissionTime", Date().now.toString());
+          if (typeof window !== "undefined") {
+            localStorage.setItem("formSubmissionCount", newCount.toString());
+            localStorage.setItem("lastSubmissionTime", Date.now().toString()); // Fixed this line
+          }
           return newCount;
         });
-
-        
       } else {
-        throw new Error(data.message || "Error submitting form");
+        // Parse response as JSON if possible, otherwise use text
+        let errorData;
+        try {
+          errorData = JSON.parse(responseText);
+        } catch {
+          errorData = { message: responseText };
+        }
+        throw new Error(errorData.message || "Error submitting form");
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -151,8 +159,12 @@ export default function CommonForm({ title }) {
       setIsLoading(false);
 
       // Reset reCAPTCHA
-      if (window.grecaptcha && recaptchaRef.current) {
-        window.grecaptcha.reset(recaptchaRef.current);
+      if (window.grecaptcha && recaptchaWidgetId.current !== null) {
+        try {
+          window.grecaptcha.reset(recaptchaWidgetId.current);
+        } catch (err) {
+          console.error("Error resetting reCAPTCHA:", err);
+        }
       }
     }
   };
@@ -168,17 +180,19 @@ export default function CommonForm({ title }) {
     }
 
     // If reCAPTCHA is loaded, render it in the ref
-    if (window.grecaptcha && recaptchaLoaded) {
+    if (window.grecaptcha && recaptchaLoaded && siteKey) {
       try {
-        if (recaptchaRef.current && !recaptchaRef.current.innerHTML) {
-          window.grecaptcha.render(recaptchaRef.current, {
+        // Check if reCAPTCHA widget is already rendered
+        if (recaptchaWidgetId.current === null && recaptchaRef.current) {
+          recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
             sitekey: siteKey,
             callback: onRecaptchaSuccess,
             theme: "dark",
           });
-        } else {
-          window.grecaptcha.reset();
-          window.grecaptcha.execute();
+        } else if (recaptchaWidgetId.current !== null) {
+          // Reset and execute existing widget
+          window.grecaptcha.reset(recaptchaWidgetId.current);
+          window.grecaptcha.execute(recaptchaWidgetId.current);
         }
       } catch (error) {
         console.error("Error rendering reCAPTCHA:", error);
@@ -244,7 +258,7 @@ export default function CommonForm({ title }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
-                      htmlFor="name"
+                      htmlFor="fullName"
                       className="block text-white text-sm font-medium mb-2"
                     >
                       Full Name
@@ -288,13 +302,14 @@ export default function CommonForm({ title }) {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+                    disabled={isLoading}
+                    className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
                   >
-                    Submit
+                    {isLoading ? "Submitting..." : "Submit"}
                   </button>
                 </div>
               </form>
-            )}{" "}
+            )}
           </div>
         </div>
       </section>
