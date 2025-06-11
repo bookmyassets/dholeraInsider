@@ -107,9 +107,8 @@ export default function CommonForm({ title }) {
     try {
       const now = Date.now();
 
-      // Submit to our API endpoint
       const response = await fetch(
-        "https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead",
+        "https://api.telecrm.in/enterprise/<workspace-id>/autoupdatelead",
         {
           method: "POST",
           headers: {
@@ -120,12 +119,27 @@ export default function CommonForm({ title }) {
             fullName: formData.fullName,
             phone: formData.phone,
             recaptchaToken: token,
-          })
-            .then((res) => res.json())
-            .then((data) => console.log("API Response:", data))
-            .catch((err) => console.error("Error submitting form", err)),
+          }),
         }
       );
+
+      const text = await response.text(); // Use `.text()` for raw response
+      console.log("Raw API response:", text);
+
+      let data2;
+      try {
+        data2 = JSON.parse(text);
+      } catch {
+        data2 = { message: "Invalid JSON returned" };
+      }
+
+      if (!response.ok) {
+        console.error("API Error:", response.status, data2);
+        setErrorMessage(
+          data2.message || "Submission failed. Please try again."
+        );
+        return;
+      }
 
       // Handle potential empty response
       const data =
