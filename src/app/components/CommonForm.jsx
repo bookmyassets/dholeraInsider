@@ -134,13 +134,11 @@ export default function CommonForm({ title }) {
         setSubmissionCount((prev) => {
           const newCount = prev + 1;
           localStorage.setItem("formSubmissionCount", newCount.toString());
-          localStorage.setItem("lastSubmissionTime", now.toString());
+          localStorage.setItem("lastSubmissionTime", Date().now.toString());
           return newCount;
         });
 
-        setTimeout(() => {
-          if (onClose) onClose();
-        }, 2000);
+        
       } else {
         throw new Error(data.message || "Error submitting form");
       }
