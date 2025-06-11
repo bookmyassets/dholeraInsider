@@ -15,7 +15,6 @@ export default function CommonForm({ title }) {
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   useEffect(() => {
-    // Load standard reCAPTCHA script
     const loadRecaptcha = () => {
       if (typeof window !== "undefined" && !window.grecaptcha) {
         try {
@@ -26,12 +25,12 @@ export default function CommonForm({ title }) {
           script.onload = () => setRecaptchaLoaded(true);
           script.onerror = () => {
             console.error("Failed to load reCAPTCHA script");
-            setRecaptchaLoaded(true); // Still set as loaded so form submission can proceed as fallback
+            setRecaptchaLoaded(true);
           };
           document.head.appendChild(script);
         } catch (err) {
           console.error("reCAPTCHA script loading error:", err);
-          setRecaptchaLoaded(true); // Still set as loaded as fallback
+          setRecaptchaLoaded(true);
         }
       } else if (window.grecaptcha) {
         setRecaptchaLoaded(true);
@@ -121,7 +120,10 @@ export default function CommonForm({ title }) {
             fullName: formData.fullName,
             phone: formData.phone,
             recaptchaToken: token,
-          }),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log("API Response:", data))
+            .catch((err) => console.error("Error submitting form", err)),
         }
       );
 
@@ -264,7 +266,7 @@ export default function CommonForm({ title }) {
                       placeholder="Enter your name"
                     />
                   </div>
-                  
+
                   <div>
                     <label
                       htmlFor="phone"
