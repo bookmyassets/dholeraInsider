@@ -8,6 +8,7 @@ import location from "@/app/assets/home/location.webp";
 import hidden from "@/app/assets/home/hiddenCharges.webp";
 import Image from "next/image";
 import projectImage from "@/app/assets/home/westwyn-project.webp";
+import bg from "@/app/assets/home/pexels2.jpg";
 
 const features = [
   {
@@ -212,7 +213,12 @@ export default function Westwyn() {
           }
 
           .modal-content {
-            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #0f766e 100%);
+            background: linear-gradient(
+              135deg,
+              #1f2937 0%,
+              #374151 50%,
+              #0f766e 100%
+            );
             border-radius: 0.5rem;
             width: 100%;
             max-width: 500px;
@@ -243,39 +249,44 @@ export default function Westwyn() {
 
           /* Floating card enhancement */
           .westwyn-floating-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
+            background: linear-gradient(
+              135deg,
+              rgba(255, 255, 255, 0.9) 0%,
+              rgba(255, 255, 255, 0.8) 100%
+            );
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
           }
         `}
       </style>
 
-      <div id="westwyn-county" className="westwyn-container bg-gradient-to-br from-gray-900 via-slate-800 to-teal-900 mb-8 relative overflow-hidden">
+      <div
+        id="westwyn-county"
+        className="westwyn-container relative overflow-hidden"
+      >
         {/* Background decorative elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-gray-900/20 pointer-events-none"></div>
+        <Image
+          src={bg}
+          alt="Background Image"
+          layout="fill"
+          objectFit="cover"
+          className="absolute inset-0 -z-10 opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/60 to-teal-900/60 pointer-events-none"></div>
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_70%_80%,rgba(20,184,166,0.1),transparent_50%)]"></div>
 
         {/* Header Section */}
         <section className="max-w-7xl pt-8 mx-auto px-4 mb-16 relative z-10">
           <div className="text-center space-y-4">
-            <h1 className="text-xl md:text-4xl font-bold text-white drop-shadow-lg">
+            <h1 className="text-xl md:text-4xl font-bold bg-gradient-to-r from-gray-100 to-teal-100 bg-clip-text text-transparent drop-shadow-lg">
               WestWyn County
             </h1>
             <div className="bg-gradient-to-r from-teal-400 to-teal-600 w-48 mx-auto h-1 rounded-full"></div>
-            <p className="font-light italic text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-              Platinum-rated, AUDA-approved plots on Fedra-Pipli Highway in Dholera's growth zone — built for smart investors.
+            <p className="font-light italic text-gray-200 text-lg max-w-2xl mx-auto leading-relaxed">
+              Platinum-rated, AUDA-approved plots on Fedra-Pipli Highway in
+              Dholera's growth zone — built for smart investors.
             </p>
-          </div>
-        </section>
-
-        <section className="flex justify-center items-center bg-gradient-to-r from-gray-800/50 to-teal-800/30 p-4 border-2 border-teal-500/30 mx-4 rounded-xl backdrop-blur-sm shadow-2xl">
-          <div className="rounded-lg overflow-hidden">
-            <Image
-              src={location}
-              alt="map"
-              className="drop-shadow-lg"
-            />
           </div>
         </section>
 
@@ -283,28 +294,28 @@ export default function Westwyn() {
           <div className="fade-in-up bg-gradient-to-r from-gray-800/60 to-teal-800/40 border-2 border-teal-500/30 md:rounded-2xl shadow-2xl p-8 backdrop-blur-sm">
             <div className="grid grid-cols-2 md:grid-cols-4 text-center">
               <div className="mb-2">
-                <div className="text-3xl font-bold text-teal-400 text-center drop-shadow-lg">
+                <div className="text-3xl font-bold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent text-center drop-shadow-lg">
                   200+
                 </div>
-                <div className="text-gray-300 text-sm">Sq. Yards Plots</div>
+                <div className="text-gray-200 text-sm">Sq. Yards Plots</div>
               </div>
               <div className="mb-2">
-                <div className="text-3xl font-bold text-teal-400 text-center drop-shadow-lg">
+                <div className="text-3xl font-bold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent text-center drop-shadow-lg">
                   24x7
                 </div>
-                <div className="text-gray-300 text-sm">Security</div>
+                <div className="text-gray-200 text-sm">Security</div>
               </div>
               <div className="mb-2">
-                <div className="text-3xl font-bold text-teal-400 text-center drop-shadow-lg">
+                <div className="text-3xl font-bold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent text-center drop-shadow-lg">
                   100%
                 </div>
-                <div className="text-gray-300 text-sm">Legal Approval</div>
+                <div className="text-gray-200 text-sm">Legal Approval</div>
               </div>
               <div className="mb-2">
-                <div className="text-3xl font-bold text-teal-400 text-center drop-shadow-lg">
+                <div className="text-3xl font-bold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent text-center drop-shadow-lg">
                   70+
                 </div>
-                <div className="text-gray-300 text-sm">Plots</div>
+                <div className="text-gray-200 text-sm">Plots</div>
               </div>
             </div>
           </div>
@@ -316,11 +327,13 @@ export default function Westwyn() {
             {/* Left Side - Features */}
             <div className="space-y-8">
               <div className="">
-                <h2 className="text-3xl font-bold text-white mb-6 drop-shadow-lg">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-100 to-teal-100 bg-clip-text text-transparent mb-6 drop-shadow-lg">
                   Why Choose WestWyn County?
                 </h2>
-                <p className="text-gray-300 mb-8 leading-relaxed">
-                  WestWyn County offers premium residential plots with world-class amenities and modern infrastructure—an ideal investment near Dholera's Special investment Zone
+                <p className="text-gray-200 mb-8 leading-relaxed">
+                  WestWyn County offers premium residential plots with
+                  world-class amenities and modern infrastructure—an ideal
+                  investment near Dholera's Special investment Zone
                 </p>
               </div>
 
@@ -341,10 +354,10 @@ export default function Westwyn() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white mb-2 drop-shadow">
+                      <h3 className="text-xl font-semibold text-gray-100 mb-2 drop-shadow">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-300 leading-relaxed">
+                      <p className="text-gray-200 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -368,7 +381,9 @@ export default function Westwyn() {
 
                   {/* Enhanced Overlay with project details */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
-                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">WestWyn County</h3>
+                    <h3 className="text-2xl font-bold mb-2 drop-shadow-lg">
+                      WestWyn County
+                    </h3>
                     <p className="text-sm opacity-90 mb-3">
                       Premium Plotting Project
                     </p>
@@ -376,7 +391,7 @@ export default function Westwyn() {
                       <span className="bg-gradient-to-r from-teal-500 to-teal-600 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                         AUDA Approved
                       </span>
-                      <span className="bg-gradient-to-r from-green-500 to-green-600 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                      <span className="bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                         Possession Ready
                       </span>
                     </div>
@@ -386,19 +401,18 @@ export default function Westwyn() {
                 {/* Enhanced Floating Info Cards */}
                 <div className="westwyn-floating-card absolute -top-4 -right-4 rounded-xl shadow-xl p-6 max-w-48 border border-white/20">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-teal-600 drop-shadow">
+                    <div className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-teal-700 bg-clip-text text-transparent drop-shadow">
                       ₹18L+
                     </div>
-                    <div className="text-sm text-gray-700 font-medium">Starting Price</div>
+                    <div className="text-sm text-gray-700 font-medium">
+                      Starting Price
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none"></div>
       </div>
     </>
   );

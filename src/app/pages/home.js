@@ -6,6 +6,8 @@ import scrollIcon from "../assets/icons/topArrowIcon.png";
 import Whatsapp from "../components/whatsapp";
 import Hero from "../components/hero";
 import Westwyn from "../components/WestWyn";
+import CTAsection from "../components/CTAsection";
+import MegaIndustries from "../components/MegaIndusties";
 
 const HomePage = () => {
   const [showButton, setShowButton] = useState(false);
@@ -35,15 +37,12 @@ const HomePage = () => {
       {/* <Hero
         
       /> */}
-      <Hero
-        address="620 JMD Megapolis, Sector-48, Sohna Road, Gurugram, India"
-        phone="+91 9958993549"
-        email="info@dholerinsider.com"
-        className=""
-      />
+      <Hero/>
       <Whatsapp />
       <About />
+      <CTAsection/>
       <Westwyn/>
+      <MegaIndustries/>
       
 
       {showButton && (
