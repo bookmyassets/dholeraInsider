@@ -16,22 +16,22 @@ const Hero = ({ address, phone, email }) => {
     {
       desktopImage: heroBg,
       mobileImage: heroM,
-      title: "Find Real Estate That Suits You",
-      subtitle: "Premium Properties",
+      title: "Track the Transformation of",
+      subtitle: "India’s First Greenfield Smart City",
       description: "Discover your perfect property with our expert guidance and extensive portfolio of premium real estate options."
     },
     {
       desktopImage: heroBg2, 
       mobileImage: heroM2,   
-      title: "Luxury Homes & Apartments",
-      subtitle: "Exclusive Listings",
+      title: "Dholera Insider",
+      subtitle: "Your Front-Row Seat to India’s Smart Future”",
       description: "Explore our curated collection of luxury homes and modern apartments in prime locations."
     },
     {
       desktopImage: heroBg3, 
       mobileImage: heroM3,   
-      title: "Investment Opportunities",
-      subtitle: "Smart Investments",
+      title: "Where Smart Investment",
+      subtitle: "Meets Smart Infrastructure",
       description: "Maximize your returns with our carefully selected investment properties and expert market insights."
     }
   ];
@@ -106,27 +106,24 @@ const Hero = ({ address, phone, email }) => {
       <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full h-screen flex items-end md:items-center">
+      <div className="relative z-10 w-full h-screen flex items-start max-sm:top-20 md:items-center">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20">
             
             {/* Left Section - Text Content */}
-            <div className="flex flex-col max-sm:justify-end items-center lg:items-start w-full lg:w-1/2 text-center lg:text-left">
+            <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 text-center lg:text-left">
               <Link href="/contact" className="bg-white hover:bg-emerald-800 flex justify-center items-center px-4 py-2 rounded-xl text-emerald-800 hover:text-white h-10 w-auto text-sm uppercase cursor-pointer transition-colors duration-300 mb-6">
                 Contact Us 
               </Link>
 
-              <h1 className="font-normal text-4xl md:text-5xl lg:text-7xl text-white capitalize leading-tight mb-4 transition-all duration-500">
+              <h1 className="text-xl md:text-2xl text-orange-400 font-semibold mb-4 transition-all duration-500">
                 {slides[currentSlide].title}
               </h1>
 
-              <h2 className="text-xl md:text-2xl text-orange-400 font-semibold mb-4 transition-all duration-500">
+              <h2 className="font-normal text-4xl md:text-5xl lg:text-7xl text-white capitalize leading-tight mb-4 transition-all duration-500 ">
                 {slides[currentSlide].subtitle}
               </h2>
-
-              <p className="mt-2 text-gray-300 max-w-md text-lg hidden md:block transition-all duration-500">
-                {slides[currentSlide].description}
-              </p>
+             
             </div>
 
             {/* Right Section - Form */}
