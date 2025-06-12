@@ -1,12 +1,11 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import About from "../components/about";
-import Services from "../components/services";
-import Review from "../components/review";
 import scrollIcon from "../assets/icons/topArrowIcon.png";
 import Whatsapp from "../components/whatsapp";
 import Hero from "../components/hero";
+import Westwyn from "../components/WestWyn";
 
 const HomePage = () => {
   const [showButton, setShowButton] = useState(false);
@@ -42,18 +41,11 @@ const HomePage = () => {
         email="info@dholerinsider.com"
         className=""
       />
-      <Whatsapp/>
-      <About
-        cardTitle1="15 years"
-        cardSubText1="in business"
-        cardTitle2="$1 billion"
-        cardSubText2="property brokered"
-        cardTitle3="10,000"
-        cardSubText3="transactions"
-      />
-      <Services />
-      <Review />
+      <Whatsapp />
+      <About />
+      <Westwyn/>
       
+
       {showButton && (
         <div className="fixed bottom-24 right-10 z-50">
           <button
