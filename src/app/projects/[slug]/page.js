@@ -77,17 +77,9 @@ export default async function Post({ params }) {
                   }
 
                   return (
-                    <tr
-                      key={i}
-                      className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
-                    >
+                    <tr key={row._key || i}>
                       {row.cells.map((cell, j) => (
-                        <td
-                          key={j}
-                          className="px-4 py-3 border border-gray-200 text-gray-700"
-                        >
-                          {cell || ""}
-                        </td>
+                        <td key={`${cell}-${j}`}>{cell || ""}</td>
                       ))}
                     </tr>
                   );
@@ -476,7 +468,7 @@ export default async function Post({ params }) {
           </div>
         )}
       </div>
-      <CostSheet/>
+      <CostSheet />
 
       <CommonForm title="Choose Best Plot For You" />
     </div>

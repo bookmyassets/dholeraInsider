@@ -170,26 +170,26 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/policies/terms-of-services"
+                  href="/policies/terms-and-conditions"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
-                  <span className="mr-2">›</span> Terms of Service
+                  <span className="mr-2">›</span> Terms & Conditions
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/policies/disclaimer"
+                  href="/policies/refund-and-cancellation"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
-                  <span className="mr-2">›</span> Disclaimer
+                  <span className="mr-2">›</span> Refund & Cancellation
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/policies/buy-back-policy"
+                  href="/policies/copyright-policy"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
-                  <span className="mr-2">›</span> Cookie Policy
+                  <span className="mr-2">›</span> Copyright Policy
                 </Link>
               </li>
             </ul>

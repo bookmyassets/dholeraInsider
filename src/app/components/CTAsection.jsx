@@ -146,7 +146,7 @@ export default function CTAsection() {
             onClick={closeContactForm}
           >
             <motion.div
-              className="bg-gradient-to-br from-gray-800 via-slate-800 to-teal-900 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border border-teal-500/30"
+              className="bg-gradient-to-br from-gray-800 via-slate-800 to-teal-900 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-teal-500/30"
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}

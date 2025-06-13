@@ -3,6 +3,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { getblogs, getUpdates, getPostBySlug } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
+import CommonForm from "@/app/components/CommonForm";
 
 export default async function Post({ params }) {
   const { slug } = await params;
@@ -80,17 +81,9 @@ export default async function Post({ params }) {
                     }
 
                     return (
-                      <tr
-                        key={i}
-                        className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
-                      >
+                      <tr key={row._key || i}>
                         {row.cells.map((cell, j) => (
-                          <td
-                            key={j}
-                            className="px-4 py-3 border border-gray-200 text-gray-700"
-                          >
-                            {cell || ""}
-                          </td>
+                          <td key={`${cell}-${j}`}>{cell || ""}</td>
                         ))}
                       </tr>
                     );
@@ -141,7 +134,7 @@ export default async function Post({ params }) {
           <span style={{ color: value?.color || "inherit" }}>{children}</span>
         ),
         textBackground: ({ children, value }) => (
-          <span style={{ backgroundColor: value?.color || "transparent" }}>
+          <span style={{ backgroundColor: value?.color || "bg-emerald-900" }}>
             {children}
           </span>
         ),
@@ -317,55 +310,189 @@ export default async function Post({ params }) {
     const canonicalUrl = `https://www.bookmyassets.com/blogs/${post.slug.current}`;
 
     return (
-
-    <>
-    {/* Hero Section */}
-    <div className="flex flex-col w-full h-[50vh] sm:h-screen relative">
-      {post.mainImage && (
-        <Image
-          src={urlFor(post.mainImage).width(800).url()}
-          alt={post.mainImage.alt || post.title}
-          width={500}
-          height={600}
-          
-          className="w-full h-full bg-no-repeat object-cover object-center brightness-50"
-        />
-      )}
-
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
-        <div className="relative">
-          <div className="flex flex-col justify-center items-center pb-3 sm:pb-5">
-            <p className="text-6xl sm:text-9xl text-white opacity-5 font-black uppercase dark:text-white">
-              {post.title}
-            </p>
-            <h1 className="text-2xl sm:text-4xl text-white font-bold capitalize mt-4 sm:mt-14 dark:text-gray-300">
-              {post.title}
-            </h1>
+        <div className="bg-gray-50 min-h-screen">
+          {/* <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+          /> */}
+          <title>{post.metaTitle}</title>
+          <meta name="description" content={post.metaDescription} />
+          <meta name="keywords" content={post.keywords} />
+          <link rel="canonical" href={canonicalUrl} />
+    
+          {/* Hero Section with Image */}
+          <div className="w-full bg-gradient-to-b from-gray-900 to-gray-800 relative">
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <div className="max-w-7xl mx-auto pt-32 pb-20 px-4 space-y-4 sm:px-6 lg:px-8 relative z-10">
+              {/* Title */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                {post.title}
+              </h1>
+              <p className="text-white text-lg">{post.metaDescription}</p>
+    
+              {/* Metadata row */}
+              <div className="flex items-center text-gray-300 text-sm md:text-base mb-8">
+                {formattedDate && (
+                  <div className="flex items-center pb-4 mr-6">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span>{formattedDate}</span>
+                  </div>
+                )}
+                <div className="flex items-center pb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+               
+                </div>
+              </div>
+            </div>
           </div>
+    
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
+            {/* Featured Image Card */}
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
+              {post.mainImage && (
+                <div className="relative w-full h-[50vh] md:h-[60vh]">
+                  <Image
+                    src={urlFor(post.mainImage)?.url() || ""}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              )}
+            </div>
+    
+            {/* Content Area */}
+            <div className="bg-white rounded-2xl shadow-xl">
+              <div className="max-w-4xl mx-auto px-6 md:px-12 py-4 md:py-8">
+                {/* Content */}
+                <div className="prose prose-lg max-w-none">
+                  <PortableText value={post.body} components={components} />
+                </div>
+              </div>
+            </div>
+          </main>
+    
+          <div className="bg-black py-12 mt-4">
+            <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
+              <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
+                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h2 className="text-4xl font-bold mb-6">Ready for More Insights?</h2>
+              <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
+                Join thousands of readers who trust us for the latest industry
+                insights, market analysis, and investment opportunities.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
+                <Link
+                  href="/insider-dholera"
+                  className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  Explore Dholera
+                </Link>
+                <Link
+                  href="/contact"
+                  className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  Get in Touch
+                </Link>
+              </div>
+            </div>
+          </div>
+    
+          <div className="max-w-7xl mx-auto">
+            {trendingBlogs && trendingBlogs.length > 0 && (
+              <div className="py-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="text-center mb-8">
+                    <span className="inline-block bg-gradient-to-r from-emerald-700 to-emerald-900 text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
+                      Trending Now
+                    </span>
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                      Most Popular Articles
+                    </h2>
+                    <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                      See what everyone's reading this week
+                    </p>
+                  </div>
+    
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {trendingBlogs.slice(0, 6).map((blog, index) => (
+                      <Link
+                        key={blog._id}
+                        href={`/blogs/${blog.slug.current}`}
+                        className="group block"
+                      >
+                        <article className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform group-hover:-translate-y-1">
+                          <div className="absolute top-4 left-4 z-10">
+                            <div className="bg-emerald-800 text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-lg">
+                              {index + 1}
+                            </div>
+                          </div>
+                          {blog.mainImage && (
+                            <div className="relative h-48 overflow-hidden">
+                              <Image
+                                src={urlFor(blog.mainImage)
+                                  .width(400)
+                                  .height(200)
+                                  .url()}
+                                alt={blog.title}
+                                width={400}
+                                height={200}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            </div>
+                          )}
+                          <div className="p-6">
+                            <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-[#C69C21] transition-colors duration-200 line-clamp-2 text-lg leading-tight">
+                              {blog.title}
+                            </h3>
+                          </div>
+                        </article>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+    
+          <CommonForm title="Choose Best Plot For You" />
         </div>
-      </div>
-    </div>
-
-    {/* Categories */}
-    {post.categories?.length > 0 && (
-      <div className="mb-6 flex flex-wrap justify-center gap-2 px-4 sm:px-0">
-        {post.categories.map((category) => (
-          <span 
-            key={category._id}
-            className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm"
-          >
-            {category.title}
-          </span>
-        ))}
-      </div>
-    )} 
-
-    {/* Blog Body */}
-    <div className="prose max-w-4xl mx-auto pt-16 sm:pt-28 text-base sm:text-lg px-4 sm:px-0 dark:text-gray-200">
-      <PortableText value={post.body} components={components}/>
-    </div>
-  </>
-  );
+      );
   } catch (error) {
     console.error("Error loading blog post:", slug, error);
     return (
