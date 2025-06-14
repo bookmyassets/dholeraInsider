@@ -1,6 +1,6 @@
 import { Play, ChevronRight, Info } from "lucide-react";
 import Link from "next/link";
-import bg from "@/app/assets/hero/aboutHero.webp"
+import bg from "@/app/assets/hero/bg-image.webp"
 
 export const metadata = {
   robots: {
@@ -83,9 +83,8 @@ export default async function VideosPage() {
         }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-24 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
           
-          <p className=" text-lg font-semibold max-w-2xl pt-12 mx-auto leading-relaxed">
+          <p className=" text-lg font-semibold max-w-2xl pt-16 mx-auto leading-relaxed">
             Watch expert insights on why investing in Dholera is a smart financial decision and learn about the city's development.
           </p>
         </div>

@@ -156,7 +156,7 @@ const Header = () => {
         ${
           scrolled
             ? "bg-gradient-to-r from-gray-900 via-emerald-900 to-teal-900 text-emerald-100 dark:from-gray-800 dark:via-teal-900 dark:to-cyan-900"
-            : "bg-transparent text-emerald-900 dark:text-teal-200"
+            : "bg-transparent text-white"
         }`}
     >
       {/* Logo */}
