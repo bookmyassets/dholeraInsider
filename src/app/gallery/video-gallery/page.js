@@ -1,6 +1,6 @@
 import { Play, ChevronRight, Info } from "lucide-react";
 import Link from "next/link";
-import bg from "@/assests/bg-image.webp"
+import bg from "../assets/hero/aboutHero.webp"
 
 export const metadata = {
   robots: {
