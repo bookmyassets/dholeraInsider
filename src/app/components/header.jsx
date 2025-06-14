@@ -38,8 +38,8 @@ const Header = () => {
       name: "Gallery",
       key: "gallery",
       items: [
-        { name: "Photo Gallery", href: "/gallery/photos" },
-        { name: "Video Gallery", href: "/gallery/videos" },
+        { name: "Photo Gallery", href: "/gallery/photo-gallery" },
+        { name: "Video Gallery", href: "/gallery/video-gallery" },
       ],
     },
     {
