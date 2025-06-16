@@ -1,5 +1,4 @@
 "use client"
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -54,7 +53,7 @@ const Hero = () => {
       </div>
 
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
 
       {/* Content Container */}
       <div className="relative z-10 flex h-full items-center justify-center">
