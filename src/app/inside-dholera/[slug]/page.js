@@ -65,49 +65,61 @@ export default async function Post({ params }) {
           );
         },
 
-        // Fixed table component
-        table: ({ value }) => {
-          if (!value?.rows || !Array.isArray(value.rows)) {
-            return null;
-          }
+          table: ({ value }) => {
+      if (!value?.rows) return null;
 
-          return (
-            <div className="overflow-x-auto my-8">
-              <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
-                <tbody>
-                  {value.rows.map((row, i) => {
-                    if (!row?.cells || !Array.isArray(row.cells)) {
-                      return null;
-                    }
-
+      return (
+        <div className="my-8 overflow-x-auto">
+          <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
+            <tbody>
+              {value.rows.map((row, rowIndex) => (
+                <tr key={rowIndex} className="hover:bg-gray-50">
+                  {row.cells.map((cell, cellIndex) => {
+                    const isHeader = rowIndex === 0; // First row as header
+                    const Tag = isHeader ? 'th' : 'td';
+                    
                     return (
-                      <tr
-                        key={i}
-                        className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                      <Tag
+                        key={cellIndex}
+                        className={`px-4 py-3 text-left border-b border-gray-200 ${
+                          isHeader 
+                            ? 'bg-gray-50 font-semibold text-gray-900 text-sm uppercase tracking-wider' 
+                            : 'text-gray-600'
+                        }`}
                       >
-                        {row.cells.map((cell, j) => (
-                          <td
-                            key={j}
-                            className="px-4 py-3 border border-gray-200 text-gray-700"
-                          >
-                            {cell || ""}
-                          </td>
-                        ))}
-                      </tr>
+                        {cell}
+                      </Tag>
                     );
                   })}
-                </tbody>
-              </table>
-            </div>
-          );
-        },
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    },
+    
+    // Custom HTML Table component
+    htmlTable: ({ value }) => {
+      if (!value?.html) return null;
 
-        code: ({ value }) => (
+      return (
+        <div className="my-8 overflow-x-auto">
+          <div 
+              suppressHydrationWarning
+            dangerouslySetInnerHTML={{ __html: value.html }}
+          />
+        </div>
+      );
+    },
+  },
+
+
+   code: ({ value }) => (
           <pre className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto my-6">
             <code className="font-mono text-sm">{value.code}</code>
           </pre>
         ),
-      },
 
       marks: {
         link: ({ children, value }) => {
