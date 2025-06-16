@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-import { PortableText } from "next-sanity";
 import heroD from "../assets/hero/diBlogs.webp"
+import heroM from "../assets/hero/blogMhero.webp"
 import { getblogs } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
 import CommonForm from "../components/CommonForm";
@@ -22,7 +21,14 @@ export default async function Blogs() {
             alt="bg image"
             width={1800}
             height={700}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover max-sm:hidden"
+          />
+          <Image
+            src={heroM}
+            alt="bg image"
+            width={1800}
+            height={700}
+            className="w-full h-full object-cover md:hidden"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
             {/* Background Large Text */}
