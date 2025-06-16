@@ -6,6 +6,7 @@ import { PortableText } from "next-sanity";
 import heroD from "../assets/hero/diBlogs.webp"
 import { getblogs } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
+import CommonForm from "../components/CommonForm";
 
 export default async function Blogs() {
 
@@ -36,7 +37,7 @@ export default async function Blogs() {
           </div>
         </section>
       </div>
-      <div className="pt-6 sm:pt-10 px-4 relative bg-gradient-to-br from-green-700 via-green-900">
+      <div className="pt-6 sm:pt-10 px-4 relative bg-gradient-to-br from-green-700 via-green-900 pb-4">
         <div className="absolute inset-0 "></div>
         <section className="relative flex flex-col justify-center items-center">
           <div className="max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -80,6 +81,7 @@ export default async function Blogs() {
           </div>
         </section>
       </div>
+        <CommonForm title="Secure Your Investment In India's First GreenField SmartCity"/>
     </>
   );
 }

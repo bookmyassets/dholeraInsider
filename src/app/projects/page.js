@@ -4,6 +4,7 @@ import Link from "next/link";
 import heroD from "../assets/hero/diBlogs.webp";
 import { getblogs, getPosts, getSub } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
+import CommonForm from "../components/CommonForm";
 
 export default async function Blogs() {
   // Get both regular posts and sub-projects
@@ -70,7 +71,6 @@ export default async function Blogs() {
                       : "shadow-green-400 dark:shadow-green-900"
                   } dark:bg-gray-900 mb-6 rounded-lg w-full max-w-xs sm:max-w-none relative`}
                 >
-
                   {isSoldOut && (
                     <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md text-xs font-semibold z-10">
                       SOLD OUT
@@ -123,6 +123,7 @@ export default async function Blogs() {
             })}
           </div>
         </section>
+        <CommonForm title="Book Dholera's Most Premium Plots" />
       </div>
     </>
   );

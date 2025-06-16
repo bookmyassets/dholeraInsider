@@ -334,7 +334,7 @@ export default function Aboutus() {
         <div className="container mx-auto px-6 sm:px-12">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-white text-3xl sm:text-4xl font-bold text-center">
-              Reach Out to Us
+             Know More About Dholera, With Dholera Insider
             </h2>
             <p className="text-gray-300 mt-4 text-center">
               Have questions about Dholera SIR? Contact our team for more information.

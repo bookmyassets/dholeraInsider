@@ -62,12 +62,12 @@ export default async function Post({ params }) {
       },
 
       htmlTableBlock: ({ value }) => {
-          if (!value?.html) return null;
+        if (!value?.html) return null;
 
-          return (
-            <div className="my-8 overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
-              <div
-                className="[&_table]:w-full [&_table]:border-collapse [&_table]:bg-white 
+        return (
+          <div className="my-8 overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+            <div
+              className="[&_table]:w-full [&_table]:border-collapse [&_table]:bg-white 
               [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-700 
               [&_th]:bg-gray-50 [&_th]:border-b [&_th]:border-gray-200
               [&_td]:px-6 [&_td]:py-4 [&_td]:text-gray-600 [&_td]:border-b [&_td]:border-gray-200
@@ -75,11 +75,11 @@ export default async function Post({ params }) {
               [&_tr:hover]:bg-gray-50/50
               [&_th:first-child]:rounded-tl-lg [&_th:last-child]:rounded-tr-lg
               [&_tr:last-child_td:first-child]:rounded-bl-lg [&_tr:last-child_td:last-child]:rounded-br-lg"
-                dangerouslySetInnerHTML={{ __html: value.html }}
-              />
-            </div>
-          );
-        },
+              dangerouslySetInnerHTML={{ __html: value.html }}
+            />
+          </div>
+        );
+      },
 
       // Fixed table component
       table: ({ value }) => {
@@ -327,47 +327,6 @@ export default async function Post({ params }) {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             {post.title}
           </h1>
-          <p className="text-white text-lg">{post.metaDescription}</p>
-
-          {/* Metadata row */}
-          <div className="flex items-center text-gray-300 text-sm md:text-base mb-8">
-            {formattedDate && (
-              <div className="flex items-center pb-4 mr-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                <span>{formattedDate}</span>
-              </div>
-            )}
-            <div className="flex items-center pb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>{readTime} min read</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -489,8 +448,7 @@ export default async function Post({ params }) {
         )}
       </div>
       <CostSheet />
-
-      <CommonForm title="Choose Best Plot For You" />
+      <CommonForm title={`Dholera’s Finest Living Begins at ${post.title} – Secure Your Plot Now.`} />
     </div>
   );
 }

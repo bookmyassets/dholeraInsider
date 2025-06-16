@@ -8,6 +8,7 @@ import Hero from "../components/hero";
 import Westwyn from "../components/WestWyn";
 import CTAsection from "../components/CTAsection";
 import MegaIndustries from "../components/MegaIndusties";
+import CommonForm from "../components/CommonForm";
 
 const HomePage = () => {
   const [showButton, setShowButton] = useState(false);
@@ -43,6 +44,7 @@ const HomePage = () => {
       <CTAsection/>
       <Westwyn/>
       <MegaIndustries/>
+      <CommonForm title="GET STARTED WITH DHOLERA's PREMIUM REAL ESTATE "/>
       
 
       {showButton && (
