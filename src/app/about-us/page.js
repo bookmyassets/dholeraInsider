@@ -134,7 +134,7 @@ export default function Aboutus() {
   
         if (response.ok) {
           // Success handling
-          setFormData({ fullName: "", phone: "" });
+          setFormData({ fullName: "", phone: "", location: "", message: "" });
           setShowPopup(true);
           setSubmissionCount((prev) => {
             const newCount = prev + 1;
@@ -348,8 +348,8 @@ export default function Aboutus() {
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
+                    id="fullName"
+                    name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
                     required
@@ -406,6 +406,7 @@ export default function Aboutus() {
                 <button
                   type="submit"
                   className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+                  onClick={handleSubmit}
                 >
                   Submit
                 </button>

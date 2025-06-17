@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { FaUser, FaPhoneAlt, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/dt.webp";
+import logo from "@/app/assets/icons/logo.webp";
 import { useRouter, usePathname } from "next/navigation"
 
 export default function Popup({
@@ -10,7 +10,7 @@ export default function Popup({
   title,
   thankYouTitle = "Thank You!",
   thankYouMessage = "Your request has been submitted successfully.",
-  source = "Dholera Times",
+  source = "Dholera Insider",
 }) {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({ fullName: "", phone: "" });

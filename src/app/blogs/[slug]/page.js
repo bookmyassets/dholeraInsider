@@ -1,6 +1,6 @@
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
-import {  getPostBySlug } from "@/sanity/lib/api";
+import { getPostBySlug } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import CommonForm from "@/app/components/CommonForm";
@@ -329,149 +329,197 @@ export default async function Post({ params }) {
 
     const canonicalUrl = `https://www.bookmyassets.com/blogs/${post.slug.current}`;
 
-    return (
-        <div className="bg-gray-50 min-h-screen">
-          {/* <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-          /> */}
-          <title>{post.metaTitle}</title>
-          <meta name="description" content={post.metaDescription} />
-          <meta name="keywords" content={post.keywords} />
-          <link rel="canonical" href={canonicalUrl} />
-    
-          {/* Hero Section with Image */}
-          <div className="w-full bg-gradient-to-b from-gray-900 to-gray-800 relative">
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="max-w-7xl mx-auto pt-32 pb-20 px-4 space-y-4 sm:px-6 lg:px-8 relative z-10">
-              {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                {post.title}
-              </h1>
-            </div>
-          </div>
-    
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
-            {/* Featured Image Card */}
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
-              {post.mainImage && (
-                <div className="relative w-full h-[50vh] md:h-[60vh]">
-                  <Image
-                    src={urlFor(post.mainImage)?.url() || ""}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              )}
-            </div>
-    
-            {/* Content Area */}
-            <div className="bg-white rounded-2xl shadow-xl">
-              <div className="max-w-4xl mx-auto px-6 md:px-12 py-4 md:py-8">
-                {/* Content */}
-                <div className="prose prose-lg max-w-none">
-                  <PortableText value={post.body} components={components} />
-                </div>
-              </div>
-            </div>
-          </main>
-    
-          <div className="bg-black py-12 mt-4">
-            <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
-              <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
+    const renderMainImage = () => {
+      if (!post.mainImage) return null;
+
+      const imageElement = (
+        <div className="relative w-full h-[50vh] md:h-[60vh] group">
+          <Image
+            src={urlFor(post.mainImage)?.url() || ""}
+            alt={post.mainImage?.alt || post.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            priority
+          />
+          {/* Optional overlay for linked images */}
+          {post.mainImage?.link && (
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
+                <svg
+                  className="w-6 h-6 text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
-                    fillRule="evenodd"
-                    d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                    clipRule="evenodd"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   />
                 </svg>
               </div>
-              <h2 className="text-4xl font-bold mb-6">Ready for More Insights?</h2>
-              <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
-                Join thousands of readers who trust us for the latest industry
-                insights, market analysis, and investment opportunities.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
-                <Link
-                  href="/insider-dholera"
-                  className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                >
-                  Explore Dholera
-                </Link>
-                <Link
-                  href="/contact"
-                  className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                >
-                  Get in Touch
-                </Link>
+            </div>
+          )}
+        </div>
+      );
+
+      // If there's a link, wrap the image in a Link component
+      if (post.mainImage?.link) {
+        return (
+          <Link
+            href={post.mainImage.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block cursor-pointer"
+          >
+            {imageElement}
+          </Link>
+        );
+      }
+
+      // If no link, return the image as is
+      return imageElement;
+    };
+
+    return (
+      <div className="bg-gray-50 min-h-screen">
+        {/* <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+          /> */}
+        <title>{post.metaTitle}</title>
+        <meta name="description" content={post.metaDescription} />
+        <meta name="keywords" content={post.keywords} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Hero Section with Image */}
+        <div className="w-full bg-gradient-to-b from-gray-900 to-gray-800 relative">
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="max-w-7xl mx-auto pt-32 pb-20 px-4 space-y-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              {post.title}
+            </h1>
+          </div>
+        </div>
+
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
+            {renderMainImage()}
+          </div>
+
+          {/* Content Area */}
+          <div className="bg-white rounded-2xl shadow-xl">
+            <div className="max-w-4xl mx-auto px-6 md:px-12 py-4 md:py-8">
+              {/* Content */}
+              <div className="prose prose-lg max-w-none">
+                <PortableText value={post.body} components={components} />
               </div>
             </div>
           </div>
-    
-          <div className="max-w-7xl mx-auto">
-            {trendingBlogs && trendingBlogs.length > 0 && (
-              <div className="py-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="text-center mb-8">
-                    <span className="inline-block bg-gradient-to-r from-emerald-700 to-emerald-900 text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
-                      Trending Now
-                    </span>
-                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                      Most Popular Articles
-                    </h2>
-                    <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                      See what everyone's reading this week
-                    </p>
-                  </div>
-    
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {trendingBlogs.slice(0, 6).map((blog, index) => (
-                      <Link
-                        key={blog._id}
-                        href={`/blogs/${blog.slug.current}`}
-                        className="group block"
-                      >
-                        <article className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform group-hover:-translate-y-1">
-                          <div className="absolute top-4 left-4 z-10">
-                            <div className="bg-emerald-800 text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-lg">
-                              {index + 1}
-                            </div>
+        </main>
+
+        <div className="bg-black py-12 mt-4">
+          <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
+              <svg
+                className="w-12 h-12"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <h2 className="text-4xl font-bold mb-6">
+              Ready for More Insights?
+            </h2>
+            <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
+              Join thousands of readers who trust us for the latest industry
+              insights, market analysis, and investment opportunities.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
+              <Link
+                href="/insider-dholera"
+                className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                Explore Dholera
+              </Link>
+              <Link
+                href="/contact"
+                className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto">
+          {trendingBlogs && trendingBlogs.length > 0 && (
+            <div className="py-8">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-8">
+                  <span className="inline-block bg-gradient-to-r from-emerald-700 to-emerald-900 text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
+                    Trending Now
+                  </span>
+                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    Most Popular Articles
+                  </h2>
+                  <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    See what everyone's reading this week
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {trendingBlogs.slice(0, 6).map((blog, index) => (
+                    <Link
+                      key={blog._id}
+                      href={`/blogs/${blog.slug.current}`}
+                      className="group block"
+                    >
+                      <article className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform group-hover:-translate-y-1">
+                        <div className="absolute top-4 left-4 z-10">
+                          <div className="bg-emerald-800 text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-lg">
+                            {index + 1}
                           </div>
-                          {blog.mainImage && (
-                            <div className="relative h-48 overflow-hidden">
-                              <Image
-                                src={urlFor(blog.mainImage)
-                                  .width(400)
-                                  .height(200)
-                                  .url()}
-                                alt={blog.title}
-                                width={400}
-                                height={200}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            </div>
-                          )}
-                          <div className="p-6">
-                            <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-[#C69C21] transition-colors duration-200 line-clamp-2 text-lg leading-tight">
-                              {blog.title}
-                            </h3>
+                        </div>
+                        {blog.mainImage && (
+                          <div className="relative h-48 overflow-hidden">
+                            <Image
+                              src={urlFor(blog.mainImage)
+                                .width(400)
+                                .height(200)
+                                .url()}
+                              alt={blog.title}
+                              width={400}
+                              height={200}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                           </div>
-                        </article>
-                      </Link>
-                    ))}
-                  </div>
+                        )}
+                        <div className="p-6">
+                          <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-[#C69C21] transition-colors duration-200 line-clamp-2 text-lg leading-tight">
+                            {blog.title}
+                          </h3>
+                        </div>
+                      </article>
+                    </Link>
+                  ))}
                 </div>
               </div>
-            )}
-          </div>
-    
-          <CommonForm title="Get Best Deals in Premium Dholera Plots" />
+            </div>
+          )}
         </div>
-      );
+
+        <CommonForm title="Get Best Deals in Premium Dholera Plots" />
+      </div>
+    );
   } catch (error) {
     console.error("Error loading blog post:", slug, error);
     return (

@@ -335,6 +335,59 @@ export default async function Post({ params }) {
 
     const canonicalUrl = `https://www.bookmyassets.com/blogs/${post.slug.current}`;
 
+      const renderMainImage = () => {
+          if (!post.mainImage) return null;
+    
+          const imageElement = (
+            <div className="relative w-full h-[50vh] md:h-[60vh] group">
+              <Image
+                src={urlFor(post.mainImage)?.url() || ""}
+                alt={post.mainImage?.alt || post.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                priority
+              />
+              {/* Optional overlay for linked images */}
+              {post.mainImage?.link && (
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
+                    <svg
+                      className="w-6 h-6 text-gray-800"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+    
+          // If there's a link, wrap the image in a Link component
+          if (post.mainImage?.link) {
+            return (
+              <Link
+                href={post.mainImage.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block cursor-pointer"
+              >
+                {imageElement}
+              </Link>
+            );
+          }
+    
+          // If no link, return the image as is
+          return imageElement;
+        };
+
     return (
       <div className="bg-gray-50 min-h-screen">
         {/* <script
@@ -359,18 +412,8 @@ export default async function Post({ params }) {
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
           {/* Featured Image Card */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
-            {post.mainImage && (
-              <div className="relative w-full h-[50vh] md:h-[60vh]">
-                <Image
-                  src={urlFor(post.mainImage)?.url() || ""}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            )}
+         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
+            {renderMainImage()}
           </div>
 
           {/* Content Area */}

@@ -41,8 +41,8 @@ const HomePage = () => {
       <Hero/>
       <Whatsapp />
       <About />
-      <CTAsection/>
       <Westwyn/>
+      <CTAsection/>
       <MegaIndustries/>
       <CommonForm title="GET STARTED WITH DHOLERA's PREMIUM REAL ESTATE "/>
       

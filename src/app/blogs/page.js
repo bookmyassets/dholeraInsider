@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import heroD from "../assets/hero/diBlogs.webp"
+import heroD from "../assets/hero/diBlogs.png"
 import heroM from "../assets/hero/blogMhero.webp"
 import { getblogs } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
@@ -15,13 +15,13 @@ export default async function Blogs() {
     <>
 <div>
         {/* Hero Section */}
-        <section className="flex flex-col w-full sm:h-[50vh] h-[50vh] relative">
+        <section className=" w-full sm:h-[50vh] h-[50vh] relative">
           <Image
             src={heroD}
             alt="bg image"
             width={1800}
-            height={700}
-            className="w-full h-full object-cover max-sm:hidden"
+            
+            className="w-full h-full max-sm:hidden"
           />
           <Image
             src={heroM}

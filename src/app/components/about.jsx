@@ -26,10 +26,10 @@ export default function About() {
 
         <div className="relative">
           <div className="flex flex-col justify-center items-center mt-20">
-            <p className="text-9xl sm:text-10xl text-teal-300 opacity-10 font-black text-center z-0 absolute top-0 left-0 w-full">
+            <p className="text-9xl max-sm:text-5xl text-teal-300 opacity-10 font-black text-center z-0 absolute top-0 left-0 w-full">
               Inside Dholera
             </p>
-            <p className="text-4xl text-white font-bold text-center z-20 relative mt-16 drop-shadow-lg">
+            <p className="text-4xl text-white font-bold text-center z-20 relative drop-shadow-lg">
               We Will Find the Best Option
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mt-4 rounded-full"></div>

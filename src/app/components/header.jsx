@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import logo from "@/app/assets/icons/logo.webp";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
 import { getPosts, getSub, projectInfo } from "@/sanity/lib/api";
+import { AnimatePresence } from "framer-motion";
+import ContactForm from "./ContactForm"; // Make sure to import your ContactForm component
 
 const Header = () => {
   const [header, setHeader] = useState(false);
@@ -16,6 +18,7 @@ const Header = () => {
   const [projects, setProjects] = useState([]);
   const [insideDholeraProjects, setInsideDholeraProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   // Navigation data
   const navItems = [
@@ -25,8 +28,16 @@ const Header = () => {
     { name: "Projects", href: "/projects/westwynCounty" },
   ];
 
+  const openContactForm = () => {
+    setIsContactFormOpen(true);
+    setMobileMenuOpen(false); // Close mobile menu when opening form
+  };
+
+  const closeContactForm = () => {
+    setIsContactFormOpen(false);
+  };
+
   const dropdownItems = [
-    
     {
       name: "Inside Dholera",
       key: "projects",
@@ -48,7 +59,10 @@ const Header = () => {
       items: [
         { name: "Call Now", href: "tel:+919211820887" },
         { name: "WhatsApp Us", href: "https://wa.me/919211820887" },
-        { name: "Book A Free Site Visit", href: "/callback" },
+        { 
+          name: "Book A Free Site Visit", 
+          onClick: openContactForm 
+        },
       ],
     },
   ];
@@ -128,7 +142,7 @@ const Header = () => {
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
+    if (mobileMenuOpen || isContactFormOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -137,7 +151,7 @@ const Header = () => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, isContactFormOpen]);
 
   // Loading state
   if (loading) {
@@ -166,9 +180,8 @@ const Header = () => {
             <Image
               src={logo}
               alt="Logo"
-              fill
               className="object-contain"
-              priority
+              fill
             />
           </div>
         </Link>
@@ -179,7 +192,7 @@ const Header = () => {
         {navItems.map((item) => (
           <li key={item.name} className="p-4">
             <Link
-              href={item.href || item.itemHref}
+              href={item.href}
               className="font-bold hover:text-orange-500 transition-colors"
             >
               {item.name}
@@ -218,6 +231,21 @@ const Header = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 {dropdown.items.map((item) => {
+                  if (item.onClick) {
+                    return (
+                      <button
+                        key={item.name}
+                        onClick={() => {
+                          item.onClick();
+                          setActiveDropdown(null);
+                        }}
+                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm text-gray-700 dark:text-gray-300"
+                      >
+                        {item.name}
+                      </button>
+                    );
+                  }
+
                   const isSoldOut = item.categories?.some(
                     (cat) => cat.title === "Sold Out"
                   );
@@ -314,6 +342,22 @@ const Header = () => {
               >
                 <ul className="space-y-2">
                   {dropdown.items.map((item) => {
+                    if (item.onClick) {
+                      return (
+                        <li key={item.name}>
+                          <button
+                            onClick={() => {
+                              item.onClick();
+                              setMobileActiveDropdown(null);
+                            }}
+                            className="block w-full text-left py-2 text-sm text-gray-200 hover:text-orange-400 transition-colors duration-200"
+                          >
+                            {item.name}
+                          </button>
+                        </li>
+                      );
+                    }
+
                     const soldOut = item.categories?.some(
                       (cat) => cat.title === "Sold Out"
                     );
@@ -350,6 +394,15 @@ const Header = () => {
           ))}
         </div>
       </div>
+
+      {/* Contact Form Modal */}
+      <AnimatePresence>
+        {isContactFormOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
+            <ContactForm onClose={closeContactForm} />
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
