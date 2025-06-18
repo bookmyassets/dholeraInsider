@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import heroD from "../assets/hero/aboutHero.webp";
-import heroM from "../assets/hero/aboutMHero.webp";
+import heroM from "../assets/hero/aboutMhero.webp";
 import "./about.css"
 
 export default function Aboutus() {

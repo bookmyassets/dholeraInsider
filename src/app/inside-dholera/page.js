@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import heroD from "../assets/hero/idhero.webp"
+import heroD from "../assets/hero/idHero.webp"
 import heroM from "../assets/hero/idMHero.webp"
 import Link from "next/link";
 import { projectInfo } from "@/sanity/lib/api";
