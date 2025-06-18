@@ -12,7 +12,6 @@ export const metadata = {
 export default async function VideosPage() {
   // Assuming YouTube video links could be fetched from Sanity or another source
  const videos = [
-  
   {
     id: "-EtnTmJW28U?si=gTz_t-vZe6VTfcBU",
     title: "Dholera SIR Infrastructure Development",
@@ -75,16 +74,28 @@ export default async function VideosPage() {
   }
 
   return (
-    <div className="min-h-[87vh] bg-gradient-to-b from-blue-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8"style={{
-          backgroundImage: `url(${bg.src})`,
+    <div className="min-h-[87vh] py-16 px-4 sm:px-6 lg:px-8 relative">
+      {/* Background Image with Gradient Overlay */}
+      <div 
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)),
+            url(${bg.src})
+          `,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 relative">
-          
-          <p className=" text-lg font-semibold max-w-2xl pt-16 mx-auto leading-relaxed">
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      ></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold text-white mb-4">
+            Dholera Smart City Videos
+          </h1>
+          <p className="text-lg font-semibold text-gray-200 max-w-2xl mx-auto leading-relaxed">
             Watch expert insights on why investing in Dholera is a smart financial decision and learn about the city's development.
           </p>
         </div>
@@ -108,7 +119,11 @@ export default async function VideosPage() {
                 </div>
                 
                 {/* Duration badge */}
-                
+                {video.duration && (
+                  <span className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
+                    {video.duration}
+                  </span>
+                )}
               </div>
               
               <div className="p-5">
@@ -125,7 +140,7 @@ export default async function VideosPage() {
         {/* Video playlist CTA */}
         <div className="mt-16 text-center">
           <div className="inline-block w-16 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-          <p className="mt-4 text-sm text-gray-500">
+          <p className="mt-4 text-sm text-gray-300">
             Subscribe to our channel for more videos about Dholera Smart City
           </p>
         </div>

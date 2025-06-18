@@ -7,7 +7,7 @@ import logo from "@/app/assets/icons/logo.webp";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
 import { getPosts, getSub, projectInfo } from "@/sanity/lib/api";
 import { AnimatePresence } from "framer-motion";
-import ContactForm from "@/app/components/Contactform"; // Make sure to import your ContactForm component
+import ContactForm from "@/app/components/Contactform";
 
 const Header = () => {
   const [header, setHeader] = useState(false);
@@ -26,6 +26,7 @@ const Header = () => {
     { name: "About", href: "/about-us" },
     { name: "Blogs", href: "/blogs" },
     { name: "Projects", href: "/projects/westwynCounty" },
+    { name: "Bulk Land", href: "/bulk-land" },
   ];
 
   const openContactForm = () => {

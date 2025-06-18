@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import heroD from "../assets/hero/projectHeroD.webp"
-import heroM from "../assets/hero/idMhero.webp"
+import heroD from "../assets/hero/idhero.webp"
+import heroM from "../assets/hero/idMHero.webp"
 import Link from "next/link";
 import { projectInfo } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
+import CommonForm from "../components/CommonForm";
 
 function truncateText(text, maxLength) {
   if (!text) return "";
@@ -98,6 +99,7 @@ export default async function Insidedholera() {
           </div>
         </section>
       </div>
+      <CommonForm title="Choose Best Plot For You" />
       </div>
     </>
   );

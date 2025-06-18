@@ -192,6 +192,14 @@ const Footer = () => {
                   <span className="mr-2">›</span> Copyright Policy
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/policies/buy-back-policy"
+                  className="text-white hover:text-blue-400 transition flex items-center"
+                >
+                  <span className="mr-2">›</span> Buy Back Policy
+                </Link>
+              </li>
             </ul>
           </div>
 

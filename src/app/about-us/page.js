@@ -2,11 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import heroD from "../assets/hero/aboutHero.webp";
-import heroM from "../assets/hero/aboutMhero.webp";
+import heroM from "../assets/hero/aboutMHero.webp";
 import "./about.css"
 
 export default function Aboutus() {
-
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({ fullName: "", phone: "", location: "", message: "" });
     const [showPopup, setShowPopup] = useState(false);
@@ -78,7 +77,7 @@ export default function Aboutus() {
   
     const validateForm = () => {
       if (!formData.fullName || !formData.phone) {
-        setErrorMessage("Please fill in all fields");
+        setErrorMessage("Please fill in all required fields");
         return false;
       }
   
@@ -121,8 +120,6 @@ export default function Aboutus() {
             fields: {
               name: formData.fullName,
               phone: formData.phone,
-              location: formData.location,
-              message: formData.message,
               source: "Dholera Insider",
             },
             source: "Dholera Insider Website",
@@ -140,7 +137,7 @@ export default function Aboutus() {
             const newCount = prev + 1;
             if (typeof window !== "undefined") {
               localStorage.setItem("formSubmissionCount", newCount.toString());
-              localStorage.setItem("lastSubmissionTime", Date.now().toString()); // Fixed this line
+              localStorage.setItem("lastSubmissionTime", Date.now().toString());
             }
             return newCount;
           });
@@ -207,7 +204,6 @@ export default function Aboutus() {
         setIsLoading(false);
       }
     };
-  
 
   return (
     <div>
@@ -340,78 +336,113 @@ export default function Aboutus() {
               Have questions about Dholera SIR? Contact our team for more information.
             </p>
 
-            <form className="mt-12 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {showPopup ? (
+              <div className="text-center py-8">
+                <div className="mb-4 inline-block">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-10 w-10 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Thank You!
+                </h3>
+                <p className="text-gray-300">
+                  Your request has been submitted successfully. We'll contact
+                  you shortly.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} id="contact-form-container" className="mt-12 space-y-6">
+                {errorMessage && (
+                  <div className="p-3 bg-red-500 bg-opacity-20 border border-red-400 text-red-100 rounded-lg text-sm">
+                    {errorMessage}
+                  </div>
+                )}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="fullName" className="block text-white text-sm font-medium mb-2">
+                      Full Name
+                    </label>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="location" className="block text-white text-sm font-medium mb-2">
+                      Location
+                    </label>
+                    <input
+                      id="location"
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      placeholder="Enter your location"
+                    />
+                  </div>
+                </div>
                 <div>
-                  <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
-                    Full Name
+                  <label htmlFor="phone" className="block text-white text-sm font-medium mb-2">
+                    Phone Number
                   </label>
                   <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    placeholder="Enter your name"
+                    placeholder="Enter your phone number"
                   />
                 </div>
                 <div>
-                  <label htmlFor="location" className="block text-white text-sm font-medium mb-2">
-                    Location
+                  <label htmlFor="message" className="block text-white text-sm font-medium mb-2">
+                    Message For us
                   </label>
-                  <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    value={formData.location}
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    value={formData.message}
                     onChange={handleChange}
-                    required
                     className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    placeholder="Enter your location"
-                  />
+                    placeholder="Write your Query here"
+                  ></textarea>
                 </div>
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-white text-sm font-medium mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-white text-sm font-medium mb-2">
-                  Message For us
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  placeholder="Write your Query here"
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+                <div className="flex justify-center">
+                  <div ref={recaptchaRef}></div>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+                  >
+                    {isLoading ? "Submitting..." : "Submit"}
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </section>
