@@ -238,54 +238,6 @@ export default function Aboutus() {
         </section>
       </div>
 
-      {/* Content Section */}
-      <section className="bg-[#f4efe7] dark:bg-[#171f2a] py-16">
-        <div className="container mx-auto px-6 sm:px-12">
-          <h2 className="text-black dark:text-white uppercase text-sm font-semibold">
-            What We Stand For
-          </h2>
-          <h1 className="text-[#1e3a8b] text-3xl sm:text-4xl font-bold mt-2">
-            Pioneering India's First Greenfield Smart City
-          </h1>
-
-          <div className="grid md:grid-cols-2 gap-12 mt-12">
-            {/* Left Section - Our Mission */}
-            <div>
-              <h3 className="text-black dark:text-white text-sm font-semibold uppercase">
-                Our Mission
-              </h3>
-              <h2 className="text-[#1e3a8b] text-2xl font-bold mt-2">
-                Building Sustainable Urban Infrastructure
-              </h2>
-              <p className="text-gray-400 mt-4">
-                Dholera Special Investment Region (SIR) is India's most ambitious 
-                smart city project, designed to set global benchmarks in urban 
-                planning, sustainability, and economic growth. Our mission is to 
-                create a model city that integrates cutting-edge technology with 
-                environmental consciousness.
-              </p>
-            </div>
-
-            {/* Right Section - Vision */}
-            <div>
-              <h3 className="text-black dark:text-white text-sm font-semibold uppercase">
-                Our Vision
-              </h3>
-              <h2 className="text-[#1e3a8b] text-2xl font-bold mt-2">
-                Transforming Urban Living in India
-              </h2>
-              <p className="text-gray-400 mt-4">
-                Dholera SIR envisions a future-ready city that leverages smart 
-                technologies, renewable energy, and efficient transportation 
-                systems. We aim to create an economic hub that attracts global 
-                investments while maintaining ecological balance and offering 
-                unparalleled quality of life to residents.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Dholera Insider Section */}
       <section className="bg-white dark:bg-gray-900 py-16">
         <div className="container mx-auto px-6 sm:px-12">
