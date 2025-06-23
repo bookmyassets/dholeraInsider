@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="bg-white shadow-2xl p-2 mb-12 rounded-lg">
           <div className="w-full h-full">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4203.481970734832!2d77.03394468685377!3d28.41944811333691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23d440cffedd%3A0x77e4afa67247493e!2sBookMyAssets!5e1!3m2!1sen!2sin!4v1743427563302!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4221.747891952484!2d77.0385836!3d28.4197016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ee757eb04faba1b%3A0x653f6f2b14991ba!2sDholera%20Insider!5e1!3m2!1sen!2sin!4v1750661065842!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "455px", borderRadius: "0.75rem" }}
