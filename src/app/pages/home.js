@@ -10,12 +10,44 @@ import CTAsection from "../components/CTAsection";
 import MegaIndustries from "../components/MegaIndusties";
 import CommonForm from "../components/CommonForm";
 
-const HomePage = () => {
+const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: (0, 0), behavior: "smooth" });
   };
+
+   useEffect(() => {
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      // Check localStorage to see if popup was already shown
+      const popupShown = localStorage.getItem('popupShown');
+      
+      if (!popupShown) {
+        const timer = setTimeout(() => {
+          openForm();
+          localStorage.setItem('popupShown', 'true');
+        }, 2000); // 5 seconds
+
+        const handleScroll = () => {
+          if (window.scrollY > window.innerHeight * 0.05) {
+            openForm();
+            localStorage.setItem('popupShown', 'true');
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timer);
+          }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+          clearTimeout(timer);
+        };
+      }
+    }
+  }, [openForm]);
+
 
   useEffect(() => {
     const handleScroll = () => {

@@ -8,7 +8,9 @@ export default function App() {
 
   return (
     <>
-      <HomePage/>
+    <div>
+      <HomePage openForm={() => setpopShowForm(true)}  />
+    </div>
       {showpopForm && (
         <Popup
           onClose={() => setpopShowForm(false)}
