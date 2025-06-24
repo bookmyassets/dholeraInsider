@@ -299,7 +299,7 @@ export default function Popup({
                 transition={{ delay: 0.2 }}
                 className="mb-6"
               >
-                <div className="w-24 h-24 bg-[#FDB913] rounded-full flex items-center justify-center mx-auto">
+                <div className="w-24 h-24 bg-amber-200 rounded-full flex items-center justify-center mx-auto">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-12 w-12 text-black"
@@ -356,7 +356,7 @@ export default function Popup({
             initial={{ scale: 0.9, y: 50, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.9, y: 50, opacity: 0 }}
-            className="bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full relative overflow-visible border border-[#FDB913]"
+            className="bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full relative overflow-visible border border-amber-200"
             onClick={handleModalContentClick}
           >
             <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20">
@@ -364,7 +364,7 @@ export default function Popup({
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="bg-black p-4 rounded-full shadow-2xl border-4 border-white relative"
+                className="bg-gradient-to-r from-gray-900 via-emerald-900 to-teal-900 p-4 rounded-full shadow-2xl border-4 border-white relative"
               >
                 <Image
                   src={logo}
@@ -379,12 +379,12 @@ export default function Popup({
             </div>
 
             {/* Header Section with Gradient Background */}
-            <div className="bg-black text-white p-6 pb-8 pt-12 relative rounded-t-2xl">
+            <div className="bg-gradient-to-r from-gray-900 via-emerald-900 to-teal-900 text-white p-6 pb-8 pt-12 relative rounded-t-2xl">
               {/* Close Button */}
               <button
                 type="button"
                 onClick={handleClose}
-                className="absolute top-4 right-4 text-white/80 hover:text-[#FDB913] focus:outline-none focus:ring-2 focus:ring-[#FDB913]/50 rounded-full p-2 transition-all duration-200 hover:bg-gray-800 z-10"
+                className="absolute top-4 right-4 text-white/80 hover:text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200/50 rounded-full p-2 transition-all duration-200 hover:bg-gray-800 z-10"
                 aria-label="Close form"
               >
                 <svg
@@ -407,13 +407,13 @@ export default function Popup({
               <div className="text-center">
                 {/* Exclusive Deal Section */}
                 <div className="mb-3">
-                  <span className="bg-[#FDB913] text-black px-3 py-1 rounded-full text-sm font-bold inline-flex items-center gap-2">
+                  <span className="bg-amber-200 text-black px-3 py-1 rounded-full text-sm font-bold inline-flex items-center gap-2">
                     <FaClock className="text-xs" />
                     Inaugural Offer
                   </span>
                 </div>
 
-                <h2 className="text-2xl md:text-3xl font-bold mb-1 leading-tight text-[#FDB913]">
+                <h2 className="text-2xl md:text-3xl font-bold mb-1 leading-tight text-amber-200">
                   {titleInfo.mainText}
                 </h2>
 
@@ -433,7 +433,7 @@ export default function Popup({
                 </p>
 
                 {titleInfo.timeLeft && (
-                  <div className="bg-[#FDB913] text-black px-4 py-2 rounded-lg inline-flex items-center gap-2 font-bold mb-6">
+                  <div className="bg-amber-200 text-black px-4 py-2 rounded-lg inline-flex items-center gap-2 font-bold mb-6">
                     <FaClock className="text-sm" />
                     {formatTime(timeLeft)} left!
                   </div>
@@ -442,7 +442,7 @@ export default function Popup({
             </div>
 
             {/* Form Section */}
-            <div className="p-6 bg-white rounded-b-2xl">
+            <div className="p-6 bg-gradient-to-r from-gray-900 via-emerald-900 to-teal-900 rounded-b-2xl">
               {showSubmissionSuccess ? (
                 <div className="text-center py-8">
                   <motion.div
@@ -450,7 +450,7 @@ export default function Popup({
                     animate={{ scale: 1 }}
                     className="mb-4 inline-block"
                   >
-                    <div className="w-16 h-16 bg-[#FDB913] rounded-full flex items-center justify-center mx-auto">
+                    <div className="w-16 h-16 bg-amber-200 rounded-full flex items-center justify-center mx-auto">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-10 w-10 text-black"
@@ -467,7 +467,7 @@ export default function Popup({
                       </svg>
                     </div>
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-[#FDB913] mb-2">
+                  <h3 className="text-2xl font-bold text-amber-200 mb-2">
                     Thank You!
                   </h3>
                   <p className="text-gray-800">
@@ -493,14 +493,14 @@ export default function Popup({
                     transition={{ delay: 0.4 }}
                     className="relative"
                   >
-                    <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#FDB913]" />
+                    <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-amber-200" />
                     <input
                       name="fullName"
                       placeholder="Enter your full name"
                       value={formData.fullName}
                       onChange={handleChange}
                       required
-                      className="w-full p-3 pl-12 bg-gray-900 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FDB913] border border-gray-600 hover:border-[#FDB913] transition-colors"
+                      className="w-full p-3 pl-12 bg-gray-900 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-200 border border-gray-600 hover:border-amber-200 transition-colors"
                     />
                   </motion.div>
 
@@ -510,7 +510,7 @@ export default function Popup({
                     transition={{ delay: 0.5 }}
                     className="relative"
                   >
-                    <FaPhoneAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#FDB913]" />
+                    <FaPhoneAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-amber-200" />
                     <input
                       name="phone"
                       type="tel"
@@ -520,7 +520,7 @@ export default function Popup({
                       minLength="10"
                       maxLength="15"
                       required
-                      className="w-full p-3 pl-12 bg-gray-900 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FDB913] border border-gray-600 hover:border-[#FDB913] transition-colors"
+                      className="w-full p-3 pl-12 bg-gray-900 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-200 border border-gray-600 hover:border-amber-200 transition-colors"
                     />
                   </motion.div>
 
@@ -538,7 +538,7 @@ export default function Popup({
                     type="submit"
                     id="popup"
                     disabled={isLoading || !recaptchaLoaded}
-                    className="w-full py-4 px-6 bg-[#FDB913] text-black rounded-xl hover:bg-[#FDB913]/90 transition-all shadow-lg hover:shadow-[#FDB913]/25 font-bold text-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-4 px-6 bg-amber-200 text-black rounded-xl hover:bg-amber-200/90 transition-all shadow-lg hover:shadow-amber-200/25 font-bold text-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isLoading ? (
                       <>
