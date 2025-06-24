@@ -16,6 +16,14 @@ export default function ContactForm({ onClose }) {
   const recaptchaRef = useRef(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
+  const handleClose = () => {
+    if (onClose && typeof onClose === 'function') {
+      onClose();
+    }
+  };
+
+  
+
   useEffect(() => {
     const loadRecaptcha = () => {
       if (typeof window !== "undefined" && !window.grecaptcha) {
@@ -54,15 +62,16 @@ export default function ContactForm({ onClose }) {
       e.stopPropagation();
     };
 
-    const formElement = document.getElementById("contact-form-container");
-    if (formElement) {
-      formElement.addEventListener("click", handleClickInside);
-    }
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        handleClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapeKey);
 
     return () => {
-      if (formElement) {
-        formElement.removeEventListener("click", handleClickInside);
-      }
+      document.removeEventListener('keydown', handleEscapeKey);
     };
   }, []);
 
@@ -91,7 +100,9 @@ export default function ContactForm({ onClose }) {
       localStorage.setItem("formSubmissionCount", "0");
       localStorage.setItem("lastSubmissionTime", now.toString());
     } else if (submissionCount >= 3) {
-      setErrorMessage("You have reached the maximum submission limit. Try again after 24 hours.");
+      setErrorMessage(
+        "You have reached the maximum submission limit. Try again after 24 hours."
+      );
       return false;
     }
 
@@ -101,22 +112,26 @@ export default function ContactForm({ onClose }) {
   const onRecaptchaSuccess = async (token) => {
     try {
       const now = Date.now();
-      
-      const response = await fetch("https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TELECRM_API_KEY}`,
-        },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          phone: formData.phone,
-          recaptchaToken: token,
-          source: "Dholera Insider",
-        }),
-      });
 
-      const data = response.status !== 204 ? await response.json().catch(() => ({})) : {};
+      const response = await fetch(
+        "https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TELECRM_API_KEY}`,
+          },
+          body: JSON.stringify({
+            fullName: formData.fullName,
+            phone: formData.phone,
+            recaptchaToken: token,
+            source: "Dholera Insider",
+          }),
+        }
+      );
+
+      const data =
+        response.status !== 204 ? await response.json().catch(() => ({})) : {};
 
       if (response.ok) {
         setFormData({ fullName: "", phone: "" });
@@ -136,10 +151,12 @@ export default function ContactForm({ onClose }) {
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      setErrorMessage(error.message || "Error submitting form. Please try again.");
+      setErrorMessage(
+        error.message || "Error submitting form. Please try again."
+      );
     } finally {
       setIsLoading(false);
-      
+
       if (window.grecaptcha && recaptchaRef.current) {
         window.grecaptcha.reset(recaptchaRef.current);
       }
@@ -195,25 +212,24 @@ export default function ContactForm({ onClose }) {
         <button
           type="button"
           onClick={(e) => {
-            e.preventDefault();
             e.stopPropagation();
-            onClose?.();
+            onClose();
           }}
           className="absolute top-4 right-4 text-emerald-300 hover:text-white focus:outline-none"
           aria-label="Close form"
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-6 w-6" 
-            fill="none" 
-            viewBox="0 0 24 24" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M6 18L18 6M6 6l12 12" 
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
             />
           </svg>
         </button>
@@ -225,13 +241,7 @@ export default function ContactForm({ onClose }) {
             transition={{ delay: 0.2 }}
             className="bg-gradient-to-r from-gray-900 to-teal-900 p-2 shadow-lg border border-emerald-700 rounded-full"
           >
-            <Image
-              src={logo}
-              alt="Logo"
-              width={60}
-              height={60}
-              className=""
-            />
+            <Image src={logo} alt="Logo" width={60} height={60} className="" />
           </motion.div>
         </div>
 
@@ -241,7 +251,9 @@ export default function ContactForm({ onClose }) {
           transition={{ delay: 0.3 }}
           className="text-center mb-6"
         >
-          <h2 className="text-3xl font-bold text-white mb-2">Book A Site Visit</h2>
+          <h2 className="text-3xl font-bold text-white mb-2">
+            Book A Site Visit
+          </h2>
           <p className="text-emerald-100 text-sm">
             Get Expert Guidance on Dholera Investment
           </p>
@@ -284,7 +296,7 @@ export default function ContactForm({ onClose }) {
                 {errorMessage}
               </div>
             )}
-            
+
             <div className="relative">
               <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-emerald-300" />
               <input
@@ -321,7 +333,11 @@ export default function ContactForm({ onClose }) {
               disabled={isLoading || !recaptchaLoaded}
               className="w-full py-3 px-6 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-lg hover:from-emerald-600 hover:to-teal-700 transition-all shadow-lg hover:shadow-emerald-500/20 font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {isLoading ? "Verifying..." : recaptchaLoaded ? "Book Consultation" : "Loading..."}
+              {isLoading
+                ? "Verifying..."
+                : recaptchaLoaded
+                  ? "Book Consultation"
+                  : "Loading..."}
             </button>
           </form>
         )}
