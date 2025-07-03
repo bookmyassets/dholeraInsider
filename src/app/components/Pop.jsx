@@ -405,28 +405,10 @@ export default function Popup({
 
               {/* Content Section */}
               <div className="text-center">
-                {/* Exclusive Deal Section */}
-                <div className="mb-3">
-                  <span className="bg-amber-200 text-black px-3 py-1 rounded-full text-sm font-bold inline-flex items-center gap-2">
-                    <FaClock className="text-xs" />
-                    Inaugural Offer
-                  </span>
-                </div>
 
                 <h2 className="text-2xl md:text-3xl font-bold mb-1 leading-tight text-amber-200">
                   {titleInfo.mainText}
                 </h2>
-
-                {titleInfo.price && (
-                  <div className="flex flex-col items-center gap-1 mb-2">
-                    <div className="text-2xl line-through text-gray-400">
-                      ₹9500/sq. yard
-                    </div>
-                    <div className="text-3xl md:text-4xl font-black text-white">
-                      {titleInfo.price}/sq. yard
-                    </div>
-                  </div>
-                )}
 
                 <p className="text-white/90 text-lg">
                   {titleInfo.subText}
