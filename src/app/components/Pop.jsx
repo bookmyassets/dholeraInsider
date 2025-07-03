@@ -407,11 +407,11 @@ export default function Popup({
               <div className="text-center">
 
                 <h2 className="text-2xl md:text-3xl font-bold mb-1 leading-tight text-amber-200">
-                  {titleInfo.mainText}
+                  Dholera Insider
                 </h2>
 
                 <p className="text-white/90 text-lg">
-                  {titleInfo.subText}
+                  Your Front-Row Seat to India's Smart Future
                 </p>
 
                 {titleInfo.timeLeft && (
