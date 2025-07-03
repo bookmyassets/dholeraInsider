@@ -71,13 +71,13 @@ const Footer = () => {
                 <Facebook size={20} />
               </Link>
               <Link
-                href="#"
+                href="https://x.com/Dholera_Insider"
                 className="text-gray-500 hover:text-blue-400 transition"
               >
                 <Twitter size={20} />
               </Link>
               <Link
-                href="https://www.instagram.com/dholera.insider?igsh=MWNnYzc5OG40a2dr"
+                href="https://www.instagram.com/dholerainsider/"
                 className="text-gray-500 hover:text-pink-400 transition"
               >
                 <Instagram size={20} />
@@ -89,7 +89,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </Link>
               <Link
-                href="https://youtube.com/@dholerainsider?si=ZcBtHqUhtxqi90dY"
+                href="https://www.youtube.com/@DholeraInsider-m4n"
                 className="text-gray-500 hover:text-red-400 transition"
               >
                 <Youtube size={20} />
