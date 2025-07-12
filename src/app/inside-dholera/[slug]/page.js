@@ -39,25 +39,39 @@ export default async function Post({ params }) {
       );
     }
 
-    const components = {
+     const components = {
       types: {
         image: ({ value }) => {
-          if (!value?.asset?._ref) {
-            return null;
-          }
+          if (!value?.asset) return null;
+
+          // Use the asset URL directly if urlFor is not working
+          const imageUrl = value.asset.url || urlFor(value).width(1200).url();
+
+          const imageNode = (
+            <img
+              src={imageUrl}
+              alt={value.alt || ""}
+              className="w-full rounded-lg my-6"
+              loading="lazy"
+            />
+          );
+
           return (
-            <figure className="my-12">
-              <div className="overflow-hidden rounded-xl shadow-xl">
-                <img
-                  alt={value.alt || " "}
-                  src={urlFor(value).width(1200).url()}
-                  width={1200}
-                  height={800}
-                  className="w-full rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+            <figure className="my-6">
+              {value.url ? (
+                <a
+                  href={value.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:opacity-90 transition-opacity cursor-pointer"
+                >
+                  {imageNode}
+                </a>
+              ) : (
+                imageNode
+              )}
               {value.caption && (
-                <figcaption className="mt-3 text-center text-sm italic text-gray-500">
+                <figcaption className="text-center text-sm text-gray-500 mt-2">
                   {value.caption}
                 </figcaption>
               )}
@@ -65,67 +79,49 @@ export default async function Post({ params }) {
           );
         },
 
+        // Fixed table component
         table: ({ value }) => {
-          if (!value?.rows) return null;
+          if (!value?.rows || !Array.isArray(value.rows)) {
+            return null;
+          }
 
           return (
-            <div className="my-8 overflow-x-auto">
-              <table className="w-full border-collapse bg-white rounded-lg shadow-sm overflow-hidden">
+            <div className="overflow-x-auto my-8">
+              <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
                 <tbody>
-                  {value.rows.map((row, rowIndex) => (
-                    <tr key={rowIndex} className="hover:bg-gray-50">
-                      {row.cells.map((cell, cellIndex) => {
-                        const isHeader = rowIndex === 0; // First row as header
-                        const Tag = isHeader ? "th" : "td";
+                  {value.rows.map((row, i) => {
+                    if (!row?.cells || !Array.isArray(row.cells)) {
+                      return null;
+                    }
 
-                        return (
-                          <Tag
-                            key={cellIndex}
-                            className={`px-4 py-3 text-left border-b border-gray-200 ${
-                              isHeader
-                                ? "bg-gray-50 font-semibold text-gray-900 text-sm uppercase tracking-wider"
-                                : "text-gray-600"
-                            }`}
+                    return (
+                      <tr
+                        key={i}
+                        className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                      >
+                        {row.cells.map((cell, j) => (
+                          <td
+                            key={j}
+                            className="px-4 py-3 border border-gray-200 text-gray-700"
                           >
-                            {cell}
-                          </Tag>
-                        );
-                      })}
-                    </tr>
-                  ))}
+                            {cell || ""}
+                          </td>
+                        ))}
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
           );
         },
 
-        // Custom HTML Table component
-        htmlTableBlock: ({ value }) => {
-          if (!value?.html) return null;
-
-          return (
-            <div className="my-8 overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
-              <div
-                className="[&_table]:w-full [&_table]:border-collapse [&_table]:bg-white 
-              [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-700 
-              [&_th]:bg-gray-50 [&_th]:border-b [&_th]:border-gray-200
-              [&_td]:px-6 [&_td]:py-4 [&_td]:text-gray-600 [&_td]:border-b [&_td]:border-gray-200
-              [&_tr:last-child_td]:border-b-0
-              [&_tr:hover]:bg-gray-50/50
-              [&_th:first-child]:rounded-tl-lg [&_th:last-child]:rounded-tr-lg
-              [&_tr:last-child_td:first-child]:rounded-bl-lg [&_tr:last-child_td:last-child]:rounded-br-lg"
-                dangerouslySetInnerHTML={{ __html: value.html }}
-              />
-            </div>
-          );
-        },
+        code: ({ value }) => (
+          <pre className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto my-6">
+            <code className="font-mono text-sm">{value.code}</code>
+          </pre>
+        ),
       },
-
-      code: ({ value }) => (
-        <pre className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto my-6">
-          <code className="font-mono text-sm">{value.code}</code>
-        </pre>
-      ),
 
       marks: {
         link: ({ children, value }) => {
@@ -341,7 +337,7 @@ export default async function Post({ params }) {
           const imageElement = (
             <div className="relative w-full h-[50vh] md:h-[60vh] group">
               <Image
-                src={urlFor(post.mainImage)?.url() || ""}
+                src={urlFor(post.mainImage).url() || ""}
                 alt={post.mainImage?.alt || post.title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
