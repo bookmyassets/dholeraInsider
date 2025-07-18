@@ -3,10 +3,31 @@ import { urlFor } from "@/sanity/lib/image";
 import { getblogs, getPostBySlug } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import CommonForm from "@/app/components/CommonForm";
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const site = "dholera-insider";
+  const post = await getPostBySlug(slug, site);
+
+  if (!post) {
+    return {
+      title: "Page Not Found",
+      description: "The requested page could not be found.",
+    };
+  }
+
+  return {
+    title: post.metaTitle || post.title,
+    description: post.metaDescription,
+    keywords: post.keywords,
+  };
+}
 
 export default async function Post({ params }) {
   const { slug } = await params;
+  const site = "dholera-insider";
 
   if (!slug) {
     return (
@@ -17,29 +38,16 @@ export default async function Post({ params }) {
   }
 
   try {
-    const [post, trendingBlogs, relatedBlogs] = await Promise.all([
-      getPostBySlug(slug),
+    const [post, trendingBlogs] = await Promise.all([
+      getPostBySlug(slug, site),
       getblogs(0, 4), // Get only 4 blogs
-      /* getUpdates(slug, 3), */
     ]);
 
-    if (!post) {
-      return (
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-2">Blog post not found</h1>
-            <Link
-              href="/blogs"
-              className="mt-4 inline-block text-[#C69C21] hover:text-[#FDB913]"
-            >
-              ← Back to Blogs
-            </Link>
-          </div>
-        </div>
-      );
+    if (!post || !post.slug?.current) {
+      notFound();
     }
 
-     const components = {
+    const components = {
       types: {
         image: ({ value }) => {
           if (!value?.asset) return null;
@@ -76,6 +84,26 @@ export default async function Post({ params }) {
                 </figcaption>
               )}
             </figure>
+          );
+        },
+
+        htmlTableBlock: ({ value }) => {
+          if (!value?.html) return null;
+
+          return (
+            <div className="my-8 overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+              <div
+                className="[&_table]:w-full [&_table]:border-collapse [&_table]:bg-white 
+                [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-700 
+                [&_th]:bg-gray-50 [&_th]:border-b [&_th]:border-gray-200
+                [&_td]:px-6 [&_td]:py-4 [&_td]:text-gray-600 [&_td]:border-b [&_td]:border-gray-200
+                [&_tr:last-child_td]:border-b-0
+                [&_tr:hover]:bg-gray-50/50
+                [&_th:first-child]:rounded-tl-lg [&_th:last-child]:rounded-tr-lg
+                [&_tr:last-child_td:first-child]:rounded-bl-lg [&_tr:last-child_td:last-child]:rounded-br-lg"
+                dangerouslySetInnerHTML={{ __html: value.html }}
+              />
+            </div>
           );
         },
 
@@ -331,65 +359,65 @@ export default async function Post({ params }) {
 
     const canonicalUrl = `https://www.bookmyassets.com/blogs/${post.slug.current}`;
 
-      const renderMainImage = () => {
-          if (!post.mainImage) return null;
-    
-          const imageElement = (
-            <div className="relative w-full h-[50vh] md:h-[60vh] group">
-              <Image
-                src={urlFor(post.mainImage).url() || ""}
-                alt={post.mainImage?.alt || post.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                priority
-              />
-              {/* Optional overlay for linked images */}
-              {post.mainImage?.link && (
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
-                    <svg
-                      className="w-6 h-6 text-gray-800"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              )}
+    const renderMainImage = () => {
+      if (!post.mainImage) return null;
+
+      const imageElement = (
+        <div className="relative w-full h-[50vh] md:h-[60vh] group">
+          <Image
+            src={urlFor(post.mainImage).url() || ""}
+            alt={post.mainImage?.alt || post.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            priority
+          />
+          {/* Optional overlay for linked images */}
+          {post.mainImage?.link && (
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
+                <svg
+                  className="w-6 h-6 text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </div>
             </div>
-          );
-    
-          // If there's a link, wrap the image in a Link component
-          if (post.mainImage?.link) {
-            return (
-              <Link
-                href={post.mainImage.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block cursor-pointer"
-              >
-                {imageElement}
-              </Link>
-            );
-          }
-    
-          // If no link, return the image as is
-          return imageElement;
-        };
+          )}
+        </div>
+      );
+
+      // If there's a link, wrap the image in a Link component
+      if (post.mainImage?.link) {
+        return (
+          <Link
+            href={post.mainImage.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block cursor-pointer"
+          >
+            {imageElement}
+          </Link>
+        );
+      }
+
+      // If no link, return the image as is
+      return imageElement;
+    };
 
     return (
       <div className="bg-gray-50 min-h-screen">
-        {/* <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-            /> */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
         <title>{post.metaTitle}</title>
         <meta name="description" content={post.metaDescription} />
         <meta name="keywords" content={post.keywords} />
@@ -408,7 +436,7 @@ export default async function Post({ params }) {
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
           {/* Featured Image Card */}
-         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
             {renderMainImage()}
           </div>
 
@@ -424,7 +452,7 @@ export default async function Post({ params }) {
         </main>
 
         <div className="bg-black py-12 mt-4">
-          <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
+          <div className="w-full px-4 sm:px-6 lg:px-8 text-center text-white">
             <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
               <svg
                 className="w-12 h-12"
