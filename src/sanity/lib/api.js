@@ -47,6 +47,8 @@ export async function projectInfo() {
   return await client.fetch(query, {}, { cache: 'no-store' });
 }
 
+
+
 export async function projectInfoX() {
   const posts = await projectInfo();
   return { relatedProjects: posts };
