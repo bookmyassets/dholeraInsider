@@ -9,6 +9,8 @@ import Westwyn from "../components/WestWyn";
 import CTAsection from "../components/CTAsection";
 import MegaIndustries from "../components/MegaIndusties";
 import CommonForm from "../components/CommonForm";
+import BulkLandDholera from "../components/BulkLand";
+import TestimonialsSection from "../components/Testimonials";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -74,9 +76,11 @@ const HomePage = ({openForm}) => {
       <Whatsapp />
       <About />
       <Westwyn/>
+      <BulkLandDholera/>
       <CTAsection/>
       <MegaIndustries/>
       <CommonForm title="GET STARTED WITH DHOLERA's PREMIUM REAL ESTATE "/>
+      <TestimonialsSection/>
       
 
       {showButton && (
