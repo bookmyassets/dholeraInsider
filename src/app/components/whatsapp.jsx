@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Whatsapp() {
   return (
     <div className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-50 hover:scale-105 transition-transform duration-300">
-      <Link href="https://wa.link/bvb3dt" passHref legacyBehavior>
+      <Link href="https://api.whatsapp.com/send?phone==919211820887" passHref legacyBehavior>
         <a target="_blank" rel="noopener noreferrer">
           <div className="relative h-20 w-20 md:h-24 md:w-24 rounded-full bg-white shadow-xl flex items-center justify-center">
             
