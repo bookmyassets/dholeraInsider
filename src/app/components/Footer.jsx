@@ -83,12 +83,6 @@ const Footer = () => {
                 <Instagram size={20} />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/dholera-insider-1a6b57351?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                className="text-gray-500 hover:text-blue-400 transition"
-              >
-                <Linkedin size={20} />
-              </Link>
-              <Link
                 href="https://www.youtube.com/@DholeraInsider-m4n"
                 className="text-gray-500 hover:text-red-400 transition"
               >
@@ -121,18 +115,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/investment"
+                  href="/inside-dholera"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
-                  <span className="mr-2">›</span> Investment Opportunities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/news"
-                  className="text-white hover:text-blue-400 transition flex items-center"
-                >
-                  <span className="mr-2">›</span> Latest News
+                  <span className="mr-2">›</span> About Dholera
                 </Link>
               </li>
               <li>

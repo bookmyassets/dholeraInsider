@@ -475,7 +475,7 @@ export default async function Post({ params }) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
               <Link
-                href="/insider-dholera"
+                href="/inside-dholera"
                 className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Explore Dholera
@@ -510,7 +510,7 @@ export default async function Post({ params }) {
                   {trendingBlogs.slice(0, 6).map((blog, index) => (
                     <Link
                       key={blog._id}
-                      href={`/blogs/${blog.slug.current}`}
+                      href={`/inside-dholera/${blog.slug.current}`}
                       className="group block"
                     >
                       <article className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform group-hover:-translate-y-1">
@@ -559,10 +559,10 @@ export default async function Post({ params }) {
           <h1 className="text-2xl font-bold mb-2">Error loading blog post</h1>
           <p className="text-gray-600">Please try again later</p>
           <Link
-            href="/blogs"
+            href="/inside-dholera"
             className="mt-4 inline-block text-[#C69C21] hover:text-[#FDB913]"
           >
-            ← Back to Blogs
+            ← Back to Inside Dholera
           </Link>
         </div>
       </div>
