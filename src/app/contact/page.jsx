@@ -34,9 +34,10 @@ const ContactUsPage = () => {
   const recaptchaWidgetId = useRef(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-  useEffect(() => {
+   useEffect(() => {
+    // Load reCAPTCHA script
     const loadRecaptcha = () => {
-      if (typeof window !== "undefined" && !window.grecaptcha) {
+      if (typeof window !== "undefined" && !window.grecaptcha && siteKey) {
         try {
           const script = document.createElement("script");
           script.src = "https://www.google.com/recaptcha/api.js";
@@ -52,7 +53,7 @@ const ContactUsPage = () => {
           console.error("reCAPTCHA script loading error:", err);
           setRecaptchaLoaded(true);
         }
-      } else if (window.grecaptcha) {
+      } else if (window.grecaptcha || !siteKey) {
         setRecaptchaLoaded(true);
       }
     };
@@ -61,30 +62,42 @@ const ContactUsPage = () => {
 
     // Get submission count from localStorage
     if (typeof window !== "undefined") {
-      setSubmissionCount(
-        parseInt(localStorage.getItem("formSubmissionCount") || "0", 10)
-      );
-      setLastSubmissionTime(
-        parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10)
-      );
+      const storedCount = parseInt(localStorage.getItem("formSubmissionCount") || "0", 10);
+      const lastSubmissionTime = parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10);
+      
+      // Check if 24 hours have passed since the last submission
+      if (lastSubmissionTime) {
+        const timeDifference = Date.now() - lastSubmissionTime;
+        const hoursPassed = timeDifference / (1000 * 60 * 60);
+
+        if (hoursPassed >= 24) {
+          // Reset submission count after 24 hours
+          setSubmissionCount(0);
+          localStorage.setItem("formSubmissionCount", "0");
+          localStorage.setItem("lastSubmissionTime", Date.now().toString());
+        } else {
+          setSubmissionCount(storedCount);
+          // Check if limit reached
+          if (storedCount >= 20) {
+            setIsDisabled(true);
+          }
+        }
+      } else {
+        setSubmissionCount(storedCount);
+      }
     }
 
-    // Prevent modal close when clicking inside
-    const handleClickInside = (e) => {
-      e.stopPropagation();
-    };
-
-    const formElement = document.getElementById("contact-form-container");
-    if (formElement) {
-      formElement.addEventListener("click", handleClickInside);
-    }
-
+    // Cleanup function
     return () => {
-      if (formElement) {
-        formElement.removeEventListener("click", handleClickInside);
+      if (window.grecaptcha && recaptchaRef.current) {
+        try {
+          window.grecaptcha.reset();
+        } catch (e) {
+          console.log("reCAPTCHA cleanup error:", e);
+        }
       }
     };
-  }, []);
+  }, [siteKey]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -93,32 +106,27 @@ const ContactUsPage = () => {
   };
 
   const validateForm = () => {
-    if (!formData.fullName || !formData.phone) {
-      setErrorMessage("Please fill in all fields");
+    if (!formData.fullName.trim() || !formData.phone.trim()) {
+      setErrorMessage("Please fill in all required fields");
       return false;
     }
 
-    // Simple phone validation
-    if (!/^\d{10,15}$/.test(formData.phone)) {
+    // Email validation (optional field)
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setErrorMessage("Please enter a valid email address");
+      return false;
+    }
+
+    // Phone validation - accept various formats (10-15 digits)
+    if (!/^\d{10,15}$/.test(formData.phone.replace(/\D/g, ''))) {
       setErrorMessage("Please enter a valid phone number (10-15 digits)");
       return false;
     }
 
     // Check submission limits
-    const now = Date.now();
-    const hoursPassed = (now - lastSubmissionTime) / (1000 * 60 * 60);
-
-    if (hoursPassed >= 24) {
-      // Reset counter if 24 hours have passed
-      setSubmissionCount(0);
-      if (typeof window !== "undefined") {
-        localStorage.setItem("formSubmissionCount", "0");
-        localStorage.setItem("lastSubmissionTime", now.toString());
-      }
-    } else if (submissionCount >= 3) {
-      setErrorMessage(
-        "You have reached the maximum submission limit. Try again after 24 hours."
-      );
+    if (submissionCount >= 20) {
+      setErrorMessage("You have reached the maximum submission limit. Try again after 24 hours.");
+      setIsDisabled(true);
       return false;
     }
 
@@ -127,6 +135,7 @@ const ContactUsPage = () => {
 
   const onRecaptchaSuccess = async (token) => {
     try {
+      // API Request using the new endpoint and format
       const response = await fetch(
         "https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead",
         {
@@ -139,50 +148,57 @@ const ContactUsPage = () => {
             fields: {
               name: formData.fullName,
               phone: formData.phone,
+              email: formData.email,
               source: "Dholera Insider",
             },
             source: "Dholera Insider Website",
-            tags: ["Dholera Investment", "Website Lead"],
+            tags: ["Dholera Investment", "Website Lead", "Bulk Land"],
+            recaptchaToken: token,
           }),
         }
       );
 
+      // Store response text before parsing
       const responseText = await response.text();
+      console.log("TeleCRM Response:", responseText);
 
+      // Check response status and handle accordingly
       if (response.ok) {
-        // Success handling
-        setFormData({ fullName: "", phone: "" });
-        setShowPopup(true);
-        setSubmissionCount((prev) => {
-          const newCount = prev + 1;
+        if (
+          responseText === "OK" ||
+          responseText.toLowerCase().includes("success")
+        ) {
+          // Success handling
+          setFormData({ fullName: "", email: "", phone: "" });
+          setShowPopup(true);
+
+          // Update submission count
+          const newCount = submissionCount + 1;
+          setSubmissionCount(newCount);
           if (typeof window !== "undefined") {
             localStorage.setItem("formSubmissionCount", newCount.toString());
-            localStorage.setItem("lastSubmissionTime", Date.now().toString()); // Fixed this line
+            localStorage.setItem("lastSubmissionTime", Date.now().toString());
           }
-          return newCount;
-        });
-      } else {
-        // Parse response as JSON if possible, otherwise use text
-        let errorData;
-        try {
-          errorData = JSON.parse(responseText);
-        } catch {
-          errorData = { message: responseText };
+
+        } else {
+          console.log("Response Text:", responseText);
+          setErrorMessage("Submission received but with unexpected response");
         }
-        throw new Error(errorData.message || "Error submitting form");
+      } else {
+        console.error("Server Error:", responseText);
+        throw new Error(responseText || "Submission failed");
       }
+
     } catch (error) {
-      console.error("Form submission error:", error);
-      setErrorMessage(
-        error.message || "Error submitting form. Please try again."
-      );
+      console.error("Error submitting form:", error);
+      setErrorMessage(`Error submitting form: ${error.message}`);
     } finally {
       setIsLoading(false);
-
+      
       // Reset reCAPTCHA
-      if (window.grecaptcha && recaptchaWidgetId.current !== null) {
+      if (window.grecaptcha && recaptchaRef.current) {
         try {
-          window.grecaptcha.reset(recaptchaWidgetId.current);
+          window.grecaptcha.reset();
         } catch (err) {
           console.error("Error resetting reCAPTCHA:", err);
         }
@@ -200,32 +216,28 @@ const ContactUsPage = () => {
       return;
     }
 
-    // If reCAPTCHA is loaded, render it in the ref
-    if (window.grecaptcha && recaptchaLoaded && siteKey) {
+    if (!recaptchaLoaded || !window.grecaptcha) {
+      setErrorMessage("Security verification not loaded. Please refresh the page.");
+      setIsLoading(false);
+      return;
+    }
+
+    // Render reCAPTCHA if not already rendered
+    if (!recaptchaRef.current.innerHTML) {
       try {
-        // Check if reCAPTCHA widget is already rendered
-        if (recaptchaWidgetId.current === null && recaptchaRef.current) {
-          recaptchaWidgetId.current = window.grecaptcha.render(
-            recaptchaRef.current,
-            {
-              sitekey: siteKey,
-              callback: onRecaptchaSuccess,
-              theme: "dark",
-            }
-          );
-        } else if (recaptchaWidgetId.current !== null) {
-          // Reset and execute existing widget
-          window.grecaptcha.reset(recaptchaWidgetId.current);
-          window.grecaptcha.execute(recaptchaWidgetId.current);
-        }
+        window.grecaptcha.render(recaptchaRef.current, {
+          sitekey: siteKey,
+          callback: onRecaptchaSuccess,
+          theme: "dark",
+        });
       } catch (error) {
         console.error("Error rendering reCAPTCHA:", error);
         setErrorMessage("Error with verification. Please try again.");
         setIsLoading(false);
       }
     } else {
-      setErrorMessage("reCAPTCHA not loaded. Please refresh and try again.");
-      setIsLoading(false);
+      // Execute existing reCAPTCHA
+      window.grecaptcha.execute();
     }
   };
 
