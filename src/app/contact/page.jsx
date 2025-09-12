@@ -26,15 +26,17 @@ const ContactUsPage = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [lastSubmissionTime, setLastSubmissionTime] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const recaptchaRef = useRef(null);
   const recaptchaWidgetId = useRef(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-   useEffect(() => {
+  useEffect(() => {
     // Load reCAPTCHA script
     const loadRecaptcha = () => {
       if (typeof window !== "undefined" && !window.grecaptcha && siteKey) {
@@ -63,11 +65,11 @@ const ContactUsPage = () => {
     // Get submission count from localStorage
     if (typeof window !== "undefined") {
       const storedCount = parseInt(localStorage.getItem("formSubmissionCount") || "0", 10);
-      const lastSubmissionTime = parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10);
+      const lastTime = parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10);
       
       // Check if 24 hours have passed since the last submission
-      if (lastSubmissionTime) {
-        const timeDifference = Date.now() - lastSubmissionTime;
+      if (lastTime) {
+        const timeDifference = Date.now() - lastTime;
         const hoursPassed = timeDifference / (1000 * 60 * 60);
 
         if (hoursPassed >= 24) {
@@ -169,7 +171,8 @@ const ContactUsPage = () => {
           responseText.toLowerCase().includes("success")
         ) {
           // Success handling
-          setFormData({ fullName: "", email: "", phone: "" });
+          setFormData({ fullName: "", email: "", phone: "", subject: "", message: "", interestedIn: "" });
+          setShowSuccess(true);
           setShowPopup(true);
 
           // Update submission count
@@ -222,22 +225,14 @@ const ContactUsPage = () => {
       return;
     }
 
-    // Render reCAPTCHA if not already rendered
-    if (!recaptchaRef.current.innerHTML) {
-      try {
-        window.grecaptcha.render(recaptchaRef.current, {
-          sitekey: siteKey,
-          callback: onRecaptchaSuccess,
-          theme: "dark",
-        });
-      } catch (error) {
-        console.error("Error rendering reCAPTCHA:", error);
-        setErrorMessage("Error with verification. Please try again.");
-        setIsLoading(false);
-      }
-    } else {
-      // Execute existing reCAPTCHA
-      window.grecaptcha.execute();
+    try {
+      // Execute reCAPTCHA
+      const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
+      onRecaptchaSuccess(token);
+    } catch (error) {
+      console.error("Error with reCAPTCHA:", error);
+      setErrorMessage("Error with security verification. Please try again.");
+      setIsLoading(false);
     }
   };
 
@@ -433,7 +428,7 @@ const ContactUsPage = () => {
                   </button>
                 </motion.div>
               ) : (
-                <div className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {errorMessage && (
                     <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
                       {errorMessage}
@@ -478,6 +473,8 @@ const ContactUsPage = () => {
                     <input
                       type="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
                       placeholder="Enter your email address"
                     />
@@ -489,6 +486,8 @@ const ContactUsPage = () => {
                     </label>
                     <select
                       name="interestedIn"
+                      value={formData.interestedIn}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
                     >
                       <option value="">Select your interest</option>
@@ -509,6 +508,8 @@ const ContactUsPage = () => {
                     <input
                       type="text"
                       name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
                       placeholder="Brief subject of your inquiry"
                     />
@@ -520,16 +521,21 @@ const ContactUsPage = () => {
                     </label>
                     <textarea
                       name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       required
+                      rows="4"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none"
                       placeholder="Tell us more about your requirements..."
                     />
                   </div>
 
+                  {/* reCAPTCHA container */}
+                  <div ref={recaptchaRef} className="g-recaptcha" data-sitekey={siteKey}></div>
+
                   <button
-                    type="button"
-                    onClick={handleSubmit}
-                    disabled={isLoading}
+                    type="submit"
+                    disabled={isLoading || isDisabled}
                     className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 text-white font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
                   >
                     {isLoading ? (
@@ -544,7 +550,7 @@ const ContactUsPage = () => {
                       </>
                     )}
                   </button>
-                </div>
+                </form>
               )}
             </motion.div>
 
