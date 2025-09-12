@@ -80,7 +80,7 @@ const ContactUsPage = () => {
         } else {
           setSubmissionCount(storedCount);
           // Check if limit reached
-          if (storedCount >= 20) {
+          if (storedCount >= 3) {
             setIsDisabled(true);
           }
         }
@@ -523,7 +523,6 @@ const ContactUsPage = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      required
                       rows="4"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none"
                       placeholder="Tell us more about your requirements..."
@@ -531,7 +530,7 @@ const ContactUsPage = () => {
                   </div>
 
                   {/* reCAPTCHA container */}
-                  <div ref={recaptchaRef} className="g-recaptcha" data-sitekey={siteKey}></div>
+                  <div ref={recaptchaRef} ></div>
 
                   <button
                     type="submit"
