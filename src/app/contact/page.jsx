@@ -26,14 +26,12 @@ const ContactUsPage = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [lastSubmissionTime, setLastSubmissionTime] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const recaptchaRef = useRef(null);
-  const recaptchaWidgetId = useRef(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   useEffect(() => {
@@ -65,11 +63,11 @@ const ContactUsPage = () => {
     // Get submission count from localStorage
     if (typeof window !== "undefined") {
       const storedCount = parseInt(localStorage.getItem("formSubmissionCount") || "0", 10);
-      const lastTime = parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10);
+      const lastSubmissionTime = parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10);
       
       // Check if 24 hours have passed since the last submission
-      if (lastTime) {
-        const timeDifference = Date.now() - lastTime;
+      if (lastSubmissionTime) {
+        const timeDifference = Date.now() - lastSubmissionTime;
         const hoursPassed = timeDifference / (1000 * 60 * 60);
 
         if (hoursPassed >= 24) {
@@ -79,7 +77,7 @@ const ContactUsPage = () => {
           localStorage.setItem("lastSubmissionTime", Date.now().toString());
         } else {
           setSubmissionCount(storedCount);
-          // Check if limit reached
+          // Check if limit reached (using 3 for contact form vs 20 for bulk form)
           if (storedCount >= 3) {
             setIsDisabled(true);
           }
@@ -126,7 +124,7 @@ const ContactUsPage = () => {
     }
 
     // Check submission limits
-    if (submissionCount >= 20) {
+    if (submissionCount >= 3) {
       setErrorMessage("You have reached the maximum submission limit. Try again after 24 hours.");
       setIsDisabled(true);
       return false;
@@ -137,7 +135,7 @@ const ContactUsPage = () => {
 
   const onRecaptchaSuccess = async (token) => {
     try {
-      // API Request using the new endpoint and format
+      // API Request using the same endpoint as BulkLandForm
       const response = await fetch(
         "https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead",
         {
@@ -150,11 +148,14 @@ const ContactUsPage = () => {
             fields: {
               name: formData.fullName,
               phone: formData.phone,
-              email: formData.email,
+              email: formData.email || "",
               source: "Dholera Insider",
+              subject: formData.subject || "",
+              message: formData.message || "",
+              interestedIn: formData.interestedIn || "",
             },
-            source: "Dholera Insider Website",
-            tags: ["Dholera Investment", "Website Lead", "Bulk Land"],
+            source: "Dholera Insider Website - Contact Form",
+            tags: ["Dholera Investment", "Website Lead", "Contact Form"],
             recaptchaToken: token,
           }),
         }
@@ -171,9 +172,15 @@ const ContactUsPage = () => {
           responseText.toLowerCase().includes("success")
         ) {
           // Success handling
-          setFormData({ fullName: "", email: "", phone: "", subject: "", message: "", interestedIn: "" });
+          setFormData({
+            fullName: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+            interestedIn: "",
+          });
           setShowSuccess(true);
-          setShowPopup(true);
 
           // Update submission count
           const newCount = submissionCount + 1;
@@ -225,14 +232,22 @@ const ContactUsPage = () => {
       return;
     }
 
-    try {
-      // Execute reCAPTCHA
-      const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
-      onRecaptchaSuccess(token);
-    } catch (error) {
-      console.error("Error with reCAPTCHA:", error);
-      setErrorMessage("Error with security verification. Please try again.");
-      setIsLoading(false);
+    // Render reCAPTCHA if not already rendered
+    if (!recaptchaRef.current.innerHTML) {
+      try {
+        window.grecaptcha.render(recaptchaRef.current, {
+          sitekey: siteKey,
+          callback: onRecaptchaSuccess,
+          theme: "light",
+        });
+      } catch (error) {
+        console.error("Error rendering reCAPTCHA:", error);
+        setErrorMessage("Error with verification. Please try again.");
+        setIsLoading(false);
+      }
+    } else {
+      // Execute existing reCAPTCHA
+      window.grecaptcha.execute();
     }
   };
 
@@ -427,6 +442,12 @@ const ContactUsPage = () => {
                     Send Another Message
                   </button>
                 </motion.div>
+              ) : isDisabled ? (
+                <div className="text-center py-8">
+                  <p className="text-center text-red-600 font-semibold">
+                    You have reached the maximum submission limit. Try again after 24 hours.
+                  </p>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {errorMessage && (
@@ -523,19 +544,24 @@ const ContactUsPage = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      rows="4"
+                      rows={4}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none"
                       placeholder="Tell us more about your requirements..."
                     />
                   </div>
 
-                  {/* reCAPTCHA container */}
-                  <div ref={recaptchaRef} ></div>
+                  <div className="flex justify-center">
+                    <div ref={recaptchaRef}></div>
+                  </div>
 
                   <button
                     type="submit"
                     disabled={isLoading || isDisabled || !recaptchaLoaded}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 text-white font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+                    className={`w-full font-bold text-white py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 ${
+                      isLoading || isDisabled || !recaptchaLoaded
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-emerald-600 hover:bg-emerald-700"
+                    }`}
                   >
                     {isLoading ? (
                       <>
