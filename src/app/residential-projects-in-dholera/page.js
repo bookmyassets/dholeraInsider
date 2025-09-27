@@ -116,7 +116,7 @@ export default async function Blogs() {
                         </button>
                       ) : (
                         <Link
-                          href={`/projects/${project.slug?.current}`}
+                          href={`/residential-projects-in-dholera/${project.slug?.current}`}
                           passHref
                         >
                           <button className="px-3 py-1 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm sm:text-base">
