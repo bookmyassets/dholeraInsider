@@ -213,9 +213,6 @@ export default function CommonForm({ title }) {
             <h2 className="text-white text-3xl sm:text-4xl font-bold text-center">
               {title}
             </h2>
-            <p className="text-gray-300 mt-4 text-center">
-              Maximize your ROI with professional market insights
-            </p>
             {showPopup ? (
               <div className="text-center py-8">
                 <motion.div
@@ -305,7 +302,7 @@ export default function CommonForm({ title }) {
                     disabled={isLoading}
                     className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
                   >
-                    {isLoading ? "Submitting..." : "Submit"}
+                    {isLoading ? "Submitting..." : "Get A Call Back"}
                   </button>
                 </div>
               </form>

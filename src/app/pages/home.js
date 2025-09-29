@@ -11,7 +11,11 @@ import MegaIndustries from "../components/MegaIndusties";
 import CommonForm from "../components/CommonForm";
 import BulkLandDholera from "../components/BulkLand";
 import TestimonialsSection from "../components/Testimonials";
-import FAQSection from "../components/Faq";
+
+import Invest from "../homecomponents/Invest";
+import WhyDI from "../homecomponents/WhyDI";
+import WestWyn_Estate from "../homecomponents/WestWyn_Estate";
+import FAQSection from "../homecomponents/Faq";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -75,13 +79,14 @@ const HomePage = ({openForm}) => {
       /> */}
       <Hero/>
       <Whatsapp />
-      <About />
-      <Westwyn/>
-      <BulkLandDholera/>
-      <CTAsection/>
-      <MegaIndustries/>
+      <Invest />
+      <WhyDI/>
       <CommonForm title="GET STARTED WITH DHOLERA's PREMIUM REAL ESTATE "/>
-      <TestimonialsSection/>
+      <WestWyn_Estate/>
+      
+      <CTAsection/>
+      {/* <MegaIndustries/>
+      <TestimonialsSection/> */}
       <FAQSection/>
       
 

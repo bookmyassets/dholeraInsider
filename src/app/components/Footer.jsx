@@ -46,7 +46,7 @@ const Footer = () => {
             </p>
 
             {/* Newsletter Signup */}
-            <div className="space-y-3 mt-6">
+{/*             <div className="space-y-3 mt-6">
               <h4 className="text-lg font-semibold text-slate-200">
                 Stay Updated
               </h4>
@@ -60,7 +60,7 @@ const Footer = () => {
                   Subscribe
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/* Social Media Icons */}
             <div className="flex space-x-4 mt-6">
@@ -107,10 +107,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/projects"
+                  href="/residential-projects-in-dholera"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
-                  <span className="mr-2">›</span> Projects
+                  <span className="mr-2">›</span>Residential Projects
                 </Link>
               </li>
               <li>

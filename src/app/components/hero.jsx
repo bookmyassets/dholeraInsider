@@ -5,26 +5,11 @@ import Link from "next/link";
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const showMoreBtn = () => {
-    document
-      .getElementById("about-container")
-      .scrollIntoView({ behavior: "smooth" });
-  };
-
   const slides = [
     {
-      title: "Track the Transformation of",
-      subtitle: "India's First Greenfield Smart City",
- 
-    },
-    {  
-      title: "Dholera Insider",
-      subtitle: "Your Front-Row Seat to India's Smart Future",
-          },
-    {   
-      title: "Where Smart Investment",
-      subtitle: "Meets Smart Infrastructure",
-          }
+      title: "WestWyn Estate",
+      subtitle: "Get Registry-ready Plots under ₹10 Lakhs in Dholera",
+    }
   ];
 
   // Auto slide effect
@@ -64,7 +49,7 @@ const Hero = () => {
               Contact Us
             </Link>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fadeIn">
+            <h1 className="text-4xl md:text-5xl text-teal-300 font-bold mb-4 animate-fadeIn">
               {slides[currentSlide].title}
             </h1>
 
@@ -77,17 +62,7 @@ const Hero = () => {
             </p> */}
           </div>
         </div>
-      </div>
-
-      {/* Show more button */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
-        <button 
-          onClick={showMoreBtn}
-          className="px-6 py-2 bg-transparent border-2 border-white text-white rounded-full hover:bg-white hover:text-black transition duration-300"
-        >
-          show more
-        </button>
-      </div>
+      </div>      
     </div>
   );
 };
