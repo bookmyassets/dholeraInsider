@@ -11,7 +11,7 @@ import Invest from "../homecomponents/Invest";
 import WhyDI from "../homecomponents/WhyDI";
 import WestWyn_Estate from "../homecomponents/WestWyn_Estate";
 import FAQSection from "../homecomponents/Faq";
-import InvestmentTimeline from "../homecomponents/ROI";
+import InvestmentTimeline from "../homecomponents/ROI2";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);

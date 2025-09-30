@@ -50,7 +50,7 @@ const Header = () => {
       key: "insideDholera",
       items: [
         { name: "Dholera Blogs", href: "/dholera-sir-blogs" },
-        { name: "Dholera Updates", href: "/dholera-sir-updates" },
+        /* { name: "Dholera Updates", href: "/dholera-sir-updates" }, */
         { name: "About Dholera SIR", href: "/about-dholera-sir" },
       ],
     },
@@ -195,7 +195,7 @@ const Header = () => {
           ${
             scrolled
               ? "h-20 backdrop-blur-xl bg-gradient-to-r from-slate-900/98 via-emerald-900/98 to-teal-900/98 border-b border-white/20 shadow-2xl"
-              : "h-28 max-sm:h-20 backdrop-blur-md bg-gradient-to-r from-slate-900/90 via-emerald-900/90 to-teal-900/90"
+              : "h-24 max-sm:h-20 backdrop-blur-md bg-gradient-to-r from-slate-900/90 via-emerald-900/90 to-teal-900/90"
           }`}
       >
         {/* Glassmorphism overlay */}

@@ -81,7 +81,7 @@
 /* Base styles */
 html,
 body {
-  overflow-x: hidden;
+ /*  overflow-x: hidden; */
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
   /* Removed conflicting background-color */

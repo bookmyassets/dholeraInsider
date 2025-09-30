@@ -1,12 +1,113 @@
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
-import { getPostBySlug } from "@/sanity/lib/api";
+import {
+  getPostBySlug,
+  getblogs,
+  getUpdates,
+  projectInfo,
+} from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
-import CommonForm from "@/app/components/CommonForm";
+import BlogSchemaMarkup from "../BlogSchemaMarkup";
+import SlugPageForm from "../../components/SlugPageForm";
+
+
+// Right Sidebar Component
+const RightSidebar = ({ trendingBlogs, relatedProjects, type = "blog" }) => {
+  return (
+ <aside className="lg:w-1/3 lg:sticky lg:top-24">
+  <div className="space-y-6">
+        {/* Latest Content Section */}
+        <div className="bg-black rounded-xl shadow-2xl shadow-gray-500 p-6 border border-gray-700">
+          <h3 className="text-xl font-bold mb-4 text-white">Latest Updates</h3>
+          <div className="space-y-3">
+            {trendingBlogs?.slice(0, 4).map((item) => (
+              <Link
+                key={item._id}
+                href={`/dholera-sir-updates/${item.slug.current}`}
+              >
+                <div className="flex gap-3 items-center bg-white hover:bg-gray-50 p-3 border border-gray-200 transition-all hover:shadow-md">
+                  {item.mainImage && (
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                      <Image
+                        src={urlFor(item.mainImage).width(64).height(64).url()}
+                        alt={item.title}
+                        width={64}
+                        height={64}
+                        className="w-full h-full"
+                      />
+                    </div>
+                  )}
+                  <div className="min-w-0">
+                    <h4 className="font-semibold text-sm text-gray-900 line-clamp-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-gray-500 line-clamp-1 mt-1">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-6 pt-4 border-t border-gray-600">
+            <Link href="/dholera-sir-updates">
+              <button className="w-full text-center rounded-xl text-white font-semibold bg-teal-800 hover:bg-teal-500 p-3 transition-colors">
+                Explore More
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Contact/CTA Card */}
+        <div className="bg-gradient-to-br from-teal-600/10 to-teal-900/10 rounded-xl p-6 border border-teal-400/20">
+          <h4 className="font-bold text-lg mb-3 text-gray-900">Get In Touch</h4>
+          <p className="text-gray-700 mb-4 text-sm">
+            Interested in our insights? Contact our experts
+          </p>
+          <a href="tel:+919211820887">
+            <button className="w-full bg-teal-500 hover:bg-teal-700 text-white px-4 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+              Contact Now
+            </button>
+          </a>
+        </div>
+      </div>
+    </aside>
+  );
+};
+// Trending Blog Item Component (updated)
+const trendingBlogs = ({ post }) => {
+  return (
+    <Link href={`/blogs/${post.slug.current}`}>
+      <div className="flex gap-4 items-center bg-white hover:bg-gray-50 p-4 rounded-lg border border-gray-100 transition-all hover:shadow-md">
+        {post.mainImage && (
+          <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+            <Image
+              src={urlFor(post.mainImage).width(80).height(80).url()}
+              alt={post.title}
+              width={80}
+              height={80}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+        <div>
+          <h4 className="font-semibold text-gray-900 line-clamp-2">
+            {post.title}
+          </h4>
+          <p className="text-sm text-gray-500 line-clamp-1 mt-1">
+            {post.description}
+          </p>
+        </div>
+      </div>
+    </Link>
+  );
+};
 
 export default async function Post({ params }) {
   const { slug } = await params;
+  const site = "dholera-insider";
 
   if (!slug) {
     return (
@@ -18,9 +119,9 @@ export default async function Post({ params }) {
 
   try {
     const [post, trendingBlogs, relatedBlogs] = await Promise.all([
-      getPostBySlug(slug),
-      /* getblogs(0, 4), // Get only 4 blogs
-      getUpdates(slug, 3), */
+      getPostBySlug(slug, site),
+      projectInfo(0, 6), // Get 6 blogs for sidebar
+      getUpdates(slug, 3),
     ]);
 
     if (!post) {
@@ -29,7 +130,7 @@ export default async function Post({ params }) {
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-2">Blog post not found</h1>
             <Link
-              href="/blogs"
+              href="/dholera-sir-blogs"
               className="mt-4 inline-block text-[#C69C21] hover:text-[#FDB913]"
             >
               ← Back to Blogs
@@ -42,22 +143,36 @@ export default async function Post({ params }) {
     const components = {
       types: {
         image: ({ value }) => {
-          if (!value?.asset?._ref) {
-            return null;
-          }
+          if (!value?.asset) return null;
+
+          // Use the asset URL directly if urlFor is not working
+          const imageUrl = value.asset.url || urlFor(value).width(1200).url();
+
+          const imageNode = (
+            <img
+              src={imageUrl}
+              alt={value.alt || ""}
+              className="w-full rounded-lg my-6"
+              loading="lazy"
+            />
+          );
+
           return (
-            <figure className="my-12">
-              <div className="overflow-hidden rounded-xl shadow-xl">
-                <img
-                  alt={value.alt || " "}
-                  src={urlFor(value).width(1200).url()}
-                  width={1200}
-                  height={800}
-                  className="w-full rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+            <figure className="my-6">
+              {value.url ? (
+                <a
+                  href={value.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:opacity-90 transition-opacity cursor-pointer"
+                >
+                  {imageNode}
+                </a>
+              ) : (
+                imageNode
+              )}
               {value.caption && (
-                <figcaption className="mt-3 text-center text-sm italic text-gray-500">
+                <figcaption className="text-center text-sm text-gray-500 mt-2">
                   {value.caption}
                 </figcaption>
               )}
@@ -65,35 +180,14 @@ export default async function Post({ params }) {
           );
         },
 
-        htmlTableBlock: ({ value }) => {
-          if (!value?.html) return null;
-
-          return (
-            <div className="my-8 overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
-              <div
-                className="[&_table]:w-full [&_table]:border-collapse [&_table]:bg-white 
-              [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-700 
-              [&_th]:bg-gray-50 [&_th]:border-b [&_th]:border-gray-200
-              [&_td]:px-6 [&_td]:py-4 [&_td]:text-gray-600 [&_td]:border-b [&_td]:border-gray-200
-              [&_tr:last-child_td]:border-b-0
-              [&_tr:hover]:bg-gray-50/50
-              [&_th:first-child]:rounded-tl-lg [&_th:last-child]:rounded-tr-lg
-              [&_tr:last-child_td:first-child]:rounded-bl-lg [&_tr:last-child_td:last-child]:rounded-br-lg"
-                dangerouslySetInnerHTML={{ __html: value.html }}
-              />
-            </div>
-          );
-        },
-
-        // Fixed table component
         table: ({ value }) => {
           if (!value?.rows || !Array.isArray(value.rows)) {
             return null;
           }
 
           return (
-            <div className="overflow-x-auto my-8">
-              <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
+            <div className="overflow-x-auto my-12 bg-white rounded-2xl shadow-lg border border-gray-100">
+              <table className="min-w-full">
                 <tbody>
                   {value.rows.map((row, i) => {
                     if (!row?.cells || !Array.isArray(row.cells)) {
@@ -101,9 +195,23 @@ export default async function Post({ params }) {
                     }
 
                     return (
-                      <tr key={row._key || i}>
+                      <tr
+                        key={i}
+                        className={`hover:bg-gray-50 transition-colors duration-200 ${
+                          i === 0
+                            ? "bg-gradient-to-r from-teal-400/10 to-teal-600/10 font-semibold"
+                            : i % 2 === 0
+                              ? "bg-gray-50/50"
+                              : "bg-white"
+                        }`}
+                      >
                         {row.cells.map((cell, j) => (
-                          <td key={`${cell}-${j}`}>{cell || ""}</td>
+                          <td
+                            key={j}
+                            className="px-6 py-4 text-gray-700 border-b border-gray-100 last:border-r-0"
+                          >
+                            {cell || ""}
+                          </td>
                         ))}
                       </tr>
                     );
@@ -115,65 +223,57 @@ export default async function Post({ params }) {
         },
 
         code: ({ value }) => (
-          <pre className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto my-6">
-            <code className="font-mono text-sm">{value.code}</code>
-          </pre>
+          <div className="my-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-1 shadow-2xl">
+            <pre className="bg-gray-900 text-gray-100 p-6 rounded-xl overflow-x-auto">
+              <code className="font-mono text-sm leading-relaxed">
+                {value.code}
+              </code>
+            </pre>
+          </div>
         ),
       },
 
       marks: {
-        link: ({ children, value }) => {
-          return (
-            <Link
-              href={value.href}
-              rel="noopener noreferrer"
-              className="text-[#C69C21] hover:text-[#FDB913] underline decoration-[#FDB913]/30 hover:decoration-[#FDB913] transition-colors"
-            >
-              {children}
-            </Link>
-          );
-        },
+        link: ({ children, value }) => (
+          <Link
+            href={value.href}
+            rel="noopener noreferrer"
+            className="text-teal-600 hover:text-teal-500 underline decoration-teal-400/30 hover:decoration-teal-400 decoration-2 underline-offset-4 transition-all duration-300 hover:bg-teal-400/5 px-1 py-0.5 rounded"
+          >
+            {children}
+          </Link>
+        ),
         strong: ({ children }) => (
-          <strong className="font-semibold text-gray-900">{children}</strong>
+          <strong className="font-bold text-gray-900 px-1 py-0.5 rounded">
+            {children}
+          </strong>
         ),
         em: ({ children }) => (
-          <em className="italic text-gray-800">{children}</em>
-        ),
-        underline: ({ children }) => (
-          <u className="underline decoration-gray-400">{children}</u>
+          <em className="italic text-gray-800 px-1 py-0.5 rounded">
+            {children}
+          </em>
         ),
         code: ({ children }) => (
-          <code className="font-mono bg-gray-100 px-1.5 py-0.5 rounded text-sm text-gray-800">
+          <code className="font-mono bg-gradient-to-r from-gray-100 to-gray-200 px-2 py-1 rounded-md text-sm text-gray-800 border border-gray-300">
             {children}
           </code>
-        ),
-        "strike-through": ({ children }) => (
-          <del className="line-through text-gray-500">{children}</del>
-        ),
-        textColor: ({ children, value }) => (
-          <span style={{ color: value?.color || "inherit" }}>{children}</span>
-        ),
-        textBackground: ({ children, value }) => (
-          <span style={{ backgroundColor: value?.color || "bg-emerald-900" }}>
-            {children}
-          </span>
         ),
         button: ({ children, value }) => {
           const getButtonClasses = () => {
             switch (value.style) {
               case "secondary":
-                return "bg-gray-600 hover:bg-gray-700";
+                return "bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 shadow-lg hover:shadow-xl";
               case "outline":
-                return "bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-50";
+                return "bg-transparent border-2 border-teal-500 text-teal-600 hover:bg-teal-500 hover:text-white shadow-md hover:shadow-lg";
               default:
-                return "bg-blue-600 hover:bg-blue-700";
+                return "bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-500 shadow-lg hover:shadow-xl";
             }
           };
 
           return (
             <Link
               href={value.href}
-              className={`inline-block px-6 py-2 rounded-lg text-white font-medium transition-colors ${getButtonClasses()}`}
+              className={`inline-block px-8 py-3 rounded-xl text-white font-semibold transition-all duration-300 transform hover:scale-105 ${getButtonClasses()}`}
             >
               {value.text || children}
             </Link>
@@ -183,82 +283,58 @@ export default async function Post({ params }) {
 
       block: {
         h1: ({ children }) => (
-          <h1 className="text-4xl font-bold mt-20 mb-8 text-gray-900 border-b border-gray-200 pb-3">
+          <h1 className="text-5xl font-black mt-8 mb-10 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-4">
+            <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className="text-3xl font-bold mt-16 mb-6 text-gray-800 border-b border-gray-200 pb-2">
+          <h2 className="text-4xl font-bold mt-16 mb-8 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-3">
+            <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="text-2xl font-semibold mt-10 mb-4 text-gray-800">
+          <h3 className="text-3xl font-bold mt-12 mb-6 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+            <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h3>
         ),
         h4: ({ children }) => (
-          <h4 className="text-xl font-semibold mt-8 mb-3 text-gray-800">
+          <h4 className="text-2xl font-semibold mt-10 mb-4 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+            <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h4>
         ),
         h5: ({ children }) => (
-          <h5 className="text-lg font-semibold mt-6 mb-2 text-gray-800">
+          <h5 className="text-xl font-semibold mt-8 mb-3 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+            <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h5>
         ),
         h6: ({ children }) => (
-          <h6 className="text-base font-semibold mt-4 mb-2 text-gray-800">
+          <h6 className="text-lg font-semibold mt-6 mb-2 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-1">
+            <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h6>
         ),
         normal: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-lg">
+          <p className="mb-8 text-gray-700 leading-loose text-lg font-light tracking-wide">
             {children}
           </p>
         ),
         blockquote: ({ children }) => (
-          <blockquote className="border-l-4 border-yellow-500 pl-6 my-8 italic text-gray-700 py-2 bg-gray-50 rounded-r-lg shadow-sm">
-            {children}
+          <blockquote className="relative my-12 p-8 bg-gradient-to-br from-teal-400/5 to-teal-500/10 rounded-2xl shadow-lg border border-teal-400/20">
+            <div className="absolute top-4 left-6 text-6xl text-teal-400/30 font-serif">
+              "
+            </div>
+            <div className="pl-8 italic text-gray-700 text-xl leading-relaxed font-medium">
+              {children}
+            </div>
           </blockquote>
         ),
-        leftAlign: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-lg text-left">
-            {children}
-          </p>
-        ),
         centerAlign: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-lg text-center">
-            {children}
-          </p>
-        ),
-        rightAlign: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-lg text-right">
-            {children}
-          </p>
-        ),
-        justify: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-lg text-justify">
-            {children}
-          </p>
-        ),
-        small: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-base">
-            {children}
-          </p>
-        ),
-        medium: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-lg">
-            {children}
-          </p>
-        ),
-        large: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-xl">
-            {children}
-          </p>
-        ),
-        xlarge: ({ children }) => (
-          <p className="mb-6 text-gray-700 leading-relaxed text-2xl">
+          <p className="mb-8 text-gray-700 leading-loose text-lg text-center bg-gray-50 py-6 rounded-xl">
             {children}
           </p>
         ),
@@ -266,12 +342,10 @@ export default async function Post({ params }) {
 
       list: {
         bullet: ({ children }) => (
-          <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">
-            {children}
-          </ul>
+          <ul className="space-y-4 mb-10 pl-0">{children}</ul>
         ),
         number: ({ children }) => (
-          <ol className="list-decimal pl-6 mb-6 space-y-2 text-gray-700">
+          <ol className="space-y-4 mb-10 pl-0 counter-reset-list">
             {children}
           </ol>
         ),
@@ -279,246 +353,253 @@ export default async function Post({ params }) {
 
       listItem: {
         bullet: ({ children }) => (
-          <li className="text-lg leading-relaxed">{children}</li>
+          <li className="text-lg leading-relaxed text-gray-700 flex items-start gap-4 p-4 rounded-lg shadow-sm border hover:shadow-md transition-shadow duration-300">
+            <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full mt-2 flex-shrink-0"></div>
+            <div className="flex-1">{children}</div>
+          </li>
         ),
         number: ({ children }) => (
-          <li className="text-lg leading-relaxed">{children}</li>
+          <li className="text-lg leading-relaxed text-gray-700 flex items-start gap-4 p-4 rounded-lg shadow-sm border hover:shadow-md transition-shadow duration-300 relative counter-increment-list">
+            <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+              <span className="counter-content"></span>
+            </div>
+            <div className="flex-1">{children}</div>
+          </li>
         ),
       },
-    };
-
-    const formattedDate = new Date(
-      post.publishedAt || post._createdAt
-    ).toLocaleDateString("en-US", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-
-    const wordCount = JSON.stringify(post.body).split(" ").length;
-    const readingTime = Math.ceil(wordCount / 200);
-
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: post.title,
-      alternativeHeadline: post.altHeadline || post.title,
-      image: post.mainImage?.url,
-      author: {
-        "@type": "Organization",
-        name: "BookMyAssets",
-      },
-      editor: "BookMyAssets Editorial Team",
-      genre: post.genre || "General",
-      keywords: post.keywords?.join(", "),
-      wordcount: wordCount.toString(),
-      publisher: {
-        "@type": "Organization",
-        name: "BookMyAssets",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://www.bookmyassets.com/assets/images/logo.png",
-        },
-      },
-      url: `https://www.bookmyassets.com/blogs/${post.slug.current}`,
-      mainEntityOfPage: `https://www.bookmyassets.com/blogs/${post.slug.current}`,
-      datePublished: post.publishedAt,
-      dateModified: post._updatedAt || post.publishedAt,
-      description: post.metaDescription,
-    };
-
-    const canonicalUrl = `https://www.bookmyassets.com/blogs/${post.slug.current}`;
-
-    const renderMainImage = () => {
-      if (!post.mainImage) return null;
-
-      const imageElement = (
-        <div className="relative w-full h-[50vh] md:h-[60vh] group">
-          <Image
-            src={urlFor(post.mainImage)?.url() || ""}
-            alt={post.mainImage?.alt || post.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-            priority
-          />
-          {/* Optional overlay for linked images */}
-          {post.mainImage?.link && (
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
-                <svg
-                  className="w-6 h-6 text-gray-800"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </div>
-            </div>
-          )}
-        </div>
-      );
-
-      // If there's a link, wrap the image in a Link component
-      if (post.mainImage?.link) {
-        return (
-          <Link
-            href={post.mainImage.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block cursor-pointer"
-          >
-            {imageElement}
-          </Link>
-        );
-      }
-
-      // If no link, return the image as is
-      return imageElement;
     };
 
     return (
-      <div className="bg-gray-50 min-h-screen">
-        {/* <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-          /> */}
-        <title>{post.metaTitle}</title>
-        <meta name="description" content={post.metaDescription} />
-        <meta name="keywords" content={post.keywords} />
-        <link rel="canonical" href={canonicalUrl} />
+      <>
+        <div>
+          <title>{post.title}</title>
+          <BlogSchemaMarkup post={post} relatedBlogs={relatedBlogs} />
 
-        {/* Hero Section with Image */}
-        <div className="w-full bg-gradient-to-b from-gray-900 to-gray-800 relative">
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="max-w-7xl mx-auto pt-32 pb-20 px-4 space-y-4 sm:px-6 lg:px-8 relative z-10">
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {post.title}
-            </h1>
-          </div>
-        </div>
+          {/* Additional SEO meta tags */}
+          <link
+            rel="canonical"
+            href={`https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`}
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-12">
-            {renderMainImage()}
-          </div>
-
-          {/* Content Area */}
-          <div className="bg-white rounded-2xl shadow-xl">
-            <div className="max-w-4xl mx-auto px-6 md:px-12 py-4 md:py-8">
-              {/* Content */}
-              <div className="prose prose-lg max-w-none">
-                <PortableText value={post.body} components={components} />
-              </div>
-            </div>
-          </div>
-        </main>
-
-        <div className="bg-black py-12 mt-4">
-          <div className="w-full   px-4 sm:px-6 lg:px-8 text-center text-white">
-            <div className="inline-block p-4 bg-white/20 rounded-full mb-8">
-              <svg
-                className="w-12 h-12"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <h2 className="text-4xl font-bold mb-6">
-              Ready for More Insights?
-            </h2>
-            <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
-              Join thousands of readers who trust us for the latest industry
-              insights, market analysis, and investment opportunities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto">
-              <Link
-                href="/insider-dholera"
-                className="text-white bg-emerald-900 hover:text-emerald-900 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                Explore Dholera
-              </Link>
-              <Link
-                href="/contact"
-                className="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                Get in Touch
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto">
-          {trendingBlogs && trendingBlogs.length > 0 && (
-            <div className="py-8">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-8">
-                  <span className="inline-block bg-gradient-to-r from-emerald-700 to-emerald-900 text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-4">
-                    Trending Now
-                  </span>
-                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                    Most Popular Articles
-                  </h2>
-                  <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                    See what everyone's reading this week
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {trendingBlogs.slice(0, 6).map((blog, index) => (
-                    <Link
-                      key={blog._id}
-                      href={`/blogs/${blog.slug.current}`}
-                      className="group block"
-                    >
-                      <article className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform group-hover:-translate-y-1">
-                        <div className="absolute top-4 left-4 z-10">
-                          <div className="bg-emerald-800 text-white text-sm rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-lg">
-                            {index + 1}
-                          </div>
-                        </div>
-                        {blog.mainImage && (
-                          <div className="relative h-48 overflow-hidden">
-                            <Image
-                              src={urlFor(blog.mainImage)
-                                .width(400)
-                                .height(200)
-                                .url()}
-                              alt={blog.title}
-                              width={400}
-                              height={200}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                          </div>
-                        )}
-                        <div className="p-6">
-                          <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-[#C69C21] transition-colors duration-200 line-clamp-2 text-lg leading-tight">
-                            {blog.title}
-                          </h3>
-                        </div>
-                      </article>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
+          {/* Preload critical resources */}
+          {post.mainImage && (
+            <link
+              rel="preload"
+              as="image"
+              href={urlFor(post.mainImage).width(1200).height(675).url()}
+            />
           )}
         </div>
+        <div className="bg-white min-h-screen">
+          <div className="bg-white shadow-sm sticky top-0 z-30" />
 
-        <CommonForm title="Get Best Deals in Premium Dholera Plots" />
-      </div>
+          <main className="max-w-7xl mx-auto px-4 py-8 pt-24">
+            <div className="flex flex-col lg:flex-row gap-10 lg:items-start">
+              {/* Main Content */}
+              <article className="lg:w-2/3">
+                {/* Breadcrumb */}
+                <div className="mb-4">
+                  <nav className="flex" aria-label="Breadcrumb">
+                    <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                      <li className="inline-flex items-center">
+                        <Link
+                          href="/"
+                          className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
+                        >
+                          Home
+                        </Link>
+                      </li>
+                      <li>
+                        <div className="flex items-center">
+                          <svg
+                            className="w-3 h-3 text-gray-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <Link
+                            href="/dholera-sir-blogs"
+                            className="ml-1 text-sm font-medium text-gray-500 hover:text-gray-700 md:ml-2"
+                          >
+                            Blogs
+                          </Link>
+                        </div>
+                      </li>
+                      <li aria-current="page">
+                        <div className="flex items-center">
+                          <svg
+                            className="w-3 h-3 text-gray-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2 line-clamp-1">
+                            {post.title}
+                          </span>
+                        </div>
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+
+                {/* Article Header */}
+                <div className="mb-8">
+                  {post.categories && post.categories.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {post.categories.map((category) => (
+                        <span
+                          key={category._id || category.title}
+                          className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full"
+                        >
+                          {category.title}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                    {post.title}
+                  </h1>
+                </div>
+
+                {/* Featured Image */}
+                {post.mainImage && (
+                  <div className="mb-10 overflow-hidden rounded-xl shadow-lg">
+                    <Image
+                      src={urlFor(post.mainImage).width(1200).height(675).url()}
+                      alt={post.title}
+                      width={1200}
+                      height={675}
+                      className="w-full h-auto object-contain"
+                      priority
+                    />
+                  </div>
+                )}
+
+                {/* Article Content */}
+                <div className="bg-white rounded-xl shadow-2xl p-8 border border-gray-200">
+                  <div className="text-xl max-w-none">
+                    <PortableText value={post.body} components={components} />
+                  </div>
+                  <SlugPageForm />
+                  {/* Tags */}
+                  {post.tags && post.tags.length > 0 && (
+                    <div className="mt-12 pt-6 border-t border-gray-200">
+                      <h4 className="font-semibold text-gray-900 mb-3">
+                        Related Topics:
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.map((tag) => (
+                          <Link
+                            key={tag}
+                            href={`/blogs/tag/${tag}`}
+                            className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition"
+                          >
+                            #{tag}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </article>
+
+              {/* Right Sidebar */}
+              <RightSidebar
+                trendingBlogs={trendingBlogs}
+                relatedProjects={relatedBlogs}
+                type="blog"
+              />
+            </div>
+          </main>
+
+          {/* Related Articles Section */}
+          <section className="bg-gray-50 py-12 mt-4">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="flex justify-between items-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  You might also like
+                </h2>
+                <Link
+                  href="/dholera-sir-updates"
+                  className="rounded-xl text-white font-semibold bg-[#deae3c] hover:bg-[#f3bb39] px-4 py-2"
+                >
+                  View all
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedBlogs && relatedBlogs.length > 0
+                  ? relatedBlogs.map((blog) => (
+                      <Link
+                        key={blog._id}
+                        href={`/dholera-sir-updates/${blog.slug.current}`}
+                      >
+                        <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 h-full">
+                          <div className="relative h-48 overflow-hidden">
+                            {blog.mainImage ? (
+                              <Image
+                                src={urlFor(blog.mainImage)
+                                  .width(400)
+                                  .height(250)
+                                  .url()}
+                                alt={blog.title}
+                                width={400}
+                                height={250}
+                                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
+                                <span className="text-gray-400">No image</span>
+                              </div>
+                            )}
+                          </div>
+                          <div className="p-5">
+                            <h3 className="font-bold text-lg mb-2 text-gray-900 line-clamp-2">
+                              {blog.title}
+                            </h3>
+                            <p className="text-gray-700 mb-4 line-clamp-3">
+                              {blog.description}
+                            </p>
+                            <span className="hover:text-[#C69C21] text-[#FDB913] p-1 rounded-xl font-semibold bg-gray-800 inline-flex items-center">
+                              Read more
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))
+                  : Array(3)
+                      .fill(0)
+                      .map((_, i) => (
+                        <div
+                          key={i}
+                          className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200"
+                        >
+                          <div className="h-48 bg-gradient-to-r from-gray-100 to-gray-200"></div>
+                          <div className="p-6">
+                            <div className="h-4 bg-gray-200 rounded w-1/4 mb-3"></div>
+                            <div className="h-6 bg-gray-200 rounded w-3/4 mb-3"></div>
+                            <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                            <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+                          </div>
+                        </div>
+                      ))}
+              </div>
+            </div>
+          </section>
+        </div>
+      </>
     );
   } catch (error) {
     console.error("Error loading blog post:", slug, error);
@@ -528,7 +609,7 @@ export default async function Post({ params }) {
           <h1 className="text-2xl font-bold mb-2">Error loading blog post</h1>
           <p className="text-gray-600">Please try again later</p>
           <Link
-            href="/blogs"
+            href="/dholera-sir-blogs"
             className="mt-4 inline-block text-[#C69C21] hover:text-[#FDB913]"
           >
             ← Back to Blogs
