@@ -10,6 +10,7 @@ import TrendingBlogItem from "./TrendingBlog";
 import Link from "next/link";
 import LeadForm from "./LeadForm";
 
+
 export default async function BlogsPage() {
   // Fetch data and handle potential errors
   let posts = [];
