@@ -6,48 +6,6 @@ import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
-  const amenities = [
-    {
-      icon: "🚗",
-      title: "EV Charging Station",
-    },
-    {
-      icon: "⚡",
-      title: "Power & Water Supply",
-    },
-    {
-      icon: "🏃‍♂️",
-      title: "Jogging Track & Yoga Deck",
-    },
-    {
-      icon: "🧒",
-      title: "Kids Play Area",
-    },
-    {
-      icon: "📍",
-      title: "Project Boundary",
-    },
-    {
-      icon: "🏘️",
-      title: "Gated Community",
-    },
-    {
-      icon: "🛣️",
-      title: "Internal Roads",
-    },
-    {
-      icon: "📹",
-      title: "24/7 Security & CCTV Surveillance",
-    },
-    {
-      icon: "📱",
-      title: "App-Based Society Management",
-    },
-    {
-      icon: "👵",
-      title: "Senior Citizen Zone",
-    },
-  ];
 
   return (
     <>
@@ -76,10 +34,8 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              We are excited to unveil our next milestone – WestWyn Estate.
-              Backed by investor trust and driven by our commitment to growth,
-              excellence, and reliability, this new project marks the beginning
-              of another promising chapter at a prime location.
+              Marina Bay is a modern plotting project situated in Village Gamph, Tehsil Dholera, District Ahmedabad, inside Dholera Smart City (Dholera SIR). With its strategic location near the Ahmedabad-Dholera Expressway and the proposed Dholera International Airport, the project offers secure residential plots with approvals and modern facilities as part of India’s Greenfield Smart City.
+
             </p>
 
             <p className="text-lg text-gray-200 leading-relaxed">
@@ -94,7 +50,7 @@ export default function Hero() {
         </div>
 
         <div>
-          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
+          <CommonForm title="Registry Ready Plots Under 10 Lakhs"/>
         </div>
 
         <div className="relative">
@@ -118,50 +74,49 @@ export default function Hero() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Prime Location Advantage
+                    Location Strength
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Navda Highway, 0 km from Dholera
-                    SIR, close to TP 5, and only 15 minutes away from the
-                    activation area.
+                    Inside Dholera SIR, well-connected to the expressway, airport, and Dholera Metro City.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Connectivity to Mega Infrastructure
+                    Future Value Growth
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Minutes from the upcoming Dholera International Airport,
-                    Ahmedabad–Dholera Expressway, and proposed monorail.
+                    Investing at the development stage of Dholera Smart City ensures strong appreciation.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Secure & Approved Investment
+                   Safe Purchase
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    NA/NOC cleared, AUDA-registered, and title-clear plots.
+                    Every plot is NA/NOC approved, with clear titles and registry-ready documents.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    High Appreciation Potential
+                    Planned Township
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Early investors benefit from rapid value growth.
+                   Gated campus, internal roads, electrification, drainage, and green zones.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Modern Living & Lifestyle
+                    Flexible Options
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated community with green landscapes, wide roads, and
-                    amenities for comfort, security, and sustainability.
+                    Various plot sizes and payment flexibility make it suitable for both investors and end-users.
                   </p>
                 </div>
 
@@ -176,31 +131,10 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* Amenities Section */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Amenities
-              </h2>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {amenities.map((amenity, index) => (
-                  <div
-                    key={index}
-                    className="bg-teal-500/20 backdrop-blur-sm rounded-lg p-4 text-center border border-teal-400/30 hover:bg-teal-500/30 transition-all duration-300"
-                  >
-                    <div className="text-2xl mb-2">{amenity.icon}</div>
-                    <p className="text-white font-medium text-sm">
-                      {amenity.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under 10 Lakhs"/>
     </>
   );
 }

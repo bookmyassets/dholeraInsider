@@ -6,48 +6,7 @@ import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
-  const amenities = [
-    {
-      icon: "🚗",
-      title: "EV Charging Station",
-    },
-    {
-      icon: "⚡",
-      title: "Power & Water Supply",
-    },
-    {
-      icon: "🏃‍♂️",
-      title: "Jogging Track & Yoga Deck",
-    },
-    {
-      icon: "🧒",
-      title: "Kids Play Area",
-    },
-    {
-      icon: "📍",
-      title: "Project Boundary",
-    },
-    {
-      icon: "🏘️",
-      title: "Gated Community",
-    },
-    {
-      icon: "🛣️",
-      title: "Internal Roads",
-    },
-    {
-      icon: "📹",
-      title: "24/7 Security & CCTV Surveillance",
-    },
-    {
-      icon: "📱",
-      title: "App-Based Society Management",
-    },
-    {
-      icon: "👵",
-      title: "Senior Citizen Zone",
-    },
-  ];
+ 
 
   return (
     <>
@@ -76,25 +35,15 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              We are excited to unveil our next milestone – WestWyn Estate.
-              Backed by investor trust and driven by our commitment to growth,
-              excellence, and reliability, this new project marks the beginning
-              of another promising chapter at a prime location.
-            </p>
+              Located in Village Gamph, Tehsil Dholera, District Ahmedabad, Maple Township sits right inside the expanding Dholera Smart City (Dholera SIR). With direct access to the Ahmedabad-Dholera Expressway and proximity to the planned Dholera International Airport, this project combines location advantages with lifestyle infrastructure, making it an ideal choice for investors and homeowners alike in India’s first Greenfield Smart City.
 
-            <p className="text-lg text-gray-200 leading-relaxed">
-              Located on Navda Highway, right at the entrance of Dholera SIR (0
-              km) and close to TP 5, WestWyn Estate places you at the center of
-              a rapidly developing smart city corridor. Every plot here is
-              designed as a secure, future-ready investment that grows as
-              Dholera transforms.
             </p>
           </div>
         </div>
         </div>
 
         <div>
-          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
+          <CommonForm title="Registry Ready Plots Under 10 Lakhs"/>
         </div>
 
         <div className="relative">
@@ -118,50 +67,48 @@ export default function Hero() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Prime Location Advantage
+                    Connectivity Advantage
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Navda Highway, 0 km from Dholera
-                    SIR, close to TP 5, and only 15 minutes away from the
-                    activation area.
+                    Inside Dholera SIR, with seamless links to the expressway, airport, and Dholera Metro City.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Connectivity to Mega Infrastructure
+                    High Returns
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Minutes from the upcoming Dholera International Airport,
-                    Ahmedabad–Dholera Expressway, and proposed monorail.
+                    Entry at an early stage of the Dholera Smart City project promises long-term appreciation
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Secure & Approved Investment
+                    Secure Purchase
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    NA/NOC cleared, AUDA-registered, and title-clear plots.
+                    All plots are NA/NOC approved, registry-ready, and carry clear titles.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    High Appreciation Potential
+                    Township Lifestyle
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Early investors benefit from rapid value growth.
+                    Wide internal roads, electrification, drainage, water supply, and landscaped areas.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Modern Living & Lifestyle
+                    Investor Friendly
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated community with green landscapes, wide roads, and
-                    amenities for comfort, security, and sustainability.
+                    Flexible plot sizes and affordable installment options.
                   </p>
                 </div>
 
@@ -176,31 +123,10 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* Amenities Section */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Amenities
-              </h2>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {amenities.map((amenity, index) => (
-                  <div
-                    key={index}
-                    className="bg-teal-500/20 backdrop-blur-sm rounded-lg p-4 text-center border border-teal-400/30 hover:bg-teal-500/30 transition-all duration-300"
-                  >
-                    <div className="text-2xl mb-2">{amenity.icon}</div>
-                    <p className="text-white font-medium text-sm">
-                      {amenity.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under 10 Lakhs"/>
     </>
   );
 }

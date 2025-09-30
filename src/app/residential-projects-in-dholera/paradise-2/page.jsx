@@ -6,49 +6,6 @@ import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
-  const amenities = [
-    {
-      icon: "🚗",
-      title: "EV Charging Station",
-    },
-    {
-      icon: "⚡",
-      title: "Power & Water Supply",
-    },
-    {
-      icon: "🏃‍♂️",
-      title: "Jogging Track & Yoga Deck",
-    },
-    {
-      icon: "🧒",
-      title: "Kids Play Area",
-    },
-    {
-      icon: "📍",
-      title: "Project Boundary",
-    },
-    {
-      icon: "🏘️",
-      title: "Gated Community",
-    },
-    {
-      icon: "🛣️",
-      title: "Internal Roads",
-    },
-    {
-      icon: "📹",
-      title: "24/7 Security & CCTV Surveillance",
-    },
-    {
-      icon: "📱",
-      title: "App-Based Society Management",
-    },
-    {
-      icon: "👵",
-      title: "Senior Citizen Zone",
-    },
-  ];
-
   return (
     <>
       <Image
@@ -76,28 +33,23 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              We are excited to unveil our next milestone – WestWyn Estate.
-              Backed by investor trust and driven by our commitment to growth,
-              excellence, and reliability, this new project marks the beginning
-              of another promising chapter at a prime location.
-            </p>
-
-            <p className="text-lg text-gray-200 leading-relaxed">
-              Located on Navda Highway, right at the entrance of Dholera SIR (0
-              km) and close to TP 5, WestWyn Estate places you at the center of
-              a rapidly developing smart city corridor. Every plot here is
-              designed as a secure, future-ready investment that grows as
-              Dholera transforms.
+              Paradise 2, located in Village Shela, Tehsil Dholera, District
+              Ahmedabad, is part of the fast-growing Dholera Smart City (Dholera
+              SIR). Designed with futuristic planning and secure legal
+              approvals, it enjoys excellent proximity to the Ahmedabad-Dholera
+              Expressway and the upcoming Dholera International Airport, making
+              it a safe and profitable investment in India’s first Greenfield
+              Smart City.
             </p>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div>
-          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
-        </div>
+      <div>
+        <CommonForm title="Registry Ready Plots Under 10 Lakhs" />
+      </div>
 
-        <div className="relative">
+      <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -118,40 +70,41 @@ export default function Hero() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Prime Location Advantage
+                    Strategic Location
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Navda Highway, 0 km from Dholera
-                    SIR, close to TP 5, and only 15 minutes away from the
-                    activation area.
+                    Inside Dholera SIR, directly linked to the expressway, airport, and Dholera Metro City.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Connectivity to Mega Infrastructure
+                   Future Appreciation
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Minutes from the upcoming Dholera International Airport,
-                    Ahmedabad–Dholera Expressway, and proposed monorail.
+                    Early entry into the Dholera Smart City project assures long-term ROI.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Secure & Approved Investment
+                    Legal Security
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    NA/NOC cleared, AUDA-registered, and title-clear plots.
+                    Well-planned township with gated security, wide roads, power, water, and landscaped spaces.
+
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    High Appreciation Potential
+                    Investor-Friendly
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Early investors benefit from rapid value growth.
+                    Multiple plot sizes and flexible payment terms for every investor
                   </p>
                 </div>
 
@@ -176,31 +129,10 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            {/* Amenities Section */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Amenities
-              </h2>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {amenities.map((amenity, index) => (
-                  <div
-                    key={index}
-                    className="bg-teal-500/20 backdrop-blur-sm rounded-lg p-4 text-center border border-teal-400/30 hover:bg-teal-500/30 transition-all duration-300"
-                  >
-                    <div className="text-2xl mb-2">{amenity.icon}</div>
-                    <p className="text-white font-medium text-sm">
-                      {amenity.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under 10 Lakhs" />
     </>
   );
 }
