@@ -12,6 +12,7 @@ import WhyDI from "../homecomponents/WhyDI";
 import WestWyn_Estate from "../homecomponents/WestWyn_Estate";
 import FAQSection from "../homecomponents/Faq";
 import InvestmentTimeline from "../homecomponents/ROI2";
+import BrowseBlogsSection from "../components/BrowseBlogs";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -78,6 +79,7 @@ const HomePage = ({openForm}) => {
       <Invest />
       <WhyDI/>
       <CommonForm title="Dholera's Premium Plots Under ₹10 Lakhs"/>
+      <BrowseBlogsSection/>
       <InvestmentTimeline/>
       <WestWyn_Estate/>
       

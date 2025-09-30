@@ -13,7 +13,7 @@ export default function BrochureDownload({
   buttonName,
   thankYouTitle = "Thank You!",
   thankYouMessage = "Your request has been submitted successfully.",
-  source = "BookMyAssets",
+  source = "Dholera Insider",
   ids
 }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -160,8 +160,8 @@ const onRecaptchaSuccess = async (token) => {
             phone: formData.phone,
             source: source,
           },
-          source: "BookMyAssets",
-          tags: ["Dholera Investment", "Website Lead", "BookMyAssets"],
+          source: "Dholera Insider",
+          tags: ["Dholera Investment", "Website Lead", "Dholera Insider"],
           recaptchaToken: token,
         }),
       }
@@ -349,7 +349,7 @@ const onRecaptchaSuccess = async (token) => {
             <button
               type="button"
               onClick={handleClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 rounded-full p-1 transition-all duration-200 hover:bg-gray-700 z-10"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-full p-1 transition-all duration-200 hover:bg-gray-700 z-10"
               aria-label="Close form"
             >
               <svg
@@ -427,7 +427,7 @@ const onRecaptchaSuccess = async (token) => {
                   Your request has been submitted successfully. We'll contact
                   you shortly.
                 </p>
-                <p className="text-yellow-400 text-sm mt-2">
+                <p className="text-teal-400 text-sm mt-2">
                   Your brochure is downloading...
                 </p>
               </div>
@@ -445,14 +445,14 @@ const onRecaptchaSuccess = async (token) => {
                   transition={{ delay: 0.4 }}
                   className="relative"
                 >
-                  <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-yellow-400" />
+                  <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-400" />
                   <input
                     name="fullName"
                     placeholder="Full Name"
                     value={formData.fullName}
                     onChange={handleChange}
                     required
-                    className="w-full p-4 pl-12 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 border border-gray-700 hover:border-yellow-400 transition-colors"
+                    className="w-full p-4 pl-12 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 border border-gray-700 hover:border-teal-400 transition-colors"
                   />
                 </motion.div>
 
@@ -462,7 +462,7 @@ const onRecaptchaSuccess = async (token) => {
                   transition={{ delay: 0.5 }}
                   className="relative"
                 >
-                  <FaPhoneAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-yellow-400" />
+                  <FaPhoneAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-400" />
                   <input
                     name="phone"
                     type="tel"
@@ -472,7 +472,7 @@ const onRecaptchaSuccess = async (token) => {
                     minLength="10"
                     maxLength="15"
                     required
-                    className="w-full p-4 pl-12 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 border border-gray-700 hover:border-yellow-400 transition-colors"
+                    className="w-full p-4 pl-12 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 border border-gray-700 hover:border-teal-400 transition-colors"
                   />
                 </motion.div>
 
@@ -490,7 +490,7 @@ const onRecaptchaSuccess = async (token) => {
                   type="submit"
                   disabled={isLoading || !recaptchaLoaded}
                   id="brochure"
-                  className="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition-all shadow-lg hover:shadow-yellow-500/20 font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full py-3 px-6 bg-gradient-to-r from-teal-500 to-teal-600 text-black rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all shadow-lg hover:shadow-teal-500/20 font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isLoading
                     ? "Verifying..."

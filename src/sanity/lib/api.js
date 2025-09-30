@@ -41,10 +41,18 @@ export async function getEvents() {
 
 /* Project Info */
 export async function projectInfo() {
-  const query = `*[_type == "post" && "project-Info" in categories[]->title && author->name == "Dholera Insider"]{
-    _id, title, slug, mainImage, publishedAt, body, author->{name, image}, categories[]->{title}
+ const query = `*[_type == "post" && "project-Info" in categories[]->title && author-> name == "Dholera Insider" ]{
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body,
+    author->{name, image},
+    categories[]->{title, _id}
   }`;
-  return await client.fetch(query, {}, { cache: 'no-store' });
+  const posts = await client.fetch(query, {}, { cache: 'no-store' }); // Disables caching
+  return posts;
 }
 
 

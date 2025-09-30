@@ -118,10 +118,10 @@ export default function SlugPageForm() {
             fields: {
               name: formData.fullName,
               phone: formData.mobileNumber,
-              source: "BookMyAssets",
+              source: "Dholera Insider",
             },
-            source: "BookMyAssets Popup",
-            tags: ["Dholera Investment", "Popup Lead", "BookMyAssets"],
+            source: "Dholera Insider Popup",
+            tags: ["Dholera Investment", "Popup Lead", "Dholera Insider"],
             recaptchaToken: token,
           }),
         }
@@ -265,7 +265,7 @@ export default function SlugPageForm() {
                     >
                       ×
                     </button>
-                    <h1 className="text-2xl font-bold text-gray-800 mb-2">BookMyAssets</h1>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-2">Dholera Insider</h1>
                     
                     {/* Section 2: Sub-heading CTA */}
                     <p className="text-lg text-gray-700 font-semibold">
@@ -326,7 +326,7 @@ export default function SlugPageForm() {
                       className={`w-full font-bold py-3 px-6 rounded-lg transition-all duration-300 ${
                         isLoading || !recaptchaLoaded
                           ? "bg-gray-400 cursor-not-allowed text-gray-600"
-                          : "bg-[#deae3c] hover:bg-[#eab308] text-white transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                          : "bg-teal-700 hover:bg-teal-500 text-white transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                       }`}
                     >
                       {isLoading ? (
