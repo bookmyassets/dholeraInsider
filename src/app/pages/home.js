@@ -11,6 +11,7 @@ import Invest from "../homecomponents/Invest";
 import WhyDI from "../homecomponents/WhyDI";
 import WestWyn_Estate from "../homecomponents/WestWyn_Estate";
 import FAQSection from "../homecomponents/Faq";
+import InvestmentTimeline from "../homecomponents/ROI";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -77,6 +78,7 @@ const HomePage = ({openForm}) => {
       <Invest />
       <WhyDI/>
       <CommonForm title="DHOLERA's PREMIUM REAL ESTATE UNDER 10 LAKHS"/>
+      <InvestmentTimeline/>
       <WestWyn_Estate/>
       
       <CTAsection/>
