@@ -10,7 +10,7 @@ export default function Hero() {
     <>
       <Image
         src={westwynEstate1}
-        alt="WestWyn Estate - Your Gateway to Smart Investment"
+        alt="Paradise 2 - Your Gateway to Smart Investment"
       />
 
       <div className="relative">
@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
-            alt="WestWyn Estate"
+            alt="Paradise 2"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
@@ -29,7 +29,7 @@ export default function Hero() {
           <div className="max-w-4xl mx-auto">
             {/* Heading */}
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              About WestWyn Estate
+              About Paradise 2
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
@@ -54,7 +54,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
-            alt="WestWyn Estate"
+            alt="Paradise 2"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
@@ -64,7 +64,7 @@ export default function Hero() {
             {/* Why Invest Section */}
             <div className="mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Why Invest in WestWyn Estate?
+                Why Invest in Paradise 2?
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">

@@ -6,54 +6,12 @@ import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
-  const amenities = [
-    {
-      icon: "🚗",
-      title: "EV Charging Station",
-    },
-    {
-      icon: "⚡",
-      title: "Power & Water Supply",
-    },
-    {
-      icon: "🏃‍♂️",
-      title: "Jogging Track & Yoga Deck",
-    },
-    {
-      icon: "🧒",
-      title: "Kids Play Area",
-    },
-    {
-      icon: "📍",
-      title: "Project Boundary",
-    },
-    {
-      icon: "🏘️",
-      title: "Gated Community",
-    },
-    {
-      icon: "🛣️",
-      title: "Internal Roads",
-    },
-    {
-      icon: "📹",
-      title: "24/7 Security & CCTV Surveillance",
-    },
-    {
-      icon: "📱",
-      title: "App-Based Society Management",
-    },
-    {
-      icon: "👵",
-      title: "Senior Citizen Zone",
-    },
-  ];
 
   return (
     <>
       <Image
         src={westwynEstate1}
-        alt="WestWyn Estate - Your Gateway to Smart Investment"
+        alt="Pride - Your Gateway to Smart Investment"
       />
 
       <div className="relative">
@@ -61,7 +19,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
-            alt="WestWyn Estate"
+            alt="Pride"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
@@ -72,23 +30,15 @@ export default function Hero() {
           <div className="max-w-4xl mx-auto">
             {/* Heading */}
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              About WestWyn Estate
+              About Pride
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              We are excited to unveil our next milestone – WestWyn Estate.
-              Backed by investor trust and driven by our commitment to growth,
-              excellence, and reliability, this new project marks the beginning
-              of another promising chapter at a prime location.
+              Pride is a large-scale plotting project situated in Village Kasindra, Tehsil Dholera, District Ahmedabad, inside the rapidly progressing Dholera Smart City (Dholera SIR). With easy access to the Ahmedabad-Dholera Expressway and close proximity to the upcoming Dholera International Airport, Pride offers buyers secure, legally approved residential plots in India’s Greenfield Smart City.
+
             </p>
 
-            <p className="text-lg text-gray-200 leading-relaxed">
-              Located on Navda Highway, right at the entrance of Dholera SIR (0
-              km) and close to TP 5, WestWyn Estate places you at the center of
-              a rapidly developing smart city corridor. Every plot here is
-              designed as a secure, future-ready investment that grows as
-              Dholera transforms.
-            </p>
+            
           </div>
         </div>
         </div>
@@ -102,7 +52,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
-            alt="WestWyn Estate"
+            alt="Pride"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
@@ -112,56 +62,55 @@ export default function Hero() {
             {/* Why Invest Section */}
             <div className="mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Why Invest in WestWyn Estate?
+                Why Invest in Pride?
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Prime Location Advantage
+                    Strategic Advantage
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Navda Highway, 0 km from Dholera
-                    SIR, close to TP 5, and only 15 minutes away from the
-                    activation area.
+                    Located inside Dholera SIR with unmatched connectivity to the expressway, airport, and Dholera Metro City.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Connectivity to Mega Infrastructure
+                    Future Appreciation
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Minutes from the upcoming Dholera International Airport,
-                    Ahmedabad–Dholera Expressway, and proposed monorail.
+                    Being part of an early-stage Dholera Smart City project promises significant ROI.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Secure & Approved Investment
+                    Investor Plans
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    NA/NOC cleared, AUDA-registered, and title-clear plots.
+                   Flexible sizes and affordable installment options for all categories of investors.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    High Appreciation Potential
+                    Legally Secure
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Early investors benefit from rapid value growth.
+                    All plots are NA/NOC approved, registry-ready, and carry clear titles
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Modern Living & Lifestyle
+                    Planned Infrastructure
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated community with green landscapes, wide roads, and
-                    amenities for comfort, security, and sustainability.
+                    Gated project with wide roads, electrification, water facilities, and landscaped green areas.
+
                   </p>
                 </div>
 
@@ -177,26 +126,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Amenities Section */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-                Amenities
-              </h2>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {amenities.map((amenity, index) => (
-                  <div
-                    key={index}
-                    className="bg-teal-500/20 backdrop-blur-sm rounded-lg p-4 text-center border border-teal-400/30 hover:bg-teal-500/30 transition-all duration-300"
-                  >
-                    <div className="text-2xl mb-2">{amenity.icon}</div>
-                    <p className="text-white font-medium text-sm">
-                      {amenity.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
