@@ -1,16 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import About from "../components/about";
 import scrollIcon from "../assets/icons/topArrowIcon.png";
 import Whatsapp from "../components/whatsapp";
 import Hero from "../components/hero";
-import Westwyn from "../components/WestWyn";
 import CTAsection from "../components/CTAsection";
-import MegaIndustries from "../components/MegaIndusties";
 import CommonForm from "../components/CommonForm";
-import BulkLandDholera from "../components/BulkLand";
-import TestimonialsSection from "../components/Testimonials";
 
 import Invest from "../homecomponents/Invest";
 import WhyDI from "../homecomponents/WhyDI";
@@ -81,7 +76,7 @@ const HomePage = ({openForm}) => {
       <Whatsapp />
       <Invest />
       <WhyDI/>
-      <CommonForm title="GET STARTED WITH DHOLERA's PREMIUM REAL ESTATE "/>
+      <CommonForm title="DHOLERA's PREMIUM REAL ESTATE UNDER 10 LAKHS"/>
       <WestWyn_Estate/>
       
       <CTAsection/>
