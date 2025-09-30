@@ -3,7 +3,7 @@ import {
 
 } from "@/sanity/lib/api";
 import hero from "@/app/assets/hero/aboutHero.webp";
-import herom from "@/app/assets/hero/aboutMHero.webp";
+
 import Image from "next/image";
 import BlogCard from "./BlogCard";
 import TrendingBlogItem from "./TrendingBlog";
@@ -63,15 +63,15 @@ export default async function BlogsPage() {
             <Image
               src={hero}
               alt="Dholera SIR Aerial View"
-              className="w-full h-full object-cover max-sm:hidden"
+              className="w-full h-full object-cover "
               priority
             />
-            <Image
+            {/* <Image
               src={herom}
               alt="Dholera SIR Aerial View"
               className="w-full h-full object-cover md:hidden"
               priority
-            />
+            /> */}
             <div className="absolute inset-0 "></div>
           </div>
           <div className="relative z-10 max-w-4xl mx-auto text-white px-6">
