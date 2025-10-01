@@ -147,7 +147,7 @@ const InvestmentTimeline = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-white via-teal-50/30 to-white py-16 px-4" id="timeline-container">
+    <div className="w-full bg-gradient-to-b from-white via-teal-50/30 to-white py-16 px-4 overflow-hidden" id="timeline-container">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-1000 ${
