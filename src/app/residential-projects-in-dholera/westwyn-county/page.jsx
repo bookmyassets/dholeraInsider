@@ -8,44 +8,64 @@ import PopupScroll from "@/app/components/PopUpScroll";
 export default function Hero() {
   const amenities = [
     {
-      icon: "🚗",
-      title: "EV Charging Station",
+      icon: "👥", // Users
+      title: "Club House & Co-Working Space",
     },
     {
-      icon: "⚡",
-      title: "Power & Water Supply",
-    },
-    {
-      icon: "🏃‍♂️",
-      title: "Jogging Track & Yoga Deck",
-    },
-    {
-      icon: "🧒",
-      title: "Kids Play Area",
-    },
-    {
-      icon: "📍",
-      title: "Project Boundary",
-    },
-    {
-      icon: "🏘️",
+      icon: "🏰", // Shield
       title: "Gated Community",
     },
     {
-      icon: "🛣️",
-      title: "Internal Roads",
+      icon: "⚡", // Car
+      title: "EV Charging Station",
     },
     {
-      icon: "📹",
+      icon: "🧒", // Baby
+      title: "Kids Play Area",
+    },
+    {
+      icon: "📹", // Shield
       title: "24/7 Security & CCTV Surveillance",
     },
     {
-      icon: "📱",
-      title: "App-Based Society Management",
+      icon: "🏊", // Waves
+      title: "Swimming Pool",
     },
     {
-      icon: "👵",
-      title: "Senior Citizen Zone",
+      icon: "📱", // Globe
+      title: "App-based Society Management",
+    },
+    {
+      icon: "🌳", // Trees
+      title: "Lush Green Surroundings",
+    },
+    {
+      icon: "💪", // Baby
+      title: "Indoor Games & Gymnasium",
+    },
+    {
+      icon: "💡", // Lightbulb
+      title: "Automated Street Light",
+    },
+    {
+      icon: "🏃", // Activity
+      title: "Jogging Track",
+    },
+    {
+      icon: "🛣️", // FaRoad
+      title: "Internal Roads",
+    },
+    {
+      icon: "📍", // SquareDashed
+      title: "Project Boundary",
+    },
+    {
+      icon: "🧘", // Heart
+      title: "Yoga Deck & Senior Citizen Zone",
+    },
+    {
+      icon: "💧", // Zap
+      title: "Power & Water Supply",
     },
   ];
 
@@ -76,28 +96,34 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              We are excited to unveil our next milestone – WestWyn County.
-              Backed by investor trust and driven by our commitment to growth,
-              excellence, and reliability, this new project marks the beginning
-              of another promising chapter at a prime location.
+              WestWyn County brings a secure and future-ready investment
+              opportunity in Dholera SIR, offering 100% government-approved,
+              clear-title plots. Backed by the vision of Dholera Smart City, the
+              project caters to both Indian and NRI investors with
+              registry-ready documentation, flexible payment plans, resale
+              support, and buy-back assistance*. It’s a hassle-free way to own a
+              piece of India’s most ambitious greenfield smart city.
             </p>
 
             <p className="text-lg text-gray-200 leading-relaxed">
-              Located on Navda Highway, right at the entrance of Dholera SIR (0
-              km) and close to TP 5, WestWyn County places you at the center of
-              a rapidly developing smart city corridor. Every plot here is
-              designed as a secure, future-ready investment that grows as
-              Dholera transforms.
+              Located on the Fedra–Pipli State Highway (100 ft road), WestWyn
+              County enjoys one of the most connected addresses in Dholera. The
+              project is just 15 minutes away from Dholera International Airport
+              and the Ahmedabad–Dholera Expressway, giving residents and
+              investors direct access to Gujarat’s next big economic hub.
+              Surrounded by upcoming residential sectors, industrial hubs, and
+              commercial projects, this location combines convenience with
+              long-term value growth.
             </p>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div>
-          <CommonForm title="Registry Ready Plots Under 10 Lakhs"/>
-        </div>
+      <div>
+        <CommonForm title="Registry Ready Plots Under 10 Lakhs" />
+      </div>
 
-        <div className="relative">
+      <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -118,31 +144,38 @@ export default function Hero() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Prime Location Advantage
+                    Prime Location for Growth
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Navda Highway, 0 km from Dholera
-                    SIR, close to TP 5, and only 15 minutes away from the
-                    activation area.
+                    Situated close to the growth corridor of Dholera SIR,
+                    WestWyn County ensures investors gain early entry into the
+                    fastest-developing sectors. Its proximity to mega projects
+                    and smooth connectivity to Ahmedabad makes it a smart bet
+                    for both living and investment.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Connectivity to Mega Infrastructure
+                    Trusted Developer Legacy
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Minutes from the upcoming Dholera International Airport,
-                    Ahmedabad–Dholera Expressway, and proposed monorail.
+                    Built on years of consistent delivery, superior
+                    construction, and glowing customer satisfaction the
+                    developer you can depend on for transparency, quality, and
+                    long-term value in every project.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Secure & Approved Investment
+                    Safe & Legal Investment
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    NA/NOC cleared, AUDA-registered, and title-clear plots.
+                    Fully compliant plots - NA/NOC cleared, layout plan
+                    sanctioned, and clear title -ready for registry and extra
+                    support such as resale and buy-back. All legal approvals are
+                    in place, so you can buy with peace of mind and confidence.
                   </p>
                 </div>
 
@@ -151,17 +184,24 @@ export default function Hero() {
                     High Appreciation Potential
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Early investors benefit from rapid value growth.
+                    With Dholera International Airport, Tata’s semiconductor
+                    fab, and other industrial investments coming up, WestWyn
+                    County plots are positioned for strong appreciation. Early
+                    investors stand to gain the most as land values rise in this
+                    government-supported smart city.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Modern Living & Lifestyle
+                    Backed by Smart City Infrastructure
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated community with green landscapes, wide roads, and
-                    amenities for comfort, security, and sustainability.
+                    As part of Dholera Smart City, WestWyn County benefits from
+                    state and central government-led development. With
+                    industrial parks, residential clusters, and mega
+                    infrastructure projects underway, the area is primed for
+                    sustained growth.
                   </p>
                 </div>
 
@@ -200,7 +240,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under 10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under 10 Lakhs" />
     </>
   );
 }
