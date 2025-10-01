@@ -71,9 +71,8 @@ export default async function page() {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-base  text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
-                Expert insights, market analysis, and investment opportunities
-                in India's most promising smart city
+              <p className="text-base  text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
+                Uncover market insights, project updates, and early opportunities in India’s most ambitious smart city.
               </p>
             </div>
 

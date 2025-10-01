@@ -29,6 +29,23 @@ const Header = () => {
     setIsContactFormOpen(false);
   };
 
+  // Status badge component
+  const StatusBadge = ({ status }) => {
+    if (!status || status === "available") return null;
+    
+    return (
+      <span
+        className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ml-2 ${
+          status === "sold-out"
+            ? "bg-red-500/20 text-red-300 border border-red-500/30"
+            : "bg-green-500/20 text-green-300 border border-green-500/30"
+        }`}
+      >
+        {status === "sold-out" ? "Sold Out" : status}
+      </span>
+    );
+  };
+
   // Main navigation items (visible on desktop)
   const mainNavItems = [
     {
@@ -38,23 +55,43 @@ const Header = () => {
         {
           name: "WestWyn Estate",
           href: "/residential-projects-in-dholera/westwyn-estate",
+          status: "available"
         },
         {
           name: "WestWyn County",
           href: "/residential-projects-in-dholera/westwyn-county",
+          status: "available"
         },
-        { name: "Paradise", href: "/residential-projects-in-dholera/paradise" },
+        { 
+          name: "Paradise", 
+          href: "/residential-projects-in-dholera/paradise",
+          status: "sold-out"
+        },
         {
           name: "Paradise 2",
           href: "/residential-projects-in-dholera/paradise-2",
+          status: "sold-out"
         },
-        { name: "Orchid", href: "/residential-projects-in-dholera/orchid" },
+        { 
+          name: "Orchid", 
+          href: "/residential-projects-in-dholera/orchid",
+          status: "sold-out"
+        },
         {
           name: "Marina bay",
           href: "/residential-projects-in-dholera/marina-bay",
+          status: "sold-out"
         },
-        { name: "Maple", href: "/residential-projects-in-dholera/maple" },
-        { name: "Pride", href: "/residential-projects-in-dholera/pride" },
+        { 
+          name: "Maple", 
+          href: "/residential-projects-in-dholera/maple",
+          status: "sold-out"
+        },
+        { 
+          name: "Pride", 
+          href: "/residential-projects-in-dholera/pride",
+          status: "sold-out"
+        },
       ],
     },
     {
@@ -273,7 +310,7 @@ const Header = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-0 mt-4 w-64 backdrop-blur-xl bg-slate-900/95 border border-white/20 rounded-2xl shadow-2xl py-4 z-50 dropdown-container"
+                          className="absolute top-full left-0 mt-4 w-72 backdrop-blur-xl bg-slate-900/95 border border-white/20 rounded-2xl shadow-2xl py-4 z-50 dropdown-container"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <div className="absolute -top-2 left-8 w-4 h-4 bg-slate-900/95 border-l border-t border-white/20 rotate-45"></div>
@@ -291,10 +328,11 @@ const Header = () => {
                             >
                               <Link
                                 href={subItem.href}
-                                className="block px-6 py-3 hover:bg-gradient-to-r hover:from-orange-500/20 hover:to-teal-500/20 text-sm text-white transition-all duration-200"
+                                className="flex items-center justify-between px-6 py-3 hover:bg-gradient-to-r hover:from-orange-500/20 hover:to-teal-500/20 text-sm text-white transition-all duration-200 group"
                                 onClick={() => setActiveDropdown(null)}
                               >
-                                {subItem.name}
+                                <span>{subItem.name}</span>
+                                <StatusBadge status={subItem.status} />
                               </Link>
                             </motion.div>
                           ))}
@@ -439,214 +477,215 @@ const Header = () => {
         </div>
       </motion.div>
 
-      {/* Enhanced Mobile Menu Overlay - MOVED OUTSIDE MAIN HEADER */}
-   <AnimatePresence>
-  {mobileMenuOpen && (
-    <motion.div
-      initial={{ opacity: 0, x: "100%" }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: "100%" }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="fixed inset-0 bg-gradient-to-br from-slate-900/98 via-emerald-900/98 to-teal-900/98 backdrop-blur-2xl z-50 overflow-y-auto"
-    >
-      {/* Mobile Menu Header */}
-      <div className="fixed top-0 left-0 right-0 h-20 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95 border-b border-white/10 flex items-center justify-between px-6 z-[102]">
-        <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-          <div className="relative h-14 w-14">
-            <Image
-              src={logo}
-              alt="Logo"
-              className="object-contain"
-              fill
-            />
-          </div>
-        </Link>
-        
-        <button
-          onClick={() => setMobileMenuOpen(false)}
-          className="p-3 rounded-xl backdrop-blur-sm bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
-        >
-          <AiOutlineClose className="text-2xl" />
-        </button>
-      </div>
-
-      {/* Mobile Menu Content */}
-      <div className="pt-20 px-6 py-8 space-y-2">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-teal-500/10 rounded-full blur-2xl animate-pulse"></div>
-        </div>
-
-        <div className="relative space-y-2">
-          {mainNavItems.map((item, index) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 * index, duration: 0.4 }}
-            >
-              {item.items ? (
-                <div className="border border-white/10 rounded-xl overflow-hidden bg-white/5">
-                  <button
-                    className="w-full flex justify-between items-center py-4 px-6 font-bold text-white hover:text-orange-400 hover:bg-white/5 transition-all duration-300"
-                    onClick={() =>
-                      setMobileActiveDropdown(
-                        mobileActiveDropdown === item.key ? null : item.key
-                      )
-                    }
-                  >
-                    <span>{item.name}</span>
-                    <motion.div
-                      animate={{
-                        rotate: mobileActiveDropdown === item.key ? 180 : 0,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <AiOutlineDown />
-                    </motion.div>
-                  </button>
-
-                  <AnimatePresence>
-                    {mobileActiveDropdown === item.key && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="bg-white/5 border-t border-white/10"
-                      >
-                        <ul className="py-2">
-                          {item.items.map((subItem) => (
-                            <li key={subItem.name}>
-                              <Link
-                                href={subItem.href}
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="block py-3 px-8 text-gray-200 hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
-                              >
-                                {subItem.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : (
-                <Link
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-4 px-6 text-xl font-bold text-white hover:text-orange-400 transition-all duration-300 hover:bg-white/5 rounded-xl border-l-4 border-transparent hover:border-orange-400"
-                >
-                  {item.name}
-                </Link>
-              )}
-            </motion.div>
-          ))}
-
+      {/* Enhanced Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ delay: 0.4, duration: 0.4 }}
-            className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-6"
-          ></motion.div>
-
-          {hamburgerMenuItems.map((item, index) => {
-            if (item.items) {
-              return (
-                <motion.div
-                  key={item.key}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + 0.1 * index, duration: 0.4 }}
-                  className="border border-white/10 rounded-xl overflow-hidden bg-white/5"
-                >
-                  <button
-                    className="w-full flex justify-between items-center py-4 px-6 font-bold text-white hover:text-orange-400 hover:bg-white/5 transition-all duration-300"
-                    onClick={() =>
-                      setMobileActiveDropdown(
-                        mobileActiveDropdown === item.key ? null : item.key
-                      )
-                    }
-                  >
-                    <span>{item.name}</span>
-                    <motion.div
-                      animate={{
-                        rotate: mobileActiveDropdown === item.key ? 180 : 0,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <AiOutlineDown />
-                    </motion.div>
-                  </button>
-
-                  <AnimatePresence>
-                    {mobileActiveDropdown === item.key && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="bg-white/5 border-t border-white/10"
-                      >
-                        <ul className="py-2">
-                          {item.items.map((subItem) => {
-                            if (subItem.onClick) {
-                              return (
-                                <li key={subItem.name}>
-                                  <button
-                                    onClick={() => {
-                                      subItem.onClick();
-                                      setMobileActiveDropdown(null);
-                                    }}
-                                    className="block w-full text-left py-3 px-8 text-gray-200 hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
-                                  >
-                                    {subItem.name}
-                                  </button>
-                                </li>
-                              );
-                            }
-                            return (
-                              <li key={subItem.name}>
-                                <Link
-                                  href={subItem.href}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="block py-3 px-8 text-gray-200 hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            }
-            return (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 + 0.1 * index, duration: 0.4 }}
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 bg-gradient-to-br from-slate-900/98 via-emerald-900/98 to-teal-900/98 backdrop-blur-2xl z-50 overflow-y-auto"
+          >
+            {/* Mobile Menu Header */}
+            <div className="fixed top-0 left-0 right-0 h-20 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95 border-b border-white/10 flex items-center justify-between px-6 z-[102]">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <div className="relative h-14 w-14">
+                  <Image
+                    src={logo}
+                    alt="Logo"
+                    className="object-contain"
+                    fill
+                  />
+                </div>
+              </Link>
+              
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 rounded-xl backdrop-blur-sm bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
               >
-                <Link
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-4 px-6 font-semibold text-white hover:text-orange-400 transition-all duration-300 hover:bg-white/5 rounded-xl border-l-4 border-transparent hover:border-teal-400"
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
+                <AiOutlineClose className="text-2xl" />
+              </button>
+            </div>
+
+            {/* Mobile Menu Content */}
+            <div className="pt-20 px-6 py-8 space-y-2">
+              <div className="absolute inset-0">
+                <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-teal-500/10 rounded-full blur-2xl animate-pulse"></div>
+              </div>
+
+              <div className="relative space-y-2">
+                {mainNavItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * index, duration: 0.4 }}
+                  >
+                    {item.items ? (
+                      <div className="border border-white/10 rounded-xl overflow-hidden bg-white/5">
+                        <button
+                          className="w-full flex justify-between items-center py-4 px-6 font-bold text-white hover:text-orange-400 hover:bg-white/5 transition-all duration-300"
+                          onClick={() =>
+                            setMobileActiveDropdown(
+                              mobileActiveDropdown === item.key ? null : item.key
+                            )
+                          }
+                        >
+                          <span>{item.name}</span>
+                          <motion.div
+                            animate={{
+                              rotate: mobileActiveDropdown === item.key ? 180 : 0,
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <AiOutlineDown />
+                          </motion.div>
+                        </button>
+
+                        <AnimatePresence>
+                          {mobileActiveDropdown === item.key && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="bg-white/5 border-t border-white/10"
+                            >
+                              <ul className="py-2">
+                                {item.items.map((subItem) => (
+                                  <li key={subItem.name}>
+                                    <Link
+                                      href={subItem.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="flex items-center justify-between py-3 px-8 text-gray-200 hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+                                    >
+                                      <span>{subItem.name}</span>
+                                      <StatusBadge status={subItem.status} />
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-4 px-6 text-xl font-bold text-white hover:text-orange-400 transition-all duration-300 hover:bg-white/5 rounded-xl border-l-4 border-transparent hover:border-orange-400"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ delay: 0.4, duration: 0.4 }}
+                  className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-6"
+                ></motion.div>
+
+                {hamburgerMenuItems.map((item, index) => {
+                  if (item.items) {
+                    return (
+                      <motion.div
+                        key={item.key}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 + 0.1 * index, duration: 0.4 }}
+                        className="border border-white/10 rounded-xl overflow-hidden bg-white/5"
+                      >
+                        <button
+                          className="w-full flex justify-between items-center py-4 px-6 font-bold text-white hover:text-orange-400 hover:bg-white/5 transition-all duration-300"
+                          onClick={() =>
+                            setMobileActiveDropdown(
+                              mobileActiveDropdown === item.key ? null : item.key
+                            )
+                          }
+                        >
+                          <span>{item.name}</span>
+                          <motion.div
+                            animate={{
+                              rotate: mobileActiveDropdown === item.key ? 180 : 0,
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <AiOutlineDown />
+                          </motion.div>
+                        </button>
+
+                        <AnimatePresence>
+                          {mobileActiveDropdown === item.key && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="bg-white/5 border-t border-white/10"
+                            >
+                              <ul className="py-2">
+                                {item.items.map((subItem) => {
+                                  if (subItem.onClick) {
+                                    return (
+                                      <li key={subItem.name}>
+                                        <button
+                                          onClick={() => {
+                                            subItem.onClick();
+                                            setMobileActiveDropdown(null);
+                                          }}
+                                          className="block w-full text-left py-3 px-8 text-gray-200 hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+                                        >
+                                          {subItem.name}
+                                        </button>
+                                      </li>
+                                    );
+                                  }
+                                  return (
+                                    <li key={subItem.name}>
+                                      <Link
+                                        href={subItem.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="block py-3 px-8 text-gray-200 hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+                                      >
+                                        {subItem.name}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    );
+                  }
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 + 0.1 * index, duration: 0.4 }}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-4 px-6 font-semibold text-white hover:text-orange-400 transition-all duration-300 hover:bg-white/5 rounded-xl border-l-4 border-transparent hover:border-teal-400"
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Contact Form Modal */}
       <AnimatePresence>

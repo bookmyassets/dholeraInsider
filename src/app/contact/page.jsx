@@ -320,17 +320,17 @@ const ContactUsPage = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-emerald-900 to-teal-900 text-white py-20">
         <div className="absolute inset-0 bg-black/30"></div>
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 pt-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">
               Get In <span className="text-emerald-400">Touch</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8">
+            <p className="text-lg md:text-xl text-gray-200 mb-8">
               Ready to invest in India's first smart city? Let's discuss your
               Dholera investment journey.
             </p>

@@ -1,20 +1,29 @@
 import Image from "next/image";
 import React from "react";
-import westwynEstate1 from "@/app/assets/residential/estate1.webp";
+import westwynEstate1 from "@/app/assets/residential/maple.webp";
 import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
- 
-
   return (
     <>
-      <Image
-        src={westwynEstate1}
-        alt="Maple - Your Gateway to Smart Investment"
-      />
-
+      <div className="relative w-full h-screen max-sm:h-[50vh]">
+        <Image
+          src={westwynEstate1}
+          alt="Maple - Your Gateway to Smart Investment"
+         
+          className="w-full h-full"
+          priority
+        />
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4">
+          <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+            <a href="/residential-projects-in-dholera/westwyn-estate">
+              Get Registry-ready Plots under ₹10 Lakhs in Dholera
+            </a>
+          </button>
+        </div>
+      </div>
       <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -35,18 +44,23 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              Located in Village Gamph, Tehsil Dholera, District Ahmedabad, Maple Township sits right inside the expanding Dholera Smart City (Dholera SIR). With direct access to the Ahmedabad-Dholera Expressway and proximity to the planned Dholera International Airport, this project combines location advantages with lifestyle infrastructure, making it an ideal choice for investors and homeowners alike in India’s first Greenfield Smart City.
-
+              Located in Village Gamph, Tehsil Dholera, District Ahmedabad,
+              Maple Township sits right inside the expanding Dholera Smart City
+              (Dholera SIR). With direct access to the Ahmedabad-Dholera
+              Expressway and proximity to the planned Dholera International
+              Airport, this project combines location advantages with lifestyle
+              infrastructure, making it an ideal choice for investors and
+              homeowners alike in India’s first Greenfield Smart City.
             </p>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div>
-          <CommonForm title="Registry Ready Plots Under 10 Lakhs"/>
-        </div>
+      <div>
+        <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
+      </div>
 
-        <div className="relative">
+      <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -70,8 +84,8 @@ export default function Hero() {
                     Connectivity Advantage
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Inside Dholera SIR, with seamless links to the expressway, airport, and Dholera Metro City.
-
+                    Inside Dholera SIR, with seamless links to the expressway,
+                    airport, and Dholera Metro City.
                   </p>
                 </div>
 
@@ -80,7 +94,8 @@ export default function Hero() {
                     High Returns
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Entry at an early stage of the Dholera Smart City project promises long-term appreciation
+                    Entry at an early stage of the Dholera Smart City project
+                    promises long-term appreciation
                   </p>
                 </div>
 
@@ -89,7 +104,8 @@ export default function Hero() {
                     Secure Purchase
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    All plots are NA/NOC approved, registry-ready, and carry clear titles.
+                    All plots are NA/NOC approved, registry-ready, and carry
+                    clear titles.
                   </p>
                 </div>
 
@@ -98,8 +114,8 @@ export default function Hero() {
                     Township Lifestyle
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Wide internal roads, electrification, drainage, water supply, and landscaped areas.
-
+                    Wide internal roads, electrification, drainage, water
+                    supply, and landscaped areas.
                   </p>
                 </div>
 
@@ -126,7 +142,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under 10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
     </>
   );
 }

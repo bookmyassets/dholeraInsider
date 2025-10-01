@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import sample1 from "@/app/assets/home/westwyn-county-hero-section-desktop.webp";
+import sample1 from "@/app/assets/home/Invest_in_dholera2.webp";
 import Image from "next/image";
 
 export default function WhyDI() {
@@ -10,7 +10,7 @@ export default function WhyDI() {
       <div className="pt-8 max-w-6xl mx-auto px-4">
         <div className="text-center ">
           <h2 className="text-4xl max-sm:text-3xl font-bold text-white mb-4">
-            Why <span className="text-teal-400">Dholera Insider?</span>
+            Why Investors Trust <span className="text-teal-400">Dholera Insider?</span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>
         </div>

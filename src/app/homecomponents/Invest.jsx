@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import sample1 from "@/app/assets/home/westwyn-county-hero-section-desktop.webp";
+import sample1 from "@/app/assets/home/Invest_in_dholera.webp";
 import Image from "next/image";
 
 export default function Invest() {

@@ -67,7 +67,7 @@ const BrowseBlogsSection = () => {
             <span className="absolute bottom-0 left-1/4 right-1/4 h-1 rounded-full bg-teal-700"></span>
           </h1>
           <p className="text-sm md:text-base max-w-2xl mx-auto text-gray-600 mt-4">
-            Discover some of our top blogs in Dholera. Exclusive opportunities await.
+            Handpicked reads to stay ahead with Expert views on Dholera
           </p>
         </div>
 

@@ -15,8 +15,7 @@ export default function WestWyn_Estate() {
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-            Introducing WestWyn Estate, the newest landmark project in Dholera
-            SIR, designed for long-term value and growth.
+           Invest Today in Dholera’s Most Promising Landmark Project
           </p>
         </div>
 
@@ -78,7 +77,10 @@ export default function WestWyn_Estate() {
               potential.
             </p>
             <button className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white mt-4 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+            <a href="/residential-projects-in-dholera/westwyn-estate">
+
             Explore Plots under ₹ 10 Lakhs in Dholera
+            </a>
           </button>
           </div>
 

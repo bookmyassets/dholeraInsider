@@ -23,9 +23,8 @@ const InvestmentTimeline = () => {
     {
       year: "2025",
       multiplier: "Current",
-      price: "₹9,500/sq.ft",
+      price: "₹9,500/sq.yd",
       title: "Your Investment Entry Point",
-      description: "Prime opportunity to invest in India's first smart city with world-class infrastructure under development",
       icon: <TrendingUp className="w-8 h-8" />,
       details: [
         "Entry at pre-development pricing",
@@ -36,7 +35,7 @@ const InvestmentTimeline = () => {
     {
       year: "2027-2029",
       multiplier: "5x Returns",
-      price: "₹47,500/sq.ft",
+      price: "₹31,250/sq.yd",
       title: "Dholera-Ahmedabad Expressway & Airport Launch",
       description: "Direct connectivity to Ahmedabad via expressway and inaugural commercial flights at Dholera Airport",
       icon: <Plane className="w-8 h-8" />,
@@ -49,7 +48,7 @@ const InvestmentTimeline = () => {
     {
       year: "2030-2032",
       multiplier: "7x Returns",
-      price: "₹66,500/sq.ft",
+      price: "₹43,750/sq.yd",
       title: "Tata Semiconductor Operations",
       description: "Tata's semiconductor manufacturing facility becomes fully operational, creating massive employment and industrial growth",
       icon: <Factory className="w-8 h-8" />,
@@ -62,7 +61,7 @@ const InvestmentTimeline = () => {
     {
       year: "2033-2035",
       multiplier: "10x Returns",
-      price: "₹95,000/sq.ft",
+      price: "₹62,500/sq.yd",
       title: "Complete Smart City Ecosystem",
       description: "All TP zones operational with full smart city infrastructure, making Dholera Gujarat's prime investment destination",
       icon: <Building className="w-8 h-8" />,
@@ -101,9 +100,9 @@ const InvestmentTimeline = () => {
       const interval = duration / steps;
       
       const targets = {
-        initial: 1425000,
-        projected: 14200000,
-        profit: 12700000
+        initial: 943750,
+        projected: 9437500,
+        profit: 8493750
       };
 
       let currentStep = 0;
@@ -216,11 +215,6 @@ const InvestmentTimeline = () => {
                     {milestone.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {milestone.description}
-                  </p>
-
                   {/* Details Expandable */}
                   <div className={`transition-all duration-500 overflow-hidden ${
                     activeIndex === index ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
@@ -240,7 +234,7 @@ const InvestmentTimeline = () => {
                 </div>
 
                 {/* Progress Indicator */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100">
+                <div className="absolute bottom-0 leyd-0 right-0 h-1 bg-gray-100">
                   <div 
                     className={`h-full bg-gradient-to-r from-teal-500 to-teal-600 transition-all duration-700 ${
                       activeIndex >= index ? 'w-full' : 'w-0'
@@ -251,7 +245,7 @@ const InvestmentTimeline = () => {
 
               {/* Connection Line for larger screens */}
               {index < milestones.length - 1 && (
-                <div className="hidden lg:block absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+                <div className="hidden lg:block absolute -bottom-8 leyd-1/2 transform -translate-x-1/2">
                   <div className="w-px h-8 bg-gradient-to-b from-teal-500 to-transparent"></div>
                 </div>
               )}
@@ -260,36 +254,36 @@ const InvestmentTimeline = () => {
         </div>
 
         {/* Investment Summary */}
-        <div className={`bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl transition-all duration-1000 ${
+        <div className={`bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl p-8 text-white shadow-2xl transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
               <Target className="w-6 h-6" />
             </div>
             <h3 className="text-2xl md:text-3xl font-semibold">Investment Overview</h3>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-300">
+          <div className="grid md:grid-cols-3 gap-6 mb-4">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/15 transition-all duration-300">
               <div className="text-sm opacity-90 mb-2">Initial Investment</div>
-              <div className="text-lg md:text-2xl font-semibold mb-1">
+              <div className="text-lg md:text-xl font-semibold mb-1">
                 {formatCurrency(counterValues.initial)}
               </div>
-              <div className="text-sm opacity-75">150 sq yd plot @ ₹9,500/sq.ft</div>
+              <div className="text-sm opacity-75">151 sq yd plot @ ₹6,250/sq.yd</div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/15 transition-all duration-300">
               <div className="text-sm opacity-90 mb-2">Projected Value (2035)</div>
-              <div className="text-lg md:text-2xl font-semibold mb-1">
+              <div className="text-lg md:text-xl font-semibold mb-1">
                 {formatCurrency(counterValues.projected)}
               </div>
               <div className="text-sm opacity-75">10x returns potential</div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/15 transition-all duration-300">
               <div className="text-sm opacity-90 mb-2">Potential Profit</div>
-              <div className="text-lg md:text-2xl font-semibold mb-1">
+              <div className="text-lg md:text-xl font-semibold mb-1">
                 {formatCurrency(counterValues.profit)}
               </div>
               <div className="text-sm opacity-75">≈900% growth rate</div>

@@ -209,8 +209,8 @@ export default function CommonForm({ title }) {
     <div>
       <section className="py-12 bg-gradient-to-r from-gray-900 to-teal-900 animate-gradient-x">
         <div className="container mx-auto px-6 sm:px-12">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-white text-3xl sm:text-4xl font-bold text-center">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-white text-3xl md:text-4xl font-bold text-center">
               {title}
             </h2>
             {showPopup ? (
@@ -246,7 +246,7 @@ export default function CommonForm({ title }) {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+              <form onSubmit={handleSubmit} className="mt-12 max-w-4xl mx-auto space-y-6">
                 {errorMessage && (
                   <div className="p-3 bg-red-500 bg-opacity-20 border border-red-400 text-red-100 rounded-lg text-sm">
                     {errorMessage}

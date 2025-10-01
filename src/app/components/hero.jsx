@@ -8,7 +8,7 @@ const Hero = () => {
   const slides = [
     {
       title: "WestWyn Estate",
-      subtitle: "Get Registry-ready Plots under ₹10 Lakhs in Dholera",
+      subtitle: "Get Registry-Ready Plots under ₹10 Lakhs in Dholera",
     }
   ];
 
@@ -45,15 +45,15 @@ const Hero = () => {
         <div className="container mx-auto px-4 text-center text-white">
           {/* Left Section - Text Content */}
           <div className="max-w-2xl mx-auto">
-            <Link href="/contact" className="inline-block mb-6 px-6 py-2 bg-blue-600 rounded-full text-sm font-medium hover:bg-blue-700 transition duration-300">
+            <Link href="tel:+919211820887" className="inline-block mb-6 px-6 py-2 bg-blue-600 rounded-full text-sm font-medium hover:bg-blue-700 transition duration-300">
               Contact Us
             </Link>
 
-            <h1 className="text-4xl md:text-5xl text-teal-300 font-bold mb-4 animate-fadeIn">
+            <h1 className="text-3xl md:text-4xl text-teal-300 font-bold mb-4 animate-fadeIn">
               {slides[currentSlide].title}
             </h1>
 
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 animate-fadeIn">
+            <h2 className="text-2xl font-semibold mb-6 animate-fadeIn">
               {slides[currentSlide].subtitle}
             </h2>
 
