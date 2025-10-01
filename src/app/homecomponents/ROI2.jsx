@@ -23,7 +23,7 @@ const InvestmentTimeline = () => {
     {
       year: "2025",
       multiplier: "Current",
-      price: "₹9,500/sq.yd",
+      price: "₹6,250/sq.yd",
       title: "Your Investment Entry Point",
       icon: <TrendingUp className="w-8 h-8" />,
       details: [
