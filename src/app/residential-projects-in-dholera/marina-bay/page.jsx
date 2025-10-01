@@ -1,28 +1,37 @@
 import Image from "next/image";
 import React from "react";
-import westwynEstate1 from "@/app/assets/residential/estate1.webp";
-import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
+import westwynEstate1 from "@/app/assets/residential2/marina.webp";
+import westwynEstate1M from "@/app/assets/residential/marinabay-mob.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
+
   return (
     <>
-      <div className="relative w-full h-screen max-sm:h-[50vh]">
-        <Image
-          src={westwynEstate1}
-          alt="Maple - Your Gateway to Smart Investment"
-          className="w-full h-full"
-          priority
-        />
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4">
-          <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
-            <a href="/residential-projects-in-dholera/westwyn-estate">
-              Get Registry-ready Plots under ₹10 Lakhs in Dholera
-            </a>
-          </button>
-        </div>
-      </div>
+      <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
+              <Image
+                src={westwynEstate1}
+                alt="Maple - Your Gateway to Smart Investment"
+               
+                className="w-full h-full max-sm:hidden"
+                priority
+              />
+              <Image
+                src={westwynEstate1M}
+                alt="Maple - Your Gateway to Smart Investment"
+               
+                className="w-full h-full md:hidden"
+                priority
+              />
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4">
+                <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+                  <a href="/residential-projects-in-dholera/westwyn-estate">
+                    Get Registry-ready Plots under ₹10 Lakhs in Dholera
+                  </a>
+                </button>
+              </div>
+            </div>
 
       <div className="relative">
         {/* Background Image */}
@@ -44,31 +53,26 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              Marina Bay is a modern plotting project situated in Village Gamph,
-              Tehsil Dholera, District Ahmedabad, inside Dholera Smart City
-              (Dholera SIR). With its strategic location near the
-              Ahmedabad-Dholera Expressway and the proposed Dholera
-              International Airport, the project offers secure residential plots
-              with approvals and modern facilities as part of India’s Greenfield
-              Smart City.
+              Marina Bay is a modern plotting project situated in Village Gamph, Tehsil Dholera, District Ahmedabad, inside Dholera Smart City (Dholera SIR). With its strategic location near the Ahmedabad-Dholera Expressway and the proposed Dholera International Airport, the project offers secure residential plots with approvals and modern facilities as part of India’s Greenfield Smart City.
+
             </p>
 
             <p className="text-lg text-gray-200 leading-relaxed">
               Located on Navda Highway, right at the entrance of Dholera SIR (0
-              km) and close to TP 5, Marina Bay places you at the center of a
-              rapidly developing smart city corridor. Every plot here is
+              km) and close to TP 5, Marina Bay places you at the center of
+              a rapidly developing smart city corridor. Every plot here is
               designed as a secure, future-ready investment that grows as
               Dholera transforms.
             </p>
           </div>
         </div>
-      </div>
+        </div>
 
-      <div>
-        <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
-      </div>
+        <div>
+          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
+        </div>
 
-      <div className="relative">
+        <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -92,8 +96,7 @@ export default function Hero() {
                     Location Strength
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Inside Dholera SIR, well-connected to the expressway,
-                    airport, and Dholera Metro City.
+                    Inside Dholera SIR, well-connected to the expressway, airport, and Dholera Metro City.
                   </p>
                 </div>
 
@@ -102,18 +105,18 @@ export default function Hero() {
                     Future Value Growth
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Investing at the development stage of Dholera Smart City
-                    ensures strong appreciation.
+                    Investing at the development stage of Dholera Smart City ensures strong appreciation.
+
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                    Safe Purchase
+                   Safe Purchase
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Every plot is NA/NOC approved, with clear titles and
-                    registry-ready documents.
+                    Every plot is NA/NOC approved, with clear titles and registry-ready documents.
+
                   </p>
                 </div>
 
@@ -122,8 +125,8 @@ export default function Hero() {
                     Planned Township
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated campus, internal roads, electrification, drainage, and
-                    green zones.
+                   Gated campus, internal roads, electrification, drainage, and green zones.
+
                   </p>
                 </div>
 
@@ -132,8 +135,7 @@ export default function Hero() {
                     Flexible Options
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Various plot sizes and payment flexibility make it suitable
-                    for both investors and end-users.
+                    Various plot sizes and payment flexibility make it suitable for both investors and end-users.
                   </p>
                 </div>
 
@@ -151,7 +153,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
+      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
     </>
   );
 }

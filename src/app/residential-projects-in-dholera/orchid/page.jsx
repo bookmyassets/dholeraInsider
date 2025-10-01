@@ -1,17 +1,24 @@
 import Image from "next/image";
 import React from "react";
-import westwynEstate1 from "@/app/assets/residential/estate1.webp";
-import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
+import westwynEstate1 from "@/app/assets/residential2/orchid.webp";
+import westwynEstate1M from "@/app/assets/residential/orchid-mob.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
-
   return (
     <>
       <Image
         src={westwynEstate1}
-        alt="Orchid - Your Gateway to Smart Investment"
+        alt="orchid"
+        className="w-full h-full max-sm:hidden"
+        priority
+      />
+      <Image
+        src={westwynEstate1M}
+        alt="orchid"
+        className="w-full h-full md:hidden"
+        priority
       />
 
       <div className="relative">
@@ -73,7 +80,8 @@ export default function Hero() {
                     Smart City Advantage
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    An exclusive entry into India’s first Greenfield Smart City, backed by government-driven infrastructure
+                    An exclusive entry into India’s first Greenfield Smart City,
+                    backed by government-driven infrastructure
                   </p>
                 </div>
 
@@ -82,7 +90,10 @@ export default function Hero() {
                     Prime Location
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Located in Village Gamph, Tehsil Dholera, District Ahmedabad, with strong links to the Ahmedabad–Dholera Expressway, Dholera International Airport, and major DMIC projects.
+                    Located in Village Gamph, Tehsil Dholera, District
+                    Ahmedabad, with strong links to the Ahmedabad–Dholera
+                    Expressway, Dholera International Airport, and major DMIC
+                    projects.
                   </p>
                 </div>
 
@@ -91,7 +102,8 @@ export default function Hero() {
                     Safe & Legal Investment
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Every plot is NA/NOC approved, comes with clear titles, and is registry-ready with plan pass certification
+                    Every plot is NA/NOC approved, comes with clear titles, and
+                    is registry-ready with plan pass certification
                   </p>
                 </div>
 
@@ -100,7 +112,8 @@ export default function Hero() {
                     Growth Potential
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Being part of an early-stage smart city ensures long-term appreciation
+                    Being part of an early-stage smart city ensures long-term
+                    appreciation
                   </p>
                 </div>
 
@@ -109,8 +122,9 @@ export default function Hero() {
                     Lifestyle Amenities & Digital Ease
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated campus, internal roads, street lights, water, power, CCTV, landscaped gardens, and an integrated digital booking system with instant documents.
-
+                    Gated campus, internal roads, street lights, water, power,
+                    CCTV, landscaped gardens, and an integrated digital booking
+                    system with instant documents.
                   </p>
                 </div>
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import westwynEstate1 from "@/app/assets/residential/estate1.webp";
+import westwynEstate1 from "@/app/assets/residential2/county.webp";
 import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
@@ -71,10 +71,22 @@ export default function Hero() {
 
   return (
     <>
-      <Image
-        src={westwynEstate1}
-        alt="WestWyn County - Your Gateway to Smart Investment"
-      />
+       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
+              <Image
+                src={westwynEstate1}
+                alt="Maple - Your Gateway to Smart Investment"
+               
+                className="w-full h-full max-sm:object-cover"
+                priority
+              />
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4">
+                <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+                  <a href="/residential-projects-in-dholera/westwyn-estate">
+                    Get Registry-ready Plots under ₹10 Lakhs in Dholera
+                  </a>
+                </button>
+              </div>
+            </div>
 
       <div className="relative">
         {/* Background Image */}

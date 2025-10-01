@@ -1,18 +1,36 @@
 import Image from "next/image";
 import React from "react";
-import westwynEstate1 from "@/app/assets/residential/estate1.webp";
-import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
+import westwynEstate1 from "@/app/assets/residential/paradise.webp";
+import westwynEstate1M from "@/app/assets/residential/paradise-mob.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
-
   return (
     <>
-      <Image
-        src={westwynEstate1}
-        alt="Paradise - Your Gateway to Smart Investment"
-      />
+      <div className="relative w-full h-[80vh] max-sm:h-[60vh]">
+        <Image
+                src={westwynEstate1}
+                alt="Maple - Your Gateway to Smart Investment"
+               
+                className="w-full h-full max-sm:hidden"
+                priority
+              />
+              <Image
+                src={westwynEstate1M}
+                alt="Maple - Your Gateway to Smart Investment"
+               
+                className="w-full h-full md:hidden"
+                priority
+              />
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4">
+          <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+            <a href="/residential-projects-in-dholera/westwyn-estate">
+              Get Registry-ready Plots under ₹10 Lakhs in Dholera
+            </a>
+          </button>
+        </div>
+      </div>
 
       <div className="relative">
         {/* Background Image */}
@@ -34,18 +52,22 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              Paradise is a thoughtfully planned plotting project in Village Shela, Taluka Dholera, District Ahmedabad, within the upcoming Dholera Smart City (Dholera SIR). Close to the Ahmedabad–Dholera Expressway and the future Dholera International Airport, Paradise offers buyers a perfect balance of security, planning, and connectivity inside India’s first Greenfield Smart City.
-
+              Paradise is a thoughtfully planned plotting project in Village
+              Shela, Taluka Dholera, District Ahmedabad, within the upcoming
+              Dholera Smart City (Dholera SIR). Close to the Ahmedabad–Dholera
+              Expressway and the future Dholera International Airport, Paradise
+              offers buyers a perfect balance of security, planning, and
+              connectivity inside India’s first Greenfield Smart City.
             </p>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div>
-          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
-        </div>
+      <div>
+        <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
+      </div>
 
-        <div className="relative">
+      <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -69,8 +91,9 @@ export default function Hero() {
                     Prime Connectivity
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Located inside Dholera SIR with quick access to the expressway, airport, and industrial hubs of Dholera Metro City.
-
+                    Located inside Dholera SIR with quick access to the
+                    expressway, airport, and industrial hubs of Dholera Metro
+                    City.
                   </p>
                 </div>
 
@@ -79,16 +102,18 @@ export default function Hero() {
                     Future Growth
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Early investment entry into the Dholera Smart City project, giving scope for strong value appreciation.
+                    Early investment entry into the Dholera Smart City project,
+                    giving scope for strong value appreciation.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                   Legal & Transparent
+                    Legal & Transparent
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Fully NA/NOC approved, clear titles, and registry-ready plots.
+                    Fully NA/NOC approved, clear titles, and registry-ready
+                    plots.
                   </p>
                 </div>
 
@@ -97,7 +122,8 @@ export default function Hero() {
                     Lifestyle Infrastructure
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated entry, wide roads, electrification, water facilities, and landscaped green areas.
+                    Gated entry, wide roads, electrification, water facilities,
+                    and landscaped green areas.
                   </p>
                 </div>
 
@@ -106,8 +132,8 @@ export default function Hero() {
                     Investor-Oriented Options
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Flexible plot sizes and convenient plans that cater to every type of investor.
-
+                    Flexible plot sizes and convenient plans that cater to every
+                    type of investor.
                   </p>
                 </div>
 
@@ -122,12 +148,10 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
     </>
   );
 }
