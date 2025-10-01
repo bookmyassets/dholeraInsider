@@ -9,14 +9,18 @@ import Image from "next/image";
 const BrowseBlogsSection = () => {
   const [blogs, setblogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchblogs = async () => {
       try {
         const fetchedblogs = await getblogs();
-        setblogs(fetchedblogs);
+        console.log("Fetched blogs:", fetchedblogs); // Debug log
+        console.log("Number of blogs:", fetchedblogs?.length); // Debug log
+        setblogs(fetchedblogs || []); // Ensure it's always an array
       } catch (error) {
         console.error("Error fetching blogs:", error);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -35,6 +39,17 @@ const BrowseBlogsSection = () => {
               <p className="text-lg text-teal-700">Loading blogs...</p>
             </div>
           </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Show error state if there's an error
+  if (error) {
+    return (
+      <section className="py-12 md:py-24 px-6 md:px-36 bg-gray-50">
+        <div className="container mx-auto text-center">
+          <p className="text-red-600">Error loading blogs: {error}</p>
         </div>
       </section>
     );
@@ -94,7 +109,12 @@ const BrowseBlogsSection = () => {
               </div>
             ))}
           </div>
-        ) : null}
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-600 text-lg">No blogs available at the moment.</p>
+            <p className="text-gray-500 text-sm mt-2">Check back soon for new content!</p>
+          </div>
+        )}
 
         {blogs.length > 3 && (
           <div className="mt-10 flex justify-center">
