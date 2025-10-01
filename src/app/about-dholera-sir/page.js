@@ -1,4 +1,5 @@
 import {
+  getblogs,
   projectInfo,
 
 } from "@/sanity/lib/api";
@@ -35,21 +36,21 @@ export default async function BlogsPage() {
 
   // Fetch news for sidebar (changed from getUpdates to getnews)
   let trendingBlogs = [];
-  /* try {
-    const newsData = await getNews();
+  try {
+    const newsData = await getblogs();
     trendingBlogs = Array.isArray(newsData) ? newsData.slice(0, 5) : [];
     console.log("News data fetched:", trendingBlogs.length);
   } catch (error) {
     console.error("Error fetching news:", error);
     // Fallback to getUpdates if getnews fails
-    try {
+    /* try {
       const updatesData = await getUpdates();
       trendingBlogs = Array.isArray(updatesData) ? updatesData.slice(0, 5) : [];
       console.log("Fallback to updates data:", trendingBlogs.length);
     } catch (fallbackError) {
       console.error("Error fetching updates as fallback:", fallbackError);
-    }
-  } */
+    } */
+  }
 
   return (
     <>
