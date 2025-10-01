@@ -19,12 +19,14 @@ export async function getSub() {
 }
 
 export async function getblogs() {
-  const query = `*[_type == "post" && "Blog" in categories[]->title && author->name == "Dholera Insider"]{
-    _id, title, slug, mainImage, publishedAt, body, author->{name, image}, categories[]->{title}
-  }`;
+  const query = `*[_type == "post"]{
+    _id, title, slug, mainImage, publishedAt, body, 
+    author->{name, image}, 
+    categories[]->{title}
+  } | order(publishedAt desc)`;
+  
   return await client.fetch(query, {}, { cache: 'no-store' });
 }
-
 export async function getUpdates() {
   const query = `*[_type == "post" && "Updates" in categories[]->title && author->name == "Dholera Insider"]{
     _id, title, slug, mainImage, publishedAt, body, author->{name, image}, categories[]->{title}

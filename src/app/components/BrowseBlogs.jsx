@@ -9,18 +9,14 @@ import Image from "next/image";
 const BrowseBlogsSection = () => {
   const [blogs, setblogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchblogs = async () => {
       try {
         const fetchedblogs = await getblogs();
-        console.log("Fetched blogs:", fetchedblogs); // Debug log
-        console.log("Number of blogs:", fetchedblogs?.length); // Debug log
-        setblogs(fetchedblogs || []); // Ensure it's always an array
+        setblogs(fetchedblogs);
       } catch (error) {
         console.error("Error fetching blogs:", error);
-        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -44,17 +40,6 @@ const BrowseBlogsSection = () => {
     );
   }
 
-  // Show error state if there's an error
-  if (error) {
-    return (
-      <section className="py-12 md:py-24 px-6 md:px-36 bg-gray-50">
-        <div className="container mx-auto text-center">
-          <p className="text-red-600">Error loading blogs: {error}</p>
-        </div>
-      </section>
-    );
-  }
-
   // Show only 3 blogs for the featured section
   const featuredblogs = blogs.slice(0, 3);
 
@@ -67,7 +52,7 @@ const BrowseBlogsSection = () => {
             <span className="absolute bottom-0 left-1/4 right-1/4 h-1 rounded-full bg-teal-700"></span>
           </h1>
           <p className="text-sm md:text-base max-w-2xl mx-auto text-gray-600 mt-4">
-            Handpicked reads to stay ahead with Expert views on Dholera
+            Discover some of our top blogs in Dholera. Exclusive opportunities await.
           </p>
         </div>
 
@@ -109,12 +94,7 @@ const BrowseBlogsSection = () => {
               </div>
             ))}
           </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">No blogs available at the moment.</p>
-            <p className="text-gray-500 text-sm mt-2">Check back soon for new content!</p>
-          </div>
-        )}
+        ) : null}
 
         {blogs.length > 3 && (
           <div className="mt-10 flex justify-center">
