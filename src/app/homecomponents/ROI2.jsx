@@ -183,13 +183,7 @@ const InvestmentTimeline = () => {
                 }`}></div>
                 
                 {/* Animated Corner Accent */}
-                <div className={`absolute top-0 right-0 w-24 h-24 bg-teal-500 rounded-bl-full transition-transform duration-500 ${
-                  activeIndex === index ? 'scale-100' : 'scale-0'
-                }`}>
-                  <div className="absolute top-4 right-4 text-white font-bold text-sm">
-                    {index + 1}
-                  </div>
-                </div>
+                
 
                 <div className="relative z-10">
                   {/* Header */}

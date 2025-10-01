@@ -1,37 +1,34 @@
 import Image from "next/image";
 import React from "react";
 import westwynEstate1 from "@/app/assets/residential2/pride.webp";
-import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
+import westwynEstate1M from "@/app/assets/residential/pride-mob.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 
 export default function Hero() {
-
   return (
     <>
-       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
-              <Image
-                src={westwynEstate1}
-                alt="Maple - Your Gateway to Smart Investment"
-               
-                className="w-full h-full max-sm:hidden max-sm:object-cover"
-                priority
-              />
-              <Image
-                src={westwynEstate1M}
-                alt="Maple - Your Gateway to Smart Investment"
-               
-                className="w-full h-full md:hidden"
-                priority
-              />
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4">
-                <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
-                  <a href="/residential-projects-in-dholera/westwyn-estate">
-                    Get Registry-ready Plots under ₹10 Lakhs in Dholera
-                  </a>
-                </button>
-              </div>
-            </div>
+      <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
+        <Image
+          src={westwynEstate1}
+          alt="Maple - Your Gateway to Smart Investment"
+          className="w-full h-full max-sm:hidden max-sm:object-cover"
+          priority
+        />
+        <Image
+          src={westwynEstate1M}
+          alt="Maple - Your Gateway to Smart Investment"
+          className="w-full h-full md:hidden"
+          priority
+        />
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4">
+          <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+            <a href="/residential-projects-in-dholera/westwyn-estate">
+              Get Registry-ready Plots under ₹10 Lakhs in Dholera
+            </a>
+          </button>
+        </div>
+      </div>
 
       <div className="relative">
         {/* Background Image */}
@@ -53,20 +50,23 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              Pride is a large-scale plotting project situated in Village Kasindra, Tehsil Dholera, District Ahmedabad, inside the rapidly progressing Dholera Smart City (Dholera SIR). With easy access to the Ahmedabad-Dholera Expressway and close proximity to the upcoming Dholera International Airport, Pride offers buyers secure, legally approved residential plots in India’s Greenfield Smart City.
-
+              Pride is a large-scale plotting project situated in Village
+              Kasindra, Tehsil Dholera, District Ahmedabad, inside the rapidly
+              progressing Dholera Smart City (Dholera SIR). With easy access to
+              the Ahmedabad-Dholera Expressway and close proximity to the
+              upcoming Dholera International Airport, Pride offers buyers
+              secure, legally approved residential plots in India’s Greenfield
+              Smart City.
             </p>
-
-            
           </div>
         </div>
-        </div>
+      </div>
 
-        <div>
-          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
-        </div>
+      <div>
+        <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
+      </div>
 
-        <div className="relative">
+      <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -90,8 +90,8 @@ export default function Hero() {
                     Strategic Advantage
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Located inside Dholera SIR with unmatched connectivity to the expressway, airport, and Dholera Metro City.
-
+                    Located inside Dholera SIR with unmatched connectivity to
+                    the expressway, airport, and Dholera Metro City.
                   </p>
                 </div>
 
@@ -100,8 +100,8 @@ export default function Hero() {
                     Future Appreciation
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Being part of an early-stage Dholera Smart City project promises significant ROI.
-
+                    Being part of an early-stage Dholera Smart City project
+                    promises significant ROI.
                   </p>
                 </div>
 
@@ -110,7 +110,8 @@ export default function Hero() {
                     Investor Plans
                   </h3>
                   <p className="text-gray-200 text-sm">
-                   Flexible sizes and affordable installment options for all categories of investors.
+                    Flexible sizes and affordable installment options for all
+                    categories of investors.
                   </p>
                 </div>
 
@@ -119,7 +120,8 @@ export default function Hero() {
                     Legally Secure
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    All plots are NA/NOC approved, registry-ready, and carry clear titles
+                    All plots are NA/NOC approved, registry-ready, and carry
+                    clear titles
                   </p>
                 </div>
 
@@ -128,8 +130,8 @@ export default function Hero() {
                     Planned Infrastructure
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated project with wide roads, electrification, water facilities, and landscaped green areas.
-
+                    Gated project with wide roads, electrification, water
+                    facilities, and landscaped green areas.
                   </p>
                 </div>
 
@@ -144,12 +146,10 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
     </>
   );
 }
