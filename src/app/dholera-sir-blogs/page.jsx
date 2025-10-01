@@ -48,7 +48,7 @@ export default async function page() {
         {/* Enhanced Hero Section - Responsive Height */}
         <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center py-8">
           {/* Background Image with Overlay */}
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 ">
             <Image
               src={hero}
               alt="Dholera SIR Development"
