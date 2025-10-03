@@ -485,7 +485,7 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 bg-gradient-to-br from-slate-900/98 via-emerald-900/98 to-teal-900/98 backdrop-blur-2xl z-50 overflow-y-auto"
+            className="fixed inset-0 bg-slate-900/95 backdrop-blur-2xl z-50 overflow-y-auto"
           >
             {/* Mobile Menu Header */}
             <div className="fixed top-0 left-0 right-0 h-20 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95 border-b border-white/10 flex items-center justify-between px-6 z-[102]">
@@ -509,7 +509,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu Content */}
-            <div className="pt-20 px-6 py-8 space-y-2">
+            <div className="pt-20 px-6 py-8 space-y-2 ">
               <div className="absolute inset-0">
                 <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-teal-500/10 rounded-full blur-2xl animate-pulse"></div>
@@ -524,7 +524,7 @@ const Header = () => {
                     transition={{ delay: 0.1 * index, duration: 0.4 }}
                   >
                     {item.items ? (
-                      <div className="border border-white/10 rounded-xl overflow-hidden bg-white/5">
+                      <div className=" rounded-xl overflow-hidden  border border-white/20 ">
                         <button
                           className="w-full flex justify-between items-center py-4 px-6 font-bold text-white hover:text-orange-400 hover:bg-white/5 transition-all duration-300"
                           onClick={() =>
@@ -559,7 +559,7 @@ const Header = () => {
                                     <Link
                                       href={subItem.href}
                                       onClick={() => setMobileMenuOpen(false)}
-                                      className="flex items-center justify-between py-3 px-8 text-gray-200 hover:text-orange-400 hover:bg-white/5 transition-all duration-200"
+                                      className="flex items-center justify-between py-3 px-8 text-gray-200 hover:bg-gradient-to-r hover:from-orange-500/20 hover:to-teal-500/20 hover:bg-white/5 transition-all duration-200"
                                     >
                                       <span>{subItem.name}</span>
                                       <StatusBadge status={subItem.status} />
