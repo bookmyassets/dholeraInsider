@@ -19,10 +19,18 @@ export async function getSub() {
 }
 
 export async function getblogs() {
-  const query = `*[_type == "post" && "Blog" in categories[]->title && author->name == "Dholera Insider"]{
-    _id, title, slug, mainImage, publishedAt, body, author->{name, image}, categories[]->{title}
+  const query = `*[_type == "post" && "Blog" in categories[]->title && author-> name == "Dholera Insider" ]{
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body,
+    author->{name, image},
+    categories[]->{title, _id}
   }`;
-  return await client.fetch(query, {}, { cache: 'no-store' });
+  const posts = await client.fetch(query, {}, { cache: 'no-store' }); // Disables caching
+  return posts;
 }
 
 export async function getUpdates() {
