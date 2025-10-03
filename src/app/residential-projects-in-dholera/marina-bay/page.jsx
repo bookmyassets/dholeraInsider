@@ -1,37 +1,120 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import westwynEstate1 from "@/app/assets/residential2/marina.webp";
 import westwynEstate1M from "@/app/assets/residential/marinabay-mob.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
+import { AnimatePresence } from "framer-motion";
+import BrochureDownload from "@/app/components/BrochureDownload";
 
 export default function Hero() {
+  const [brochureFormOpen, setIsBrochureFormOpen] = useState(false);
+
+  const openBrochureForm = () => {
+    setIsBrochureFormOpen(true);
+  };
+
+  const closeBrochureForm = () => {
+    setIsBrochureFormOpen(false);
+  };
 
   return (
     <>
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
-              <Image
-                src={westwynEstate1}
-                alt="Maple - Your Gateway to Smart Investment"
-               
-                className="w-full h-full max-sm:hidden"
-                priority
-              />
-              <Image
-                src={westwynEstate1M}
-                alt="Maple - Your Gateway to Smart Investment"
-               
-                className="w-full h-full md:hidden"
-                priority
-              />
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-sm px-4">
-                <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
-                  <a href="/residential-projects-in-dholera/westwyn-estate">
-                    Get Registry-ready Plots under ₹10 Lakhs in Dholera
-                  </a>
-                </button>
+        <Image
+          src={westwynEstate1}
+          alt="Maple - Your Gateway to Smart Investment"
+          className="w-full h-full max-sm:hidden"
+          priority
+        />
+        <Image
+          src={westwynEstate1M}
+          alt="Maple - Your Gateway to Smart Investment"
+          className="w-full h-full md:hidden"
+          priority
+        />
+        <div className="absolute bottom-0 left-0 right-0 p-4 hidden md:block">
+          <div className="bg-white/95 backdrop-blur-md rounded-t-2xl shadow-2xl border border-white/30 max-w-6xl mx-auto w-full">
+            <div className="grid md:grid-cols-3 gap-6 p-6">
+              {/* Left Column - Categories & Price */}
+              <div>
+                <div className="flex items-center gap-2 flex-wrap mb-3">
+                  <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
+                    Residential
+                  </span>
+                  <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
+                    🔥 Newly Launched
+                  </span>
+                </div>
+                <div className="text-3xl font-bold">
+                  ₹6,250
+                  <span className="text-sm ml-1">/Sq.Yd</span>
+                </div>
+              </div>
+
+              {/* Middle Column - Title & Description */}
+              <div>
+                <h1 className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                  WestWyn Estate
+                </h1>
+              </div>
+
+              {/* Right Column - Contact & Buttons */}
+              <div className="flex flex-col justify-between">
+                <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
+                  <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                    📄 Download Brochure
+                  </button>
+                </div>
+                <div className="text-teal-900 text-xl font-semibold hover:text-teal-800 transition-colors">
+                  <p>Immediate Possession</p>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="md:hidden mt-6">
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/30 w-full">
+          <div className="grid gap-6 p-6">
+            {/* Categories & Price */}
+            <div>
+              <div className="flex items-center gap-2 flex-wrap mb-3">
+                <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
+                  Residential
+                </span>
+                <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
+                  🔥 Newly Launched
+                </span>
+              </div>
+              <div className="text-3xl font-bold text-teal-900">
+                ₹6,250
+                <span className="text-sm text-gray-600 ml-1">/Sq.Yd</span>
+              </div>
+            </div>
+
+            {/* Title & Description */}
+            <div>
+              <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                WestWyn Estate
+              </h1>
+            </div>
+
+            {/* Contact & Buttons */}
+            <div className="flex flex-col justify-between">
+              <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
+                <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                  📄 Download Brochure
+                </button>
+              </div>
+              <div className="text-teal-900 text-xl font-semibold hover:text-teal-800 transition-colors">
+                <p>Registry Ready Plot under ₹10 Lakhs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="relative">
         {/* Background Image */}
@@ -53,26 +136,31 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-gray-100 leading-relaxed">
-              Marina Bay is a modern plotting project situated in Village Gamph, Tehsil Dholera, District Ahmedabad, inside Dholera Smart City (Dholera SIR). With its strategic location near the Ahmedabad-Dholera Expressway and the proposed Dholera International Airport, the project offers secure residential plots with approvals and modern facilities as part of India’s Greenfield Smart City.
-
+              Marina Bay is a modern plotting project situated in Village Gamph,
+              Tehsil Dholera, District Ahmedabad, inside Dholera Smart City
+              (Dholera SIR). With its strategic location near the
+              Ahmedabad-Dholera Expressway and the proposed Dholera
+              International Airport, the project offers secure residential plots
+              with approvals and modern facilities as part of India’s Greenfield
+              Smart City.
             </p>
 
             <p className="text-lg text-gray-200 leading-relaxed">
               Located on Navda Highway, right at the entrance of Dholera SIR (0
-              km) and close to TP 5, Marina Bay places you at the center of
-              a rapidly developing smart city corridor. Every plot here is
+              km) and close to TP 5, Marina Bay places you at the center of a
+              rapidly developing smart city corridor. Every plot here is
               designed as a secure, future-ready investment that grows as
               Dholera transforms.
             </p>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div>
-          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
-        </div>
+      <div>
+        <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
+      </div>
 
-        <div className="relative">
+      <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -96,7 +184,8 @@ export default function Hero() {
                     Location Strength
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Inside Dholera SIR, well-connected to the expressway, airport, and Dholera Metro City.
+                    Inside Dholera SIR, well-connected to the expressway,
+                    airport, and Dholera Metro City.
                   </p>
                 </div>
 
@@ -105,18 +194,18 @@ export default function Hero() {
                     Future Value Growth
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Investing at the development stage of Dholera Smart City ensures strong appreciation.
-
+                    Investing at the development stage of Dholera Smart City
+                    ensures strong appreciation.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-xl font-semibold text-teal-300 mb-3">
-                   Safe Purchase
+                    Safe Purchase
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Every plot is NA/NOC approved, with clear titles and registry-ready documents.
-
+                    Every plot is NA/NOC approved, with clear titles and
+                    registry-ready documents.
                   </p>
                 </div>
 
@@ -125,8 +214,8 @@ export default function Hero() {
                     Planned Township
                   </h3>
                   <p className="text-gray-200 text-sm">
-                   Gated campus, internal roads, electrification, drainage, and green zones.
-
+                    Gated campus, internal roads, electrification, drainage, and
+                    green zones.
                   </p>
                 </div>
 
@@ -135,7 +224,8 @@ export default function Hero() {
                     Flexible Options
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Various plot sizes and payment flexibility make it suitable for both investors and end-users.
+                    Various plot sizes and payment flexibility make it suitable
+                    for both investors and end-users.
                   </p>
                 </div>
 
@@ -153,7 +243,18 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
+      <AnimatePresence>
+        {brochureFormOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
+            <BrochureDownload
+              title="Get the Dholera Brochure"
+              buttonName="Download Brochure"
+              onClose={() => closeBrochureForm()}
+            />
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
