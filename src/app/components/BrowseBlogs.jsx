@@ -43,13 +43,13 @@ const RelatedBlogCard = ({ blog }) => {
           </time>
           <div>
             Posted By{" "}
-            <span className="font-medium text-teal-700">Dholera Times</span>
+            <span className="font-medium text-teal-700">Dholera Insider</span>
           </div>
         </div>
 
         {/* CTA */}
         <Link
-          href={`/dholera-updates/blogs/${blog.slug.current}`}
+          href={`/dholera-sir-blogs/${blog.slug.current}`}
           className="mt-auto"
         >
           <button className="w-full px-4 py-2 text-white bg-teal-700 hover:bg-teal-800 transition-colors duration-300 rounded-md">
