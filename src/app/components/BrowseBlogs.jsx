@@ -1,113 +1,143 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { PortableText } from "next-sanity";
+"use client";
 import { getblogs } from "@/sanity/lib/api";
-import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import { urlFor } from "@/sanity/lib/image";
 
-const BrowseBlogsSection = () => {
-  const [blogs, setblogs] = useState([]);
+// Related Blog Card Component
+const RelatedBlogCard = ({ blog }) => {
+  return (
+      <div className="bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col h-full transition-transform duration-300 hover:scale-105">
+      {/* Image */}
+      <div className="relative w-full h-64">
+        {blog.mainImage ? (
+          <Image
+            src={urlFor(blog.mainImage).url()}
+            alt={blog.title}
+            fill
+            className="object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-400">No image available</span>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col flex-grow">
+        <Link
+          href={`/dholera-updates/blogs/${blog.slug.current}`}
+          className="w-full px-4 py-2 transition-all font-semibold border-white  hover:bg-[#d6b873] bg-[#151f28] hover:text-[#151f28] text-lg md:text-base text-[#d6b873] mt-auto space-y-3"
+        >
+          {/* Title */}
+          <h3 className="text-xl font-semibold line-clamp-2 h-14">
+            {blog.title}
+          </h3>
+
+          {/* Meta info */}
+          <div className="text-sm text-gray-400">
+            <time>
+              {new Date(blog.publishedAt).toLocaleDateString("en-US", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </time>
+            <div>
+              Posted By{" "}
+              <span className="font-medium text-white">Dholera Times</span>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="underline underline-offset-4 text-lg">Read More</div>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+// Loading skeleton component
+const BlogSkeleton = () => (
+  <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+    <div className="h-48 bg-gradient-to-r from-gray-100 to-gray-200 animate-pulse"></div>
+    <div className="p-6">
+      <div className="h-4 bg-gray-200 rounded w-1/4 mb-3 animate-pulse"></div>
+      <div className="h-6 bg-gray-200 rounded w-3/4 mb-3 animate-pulse"></div>
+      <div className="h-4 bg-gray-200 rounded w-full mb-2 animate-pulse"></div>
+      <div className="h-4 bg-gray-200 rounded w-2/3 animate-pulse"></div>
+    </div>
+  </div>
+);
+
+export default function BrowseBlogsSection() {
+  const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchblogs = async () => {
+    const fetchBlogs = async () => {
       try {
-        const fetchedblogs = await getblogs();
-        setblogs(fetchedblogs);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
+        setLoading(true);
+        const getUpdates = await getblogs();
+        
+        const safePosts = getUpdates.map((post) => ({
+          ...post,
+          author: post.author || "Dholera Times",
+          mainImage: post.mainImage || null,
+          slug: post.slug || { current: "#" },
+        }));
+
+        const trendingBlogs = safePosts
+          .sort(
+            (a, b) =>
+              new Date(b.publishedAt || b._createdAt) -
+              new Date(a.publishedAt || a._createdAt)
+          )
+          .slice(0, 4);
+
+        setBlogs(trendingBlogs);
+      } catch (err) {
+        console.error('Error fetching blogs:', err);
+        setError(err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchblogs();
+    fetchBlogs();
   }, []);
 
-  if (loading) {
+  if (error) {
     return (
-      <section className="py-12 md:py-24 px-6 md:px-36" style={{ minHeight: "60vh" }}>
-        <div className="container">
-          <div className="flex justify-center items-center" style={{ minHeight: "40vh" }}>
-            <div className="text-center">
-              <div className="w-16 h-16 border-4 border-teal-200 border-t-teal-700 rounded-full animate-spin mx-auto mb-4"></div>
-              <p className="text-lg text-teal-700">Loading blogs...</p>
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto py-16 px-4">
+        <p className="text-[28px] font-semibold mb-6">Featured Blogs</p>
+        <div className="text-center text-red-500">
+          <p>Error loading blogs. Please try again later.</p>
         </div>
-      </section>
+      </div>
     );
   }
 
-  // Show only 3 blogs for the featured section
-  const featuredblogs = blogs.slice(0, 3);
-
   return (
-    <section className="py-12 md:py-24 px-6 md:px-36 bg-gray-50">
-      <div className="container mx-auto">
-        <div className="w-full px-2 mb-10 text-center">
-          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl mb-3 relative inline-block pb-2 text-teal-950">
-            Featured blogs
-            <span className="absolute bottom-0 left-1/4 right-1/4 h-1 rounded-full bg-teal-700"></span>
-          </h1>
-          <p className="text-sm md:text-base max-w-2xl mx-auto text-gray-600 mt-4">
-            Discover some of our top blogs in Dholera. Exclusive opportunities await.
-          </p>
-        </div>
-
-        {featuredblogs.length > 0 ? (
-          <div className="px-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredblogs.map((blog) => (
-              <div
-                key={blog._id}
-                className="rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 bg-white"
-              >
-                <div className="relative h-64">
-                  {blog.mainImage && (
-                    <Image
-                      src={urlFor(blog.mainImage).width(600).height(400).url()}
-                      alt={blog.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-teal-950/80 to-transparent flex items-end opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <div className="p-4 text-white w-full">
-                      <h3 className="text-xl font-bold mb-1">{blog.title}</h3>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-5">
-                  <h3 className="text-xl font-bold mb-3 text-teal-950">{blog.title}</h3>
-                  <div className="text-sm mb-4 line-clamp-2 text-gray-600">
-                    <PortableText value={blog.body} />
-                  </div>
-                  <Link href={`/dholera-sir-blogs/${blog.slug?.current}`} passHref>
-                    <button className="w-full px-4 py-2 text-white bg-teal-700 hover:bg-teal-800 transition-colors duration-300 rounded-md">
-                      View blog
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : null}
-
-        {blogs.length > 3 && (
-          <div className="mt-10 flex justify-center">
-            <Link href="/post/blogs">
-              <button className="px-6 py-3 text-white bg-teal-950 hover:bg-teal-900 rounded-md transition-all hover:scale-105 shadow-lg shadow-teal-700/30">
-                Browse More blogs
-              </button>
-            </Link>
-          </div>
-        )}
+    <div className="max-w-7xl mx-auto py-16 px-4">
+      <p className="text-[28px] font-semibold mb-6 text-center">Featured Blogs</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {loading
+          ? Array(4)
+              .fill(0)
+              .map((_, i) => <BlogSkeleton key={i} />)
+          : blogs.length > 0
+            ? blogs.map((blog) => (
+                <RelatedBlogCard key={blog._id} blog={blog} />
+              ))
+            : Array(4)
+                .fill(0)
+                .map((_, i) => <BlogSkeleton key={i} />)
+        }
       </div>
-    </section>
+    </div>
   );
-};
-
-export default BrowseBlogsSection;
+}

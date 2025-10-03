@@ -79,7 +79,7 @@ const HomePage = ({openForm}) => {
       <Invest />
       <WhyDI/>
       <CommonForm title="Get Plots under ₹10 Lakhs in Dholera's Fast Development Corridor"/>
-      {/* <BrowseBlogsSection/> */}
+      <BrowseBlogsSection/>
       <InvestmentTimeline/>
       <WestWyn_Estate/>
       
