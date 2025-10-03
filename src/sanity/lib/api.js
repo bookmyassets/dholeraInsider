@@ -1,7 +1,7 @@
 // lib/api.js
 import { client } from './client';
 
-const site = "dhoelra-insider";
+
 
 /* Blog Posts */
 export async function getPosts() {
