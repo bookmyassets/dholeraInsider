@@ -109,7 +109,7 @@ export default function Hero() {
                 </button>
               </div>
               <div className="text-teal-900 text-xl font-semibold hover:text-teal-800 transition-colors">
-                <p>Registry Ready Plot under ₹10 Lakhs</p>
+                <p>Immediate Possession</p>
               </div>
             </div>
           </div>
@@ -242,6 +242,7 @@ export default function Hero() {
               title="Get the Dholera Brochure"
               buttonName="Download Brochure"
               onClose={() => closeBrochureForm()}
+              link="https://cdn.sanity.io/files/c3e1h345/projects/3c478ed13facaf28fffdf55e47a6eb0c0ba1b075.pdf"
             />
           </div>
         )}

@@ -57,7 +57,7 @@ export default async function page() {
               priority
             />
             {/* Gradient Overlay for better text readability */}
-            <div className="absolute inset-0 b"></div>
+            <div className="absolute inset-0 "></div>
           </div>
 
           {/* Hero Content */}
