@@ -18,24 +18,19 @@ export async function getSub() {
   return await client.fetch(query, {}, { cache: 'no-store' });
 }
 
-export const getblogs = async () => {
-  try {
-    const query = `*[_type == "post" && "Blog" in categories[]->title && author->name == "Dholera Insider"]{
-      _id,
-      title,
-      slug,
-      mainImage,
-      publishedAt,
-      body,
-      author->{name, image},
-      categories[]->{title, _id}
-    }`
-    
-    return await client.fetch(query)
-  } catch (error) {
-    console.error('Error fetching blogs:', error)
-    return []
-  }
+export async function getblogs() {
+  const query = `*[_type == "post" && "Blog" in categories[]->title && author-> name == "Dholera Insider" ]{
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body,
+    author->{name, image},
+    categories[]->{title, _id}
+  }`;
+  const posts = await client.fetch(query, {}, { cache: 'no-store' }); // Disables caching
+  return posts;
 }
 
 export async function getUpdates() {
