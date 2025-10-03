@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import FormComponent from "./FormComponent";
-import hero from "@/app/assets/hero/diBlogs.png";
+import hero from "@/app/assets/hero/dholerasir.webp";
 
 export default async function page() {
   let posts = [];
@@ -57,7 +57,7 @@ export default async function page() {
               priority
             />
             {/* Gradient Overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+            <div className="absolute inset-0 b"></div>
           </div>
 
           {/* Hero Content */}

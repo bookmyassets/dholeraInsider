@@ -1,5 +1,6 @@
 import React from "react";
 import sample1 from "@/app/assets/home/estate1.webp";
+import sample1M from "@/app/assets/home/estate.webp";
 import Image from "next/image";
 
 export default function WestWyn_Estate() {
@@ -22,8 +23,9 @@ export default function WestWyn_Estate() {
         {/* Image Section - Full Width Top */}
         <div className="mb-12">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <div className="w-full h-[50vh] bg-gradient-to-br from-teal-900 to-gray-900 flex items-center justify-center">
-              <Image src={sample1} alt="sample1" className="object-cover" />
+            <div className="w-full md:h-[50vh] bg-gradient-to-br from-teal-900 to-gray-900 flex items-center justify-center">
+              <Image src={sample1} alt="sample1" className="object-cover max-sm:hidden" />
+              <Image src={sample1M} alt="sample1" className="object-contain md:hidden" />
             </div>
 
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>

@@ -3,7 +3,7 @@ import {
   projectInfo,
 
 } from "@/sanity/lib/api";
-import hero from "@/app/assets/hero/aboutHero.webp";
+import hero from "@/app/assets/hero/sir.webp";
 
 import Image from "next/image";
 import BlogCard from "./BlogCard";
@@ -64,7 +64,7 @@ export default async function BlogsPage() {
             <Image
               src={hero}
               alt="Dholera SIR Aerial View"
-              className="w-full h-full object-cover "
+              className="w-full h-[70vh] object-cover "
               priority
             />
             {/* <Image
