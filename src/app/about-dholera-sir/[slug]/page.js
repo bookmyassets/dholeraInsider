@@ -87,7 +87,7 @@ const RelatedBlogCard = ({ blog }) => {
           </h3>
           <p className="text-gray-700 mb-4 line-clamp-3">{blog.description}</p>
           <div className="flex items-center justify-between mt-auto">
-            <span className="hover:text-[#d3b66b] text-[#b69b5e] p-1 rounded-xl font-semibold bg-gray-800 inline-flex items-center">
+            <span className="text-teal-700 hover:text-teal-900 p-1 rounded-xl font-semibold bg-gray-800 inline-flex items-center">
               Read more
             </span>
           </div>
@@ -373,7 +373,7 @@ export default async function BlogDetail({ params }) {
       <div className="bg-white min-h-screen">
         <link
           rel="canonical"
-          href={`https://www.dholeratimes.com/dholera-sir/${post.slug.current}`}
+          href={`https://www.dholerainsider.com/about-dholera-sir/${post.slug.current}`}
         />
         <meta name="robots" content="index, dofollow" />
 
@@ -412,7 +412,7 @@ export default async function BlogDetail({ params }) {
                           ></path>
                         </svg>
                         <Link
-                          href="/DholeraSIR"
+                          href="/about-dholera-sir"
                           className="ml-1 text-sm font-medium text-gray-500 hover:text-gray-700 md:ml-2"
                         >
                           DholeraSIR

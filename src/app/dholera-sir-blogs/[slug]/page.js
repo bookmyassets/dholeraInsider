@@ -533,7 +533,7 @@ export default async function Post({ params }) {
                 </h2>
                 <Link
                   href="/dholera-sir-updates"
-                  className="rounded-xl text-white font-semibold bg-[#deae3c] hover:bg-[#f3bb39] px-4 py-2"
+                  className="rounded-xl text-white font-semibold bg-teal-700 hover:bg-teal-900 px-4 py-2"
                 >
                   View all
                 </Link>
