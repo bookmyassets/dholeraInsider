@@ -66,7 +66,7 @@ export default function Hero() {
                 {/* Right Column - Contact & Buttons */}
                 <div className="flex flex-col justify-between">
                   <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                    <button onClick={openBrohureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                    <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
                       📄 Download Brochure
                     </button>
                   </div>
@@ -107,7 +107,7 @@ export default function Hero() {
               {/* Contact & Buttons */}
               <div className="flex flex-col justify-between">
                 <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                  <button onClick={openBrohureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
                     📄 Download Brochure
                   </button>
                 </div>
