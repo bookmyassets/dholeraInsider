@@ -23,7 +23,14 @@ export default function Hero() {
                 className="w-full h-full md:hidden"
                 priority
               />
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4">
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4 max-sm:hidden">
+          <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+            <a href="/residential-projects-in-dholera/westwyn-estate">
+              Get Registry-ready Plots under ₹10 Lakhs in Dholera
+            </a>
+          </button>
+        </div>
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4 md:hidden">
           <button className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg">
             <a href="/residential-projects-in-dholera/westwyn-estate">
               Get Registry-ready Plots under ₹10 Lakhs in Dholera
