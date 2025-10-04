@@ -403,20 +403,7 @@ export default function Aboutus() {
                       placeholder="Enter your name"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="location" className="block text-white text-sm font-medium mb-2">
-                      Location
-                    </label>
-                    <input
-                      id="location"
-                      name="location"
-                      value={formData.location}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-                      placeholder="Enter your location"
-                    />
-                  </div>
-                </div>
+
                 <div>
                   <label htmlFor="phone" className="block text-white text-sm font-medium mb-2">
                     Phone Number
@@ -432,19 +419,6 @@ export default function Aboutus() {
                     placeholder="Enter your phone number"
                   />
                 </div>
-                <div>
-                  <label htmlFor="message" className="block text-white text-sm font-medium mb-2">
-                    Message For us
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-                    placeholder="Write your Query here"
-                  ></textarea>
                 </div>
                 <div className="flex justify-center">
                   <div ref={recaptchaRef}></div>
