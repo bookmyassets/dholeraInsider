@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import heroD from "../assets/hero/aboutHero.webp";
 import heroM from "../assets/hero/aboutMhero.webp";
@@ -208,74 +209,142 @@ export default function Aboutus() {
   return (
     <div>
       {/* Hero Section */}
-      <div>
-        <section className="flex flex-col w-full sm:h-[50vh] h-[50vh] relative">
-          <Image
-            src={heroD}
-            alt="bg image"
-            width={1800}
-            height={700}
-            className="w-full h-full object-cover max-sm:hidden"
-          />
-          <Image
-            src={heroM}
-            alt="bg image"
-            width={1800}
-            height={700}
-            className="w-full h-full object-cover md:hidden"
-          />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
-            {/* Background Large Text */}
-            <p className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/5">
-              About Dholera
-            </p>
+      
 
-            {/* Foreground Main Text */}
-            <p className="absolute text-lg sm:text-2xl md:text-4xl font-bold text-white">
-              About Dholera SIR
-            </p>
-          </div>
-        </section>
-      </div>
+      <main className="bg-gradient-to-b from-gray-900 via-emerald-900 to-teal-900 text-white min-h-screen">
+      {/* Hero Section */}
+      <section className="text-center px-6 py-20 md:py-28 max-w-4xl mx-auto">
+        <motion.h1
+          className="text-3xl md:text-4xl pt-12 font-extrabold mb-6 leading-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          About <span className="text-teal-300">Dholera Insider</span>
+        </motion.h1>
+        <motion.p
+          className="text-lg text-teal-100 leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          Dholera Insider is your trusted source for authentic, real-time
+          insights into Gujarat’s first smart city - Dholera SIR. We bring you
+          verified updates, investment opportunities, and exclusive coverage to
+          help you make informed decisions.
+        </motion.p>
+      </section>
 
-      {/* Dholera Insider Section */}
-      <section className="bg-white dark:bg-gray-900 py-16">
-        <div className="container mx-auto px-6 sm:px-12">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-[#1e3a8b] dark:text-teal-400 text-3xl sm:text-4xl font-bold text-center mb-8">
-              About Dholera Insider
+      {/* Mission Section */}
+      <section className="bg-white text-teal-900 py-16 md:py-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-5 text-teal-900">
+              Our Mission
             </h2>
-            
-            <div className="bg-[#f4efe7] dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-              <p className="text-gray-700 dark:text-gray-300 mb-6">
-                Dholera Insider is your trusted source for timely, accurate, and in-depth information 
-                about Dholera Smart City — India's first greenfield smart city under the Delhi-Mumbai 
-                Industrial Corridor (DMIC). We aim to bridge the gap between official developments 
-                and public awareness by bringing the latest updates, project insights, and real estate 
-                trends all in one place.
-              </p>
-              
-              <h3 className="text-[#1e3a8b] dark:text-teal-400 text-xl font-bold mt-6 mb-3">Our Mission</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-6">
-                To empower citizens, investors, and industry stakeholders with transparent, verified 
-                information on Dholera SIR, helping them stay informed, plan ahead, and make smart decisions.
-              </p>
-              
-              <h3 className="text-[#1e3a8b] dark:text-teal-400 text-xl font-bold mt-6 mb-3">What We Offer</h3>
-              <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2">
-                <li>Daily updates on Dholera SIR developments</li>
-                <li>In-depth guides for real estate investors</li>
-                <li>Expert opinions, news, and government updates</li>
-                <li>Insider access to land prices, project progress, and infrastructure milestones</li>
-              </ul>
-              
-              <p className="text-gray-700 dark:text-gray-300 mt-6 italic">
-                Stay ahead of the curve with Dholera Insider — your front-row seat to India's smart city revolution.
-              </p>
-            </div>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              At <strong>Dholera Insider</strong>, our mission is to empower
+              investors, businesses, and citizens with transparent, data-backed
+              news about the Dholera Smart City project. We focus on accurate
+              updates, infrastructure progress, and opportunities that shape the
+              future of sustainable urban growth in India.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Image
+              src={heroD}
+              alt="Dholera Insider Team"
+              className="rounded-2xl shadow-lg w-full max-w-md max-sm:hidden"
+            />
+            <Image
+              src={heroM}
+              alt="Dholera Insider Team"
+              className="rounded-2xl shadow-lg w-full max-w-md md:hidden"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="py-16 md:py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-5 text-teal-200"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
+            Our Vision
+          </motion.h2>
+          <motion.p
+            className="text-lg text-teal-100 leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            We envision a digitally connected, eco-friendly city where innovation
+            meets sustainability. Our goal is to be the most reliable media hub
+            for everything happening in Dholera SIR, from real estate trends to
+            government initiatives and upcoming investments.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-teal-900">
+            Our Core Values
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+           {[
+        {
+          title: "Transparency",
+          desc: "We ensure that every report, insight, and update we publish is backed by verified data - empowering investors with factual information to make confident and strategic investment choices in Dholera Smart City.",
+        },
+        {
+          title: "Expertise",
+          desc: "Our team leverages years of experience and in-depth knowledge of Dholera SIR to provide investors with actionable insights, market analysis, and strategic guidance for informed decision-making.",
+        },
+        {
+          title: "Community",
+          desc: "We believe in building a strong and informed investor community - connecting citizens, developers, and policymakers to create meaningful collaboration and long-term growth within Dholera SIR.",
+        },
+            ].map((value, i) => (
+              <motion.div
+                key={i}
+                className="bg-white/10 rounded-2xl p-6 shadow-lg backdrop-blur-md hover:bg-white/20 transition-all"
+                whileHover={{ scale: 1.03 }}
+              >
+                <h3 className="text-2xl font-semibold mb-3 text-teal-900">
+                  {value.title}
+                </h3>
+                <p className="text-gray-900 leading-relaxed">{value.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* SEO Metadata */}
+      <section className="hidden">
+        <h1>Dholera Insider | Smart City News, Insights & Development Updates</h1>
+        <p>
+          Stay updated with Dholera Insider - your go-to digital platform for
+          authentic updates, investment insights, and news about Dholera Smart
+          City, India’s first greenfield industrial hub.
+        </p>
+      </section>
+    </main>
 
       {/* Reach Out Section */}
       <section className="py-16 bg-gradient-to-r from-gray-900 to-teal-900 animate-gradient-x">

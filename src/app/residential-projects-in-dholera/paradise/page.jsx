@@ -101,6 +101,7 @@ export default function Hero() {
                 <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                   WestWyn Estate
                 </h1>
+                
               </div>
 
               {/* Contact & Buttons */}

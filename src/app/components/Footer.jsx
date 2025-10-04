@@ -19,7 +19,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-gray-900 to-teal-900 animate-gradient-x py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Google Maps Section */}
-        <div className="bg-white shadow-2xl p-2 mb-12 rounded-lg">
+        {/* <div className="bg-white shadow-2xl p-2 mb-12 rounded-lg">
           <div className="w-full h-full">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4221.747891952484!2d77.0385836!3d28.4197016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ee757eb04faba1b%3A0x653f6f2b14991ba!2sDholera%20Insider!5e1!3m2!1sen!2sin!4v1750661065842!5m2!1sen!2sin"
@@ -31,7 +31,7 @@ const Footer = () => {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -65,7 +65,7 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex space-x-4 mt-6">
               <Link
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61578651603291"
                 className="text-gray-500 hover:text-blue-400 transition"
               >
                 <Facebook size={20} />
@@ -83,7 +83,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </Link>
               <Link
-                href="https://www.youtube.com/@DholeraInsider-m4n"
+                href="https://www.youtube.com/@DholeraInsider"
                 className="text-gray-500 hover:text-red-400 transition"
               >
                 <Youtube size={20} />
@@ -107,7 +107,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/residential-projects-in-dholera"
+                  href="/residential-projects-in-dholera/westwyn-estate"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
                   <span className="mr-2">›</span>Residential Projects
@@ -178,14 +178,14 @@ const Footer = () => {
                   <span className="mr-2">›</span> Copyright Policy
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/policies/buy-back-policy"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
                   <span className="mr-2">›</span> Buy Back Policy
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
