@@ -126,7 +126,7 @@ export default function LatestUpdates() {
   return (
     <div className="max-w-7xl mx-auto py-16 px-4 bg-gray-50">
       <div className="w-full px-2 mb-10 text-center">
-        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl mb-3 relative inline-block pb-2 text-teal-950">
+        <h1 className="font-bold text-2xl md:text-3xl mb-3 relative inline-block pb-2 text-teal-950">
           Featured Blogs
           <span className="absolute bottom-0 left-1/4 right-1/4 h-1 rounded-full bg-teal-700"></span>
         </h1>
@@ -135,7 +135,7 @@ export default function LatestUpdates() {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {loading
           ? Array(4)
               .fill(0)
