@@ -353,10 +353,6 @@ export default function Aboutus() {
             <h2 className="text-white text-3xl sm:text-4xl font-bold text-center">
              Know More About Dholera, With Dholera Insider
             </h2>
-            <p className="text-gray-300 mt-4 text-center">
-              Have questions about Dholera SIR? Contact our team for more information.
-            </p>
-
             {showPopup ? (
               <div className="text-center py-8">
                 <div className="mb-4 inline-block">
@@ -459,7 +455,7 @@ export default function Aboutus() {
                     disabled={isLoading}
                     className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
                   >
-                    {isLoading ? "Submitting..." : "Submit"}
+                    {isLoading ? "Submitting..." : "Get A Call Back"}
                   </button>
                 </div>
               </form>
