@@ -18,6 +18,8 @@ import sample13 from "@/app/assets/gallery/tata.webp";
 import sample14 from "@/app/assets/gallery/tata1.webp";
 import sample15 from "@/app/assets/gallery/terminal.webp";
 import sample16 from "@/app/assets/gallery/toll.webp";
+import sample17 from "@/app/assets/gallery/ring-road.webp";
+import sample18 from "@/app/assets/gallery/renew.webp";
 
 
 export default function DholeraProgressPage() {
@@ -38,6 +40,8 @@ export default function DholeraProgressPage() {
   { id: 14, src: sample14, alt: "Aerial view of Sardar Patel Ring Road in Ahmedabad", caption: "Aerial view of Sardar Patel Ring Road in Ahmedabad" },
   { id: 15, src: sample15, alt: "Dholera Ring Road development promoting regional connectivity", caption: "Dholera Ring Road development promoting regional connectivity" },
   { id: 16, src: sample16, alt: "TATA semiconductor plant construction update in Dholera SIR", caption: "TATA semiconductor plant construction update in Dholera SIR" },
+  { id: 16, src: sample17, alt: "Sardar Patel Ring Road", caption: "Sardar Patel Ring Road Dholera SIR" },
+  { id: 16, src: sample18, alt: "Renew Solar Plant", caption: "Renew Solar Plant" },
 ];
 
 
