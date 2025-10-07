@@ -160,7 +160,7 @@ export default function Hero() {
                   📄 Download Brochure
                 </button>
               </div>
-              <div className="text-teal-900 text-xl font-semibold hover:text-teal-800 transition-colors">
+              <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
                 <p>Immediate Possession</p>
               </div>
             </div>
