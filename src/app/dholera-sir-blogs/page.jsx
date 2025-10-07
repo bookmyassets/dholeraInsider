@@ -46,7 +46,7 @@ export default async function page() {
       />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
-        <div className="relative min-h-[75vh] flex items-center justify-center py-8">
+        <div className="relative min-h-[78vh] flex items-center justify-center py-8">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0 ">
             <Image
@@ -87,7 +87,7 @@ export default async function page() {
 
         {/* Blog Posts Section */}
         <div className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 py-12">
             {safePosts.length > 0 ? (
               <>
                 {/* All Posts Grid */}
