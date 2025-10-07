@@ -79,7 +79,7 @@ const HomePage = ({openForm}) => {
       <Whatsapp />
       <Invest />
       <WhyDI/>
-      <CommonForm title="Get Plots under ₹10 Lakhs in Dholera's Fast Development Corridor"/>
+      <CommonForm title="Get Plots under ₹10 Lakhs in Dholera's High Growth Corridor"/>
       <LatestUpdates/>
       <InvestmentTimeline/>
       <WestWyn_Estate/>

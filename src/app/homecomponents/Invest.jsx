@@ -10,8 +10,8 @@ export default function Invest() {
       <div className="pt-8 max-w-6xl mx-auto px-4">
         <div className="text-center ">
           <h2 className="text-4xl max-sm:text-3xl font-bold text-white mb-4">
-            Invest in <span className="text-teal-400">Dholera :</span> High
-            Growth, Secure Future
+            <span className="text-teal-400">Dholera Smart City : </span>
+            Engine of High Returns
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>
         </div>
