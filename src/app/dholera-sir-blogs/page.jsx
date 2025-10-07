@@ -46,7 +46,7 @@ export default async function page() {
       />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
-        <div className="relative min-h-[70vh] flex items-center justify-center py-8">
+        <div className="relative min-h-[75vh] flex items-center justify-center py-8">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0 ">
             <Image
@@ -62,7 +62,7 @@ export default async function page() {
 
           {/* Hero Content */}
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-            <div className="mb-6 sm:mb-8 pt-4">
+<div className="mb-6 sm:mb-8 pt-20 sm:pt-24 md:pt-12 flex flex-col justify-center items-center">
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Dholera SIR
                 <span className="block bg-teal-500 bg-clip-text text-transparent">
@@ -72,7 +72,7 @@ export default async function page() {
 
               {/* Subtitle */}
               <p className="text-base  text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-                Uncover market insights, project updates, and early opportunities in India’s most ambitious smart city.
+                Uncover market insights, project updates, and early opportunities in India's most ambitious smart city.
               </p>
             </div>
 

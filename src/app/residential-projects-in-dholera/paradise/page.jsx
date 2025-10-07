@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import westwynEstate1 from "@/app/assets/residential/paradise.webp";
@@ -9,7 +9,6 @@ import { AnimatePresence } from "framer-motion";
 import BrochureDownload from "@/app/components/BrochureDownload";
 
 export default function Hero() {
-
   const [brochureFormOpen, setIsBrochureFormOpen] = useState(false);
 
   const openBrochureForm = () => {
@@ -19,7 +18,7 @@ export default function Hero() {
   const closeBrochureForm = () => {
     setIsBrochureFormOpen(false);
   };
-  
+
   return (
     <>
       <div>
@@ -57,15 +56,23 @@ export default function Hero() {
 
                 {/* Middle Column - Title & Description */}
                 <div>
-                  <h1 className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                    WestWyn Estate
-                  </h1>
+                  <a href="/residential-projects-in-dholera/westwyn-estate">
+                    <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                      <span className="text-base font-bold text-teal-900">
+                        Explore Our Latest Project
+                      </span>{" "}
+                      <br /> WestWyn Estate
+                    </h1>
+                  </a>
                 </div>
 
                 {/* Right Column - Contact & Buttons */}
                 <div className="flex flex-col justify-between">
                   <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                    <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                    <button
+                      onClick={openBrochureForm}
+                      className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
+                    >
                       📄 Download Brochure
                     </button>
                   </div>
@@ -101,13 +108,15 @@ export default function Hero() {
                 <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                   WestWyn Estate
                 </h1>
-                
               </div>
 
               {/* Contact & Buttons */}
               <div className="flex flex-col justify-between">
                 <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                  <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button
+                    onClick={openBrochureForm}
+                    className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
+                  >
                     📄 Download Brochure
                   </button>
                 </div>
@@ -240,7 +249,7 @@ export default function Hero() {
         </div>
       </div>
       <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
-    <AnimatePresence>
+      <AnimatePresence>
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
             <BrochureDownload

@@ -129,10 +129,10 @@ export default function DholeraProgressPage() {
                 onClick={(e) => e.stopPropagation()}
               />
             </div>
-            <div className="bg-white p-4 text-center">
+            {/* <div className="bg-white p-4 text-center">
               <h3 className="text-lg font-bold">{selectedImage.alt}</h3>
               <p className="text-gray-600">{selectedImage.caption}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

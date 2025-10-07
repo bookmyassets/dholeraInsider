@@ -97,10 +97,15 @@ export default function Hero() {
 
               {/* Title & Description */}
               <div>
-                <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                  WestWyn Estate
-                </h1>
-              </div>
+                  <a href="/residential-projects-in-dholera/westwyn-estate">
+                    <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                      <span className="text-base font-bold text-teal-900">
+                        Explore Our Latest Project
+                      </span>{" "}
+                      <br /> WestWyn Estate
+                    </h1>
+                  </a>
+                </div>
 
               {/* Contact & Buttons */}
               <div className="flex flex-col justify-between">
