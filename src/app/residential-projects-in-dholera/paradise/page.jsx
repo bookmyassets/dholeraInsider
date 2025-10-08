@@ -120,7 +120,7 @@ export default function Hero() {
                     📄 Download Brochure
                   </button>
                 </div>
-                <div className="text-teal-900 text-xl font-semibold hover:text-teal-800 transition-colors">
+                <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
                   <p>Immediate Possession</p>
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function Hero() {
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
             <BrochureDownload
-              title="Get the Dholera Brochure"
+              title="Get WestWyn Estate Brochure"
               buttonName="Download Brochure"
               onClose={() => closeBrochureForm()}
               link="https://cdn.sanity.io/files/c3e1h345/projects/c9471499567c096befb9416aa99c7f0077900d11.pdf"

@@ -209,7 +209,7 @@ export default function CommonForm({ title }) {
     <div>
       <section className="py-12 bg-gradient-to-r from-gray-900 to-teal-900 animate-gradient-x">
         <div className="container mx-auto px-6 sm:px-12">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-white text-3xl md:text-4xl font-bold text-center">
               {title}
             </h2>

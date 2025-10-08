@@ -9,7 +9,6 @@ import { AnimatePresence } from "framer-motion";
 import BrochureDownload from "@/app/components/BrochureDownload";
 
 export default function Hero() {
-
   const [brochureFormOpen, setIsBrochureFormOpen] = useState(false);
 
   const openBrochureForm = () => {
@@ -65,22 +64,20 @@ export default function Hero() {
 
   return (
     <>
-       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
-                    <Image
-                src={westwynEstate1}
-                alt="Maple - Your Gateway to Smart Investment"
-               
-                className="w-full h-full max-sm:hidden"
-                priority
-              />
-              <Image
-                src={westwynEstate1M}
-                alt="Maple - Your Gateway to Smart Investment"
-               
-                className="w-full h-full md:hidden"
-                priority
-              />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 hidden md:block">
+      <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
+        <Image
+          src={westwynEstate1}
+          alt="Maple - Your Gateway to Smart Investment"
+          className="w-full h-full max-sm:hidden"
+          priority
+        />
+        <Image
+          src={westwynEstate1M}
+          alt="Maple - Your Gateway to Smart Investment"
+          className="w-full h-full md:hidden"
+          priority
+        />
+        <div className="absolute bottom-0 left-0 right-0 p-4 hidden md:block">
           <div className="bg-white/95 backdrop-blur-md rounded-t-2xl shadow-2xl border border-white/30 max-w-6xl mx-auto w-full">
             <div className="grid md:grid-cols-3 gap-6 p-6">
               {/* Left Column - Categories & Price */}
@@ -116,7 +113,7 @@ export default function Hero() {
                     📄 Download Brochure
                   </button>
                 </div>
-                <div className="text-teal-900 text-xl font-semibold hover:text-teal-800 transition-colors">
+                <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
                   <p>Immediate Possession</p>
                 </div>
               </div>
@@ -203,13 +200,13 @@ export default function Hero() {
             </p>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div>
-          <CommonForm title="Registry Ready Plots Under ₹10 Lakhs"/>
-        </div>
+      <div>
+        <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
+      </div>
 
-        <div className="relative">
+      <div className="relative">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -312,19 +309,19 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs"/>
+      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
       <AnimatePresence>
-              {brochureFormOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
-                  <BrochureDownload
-                    title="Get the Dholera Brochure"
-                    buttonName="Download Brochure"
-                    onClose={() => closeBrochureForm()}
+        {brochureFormOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
+            <BrochureDownload
+              title="Get WestWyn Estate Brochure"
+              buttonName="Download Brochure"
+              onClose={() => closeBrochureForm()}
               link="https://cdn.sanity.io/files/c3e1h345/projects/c9471499567c096befb9416aa99c7f0077900d11.pdf"
-                  />
-                </div>
-              )}
-            </AnimatePresence>
+            />
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

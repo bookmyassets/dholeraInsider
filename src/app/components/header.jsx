@@ -244,7 +244,7 @@ const Header = () => {
           ${
             scrolled
               ? "h-20 backdrop-blur-xl bg-gradient-to-r from-slate-900/98 via-emerald-900/98 to-teal-900/98 border-b border-white/20 shadow-2xl"
-              : "h-24 max-sm:h-20 backdrop-blur-md bg-gradient-to-r from-slate-900/90 via-emerald-900/90 to-teal-900/90"
+              : "h-20 max-sm:h-20 backdrop-blur-md bg-gradient-to-r from-slate-900/90 via-emerald-900/90 to-teal-900/90"
           }`}
       >
         {/* Glassmorphism overlay */}
@@ -257,7 +257,7 @@ const Header = () => {
               whileHover={{ scale: 1.05, rotate: 2 }}
               whileTap={{ scale: 0.95 }}
               className={`relative transition-all duration-300 ${
-                scrolled ? "h-16 w-16" : "h-24 max-sm:h-16 w-24 max-sm:w-16"
+                scrolled ? "h-24 max-sm:h-16 w-24" : "h-24 max-sm:h-16 w-24 max-sm:w-16"
               }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-teal-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>

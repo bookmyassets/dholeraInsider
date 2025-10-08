@@ -375,7 +375,7 @@ const onRecaptchaSuccess = async (token) => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="bg-black p-2 rounded-full shadow-lg"
+                className="bg-teal-800 p-2 rounded-xl shadow-lg"
               >
                 <Image
                   src={logo}
