@@ -274,37 +274,37 @@ export default async function BlogDetail({ params }) {
 
       block: {
         h1: ({ children }) => (
-          <h1 className="text-5xl font-black mt-8 mb-10 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-4">
+          <h1 className="text-5xl font-black mb-10 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-4">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className="text-4xl font-bold mt-16 mb-8 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-3">
+          <h2 className="text-4xl font-bold mt-4 mb-8 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-3">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="text-3xl font-bold mt-12 mb-6 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+          <h3 className="text-3xl font-bold mt-4 mb-6 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h3>
         ),
         h4: ({ children }) => (
-          <h4 className="text-2xl font-semibold mt-10 mb-4 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+          <h4 className="text-2xl font-semibold mt-4 mb-4 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h4>
         ),
         h5: ({ children }) => (
-          <h5 className="text-xl font-semibold mt-8 mb-3 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+          <h5 className="text-xl font-semibold mt-4 mb-3 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h5>
         ),
         h6: ({ children }) => (
-          <h6 className="text-lg font-semibold mt-6 mb-2 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-1">
+          <h6 className="text-lg font-semibold mt-4 mb-2 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-1">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h6>
@@ -521,7 +521,7 @@ export default async function BlogDetail({ params }) {
               )}
 
               {/* Content */}
-              <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl p-8 border border-gray-200">
+              <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl pl-8 pr-8 border border-gray-200">
                 <div className="text-xl max-w-none">
                   <PortableText value={post.body} components={components} />
                 </div>

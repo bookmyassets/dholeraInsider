@@ -491,7 +491,7 @@ export default async function Post({ params }) {
                 )}
 
                 {/* Article Content */}
-                <div className="bg-white rounded-xl shadow-2xl p-8 border border-gray-200">
+                <div className="bg-white rounded-xl shadow-2xl pl-8 pr-8 border border-gray-200">
                   <div className="text-xl max-w-none">
                     <PortableText value={post.body} components={components} />
                   </div>
