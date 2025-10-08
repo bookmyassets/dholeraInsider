@@ -381,6 +381,9 @@ export default async function Post({ params }) {
             href={`https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`}
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content={post.metaDescription} />
+          <meta name="keywords" content={post.keywords} />
+          <meta name="publisher" content="Dholera Insider" />
 
           {/* Preload critical resources */}
           {post.mainImage && (

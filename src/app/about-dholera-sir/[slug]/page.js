@@ -376,6 +376,9 @@ export default async function BlogDetail({ params }) {
           href={`https://www.dholerainsider.com/about-dholera-sir/${post.slug.current}`}
         />
         <meta name="robots" content="index, dofollow" />
+        <meta name="description" content={post.metaDescription} />
+          <meta name="keywords" content={post.keywords} />
+          <meta name="publisher" content="Dholera Insider" />
 
         {/* Sticky Nav Placeholder */}
         <div className="bg-white shadow-sm sticky top-0 z-30" />
