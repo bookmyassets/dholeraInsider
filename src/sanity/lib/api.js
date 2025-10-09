@@ -99,7 +99,7 @@ export async function Brochure() {
 /* Single Post Fetching */
 export async function getPostBySlug(slug) {
   const query = `*[_type == "post" && slug.current == $slug && author->name == "Dholera Insider"][0]{
-    _id, title, metaTitle, metaDescription, "keywords": keywords[]->title, slug,
+    _id, title, metaTitle, metaDescription, "keywords": keywords, slug,
     mainImage { asset->{ _id, _ref, url, metadata{ dimensions, lqip } }, alt, caption, url },
     publishedAt, _createdAt,
     body[]{ ..., _type=="image"=>{..., asset->{ _id, _ref, url, metadata{ dimensions, lqip } }, "url": url }, markDefs[]{..., _type=="link"=>{"href":@.href}} },

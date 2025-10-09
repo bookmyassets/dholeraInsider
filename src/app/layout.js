@@ -6,11 +6,6 @@ import ThemeClientProvider from "./components/ThemeProvider";
 import Footer from "./components/Footer";
 import Script from "next/script";
 
-export const metadata = {
-  title: "Dholera Insider",
-  description: "Dholera Smart City",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

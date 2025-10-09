@@ -52,7 +52,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     return images;
   };
 
-  const baseUrl = "https://bookmyassets.com"; // Replace with your actual domain
+  const baseUrl = "https://dholerainsider.com"; // Replace with your actual domain
   const postUrl = `${baseUrl}/dholera-sir-blogs/${post.slug.current}`;
   
   // Main blog post schema
@@ -60,13 +60,12 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
-    "description": post.description || extractPlainText(post.body),
     "url": postUrl,
     "datePublished": post.publishedAt || post._createdAt,
     "dateModified": post._updatedAt,
     "author": {
       "@type": "Organization", // Change to "Person" if you want individual author
-      "name": "BookMyAssets", // Replace with your organization/author name
+      "name": "dholerainsider", // Replace with your organization/author name
       "url": baseUrl,
       "logo": {
         "@type": "ImageObject",
@@ -77,7 +76,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "BookMyAssets", // Replace with your organization name
+      "name": "dholerainsider", // Replace with your organization name
       "url": baseUrl,
       "logo": {
         "@type": "ImageObject",
@@ -98,7 +97,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     "isAccessibleForFree": true,
     "isPartOf": {
       "@type": "Blog",
-      "name": "BookMyAssets Blog", // Replace with your blog name
+      "name": "dholerainsider Blog", // Replace with your blog name
       "url": `${baseUrl}/dholera-sir-blogs`
     }
   };
@@ -123,10 +122,6 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     }));
   }
 
-  // Add tags as keywords
-  if (post.tags && post.tags.length > 0) {
-    blogSchema.keywords = post.tags.join(", ");
-  }
 
   // Add content images
   const contentImages = extractImages(post.body);
@@ -143,7 +138,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "BookMyAssets",
+    "name": "dholerainsider",
     "url": baseUrl,
     "logo": {
       "@type": "ImageObject",
@@ -153,9 +148,9 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     },
     "sameAs": [
       // Add your social media URLs
-      "https://www.facebook.com/bookmyassets",
-      "https://www.linkedin.com/company/bookmyassets",
-      "https://x.com/bookmyassets"
+      "https://www.facebook.com/dholerainsider",
+      "https://www.linkedin.com/company/dholerainsider",
+      "https://x.com/dholerainsider"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
@@ -169,11 +164,11 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "BookMyAssets Blog",
+    "name": "dholerainsider Blog",
     "url": `${baseUrl}/dholera-sir-blogs`,
     "publisher": {
       "@type": "Organization",
-      "name": "BookMyAssets",
+      "name": "dholerainsider",
       "url": baseUrl
     },
     "potentialAction": {
@@ -271,18 +266,14 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
         }}
       />
       
-      {/* Additional meta tags for better SEO */}
-      <meta name="description" content={post.description || extractPlainText(post.body)} />
-      <meta name="keywords" content={post.tags?.join(", ") || ""} />
-      <meta name="author" content="BookMyAssets" />
+   
+      <meta name="author" content="dholerainsider" />
       <meta name="robots" content="index, follow" />
       
       {/* Open Graph meta tags */}
       <meta property="og:type" content="article" />
-      <meta property="og:title" content={post.title} />
-      <meta property="og:description" content={post.description || extractPlainText(post.body)} />
       <meta property="og:url" content={postUrl} />
-      <meta property="og:site_name" content="BookMyAssets" />
+      <meta property="og:site_name" content="dholerainsider" />
       {post.mainImage && (
         <meta property="og:image" content={urlFor(post.mainImage).width(1200).height(630).url()} />
       )}
@@ -299,7 +290,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
       {post.mainImage && (
         <meta name="x:image" content={urlFor(post.mainImage).width(1200).height(630).url()} />
       )}
-      <meta name="x:site" content="@bookmyassets" /> {/* Replace with your Twitter handle */}
+      <meta name="x:site" content="@dholerainsider" /> {/* Replace with your Twitter handle */}
     </>
   );
 };

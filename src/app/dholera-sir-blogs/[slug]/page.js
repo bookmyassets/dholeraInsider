@@ -13,7 +13,7 @@ import SlugPageForm from "../../components/SlugPageForm";
 
 
 // Right Sidebar Component
-const RightSidebar = ({ trendingBlogs, relatedProjects, type = "blog" }) => {
+const RightSidebar = ({ trendingBlogs }) => {
   return (
  <aside className="lg:w-1/3 lg:sticky lg:top-24">
   <div className="space-y-6">
@@ -77,33 +77,7 @@ const RightSidebar = ({ trendingBlogs, relatedProjects, type = "blog" }) => {
   );
 };
 // Trending Blog Item Component (updated)
-const trendingBlogs = ({ post }) => {
-  return (
-    <Link href={`/blogs/${post.slug.current}`}>
-      <div className="flex gap-4 items-center bg-white hover:bg-gray-50 p-4 rounded-lg border border-gray-100 transition-all hover:shadow-md">
-        {post.mainImage && (
-          <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-            <Image
-              src={urlFor(post.mainImage).width(80).height(80).url()}
-              alt={post.title}
-              width={80}
-              height={80}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        )}
-        <div>
-          <h4 className="font-semibold text-gray-900 line-clamp-2">
-            {post.title}
-          </h4>
-          <p className="text-sm text-gray-500 line-clamp-1 mt-1">
-            {post.description}
-          </p>
-        </div>
-      </div>
-    </Link>
-  );
-};
+
 
 export default async function Post({ params }) {
   const { slug } = await params;
