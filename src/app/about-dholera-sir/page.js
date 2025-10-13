@@ -55,7 +55,8 @@ export default async function BlogsPage() {
   return (
     <>
       {/* Hero Section with Black Background */}
-      <meta name="title" content="About Dholera SIR – Dholera Special Investment Region in Gujarat" />
+      <title>About Dholera SIR – Dholera Special Investment Region in Gujarat</title>
+      <meta name="title" content="" />
       <meta name="description" content="Learn about Dholera SIR and Dholera Special Investment Region—India’s smart city Gujarat project offering prime Dholera investment opportunities." />
       <meta name="keywords" content="Dholera SIR, Dholera Special Investment Region, smart city Gujarat, Dholera Smart City, Dholera investment" />
       <link rel="canonical" href="https://www.dholerainsider.com/about-dholera-sir" />
