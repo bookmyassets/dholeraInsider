@@ -20,6 +20,18 @@ export default function Hero() {
   };
   return (
     <>
+    <meta
+        name="title"
+        content="Orchid Dholera – Premium Plots near Dholera Activation Area"
+      />
+      <meta
+        name="description"
+        content="Orchid Dholera plots are located close to Dholera Activation Area offering strong Dholera investment opportunities in smart city Dholera."
+      />
+      <meta
+        name="keywords"
+        content="Orchid Dholera, Dholera Activation Area, Dholera plots, Dholera investment, smart city Dholera"
+      />
       <div className="relative">
         <Image
           src={westwynEstate1}

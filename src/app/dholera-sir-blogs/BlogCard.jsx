@@ -29,7 +29,7 @@ export default function BlogCard({ post }) {
 
         {/* Content */}
         <div className="p-6">
-          <h2 className="text-xl font-bold mb-3 text-black group-hover:text-teal-600 transition-colors">
+          <h2 className="text-xl font-bold mb-3 text-black group-hover:text-teal-600 line-clamp-2 transition-colors">
             {post.title}
           </h2>
 

@@ -21,6 +21,18 @@ export default function Hero() {
 
   return (
     <>
+    <meta
+        name="title"
+        content="Paradise 2 Dholera – Affordable Dholera Plots in Smart City Gujarat"
+      />
+      <meta
+        name="description"
+        content="Invest in Paradise 2 Dholera plots located near Dholera airport and expressway—ideal for Dholera investment and growth."
+      />
+      <meta
+        name="keywords"
+        content="Paradise 2 Dholera, Dholera plots, smart city Gujarat, Dholera investment, investment in Dholera"
+      />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}

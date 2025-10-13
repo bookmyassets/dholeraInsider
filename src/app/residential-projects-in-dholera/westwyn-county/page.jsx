@@ -84,6 +84,19 @@ export default function Hero() {
 
   return (
     <>
+      <meta
+        name="title"
+        content="WestWyn County Dholera – Registry-Ready Plots in Dholera Smart City"
+      />
+      <meta
+        name="description"
+        content="Discover WestWyn County Dholera plots designed for high Dholera investment value in smart city Gujarat."
+      />
+      <meta
+        name="keywords"
+        content="WestWyn County Dholera, Dholera plots, Dholera Smart City, Dholera investment, smart city Gujarat"
+      />
+
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}

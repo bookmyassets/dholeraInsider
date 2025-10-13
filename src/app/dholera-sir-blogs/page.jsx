@@ -39,10 +39,15 @@ export default async function page() {
 
   return (
     <>
-      <title>Dholera Blog | Investment Tips, News & Smart City Insights</title>
+      <title>Dholera Insider Blog – News & Insights on Dholera Real Estate</title>
+      <meta name="title" content="Dholera Insider Blog – News & Insights on Dholera Real Estate" />
       <meta
         name="description"
-        content="Stay ahead in Dholera SIR investments! Read expert blogs on development, market trends, and project reviews, all curated by Dholera Insider for you."
+        content="Stay updated with the latest Dholera news and smart city updates covering Dholera real estate and Dholera investment trends."
+      />
+      <meta
+        name="keywords"
+        content="Dholera blog, Dholera news, Dholera real estate, smart city updates, Dholera investment"
       />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}

@@ -21,6 +21,16 @@ export default function Hero() {
 
   return (
     <>
+    <title>Pride Dholera – Signature Dholera Plots in Smart City Gujarat</title>
+    
+    <meta
+        name="description"
+        content="Pride Dholera offers prime plots in the heart of Smart City Gujarat—perfect for long-term investment in Dholera."
+    />
+    <meta
+        name="keywords"
+        content="Pride Dholera, Dholera plots, smart city Gujarat, Dholera investment, Dholera Smart City"
+    />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}

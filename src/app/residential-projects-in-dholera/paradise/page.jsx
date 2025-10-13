@@ -21,6 +21,18 @@ export default function Hero() {
 
   return (
     <>
+    <meta
+        name="title"
+        content="Paradise Dholera – Residential Dholera Plots in Smart City Gujarat"
+      />
+      <meta
+        name="description"
+        content="Paradise Dholera offers affordable Dholera plots for homebuyers and investors in smart city of Dholera."
+      />
+      <meta
+        name="keywords"
+        content="Paradise Dholera, Dholera plots, smart city Dholera, smart city Gujarat, Dholera investment"
+      />
       <div>
         <div className="relative w-full h-[80vh] max-sm:h-[60vh]">
           <Image

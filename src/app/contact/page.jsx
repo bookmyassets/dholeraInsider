@@ -317,6 +317,9 @@ const ContactUsPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <meta name="title" content="Contact Dholera Insider – Get in Touch About Dholera Plots" />
+      <meta name="description" content="Reach out to our smart city consultants for Dholera plots, Dholera investment queries, and site visit assistance in Dholera Smart City." />
+      <meta name="keywords" content="Dholera plots, Dholera Smart City, smart city consultants, Dholera investment, investment in Dholera" />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-emerald-900 to-teal-900 text-white py-20">
         <div className="absolute inset-0 bg-black/30"></div>

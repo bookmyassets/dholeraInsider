@@ -21,6 +21,16 @@ export default function Hero() {
 
   return (
     <>
+     <title>Maple Dholera – Affordable Dholera Plots in Smart City Gujarat</title>
+    
+    <meta
+        name="description"
+        content="Maple Dholera brings affordable Dholera plots designed for smart city Gujarat investors focused on Dholera investment growth."
+    />
+    <meta
+        name="keywords"
+        content="Maple Dholera, Dholera plots, smart city Gujarat, Dholera investment, Dholera Smart City"
+    />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}

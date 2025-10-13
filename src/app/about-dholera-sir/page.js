@@ -55,8 +55,11 @@ export default async function BlogsPage() {
   return (
     <>
       {/* Hero Section with Black Background */}
-      <link rel="canonical" href="https://www.dholeratimes.com/dholera-sir" />
-      <meta name="robots" content="noindex, dofollow" />
+      <meta name="title" content="About Dholera SIR – Dholera Special Investment Region in Gujarat" />
+      <meta name="description" content="Learn about Dholera SIR and Dholera Special Investment Region—India’s smart city Gujarat project offering prime Dholera investment opportunities." />
+      <meta name="keywords" content="Dholera SIR, Dholera Special Investment Region, smart city Gujarat, Dholera Smart City, Dholera investment" />
+      <link rel="canonical" href="https://www.dholerainsider.com/about-dholera-sir" />
+      <meta name="robots" content="index, dofollow" />
 
       <div className="bg-black text-white">
         <section className="relative h-[70vh]  flex items-center justify-center text-center">

@@ -209,6 +209,9 @@ export default function Aboutus() {
   return (
     <div>
       {/* Hero Section */}
+      <meta name="title" content="About Dholera Insider – Your Trusted Dholera Real Estate Partner" />
+      <meta name="description" content="Learn about Dholera Insider’s role in Dholera real estate and how our smart city consultants guide investors in Dholera Smart City." />
+      <meta name="keywords" content="Dholera real estate, smart city consultants, Dholera Smart City, Dholera investment, investment in Dholera." />
       
 
       <main className="bg-gradient-to-b from-gray-900 via-emerald-900 to-teal-900 text-white min-h-screen">
@@ -333,16 +336,6 @@ export default function Aboutus() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* SEO Metadata */}
-      <section className="hidden">
-        <h1>Dholera Insider | Smart City News, Insights & Development Updates</h1>
-        <p>
-          Stay updated with Dholera Insider - your go-to digital platform for
-          authentic updates, investment insights, and news about Dholera Smart
-          City, India’s first greenfield industrial hub.
-        </p>
       </section>
     </main>
 
