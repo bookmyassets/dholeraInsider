@@ -256,7 +256,7 @@ const ContactUsPage = () => {
       icon: Phone,
       title: "Call Us",
       details: "+91 92118 20887",
-      description: "Mon-Sat 9AM to 6PM",
+      description: "Mon-Sun 10AM to 8PM",
       action: "tel:+919211820887",
       color: "bg-emerald-500",
     },
