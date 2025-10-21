@@ -14,6 +14,7 @@ import {
   Star,
   ArrowRight,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ContactUsPage = () => {
   const [formData, setFormData] = useState({
@@ -261,7 +262,7 @@ const ContactUsPage = () => {
       color: "bg-emerald-500",
     },
     {
-      icon: MessageSquare,
+      icon: FaWhatsapp,
       title: "WhatsApp",
       details: "+91 92118 20887",
       description: "Quick responses 24/7",
