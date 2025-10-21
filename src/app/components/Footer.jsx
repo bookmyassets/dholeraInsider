@@ -115,7 +115,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/inside-dholera"
+                  href="/about-dholera-sir"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
                   <span className="mr-2">›</span> About Dholera

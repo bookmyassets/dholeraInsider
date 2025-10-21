@@ -549,7 +549,7 @@ export default async function Post({ params }) {
                             <p className="text-gray-700 mb-4 line-clamp-3">
                               {blog.description}
                             </p>
-                            <span className="hover:text-[#C69C21] text-[#FDB913] p-1 rounded-xl font-semibold bg-gray-800 inline-flex items-center">
+                            <span className="text-teal-700 hover:text-teal-900 p-1 rounded-xl font-semibold bg-gray-800 inline-flex items-center">
                               Read more
                             </span>
                           </div>
