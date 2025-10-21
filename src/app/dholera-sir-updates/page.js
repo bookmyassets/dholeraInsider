@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import heroD from "../assets/hero/diBlogs.png";
+import heroD from "../assets/hero/latest-updates-dholera-insider.webp";
 import heroM from "../assets/hero/blogMhero.webp";
 import { getUpdates } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
@@ -13,8 +13,8 @@ export default async function Blogs() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full h-[50vh] relative" aria-label="Dholera Blogs Hero">
-        <div className="relative w-full h-full">
+      <section className="w-full h-[70vh] relative" aria-label="Dholera Blogs Hero">
+        <div className="relative w-full h-[70vh]">
           <Image
             src={heroD}
             alt="Dholera blogs hero background"
@@ -23,35 +23,26 @@ export default async function Blogs() {
             className="object-cover max-sm:hidden"
             priority
           />
-          <Image
-            src={heroM}
-            alt="Dholera blogs mobile hero background"
-            fill
-            sizes="100vw"
-            className="object-cover md:hidden"
-            priority
-          />
+          
           
           {/* Hero Content */}
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
             {/* Background Large Text */}
+          {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
             <h1 
               className="text-5xl sm:text-7xl md:text-9xl font-black uppercase text-white/10 select-none"
               aria-hidden="true"
             >
               Dholera Latest Updates
             </h1>
-
-            {/* Foreground Main Text */}
             <h2 className="absolute text-lg sm:text-2xl md:text-4xl font-bold text-white">
               Dholera Latest Updates
             </h2>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Blogs Grid Section */}
-      <section className="pt-6 sm:pt-10 px-4 relative bg-gradient-to-br from-green-700 via-green-900 pb-4">
+      <section className="pt-6 sm:pt-10 px-4 relative bg-white pb-4">
         <div className="absolute inset-0"></div>
         
         <div className="relative flex flex-col justify-center items-center">
@@ -86,7 +77,7 @@ function BlogCard({ blog }) {
   }
 
   return (
-    <article className="bg-white shadow-xl shadow-green-400 dark:shadow-green-900 dark:bg-gray-900 mb-6 rounded-lg overflow-hidden w-full max-w-xs sm:max-w-none transition-transform hover:scale-105 duration-300">
+    <article className="bg-white shadow-xl mb-6 rounded-lg overflow-hidden w-full max-w-xs sm:max-w-none transition-transform hover:scale-105 duration-300">
       {/* Blog Image */}
       <div className="relative w-full h-[180px] sm:h-[250px] bg-gray-200 dark:bg-gray-700">
         {imageUrl ? (

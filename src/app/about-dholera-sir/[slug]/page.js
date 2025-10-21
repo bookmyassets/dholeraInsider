@@ -383,6 +383,7 @@ export default async function BlogDetail({ params }) {
 
     return (
       <div className="bg-white min-h-screen">
+        <title>{post.title}</title>
         <link
           rel="canonical"
           href={`https://www.dholerainsider.com/about-dholera-sir/${post.slug.current}`}
@@ -399,7 +400,7 @@ export default async function BlogDetail({ params }) {
         <main className="max-w-7xl mx-auto px-4 py-8">
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Article */}
-            <article className="lg:w-2/3">
+            <article className="lg:w-2/3 pt-16">
               {/* Header with breadcrumbs */}
               <div className="mb-4">
                 <nav className="flex" aria-label="Breadcrumb">

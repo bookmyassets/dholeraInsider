@@ -310,7 +310,7 @@ export default async function BlogDetail({ params }) {
           </h6>
         ),
         normal: ({ children }) => (
-          <p className="mb-8 text-gray-700 leading-loose text-lg font-light tracking-wide">
+          <p className="mb-8 pt-8 text-gray-700 leading-loose text-lg font-light tracking-wide">
             {children}
           </p>
         ),
@@ -371,9 +371,10 @@ export default async function BlogDetail({ params }) {
 
     return (
       <div className="bg-white min-h-screen">
+        <title>{post.title}</title>
         <link
           rel="canonical"
-          href={`https://www.dholerainsider.com/about-dholera-sir/${post.slug.current}`}
+          href={`https://www.dholerainsider.com/dholera-sir-updates/${post.slug.current}`}
         />
         <meta name="robots" content="index, dofollow" />
         <meta name="description" content={post.metaDescription} />
@@ -387,7 +388,7 @@ export default async function BlogDetail({ params }) {
         <main className="max-w-7xl mx-auto px-4 py-8">
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Article */}
-            <article className="lg:w-2/3">
+            <article className="lg:w-2/3 pt-16">
               {/* Header with breadcrumbs */}
               <div className="mb-4">
                 <nav className="flex" aria-label="Breadcrumb">
@@ -523,7 +524,7 @@ export default async function BlogDetail({ params }) {
               {/* Content */}
               <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl pl-8 pr-8 border border-gray-200">
                 <div className="text-xl max-w-none">
-                  <PortableText value={post.body} components={components} />
+                  <PortableText value={post.body} components={components}/>
                 </div>
 
                 {/* Tags */}
@@ -536,7 +537,7 @@ export default async function BlogDetail({ params }) {
                       {post.tags.map((tag) => (
                         <Link
                           key={tag}
-                          href={`/dholera-updates/blogs/tag/${tag}`}
+                          href={`/dholera-updates/${tag}`}
                           className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition"
                         >
                           #{tag}
