@@ -588,7 +588,7 @@ export default async function BlogDetail({ params }) {
                     )}
                   </div>
               <div className="mt-6 pt-4 border-t border-gray-600">
-                <Link href="/about-dholera-sir">
+                <Link href="/dholera-sir-blogs">
                   <button className="w-full text-center rounded-xl text-white font-semibold bg-teal-800 hover:bg-teal-500 p-3 transition-colors">
                     Read More
                   </button>
