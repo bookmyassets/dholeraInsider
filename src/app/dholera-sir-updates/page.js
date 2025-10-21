@@ -13,8 +13,8 @@ export default async function Blogs() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full h-[70vh] relative" aria-label="Dholera Blogs Hero">
-        <div className="relative w-full h-[70vh]">
+      <section className="w-full h-[70vh] pt-16 relative" aria-label="Dholera Blogs Hero">
+        <div className="relative w-full h-[70vh] ">
           <Image
             src={heroD}
             alt="Dholera blogs hero background"
@@ -77,7 +77,7 @@ function BlogCard({ blog }) {
   }
 
   return (
-    <article className="bg-white shadow-xl mb-6 rounded-lg overflow-hidden w-full max-w-xs sm:max-w-none transition-transform hover:scale-105 duration-300">
+    <article className="bg-white shadow-xl  mb-6 rounded-lg overflow-hidden w-full max-w-xs sm:max-w-none transition-transform hover:scale-105 duration-300">
       {/* Blog Image */}
       <div className="relative w-full h-[180px] sm:h-[250px] bg-gray-200 dark:bg-gray-700">
         {imageUrl ? (
