@@ -18,6 +18,11 @@ const nextConfig = {
         destination: "/about-dholera-sir/:slug*",
         permanent: true,
       },
+      {
+        source: "/inside-dholera/abcd-building-dholera-sir",
+        destination: "/about-dholera-sir/why-abcd-building-makes-dholera-sir-smartest-investment-destination",
+        permanent: true,
+      },
     ];
   },
 };
