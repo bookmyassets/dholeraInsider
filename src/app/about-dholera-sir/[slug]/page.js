@@ -1,6 +1,6 @@
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
-import { getPostBySlug, projectInfo } from "@/sanity/lib/api";
+import { getblogs, getPostBySlug, projectInfo } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import LeadForm from "../LeadForm";
@@ -17,10 +17,18 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Replace your TrendingBlogItem component with this:
 const TrendingBlogItem = ({ post }) => {
+  if (!post) {
+    return null;
+  }
+
   return (
-    <Link href={`/about-dholera-sir/${post.slug.current}`}>
-      <div className="flex gap-4 items-center bg-white hover:bg-gray-50 p-4 rounded-lg border border-gray-100 transition-all hover:shadow-md">
+    <Link
+      key={post.slug?.current}
+      href={`/dholera-sir-blogs/${post.slug?.current}`}
+    >
+      <div className="flex gap-4 items-center bg-white hover:bg-gray-50 p-4 rounded-lg border border-gray-100 transition-all hover:shadow-md mb-3">
         {post.mainImage && (
           <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
             <Image
@@ -32,18 +40,22 @@ const TrendingBlogItem = ({ post }) => {
             />
           </div>
         )}
-        <div>
-          <h4 className="font-semibold text-gray-900 line-clamp-2">
+        <div className="flex-1">
+          <h4 className="font-semibold text-gray-900 line-clamp-2 text-sm">
             {post.title}
           </h4>
-          <p className="text-sm text-gray-500 line-clamp-1 mt-1">
-            {post.description}
-          </p>
+          {post.description && (
+            <p className="text-xs text-gray-500 line-clamp-1 mt-1">
+              {post.description}
+            </p>
+          )}
         </div>
       </div>
     </Link>
   );
 };
+
+// And update your sidebar section to this:
 
 const RelatedBlogCard = ({ blog }) => {
   return (
@@ -112,7 +124,7 @@ export default async function BlogDetail({ params }) {
   try {
     const [post, trendingBlogs, getPro] = await Promise.all([
       getPostBySlug(slug, site),
-      projectInfo(),
+      getblogs(),
     ]);
 
     if (!post) {
@@ -377,8 +389,8 @@ export default async function BlogDetail({ params }) {
         />
         <meta name="robots" content="index, dofollow" />
         <meta name="description" content={post.metaDescription} />
-          <meta name="keywords" content={post.keywords} />
-          <meta name="publisher" content="Dholera Insider" />
+        <meta name="keywords" content={post.keywords} />
+        <meta name="publisher" content="Dholera Insider" />
 
         {/* Sticky Nav Placeholder */}
         <div className="bg-white shadow-sm sticky top-0 z-30" />
@@ -551,7 +563,7 @@ export default async function BlogDetail({ params }) {
             {/* Sidebar */}
             <aside className="lg:w-1/3">
               <div className="sticky space-y-4 top-24">
-                <div className=" pt-4 max-w-xl mx-auto">
+                <div className="pt-4 max-w-xl mx-auto">
                   <LeadForm
                     title="Planning to Invest in Dholera Smart City?"
                     buttonName="Know More"
@@ -562,19 +574,26 @@ export default async function BlogDetail({ params }) {
                   <h3 className="text-xl font-bold mb-4 text-white">
                     Explore Dholera SIR
                   </h3>
-                  <div className="">
+                  <div className="space-y-3">
                     {trendingBlogs && trendingBlogs.length > 0 ? (
-                      trendingBlogs.map((post) => (
-                        <div key={post._id} className="mb-3">
-                          <TrendingBlogItem post={post} />
-                        </div>
-                      ))
+                      trendingBlogs
+                        .slice(0, 5)
+                        .map((post) => (
+                          <TrendingBlogItem key={post._id} post={post} />
+                        ))
                     ) : (
                       <p className="text-gray-400">
                         No trending articles found.
                       </p>
                     )}
                   </div>
+              <div className="mt-6 pt-4 border-t border-gray-600">
+                <Link href="/about-dholera-sir">
+                  <button className="w-full text-center rounded-xl text-white font-semibold bg-teal-800 hover:bg-teal-500 p-3 transition-colors">
+                    Read More
+                  </button>
+                </Link>
+              </div>
                 </div>
               </div>
             </aside>

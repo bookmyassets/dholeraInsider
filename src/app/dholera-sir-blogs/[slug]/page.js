@@ -94,8 +94,8 @@ export default async function Post({ params }) {
   try {
     const [post, trendingBlogs, relatedBlogs] = await Promise.all([
       getPostBySlug(slug, site),
-      projectInfo(0, 6), // Get 6 blogs for sidebar
-      getUpdates(slug, 3),
+      getUpdates(0, ), // Get 6 blogs for sidebar
+      projectInfo(slug, 3),
     ]);
 
     if (!post) {

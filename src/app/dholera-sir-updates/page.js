@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import heroD from "../assets/hero/diBlogs.png";
 import heroM from "../assets/hero/blogMhero.webp";
-import { getblogs } from "@/sanity/lib/api";
+import { getUpdates } from "@/sanity/lib/api";
 import { urlFor } from "@/sanity/lib/image";
 import CommonForm from "../components/CommonForm";
 
 export default async function Blogs() {
-  const blogs = await getblogs();
+  const blogs = await getUpdates();
 
   return (
     <>
