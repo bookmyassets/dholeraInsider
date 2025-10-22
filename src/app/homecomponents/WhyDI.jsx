@@ -43,7 +43,7 @@ export default function WhyDI() {
 
             <div className="w-full md:w-2/5 pl-2 pr-2">
               <div className="w-full h-full">
-                <Image src={sample1} alt="sample1" />
+                <Image src={sample1} alt="Invest in Dholera" />
               </div>
             </div>
           </div>

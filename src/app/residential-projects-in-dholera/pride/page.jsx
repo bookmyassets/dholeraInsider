@@ -34,13 +34,13 @@ export default function Hero() {
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
-          alt="Maple - Your Gateway to Smart Investment"
+          alt="Pride Dholera City Project"
           className="w-full h-full max-sm:hidden max-sm:object-cover"
           priority
         />
         <Image
           src={westwynEstate1M}
-          alt="Maple - Your Gateway to Smart Investment"
+          alt="Pride Dholera City Project"
           className="w-full h-full md:hidden"
           priority
         />

@@ -67,7 +67,7 @@ export default async function BlogsPage() {
           <div className="absolute inset-0">
             <Image
               src={hero}
-              alt="Dholera SIR Aerial View"
+              alt="Dholera SIR"
               className="w-full h-[70vh] object-cover "
               priority
             />

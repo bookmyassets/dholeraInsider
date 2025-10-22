@@ -35,13 +35,13 @@ export default function Hero() {
       <div className="relative">
         <Image
           src={westwynEstate1}
-          alt="orchid"
+          alt="Orchid Dholera Residential Project"
           className="w-full h-full max-sm:hidden"
           priority
         />
         <Image
           src={westwynEstate1M}
-          alt="orchid"
+          alt="Orchid Dholera Residential Project"
           className="w-full h-full md:hidden"
           priority
         />

@@ -17,7 +17,7 @@ export default async function Blogs() {
         <div className="relative w-full h-[70vh] ">
           <Image
             src={heroD}
-            alt="Dholera blogs hero background"
+            alt="Dholera latest Update"
             fill
             sizes="100vw"
             className="object-cover max-sm:hidden"

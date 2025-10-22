@@ -267,12 +267,12 @@ export default function Aboutus() {
           >
             <Image
               src={heroD}
-              alt="Dholera Insider Team"
+              alt="Dholera"
               className="rounded-2xl shadow-lg w-full max-w-md max-sm:hidden"
             />
             <Image
               src={heroM}
-              alt="Dholera Insider Team"
+              alt="Dholera"
               className="rounded-2xl shadow-lg w-full max-w-md md:hidden"
             />
           </motion.div>

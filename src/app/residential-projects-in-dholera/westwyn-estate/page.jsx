@@ -71,13 +71,13 @@ export default function Hero() {
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
-          alt="Maple - Your Gateway to Smart Investment"
+          alt="WestWyn Estate in Dholera SIR"
           className="w-full h-full max-sm:hidden"
           priority
         />
         <Image
           src={westwynEstate1M}
-          alt="Maple - Your Gateway to Smart Investment"
+          alt="WestWyn Estate in Dholera SIR"
           className="w-full h-full md:hidden"
           priority
         />

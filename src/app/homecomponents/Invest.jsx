@@ -20,7 +20,7 @@ export default function Invest() {
           <div className="flex flex-col md:flex-row px-4 md:px-8 py-12 gap-6 md:gap-12 max-w-7xl mx-auto">
             <div className="w-full md:w-2/5 pl-2 pr-2">
             <div className="w-full h-full">
-              <Image src={sample1} alt="sample1" />
+              <Image src={sample1} alt="Dholera Smart City" />
             </div>
             </div>
 
