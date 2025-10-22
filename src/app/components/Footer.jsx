@@ -131,7 +131,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/sitemap"
+                  href="/sitemap.xml"
                   className="text-white hover:text-blue-400 transition flex items-center"
                 >
                   <span className="mr-2">›</span> Sitemap
