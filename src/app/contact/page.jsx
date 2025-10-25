@@ -741,7 +741,7 @@ const ContactUsPage = () => {
                 rel="noopener noreferrer"
                 className="bg-emerald-700 hover:bg-emerald-800 px-8 py-4 rounded-lg font-bold transition-colors flex items-center gap-2"
               >
-                <MessageSquare className="w-5 h-5" />
+                <FaWhatsapp className="w-5 h-5" />
                 WhatsApp Us
               </a>
             </div>
