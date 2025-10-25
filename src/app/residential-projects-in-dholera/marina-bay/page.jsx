@@ -33,6 +33,7 @@ export default function Hero() {
     name="keywords"
     content="Marina Bay Dholera, Dholera plots, smart city Gujarat, Dholera Smart City, Dholera investment"
 />
+      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/marina-bay" />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}

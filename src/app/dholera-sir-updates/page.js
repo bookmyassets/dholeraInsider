@@ -23,6 +23,7 @@ export default async function Blogs() {
             className="object-cover max-sm:hidden"
             priority
           />
+      <link rel="canonical" href="https://www.dholerainsider.com/dholera-sir-updates" />
           
           
           {/* Hero Content */}

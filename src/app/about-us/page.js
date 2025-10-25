@@ -213,7 +213,7 @@ export default function Aboutus() {
       <meta name="title" content="About Dholera Insider – Your Trusted Dholera Real Estate Partner" />
       <meta name="description" content="Learn about Dholera Insider’s role in Dholera real estate and how our smart city consultants guide investors in Dholera Smart City." />
       <meta name="keywords" content="Dholera real estate, smart city consultants, Dholera Smart City, Dholera investment, investment in Dholera." />
-      
+      <link rel="canonical" href="https://www.dholerainsider.com/about-us" />
 
       <main className="bg-gradient-to-b from-gray-900 via-emerald-900 to-teal-900 text-white min-h-screen">
       {/* Hero Section */}

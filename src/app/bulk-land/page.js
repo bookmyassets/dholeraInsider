@@ -8,6 +8,7 @@ const DholeraBulkLandPage = () => {
       <Head>
         <title>Why Invest in Bulk Land in Dholera SIR? | Dholera Insider</title>
         <meta name="description" content="Discover the benefits of investing in bulk residential plots in Dholera SIR with Dholera Insider" />
+      <link rel="canonical" href="https://www.dholerainsider.com/bulk-land" />
       </Head>
 
       {/* Hero Section */}

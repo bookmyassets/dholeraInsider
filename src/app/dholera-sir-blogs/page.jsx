@@ -49,6 +49,7 @@ export default async function page() {
         name="keywords"
         content="Dholera blog, Dholera news, Dholera real estate, smart city updates, Dholera investment"
       />
+      <link rel="canonical" href="https://www.dholerainsider.com/dholera-sir-blogs" />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
         <div className="relative min-h-[78vh] flex items-center justify-center py-8">

@@ -32,6 +32,7 @@ export default async function Blogs() {
     <>
       <div>
         {/* Hero Section */}
+      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera" />
         <section className="flex flex-col w-full sm:h-[50vh] h-[50vh] relative">
           <Image
             src={heroD}

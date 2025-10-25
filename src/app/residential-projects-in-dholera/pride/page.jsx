@@ -31,6 +31,7 @@ export default function Hero() {
         name="keywords"
         content="Pride Dholera, Dholera plots, smart city Gujarat, Dholera investment, Dholera Smart City"
     />
+      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/pride" />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
