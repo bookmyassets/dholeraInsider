@@ -4,6 +4,7 @@ import { getblogs, getPostBySlug, projectInfo } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import LeadForm from "../LeadForm";
+import SchemaMarkup from "../SchemaMarkup";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -388,6 +389,7 @@ export default async function BlogDetail({ params }) {
           rel="canonical"
           href={`https://www.dholerainsider.com/about-dholera-sir/${post.slug.current}`}
         />
+        <SchemaMarkup post={post} />
         <meta name="robots" content="index, dofollow" />
         <meta name="description" content={post.metaDescription} />
         <meta name="keywords" content={post.keywords} />

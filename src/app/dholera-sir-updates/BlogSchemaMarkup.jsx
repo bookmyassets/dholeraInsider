@@ -53,7 +53,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
   };
 
   const baseUrl = "https://dholerainsider.com"; // Replace with your actual domain
-  const postUrl = `${baseUrl}/dholera-sir-blogs/${post.slug.current}`;
+  const postUrl = `${baseUrl}/dholera-sir-updates/${post.slug.current}`;
   
   // Main blog post schema
   const blogSchema = {
@@ -98,7 +98,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     "isPartOf": {
       "@type": "Blog",
       "name": "dholerainsider Blog", // Replace with your blog name
-      "url": `${baseUrl}/dholera-sir-blogs`
+      "url": `${baseUrl}/dholera-sir-updates`
     }
   };
 
@@ -166,7 +166,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "dholerainsider Blog",
-    "url": `${baseUrl}/dholera-sir-blogs`,
+    "url": `${baseUrl}/dholera-sir-updates`,
     "publisher": {
       "@type": "Organization",
       "name": "dholerainsider",
@@ -197,7 +197,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
         "@type": "ListItem",
         "position": 2,
         "name": "Blogs",
-        "item": `${baseUrl}/dholera-sir-blogs`
+        "item": `${baseUrl}/dholera-sir-updates`
       },
       {
         "@type": "ListItem",
@@ -247,7 +247,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
         "item": {
           "@type": "BlogPosting",
           "headline": blog.title,
-          "url": `${baseUrl}/dholera-sir-blogs/${blog.slug.current}`,
+          "url": `${baseUrl}/dholera-sir-updates/${blog.slug.current}`,
           "description": blog.description,
           "image": blog.mainImage ? urlFor(blog.mainImage).width(400).height(250).url() : undefined,
           "datePublished": blog.publishedAt || blog._createdAt

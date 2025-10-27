@@ -4,6 +4,7 @@ import { getPostBySlug, projectInfo } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import LeadForm from "../LeadForm";
+import BlogSchemaMarkup from "../BlogSchemaMarkup";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -380,6 +381,7 @@ export default async function BlogDetail({ params }) {
         <meta name="description" content={post.metaDescription} />
           <meta name="keywords" content={post.keywords} />
           <meta name="publisher" content="Dholera Insider" />
+          <BlogSchemaMarkup post={post} />
 
         {/* Sticky Nav Placeholder */}
         <div className="bg-white shadow-sm sticky top-0 z-30" />

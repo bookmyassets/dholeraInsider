@@ -1,7 +1,7 @@
 import { urlFor } from "@/sanity/lib/image";
 
-// Blog Schema Markup Component
-const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
+// About Dholera SIR Schema Markup Component
+const SchemaMarkup = ({ post, relatedBlog = [] }) => {
   if (!post) return null;
 
   // Helper function to extract plain text from Portable Text
@@ -53,19 +53,20 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
   };
 
   const baseUrl = "https://dholerainsider.com"; // Replace with your actual domain
-  const postUrl = `${baseUrl}/dholera-sir-blogs/${post.slug.current}`;
+  const postUrl = `${baseUrl}/about-dholera-sir/${post.slug.current}`;
   
-  // Main blog post schema
+  // Main About Dholera SIR post schema
   const blogSchema = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Blog Posting",
     "headline": post.title,
+    "description": post.description || extractPlainText(post.body),
     "url": postUrl,
     "datePublished": post.publishedAt || post._createdAt,
     "dateModified": post._updatedAt,
     "author": {
       "@type": "Organization", // Change to "Person" if you want individual author
-      "name": "dholerainsider", // Replace with your organization/author name
+      "name": "Dholera Insider", // Replace with your organization/author name
       "url": baseUrl,
       "logo": {
         "@type": "ImageObject",
@@ -76,7 +77,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "dholerainsider", // Replace with your organization name
+      "name": "Dholera Insider", // Replace with your organization name
       "url": baseUrl,
       "logo": {
         "@type": "ImageObject",
@@ -89,16 +90,16 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
       "@type": "WebPage",
       "@id": postUrl
     },
-    "articleSection": post.categories?.length > 0 ? post.categories[0].title : "Blog",
+    "articleSection": post.categories?.length > 0 ? post.categories[0].title : "About Dholera SIR",
     "articleBody": extractPlainText(post.body),
     "wordCount": extractPlainText(post.body).split(/\s+/).length,
     "timeRequired": `PT${getReadingTime(post.body)}M`,
     "inLanguage": "en-US", // Adjust based on your content language
     "isAccessibleForFree": true,
     "isPartOf": {
-      "@type": "Blog",
-      "name": "dholerainsider Blog", // Replace with your blog name
-      "url": `${baseUrl}/dholera-sir-blogs`
+      "@type": "About Dholera SIR",
+      "name": "Dholera Insider About Dholera SIR", // Replace with your About Dholera SIR name
+      "url": `${baseUrl}/about-dholera-sir`
     }
   };
 
@@ -122,6 +123,10 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     }));
   }
 
+  // Add tags as keywords
+  if (post.tags && post.tags.length > 0) {
+    blogSchema.keywords = post.tags.join(", ");
+  }
 
   // Add content images
   const contentImages = extractImages(post.body);
@@ -138,7 +143,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "dholerainsider",
+    "name": "Dholera Insider",
     "url": baseUrl,
     "logo": {
       "@type": "ImageObject",
@@ -161,15 +166,15 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     }
   };
 
-  // Website/Blog schema
+  // Website/About Dholera SIR schema
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "dholerainsider Blog",
-    "url": `${baseUrl}/dholera-sir-blogs`,
+    "name": "Dholera Insider About Dholera SIR",
+    "url": `${baseUrl}/about-dholera-sir`,
     "publisher": {
       "@type": "Organization",
-      "name": "dholerainsider",
+      "name": "Dholera Insider",
       "url": baseUrl
     },
     "potentialAction": {
@@ -196,8 +201,8 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Blogs",
-        "item": `${baseUrl}/dholera-sir-blogs`
+        "name": "About Dholera SIR",
+        "item": `${baseUrl}/about-dholera-sir`
       },
       {
         "@type": "ListItem",
@@ -208,7 +213,7 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     ]
   };
 
-  // FAQ Schema (if you have FAQ content in your blog)
+  // FAQ Schema (if you have FAQ content in your About Dholera SIR)
   const faqSchema = post.faqs ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -235,26 +240,26 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
     allSchemas.push(faqSchema);
   }
 
-  // If there are related blogs, add ItemList schema
-  if (relatedBlogs && relatedBlogs.length > 0) {
-    const relatedBlogsSchema = {
+  // If there are related About Dholera SIR, add ItemList schema
+  if (relatedBlog && relatedBlog.length > 0) {
+    const relatedBlogSchema = {
       "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Related Blog Posts",
-      "itemListElement": relatedBlogs.map((blog, index) => ({
-        "@type": "ListItem",
+      "@type": "Blogs",
+      "name": "Blog Posting",
+      "itemListElement": relatedBlog.map((post, index) => ({
+        "@type": "Blogs",
         "position": index + 1,
         "item": {
-          "@type": "BlogPosting",
-          "headline": blog.title,
-          "url": `${baseUrl}/dholera-sir-blogs/${blog.slug.current}`,
-          "description": blog.description,
-          "image": blog.mainImage ? urlFor(blog.mainImage).width(400).height(250).url() : undefined,
-          "datePublished": blog.publishedAt || blog._createdAt
+          "@type": "Blog Posting",
+          "headline": post.title,
+          "url": `${baseUrl}/about-dholera-sir/${post.slug.current}`,
+          "description": post.description,
+          "image": post.mainImage ? urlFor(post.mainImage).width(400).height(250).url() : undefined,
+          "datePublished": post.publishedAt || post._createdAt
         }
       }))
     };
-    allSchemas.push(relatedBlogsSchema);
+    allSchemas.push(relatedBlogSchema);
   }
 
   return (
@@ -267,14 +272,18 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
         }}
       />
       
-   
-      <meta name="author" content="dholerainsider" />
+      {/* Additional meta tags for better SEO */}
+      <meta name="description" content={post.description || extractPlainText(post.body)} />
+      <meta name="keywords" content={post.tags?.join(", ") || ""} />
+      <meta name="author" content="Dholera Insider" />
       <meta name="robots" content="index, follow" />
       
       {/* Open Graph meta tags */}
       <meta property="og:type" content="article" />
+      <meta property="og:title" content={post.title} />
+      <meta property="og:description" content={post.description || extractPlainText(post.body)} />
       <meta property="og:url" content={postUrl} />
-      <meta property="og:site_name" content="dholerainsider" />
+      <meta property="og:site_name" content="Dholera Insider" />
       {post.mainImage && (
         <meta property="og:image" content={urlFor(post.mainImage).width(1200).height(630).url()} />
       )}
@@ -291,9 +300,9 @@ const BlogSchemaMarkup = ({ post, relatedBlogs = [] }) => {
       {post.mainImage && (
         <meta name="x:image" content={urlFor(post.mainImage).width(1200).height(630).url()} />
       )}
-      <meta name="x:site" content="@dholerainsider" /> {/* Replace with your Twitter handle */}
+      <meta name="x:site" content="@Dholera_Insider" /> {/* Replace with your Twitter handle */}
     </>
   );
 };
 
-export default BlogSchemaMarkup;
+export default SchemaMarkup;
