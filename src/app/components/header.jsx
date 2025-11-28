@@ -32,7 +32,7 @@ const Header = () => {
   // Status badge component
   const StatusBadge = ({ status }) => {
     if (!status || status === "available") return null;
-    
+
     return (
       <span
         className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ml-2 ${
@@ -55,42 +55,42 @@ const Header = () => {
         {
           name: "WestWyn Estate",
           href: "/residential-projects-in-dholera/westwyn-estate",
-          status: "available"
+          status: "available",
         },
         {
           name: "WestWyn County",
           href: "/residential-projects-in-dholera/westwyn-county",
-          status: "available"
+          status: "available",
         },
-        { 
-          name: "Paradise", 
+        {
+          name: "Paradise",
           href: "/residential-projects-in-dholera/paradise",
-          status: "sold-out"
+          status: "sold-out",
         },
         {
           name: "Paradise 2",
           href: "/residential-projects-in-dholera/paradise-2",
-          status: "sold-out"
+          status: "sold-out",
         },
-        { 
-          name: "Orchid", 
+        {
+          name: "Orchid",
           href: "/residential-projects-in-dholera/orchid",
-          status: "sold-out"
+          status: "sold-out",
         },
         {
           name: "Marina bay",
           href: "/residential-projects-in-dholera/marina-bay",
-          status: "sold-out"
+          status: "sold-out",
         },
-        { 
-          name: "Maple", 
+        {
+          name: "Maple",
           href: "/residential-projects-in-dholera/maple",
-          status: "sold-out"
+          status: "sold-out",
         },
-        { 
-          name: "Pride", 
+        {
+          name: "Pride",
           href: "/residential-projects-in-dholera/pride",
-          status: "sold-out"
+          status: "sold-out",
         },
       ],
     },
@@ -258,7 +258,9 @@ const Header = () => {
               whileHover={{ scale: 1.05, rotate: 2 }}
               whileTap={{ scale: 0.95 }}
               className={`relative transition-all duration-300 ${
-                scrolled ? "h-24 max-sm:h-16 w-24" : "h-24 max-sm:h-16 w-24 max-sm:w-16"
+                scrolled
+                  ? "h-24 max-sm:h-16 w-24"
+                  : "h-24 max-sm:h-16 w-24 max-sm:w-16"
               }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-teal-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
@@ -266,7 +268,8 @@ const Header = () => {
                 src={logo}
                 alt="Logo"
                 className="object-contain relative z-10 drop-shadow-2xl"
-                fill
+                priority={true}
+                fetchPriority="high"
               />
             </motion.div>
           </Link>
@@ -500,7 +503,7 @@ const Header = () => {
                   />
                 </div>
               </Link>
-              
+
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-3 rounded-xl backdrop-blur-sm bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
@@ -530,14 +533,17 @@ const Header = () => {
                           className="w-full flex justify-between items-center py-4 px-6 font-bold text-white hover:text-orange-400 hover:bg-white/5 transition-all duration-300"
                           onClick={() =>
                             setMobileActiveDropdown(
-                              mobileActiveDropdown === item.key ? null : item.key
+                              mobileActiveDropdown === item.key
+                                ? null
+                                : item.key
                             )
                           }
                         >
                           <span>{item.name}</span>
                           <motion.div
                             animate={{
-                              rotate: mobileActiveDropdown === item.key ? 180 : 0,
+                              rotate:
+                                mobileActiveDropdown === item.key ? 180 : 0,
                             }}
                             transition={{ duration: 0.3 }}
                           >
@@ -605,14 +611,17 @@ const Header = () => {
                           className="w-full flex justify-between items-center py-4 px-6 font-bold text-white hover:text-orange-400 hover:bg-white/5 transition-all duration-300"
                           onClick={() =>
                             setMobileActiveDropdown(
-                              mobileActiveDropdown === item.key ? null : item.key
+                              mobileActiveDropdown === item.key
+                                ? null
+                                : item.key
                             )
                           }
                         >
                           <span>{item.name}</span>
                           <motion.div
                             animate={{
-                              rotate: mobileActiveDropdown === item.key ? 180 : 0,
+                              rotate:
+                                mobileActiveDropdown === item.key ? 180 : 0,
                             }}
                             transition={{ duration: 0.3 }}
                           >

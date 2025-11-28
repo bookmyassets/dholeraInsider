@@ -22,9 +22,8 @@ export default function CTAsection() {
         <Image
           src={bg}
           alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          className="absolute inset-0 -z-10 opacity-30"
+          fill
+          className="absolute object-cover inset-0 -z-10 opacity-30"
         />
         {/* Background decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-gray-900/20 pointer-events-none"></div>
