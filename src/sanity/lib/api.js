@@ -19,25 +19,52 @@ export async function getSub() {
 }
 
 export async function getblogs() {
-  const query = `*[_type == "post" && "Blog" in categories[]->title && author-> name == "Dholera Insider" ]{
-    _id,
-    title,
-    slug,
-    mainImage,
-    publishedAt,
-    body,
-    author->{name, image},
-    categories[]->{title, _id}
-  }`;
-  const posts = await client.fetch(query, {}, { cache: 'no-store' }); // Disables caching
-  return posts;
+  const query = `
+    *[
+      _type == "post" &&
+      "Blog" in categories[]->title &&
+      author->name == "Dholera Insider" &&
+      !("Sold Out" in categories[]->title)
+    ]
+    | order(publishedAt desc)
+    {
+      _id,
+      title,
+      slug,
+      mainImage,
+      publishedAt,
+      body,
+      author->{name, image},
+      categories[]->{title}
+    }
+  `;
+
+  return await client.fetch(query, {}, { cache: "no-store" });
 }
 
+
 export async function getUpdates() {
-  const query = `*[_type == "post" && "Updates" in categories[]->title && author->name == "Dholera Insider"]{
-    _id, title, slug, mainImage, publishedAt, body, author->{name, image}, categories[]->{title}
-  }`;
-  return await client.fetch(query, {}, { cache: 'no-store' });
+  const query = `
+    *[
+      _type == "post" &&
+      "Updates" in categories[]->title &&
+      author->name == "Dholera Insider" &&
+      !("Sold Out" in categories[]->title)
+    ]
+    | order(publishedAt desc)
+    {
+      _id,
+      title,
+      slug,
+      mainImage,
+      publishedAt,
+      body,
+      author->{name, image},
+      categories[]->{title}
+    }
+  `;
+
+  return await client.fetch(query, {}, { cache: "no-store" });
 }
 
 export async function getEvents() {
@@ -49,18 +76,27 @@ export async function getEvents() {
 
 /* Project Info */
 export async function projectInfo() {
- const query = `*[_type == "post" && "project-Info" in categories[]->title && author-> name == "Dholera Insider" ]{
-    _id,
-    title,
-    slug,
-    mainImage,
-    publishedAt,
-    body,
-    author->{name, image},
-    categories[]->{title, _id}
-  }`;
-  const posts = await client.fetch(query, {}, { cache: 'no-store' }); // Disables caching
-  return posts;
+  const query = `
+    *[
+      _type == "post" &&
+      "project-Info" in categories[]->title &&
+      author->name == "Dholera Insider" &&
+      !("Sold Out" in categories[]->title)
+    ]
+    | order(publishedAt desc)
+    {
+      _id,
+      title,
+      slug,
+      mainImage,
+      publishedAt,
+      body,
+      author->{name, image},
+      categories[]->{title}
+    }
+  `;
+
+  return await client.fetch(query, {}, { cache: "no-store" });
 }
 
 

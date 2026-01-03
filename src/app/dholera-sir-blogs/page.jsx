@@ -1,36 +1,47 @@
-import { getblogs, projectInfo } from "@/sanity/lib/api";
+import { getblogs, getUpdates, projectInfo } from "@/sanity/lib/api";
 import React from "react";
 import BlogCard from "./BlogCard";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import FormComponent from "./FormComponent";
 import hero from "@/app/assets/hero/dholerasir.webp";
+import LeadForm from "../about-dholera-sir/LeadForm";
+import TrendingBlogItem from "./TrendingBlog";
 
 export default async function page() {
-  let posts = [];
   let fetchError = null;
 
+  let trendingBlogs = [];
+  try {
+    const newsData = await getUpdates();
+    trendingBlogs = Array.isArray(newsData) ? newsData.slice(0, 3) : [];
+    console.log("News data fetched:", trendingBlogs.length);
+  } catch (error) {
+    console.error("Error fetching news:", error);
+    // Fallback to getUpdates if getnews fails
+    try {
+      const updatesData = await getUpdates();
+      trendingBlogs = Array.isArray(updatesData) ? updatesData.slice(0, 5) : [];
+      console.log("Fallback to updates data:", trendingBlogs.length);
+    } catch (fallbackError) {
+      console.error("Error fetching updates as fallback:", fallbackError);
+    }
+  }
+
+  let posts = [];
   try {
     const postsData = await getblogs();
+    // Check if postsData is an array
     posts = Array.isArray(postsData) ? postsData : [];
     console.log("Posts data fetched:", posts.length);
   } catch (error) {
-    console.error("Error fetching blog posts:", error);
-    fetchError = error;
+    console.error("Error fetching project info:", error);
   }
 
+  // Add error handling for post data
   const safePosts = posts.map((post) => ({
     ...post,
-    author:
-      typeof post.author === "object" && post.author?.name
-        ? post.author.name
-        : typeof post.author === "string"
-          ? post.author
-          : "Dholera Insider",
-    authorImage:
-      typeof post.author === "object" && post.author?.image
-        ? post.author.image
-        : null,
+    author: post.author || "Dholera Insider",
     mainImage: post.mainImage || null,
     slug: post.slug?.current
       ? { current: post.slug.current }
@@ -39,8 +50,13 @@ export default async function page() {
 
   return (
     <>
-      <title>Dholera Insider Blog – News & Insights on Dholera Real Estate</title>
-      <meta name="title" content="Dholera Insider Blog – News & Insights on Dholera Real Estate" />
+      <title>
+        Dholera Insider Blog – News & Insights on Dholera Real Estate
+      </title>
+      <meta
+        name="title"
+        content="Dholera Insider Blog – News & Insights on Dholera Real Estate"
+      />
       <meta
         name="description"
         content="Stay updated with the latest Dholera news and smart city updates covering Dholera real estate and Dholera investment trends."
@@ -49,7 +65,10 @@ export default async function page() {
         name="keywords"
         content="Dholera blog, Dholera news, Dholera real estate, smart city updates, Dholera investment"
       />
-      <link rel="canonical" href="https://www.dholerainsider.com/dholera-sir-blogs" />
+      <link
+        rel="canonical"
+        href="https://www.dholerainsider.com/dholera-sir-blogs"
+      />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
         <div className="relative min-h-[78vh] flex items-center justify-center py-8">
@@ -68,7 +87,7 @@ export default async function page() {
 
           {/* Hero Content */}
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-<div className="mb-6 sm:mb-8 pt-20 sm:pt-24 md:pt-12 flex flex-col justify-center items-center">
+            <div className="mb-6 sm:mb-8 pt-20 sm:pt-24 md:pt-12 flex flex-col justify-center items-center">
               <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Dholera SIR
                 <span className="block bg-teal-500 bg-clip-text text-transparent">
@@ -78,7 +97,8 @@ export default async function page() {
 
               {/* Subtitle */}
               <p className="text-base  text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-                Uncover market insights, project updates, and early opportunities in India's most ambitious smart city.
+                Uncover market insights, project updates, and early
+                opportunities in India's most ambitious smart city.
               </p>
             </div>
 
@@ -93,7 +113,7 @@ export default async function page() {
 
         {/* Blog Posts Section */}
         <div className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className=" px-4 py-12">
             {safePosts.length > 0 ? (
               <>
                 {/* All Posts Grid */}
@@ -111,15 +131,60 @@ export default async function page() {
                       {safePosts.length !== 1 ? "s" : ""} Available
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    {safePosts.map((post, index) => (
-                      <div
-                        key={post._id}
-                        className="transform hover:-translate-y-2 transition-all duration-300"
-                      >
-                        <BlogCard post={post} />
+                  <div className="px-4 ">
+                    <div className="flex flex-col max-sm:flex-col-reverse lg:flex-row gap-8">
+                      {/* Trending Section - Left Sidebar */}
+                      <div className="lg:w-1/4">
+                        <div className="sticky top-24 space-y-8">
+                          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-950">
+                            <LeadForm
+                              title="Own Registry-Ready Plot under ₹10 Lakhs"
+                              buttonName="Get A Call Back"
+                            />
+                          </div>
+                          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-950">
+                            <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                              Latest News on Dholera
+                            </h2>
+                            {trendingBlogs.length > 0 ? (
+                              <div className="space-y-6">
+                                {trendingBlogs.map((post) => (
+                                  <TrendingBlogItem
+                                    key={post._id}
+                                    post={post}
+                                  />
+                                ))}
+                              </div>
+                            ) : (
+                              <p className="text-gray-500">
+                                No news available at the moment.
+                              </p>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                    ))}
+
+                      {/* Blog Grid */}
+                      <div className="lg:w-3/4 ">
+                        {safePosts.length > 0 ? (
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {safePosts.map((post) => (
+                              <BlogCard key={post._id} post={post} />
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="bg-white p-8 rounded-xl shadow-md text-center">
+                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                              No Blog Posts Available
+                            </h3>
+                            <p className="text-gray-600">
+                              Check back soon for information about Dholera SIR
+                              investment opportunities.
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </>
@@ -128,7 +193,9 @@ export default async function page() {
                 <div className="bg-white/95 backdrop-blur-sm p-8 sm:p-12 rounded-2xl shadow-xl max-w-2xl mx-auto border border-gray-200">
                   {fetchError ? (
                     <>
-                      <div className="text-4xl sm:text-6xl mb-4 sm:mb-6">⚠️</div>
+                      <div className="text-4xl sm:text-6xl mb-4 sm:mb-6">
+                        ⚠️
+                      </div>
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
                         Unable to Load Blogs
                       </h3>
@@ -140,7 +207,9 @@ export default async function page() {
                     </>
                   ) : (
                     <>
-                      <div className="text-4xl sm:text-6xl mb-4 sm:mb-6">📝</div>
+                      <div className="text-4xl sm:text-6xl mb-4 sm:mb-6">
+                        📝
+                      </div>
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">
                         Expert Content Coming Soon!
                       </h3>
