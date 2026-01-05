@@ -336,7 +336,7 @@ export default function ContactForm({ onClose }) {
               {isLoading
                 ? "Verifying..."
                 : recaptchaLoaded
-                  ? "Book Consultation"
+                  ? "Get A Call Back"
                   : "Loading..."}
             </button>
           </form>

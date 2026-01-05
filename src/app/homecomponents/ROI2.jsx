@@ -23,7 +23,7 @@ const InvestmentTimeline = () => {
     {
       year: "2025",
       multiplier: "Current",
-      price: "₹6,250/sq.yd",
+      price: "₹6,500/sq.yd",
       title: "Your Investment Entry Point",
       icon: <TrendingUp className="w-8 h-8" />,
       details: [
@@ -35,7 +35,7 @@ const InvestmentTimeline = () => {
     {
       year: "2027-2029",
       multiplier: "5x Returns",
-      price: "₹31,250/sq.yd",
+      price: "₹32,500/sq.yd",
       title: "Dholera-Ahmedabad Expressway & Airport Launch",
       description: "Direct connectivity to Ahmedabad via expressway and inaugural commercial flights at Dholera Airport",
       icon: <Plane className="w-8 h-8" />,
@@ -48,7 +48,7 @@ const InvestmentTimeline = () => {
     {
       year: "2030-2032",
       multiplier: "7x Returns",
-      price: "₹43,750/sq.yd",
+      price: "₹45,500/sq.yd",
       title: "Tata Semiconductor Operations",
       description: "Tata's semiconductor manufacturing facility becomes fully operational, creating massive employment and industrial growth",
       icon: <Factory className="w-8 h-8" />,
@@ -61,7 +61,7 @@ const InvestmentTimeline = () => {
     {
       year: "2033-2035",
       multiplier: "10x Returns",
-      price: "₹62,500/sq.yd",
+      price: "₹65,000/sq.yd",
       title: "Complete Smart City Ecosystem",
       description: "All TP zones operational with full smart city infrastructure, making Dholera Gujarat's prime investment destination",
       icon: <Building className="w-8 h-8" />,
@@ -100,9 +100,9 @@ const InvestmentTimeline = () => {
       const interval = duration / steps;
       
       const targets = {
-        initial: 943750,
-        projected: 9437500,
-        profit: 8493750
+        initial: 981500,
+        projected: 9815000,
+        profit: 8833500
       };
 
       let currentStep = 0;
@@ -264,7 +264,7 @@ const InvestmentTimeline = () => {
               <div className="text-lg md:text-xl font-semibold mb-1">
                 {formatCurrency(counterValues.initial)}
               </div>
-              <div className="text-sm opacity-75">151 sq yd plot @ ₹6,250/sq.yd</div>
+              <div className="text-sm opacity-75">151 sq yd plot @ ₹6,500/sq.yd</div>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/15 transition-all duration-300">

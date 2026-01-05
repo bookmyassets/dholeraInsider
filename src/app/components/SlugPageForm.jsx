@@ -338,7 +338,7 @@ export default function SlugPageForm() {
                           Submitting...
                         </div>
                       ) : (
-                        "Submit"
+                        "Get A Call Back"
                       )}
                     </button>
 

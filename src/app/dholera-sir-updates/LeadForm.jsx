@@ -277,7 +277,7 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
                   : "bg-teal-700 hover:bg-teal-500 hover:shadow-lg active:scale-95"
               }`}
             >
-              {isLoading ? "Submitting..." : buttonName}
+              {isLoading ? "Submitting..." : "Get A Call Back"}
             </button>
           </form>
         )}
