@@ -42,14 +42,7 @@ export default async function BlogsPage() {
     console.log("News data fetched:", trendingBlogs.length);
   } catch (error) {
     console.error("Error fetching news:", error);
-    // Fallback to getUpdates if getnews fails
-    /* try {
-      const updatesData = await getUpdates();
-      trendingBlogs = Array.isArray(updatesData) ? updatesData.slice(0, 5) : [];
-      console.log("Fallback to updates data:", trendingBlogs.length);
-    } catch (fallbackError) {
-      console.error("Error fetching updates as fallback:", fallbackError);
-    } */
+
   }
 
   return (
@@ -86,34 +79,9 @@ export default async function BlogsPage() {
       {/* Main Content */}
       <div className="px-4 py-12 ">
         <div className="flex flex-col max-sm:flex-col-reverse lg:flex-row gap-8">
-          {/* Trending Section - Left Sidebar */}
-          <div className="lg:w-1/4 sticky top-6">
-            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-950  mb-8">
-              <LeadForm
-                title="Own Registry-Ready Plot under ₹10 Lakhs"
-                buttonName="Get A Call Back"
-              />
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-950 ">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-                Latest News on Dholera
-              </h2>
-              {trendingBlogs.length > 0 ? (
-                <div className="space-y-6">
-                  {trendingBlogs.map((post) => (
-                    <TrendingBlogItem key={post._id} post={post} />
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-500">
-                  No news available at the moment.
-                </p>
-              )}
-            </div>
-          </div>
-
+          
           {/* Blog Grid */}
-          <div className="lg:w-3/4 ">
+          <div className="max-w-7xl mx-auto">
             {safePosts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {safePosts.map((post) => (

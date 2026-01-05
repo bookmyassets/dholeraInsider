@@ -85,7 +85,7 @@ export default async function Blogs() {
               priority
             />
             {/* Gradient Overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/30"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
 
           {/* Hero Content */}
@@ -132,38 +132,10 @@ export default async function Blogs() {
                   <div className="px-4">
                     <div className="flex flex-col max-sm:flex-col-reverse lg:flex-row gap-8">
                       {/* Trending Section - Left Sidebar */}
-                      <div className="lg:w-1/4">
-                        <div className="sticky top-24 space-y-8">
-                          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-950">
-                            <LeadForm
-                              title="Own Registry-Ready Plot under ₹10 Lakhs"
-                              buttonName="Get A Call Back"
-                            />
-                          </div>
-                          <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-950">
-                            <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-                              Latest News on Dholera
-                            </h2>
-                            {trendingBlogs.length > 0 ? (
-                              <div className="space-y-6">
-                                {trendingBlogs.map((blog) => (
-                                  <TrendingBlogItem
-                                    key={blog._id}
-                                    post={blog}
-                                  />
-                                ))}
-                              </div>
-                            ) : (
-                              <p className="text-gray-500">
-                                No news available at the moment.
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </div>
+                     
 
                       {/* Blog Grid */}
-                      <div className="lg:w-3/4">
+                      <div className="max-w-7xl mx-auto">
                         {safeBlogs.length > 0 ? (
                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {safeBlogs.map((blog) => (

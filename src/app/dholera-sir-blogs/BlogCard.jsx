@@ -34,24 +34,20 @@ export default function BlogCard({ post }) {
             {post.title}
           </h2>
 
-          {/* Footer with "Read More" */}
           <div className="border-t border-gray-200 pt-4 mt-auto">
-            <div className="flex items-center justify-between text-sm">
-              <div className="flex items-center justify-center">
-                <span className="inline-block w-2 h-2 rounded-full bg-teal-700 mr-2"></span>
-                <span className="text-black">
-                  <time>
-                    {new Date(post.publishedAt).toLocaleDateString("en-IN", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </time>
-                </span>
-              </div>
-              <span className="text-teal-500 font-medium">
-                Read More &rarr;
-              </span>
+            <div className="flex justify-between text-sm">
+              <p className="text-sm text-gray-400">
+                <time>
+                  {new Date(post.publishedAt).toLocaleDateString("en-IN", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </time>
+              </p>
+              <button className="font-medium hover:underline text-teal-500">
+                Read More →
+              </button>
             </div>
           </div>
         </div>
