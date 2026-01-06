@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
-import { motion } from "framer-motion"; // Add this import
+// REMOVED: import { motion } from "framer-motion";
 import "../about-us/about.css";
 
 export default function CommonForm({ title }) {
@@ -12,35 +12,39 @@ export default function CommonForm({ title }) {
   const [lastSubmissionTime, setLastSubmissionTime] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
   const recaptchaRef = useRef(null);
   const recaptchaWidgetId = useRef(null);
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-  useEffect(() => {
-    const loadRecaptcha = () => {
-      if (typeof window !== "undefined" && !window.grecaptcha) {
-        try {
-          const script = document.createElement("script");
-          script.src = "https://www.google.com/recaptcha/api.js";
-          script.async = true;
-          script.defer = true;
-          script.onload = () => setRecaptchaLoaded(true);
-          script.onerror = () => {
-            console.error("Failed to load reCAPTCHA script");
-            setRecaptchaLoaded(true);
-          };
-          document.head.appendChild(script);
-        } catch (err) {
-          console.error("reCAPTCHA script loading error:", err);
+  // OPTIMIZATION: Lazy load reCAPTCHA only after user interaction
+  const loadRecaptcha = () => {
+    if (
+      typeof window !== "undefined" &&
+      !window.grecaptcha &&
+      !recaptchaLoaded
+    ) {
+      try {
+        const script = document.createElement("script");
+        script.src = "https://www.google.com/recaptcha/api.js";
+        script.async = true;
+        script.defer = true;
+        script.onload = () => setRecaptchaLoaded(true);
+        script.onerror = () => {
+          console.error("Failed to load reCAPTCHA script");
           setRecaptchaLoaded(true);
-        }
-      } else if (window.grecaptcha) {
+        };
+        document.head.appendChild(script);
+      } catch (err) {
+        console.error("reCAPTCHA script loading error:", err);
         setRecaptchaLoaded(true);
       }
-    };
+    } else if (window.grecaptcha) {
+      setRecaptchaLoaded(true);
+    }
+  };
 
-    loadRecaptcha();
-
+  useEffect(() => {
     // Get submission count from localStorage
     if (typeof window !== "undefined") {
       setSubmissionCount(
@@ -71,7 +75,13 @@ export default function CommonForm({ title }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-    setErrorMessage(""); // Clear error messages on input change
+    setErrorMessage("");
+
+    // OPTIMIZATION: Load reCAPTCHA on first user interaction
+    if (!userInteracted) {
+      setUserInteracted(true);
+      loadRecaptcha();
+    }
   };
 
   const validateForm = () => {
@@ -80,18 +90,15 @@ export default function CommonForm({ title }) {
       return false;
     }
 
-    // Simple phone validation
     if (!/^\d{10,15}$/.test(formData.phone)) {
       setErrorMessage("Please enter a valid phone number (10-15 digits)");
       return false;
     }
 
-    // Check submission limits
     const now = Date.now();
     const hoursPassed = (now - lastSubmissionTime) / (1000 * 60 * 60);
 
     if (hoursPassed >= 24) {
-      // Reset counter if 24 hours have passed
       setSubmissionCount(0);
       if (typeof window !== "undefined") {
         localStorage.setItem("formSubmissionCount", "0");
@@ -109,39 +116,40 @@ export default function CommonForm({ title }) {
 
   const onRecaptchaSuccess = async (token) => {
     try {
-      const response = await fetch("https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TELECRM_API_KEY}`,
-        },
-        body: JSON.stringify({
-          fields: {
-            name: formData.fullName,
-            phone: formData.phone,
-            source: "Dholera Insider",
+      const response = await fetch(
+        "https://api.telecrm.in/enterprise/67a30ac2989f94384137c2ff/autoupdatelead",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TELECRM_API_KEY}`,
           },
-          source: "Dholera Insider Website",
-          tags: ["Dholera Investment", "Website Lead"],
-        }),
-      });
+          body: JSON.stringify({
+            fields: {
+              name: formData.fullName,
+              phone: formData.phone,
+              source: "Dholera Insider",
+            },
+            source: "Dholera Insider Website",
+            tags: ["Dholera Investment", "Website Lead"],
+          }),
+        }
+      );
 
       const responseText = await response.text();
 
       if (response.ok) {
-        // Success handling
         setFormData({ fullName: "", phone: "" });
         setShowPopup(true);
         setSubmissionCount((prev) => {
           const newCount = prev + 1;
           if (typeof window !== "undefined") {
             localStorage.setItem("formSubmissionCount", newCount.toString());
-            localStorage.setItem("lastSubmissionTime", Date.now().toString()); // Fixed this line
+            localStorage.setItem("lastSubmissionTime", Date.now().toString());
           }
           return newCount;
         });
       } else {
-        // Parse response as JSON if possible, otherwise use text
         let errorData;
         try {
           errorData = JSON.parse(responseText);
@@ -158,7 +166,6 @@ export default function CommonForm({ title }) {
     } finally {
       setIsLoading(false);
 
-      // Reset reCAPTCHA
       if (window.grecaptcha && recaptchaWidgetId.current !== null) {
         try {
           window.grecaptcha.reset(recaptchaWidgetId.current);
@@ -179,18 +186,26 @@ export default function CommonForm({ title }) {
       return;
     }
 
-    // If reCAPTCHA is loaded, render it in the ref
+    // Ensure reCAPTCHA is loaded before proceeding
+    if (!recaptchaLoaded) {
+      loadRecaptcha();
+      setErrorMessage("Loading verification... Please try again in a moment.");
+      setIsLoading(false);
+      return;
+    }
+
     if (window.grecaptcha && recaptchaLoaded && siteKey) {
       try {
-        // Check if reCAPTCHA widget is already rendered
         if (recaptchaWidgetId.current === null && recaptchaRef.current) {
-          recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
-            sitekey: siteKey,
-            callback: onRecaptchaSuccess,
-            theme: "dark",
-          });
+          recaptchaWidgetId.current = window.grecaptcha.render(
+            recaptchaRef.current,
+            {
+              sitekey: siteKey,
+              callback: onRecaptchaSuccess,
+              theme: "dark",
+            }
+          );
         } else if (recaptchaWidgetId.current !== null) {
-          // Reset and execute existing widget
           window.grecaptcha.reset(recaptchaWidgetId.current);
           window.grecaptcha.execute(recaptchaWidgetId.current);
         }
@@ -207,6 +222,23 @@ export default function CommonForm({ title }) {
 
   return (
     <div>
+      {/* OPTIMIZATION: Use CSS animation instead of Framer Motion */}
+      <style jsx>{`
+        @keyframes scaleIn {
+          from {
+            transform: scale(0);
+            opacity: 0;
+          }
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        .success-icon {
+          animation: scaleIn 0.3s ease-out;
+        }
+      `}</style>
+
       <section className="py-12 bg-gradient-to-r from-gray-900 to-teal-900 animate-gradient-x">
         <div className="container mx-auto px-6 sm:px-12">
           <div className="max-w-4xl mx-auto">
@@ -215,11 +247,8 @@ export default function CommonForm({ title }) {
             </h2>
             {showPopup ? (
               <div className="text-center py-8">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="mb-4 inline-block"
-                >
+                {/* CHANGED: Replaced motion.div with CSS animation */}
+                <div className="mb-4 inline-block success-icon">
                   <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -236,7 +265,7 @@ export default function CommonForm({ title }) {
                       />
                     </svg>
                   </div>
-                </motion.div>
+                </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Thank You!
                 </h3>
@@ -246,7 +275,10 @@ export default function CommonForm({ title }) {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-12 max-w-4xl mx-auto space-y-6">
+              <div
+                onSubmit={handleSubmit}
+                className="mt-12 max-w-4xl mx-auto space-y-6"
+              >
                 {errorMessage && (
                   <div className="p-3 bg-red-500 bg-opacity-20 border border-red-400 text-red-100 rounded-lg text-sm">
                     {errorMessage}
@@ -300,12 +332,13 @@ export default function CommonForm({ title }) {
                   <button
                     type="submit"
                     disabled={isLoading}
+                    onClick={handleSubmit}
                     className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
                   >
                     {isLoading ? "Submitting..." : "Get A Call Back"}
                   </button>
                 </div>
-              </form>
+              </div>
             )}
           </div>
         </div>
