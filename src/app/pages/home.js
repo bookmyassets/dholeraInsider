@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import scrollIcon from "../assets/icons/topArrowIcon.png";
-import Whatsapp from "../components/whatsapp";
 import Hero from "../components/hero";
 import CTAsection from "../components/CTAsection";
 import CommonForm from "../components/CommonForm";
@@ -13,7 +12,6 @@ import WestWyn_Estate from "../homecomponents/WestWyn_Estate";
 import FAQSection from "../homecomponents/Faq";
 import InvestmentTimeline from "../homecomponents/ROI2";
 import LatestUpdates from "../components/BrowseBlogs";
-/* import BrowseBlogsSection from "../components/BrowseBlogs"; */
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -76,7 +74,7 @@ const HomePage = ({openForm}) => {
         
       /> */}
       <Hero/>
-      <Whatsapp />
+     
       <Invest />
       <WhyDI/>
       <CommonForm title="Get Plots under ₹10 Lakhs in Dholera's High Growth Corridor"/>

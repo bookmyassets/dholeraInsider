@@ -1,10 +1,16 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
-
-import ThemeClientProvider from "./components/ThemeProvider";
 import Footer from "./components/Footer";
 import Script from "next/script";
+import Whatsapp from "./components/whatsapp";
+
+const poppins = Poppins({
+  weight:'400',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+})
 
 export default function RootLayout({ children }) {
   return (
@@ -37,10 +43,11 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body>
+      <body className={poppins.className}>
         <Header />
         {children}
         <Footer />
+        <Whatsapp />
       </body>
     </html>
   );
