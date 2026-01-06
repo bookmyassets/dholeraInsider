@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <>
-    <meta name='title' content='Dholera Insider – Invest in Dholera Smart City Plots' />
+    <title>Dholera Insider – Invest in Dholera Smart City Plots</title>
     <meta name='description' content='Discover verified NA/NOC-approved Dholera plots in Dholera Smart City. Get expert guidance for investment in Dholera and Dholera real estate.' />
     <meta name='keywords' content='Dholera, Dholera Smart City, Dholera real estate, Dholera plots, investment in Dholera' />
     <div>
