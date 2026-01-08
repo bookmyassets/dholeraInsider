@@ -29,6 +29,7 @@ export default function CommonForm({ title }) {
         script.src = "https://www.google.com/recaptcha/api.js";
         script.async = true;
         script.defer = true;
+  document.body.appendChild(script);
         script.onload = () => setRecaptchaLoaded(true);
         script.onerror = () => {
           console.error("Failed to load reCAPTCHA script");

@@ -266,10 +266,13 @@ const Header = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-teal-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
               <Image
                 src={logo}
-                alt="Logo"
+                alt="Dholera Insider Logo"
+                width={100} 
+                height={100}
                 className="object-contain relative z-10 drop-shadow-2xl"
                 priority={true}
-                fetchPriority="high"
+                quality={85} 
+                placeholder="blur" 
               />
             </motion.div>
           </Link>
