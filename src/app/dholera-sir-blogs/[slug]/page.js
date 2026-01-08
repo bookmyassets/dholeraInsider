@@ -6,17 +6,51 @@ import {
   getUpdates,
   projectInfo,
 } from "@/sanity/lib/api";
+import { unstable_cache } from "next/cache";
 import Link from "next/link";
 import Image from "next/image";
 import BlogSchemaMarkup from "../BlogSchemaMarkup";
 import SlugPageForm from "../../components/SlugPageForm";
 
+// Cached data fetching functions with proper cache keys
+const getCachedPost = (slug, site) => {
+  return unstable_cache(
+    async () => getPostBySlug(slug, site),
+    [`blog-post-${slug}`],
+    {
+      tags: [`post-${slug}`, "posts"],
+      revalidate: 3600, // 1 hour
+    }
+  )();
+};
+
+const getCachedUpdates = (offset, limit) => {
+  return unstable_cache(
+    async () => getUpdates(offset, limit),
+    [`blog-updates-${offset}-${limit}`],
+    {
+      tags: ["updates"],
+      revalidate: 1800, // 30 minutes
+    }
+  )();
+};
+
+const getCachedRelatedBlogs = (slug, limit) => {
+  return unstable_cache(
+    async () => projectInfo(slug, limit),
+    [`related-blogs-${slug}-${limit}`],
+    {
+      tags: [`related-${slug}`, "related-blogs"],
+      revalidate: 3600, // 1 hour
+    }
+  )();
+};
 
 // Right Sidebar Component
 const RightSidebar = ({ trendingBlogs }) => {
   return (
- <aside className="lg:w-1/3 lg:sticky lg:top-24">
-  <div className="space-y-6">
+    <aside className="lg:w-1/3 lg:sticky lg:top-24">
+      <div className="space-y-6">
         {/* Latest Content Section */}
         <div className="bg-black rounded-xl shadow-2xl shadow-gray-500 p-6 border border-gray-700">
           <h3 className="text-xl font-bold mb-4 text-white">Latest Updates</h3>
@@ -76,8 +110,67 @@ const RightSidebar = ({ trendingBlogs }) => {
     </aside>
   );
 };
-// Trending Blog Item Component (updated)
 
+// Generate static params for static generation
+export async function generateStaticParams() {
+  // Fetch all blog slugs at build time
+  try {
+    const blogs = await getblogs(0, 100); // Adjust limit as needed
+    return blogs.map((blog) => ({
+      slug: blog.slug.current,
+    }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [];
+  }
+}
+
+// Generate metadata
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const site = "dholera-insider";
+
+  try {
+    const post = await getCachedPost(slug, site);
+
+    if (!post) {
+      return {
+        title: "Blog Post Not Found",
+      };
+    }
+
+    return {
+      title: post.title,
+      description: post.metaDescription,
+      keywords: post.keywords,
+      publisher: "Dholera Insider",
+      alternates: {
+        canonical: `https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`,
+      },
+      openGraph: {
+        title: post.title,
+        description: post.metaDescription,
+        url: `https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`,
+        images: post.mainImage
+          ? [urlFor(post.mainImage).width(1200).height(675).url()]
+          : [],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.metaDescription,
+        images: post.mainImage
+          ? [urlFor(post.mainImage).width(1200).height(675).url()]
+          : [],
+      },
+    };
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    return {
+      title: "Blog Post",
+    };
+  }
+}
 
 export default async function Post({ params }) {
   const { slug } = await params;
@@ -92,10 +185,11 @@ export default async function Post({ params }) {
   }
 
   try {
+    // Use cached functions for parallel data fetching
     const [post, trendingBlogs, relatedBlogs] = await Promise.all([
-      getPostBySlug(slug, site),
-      getUpdates(0, ), // Get 6 blogs for sidebar
-      projectInfo(slug, 3),
+      getCachedPost(slug, site),
+      getCachedUpdates(0, 6),
+      getCachedRelatedBlogs(slug, 3),
     ]);
 
     if (!post) {
@@ -119,7 +213,6 @@ export default async function Post({ params }) {
         image: ({ value }) => {
           if (!value?.asset) return null;
 
-          // Use the asset URL directly if urlFor is not working
           const imageUrl = value.asset.url || urlFor(value).width(1200).url();
 
           const imageNode = (
@@ -215,7 +308,6 @@ export default async function Post({ params }) {
             </div>
           );
         },
-
 
         code: ({ value }) => (
           <div className="my-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-1 shadow-2xl">
@@ -366,29 +458,8 @@ export default async function Post({ params }) {
 
     return (
       <>
-        <div>
-          <title>{post.title}</title>
-          <BlogSchemaMarkup post={post} relatedBlogs={relatedBlogs} />
+        <BlogSchemaMarkup post={post} relatedBlogs={relatedBlogs} />
 
-          {/* Additional SEO meta tags */}
-          <link
-            rel="canonical"
-            href={`https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`}
-          />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="description" content={post.metaDescription} />
-          <meta name="keywords" content={post.keywords} />
-          <meta name="publisher" content="Dholera Insider" />
-
-          {/* Preload critical resources */}
-          {post.mainImage && (
-            <link
-              rel="preload"
-              as="image"
-              href={urlFor(post.mainImage).width(1200).height(675).url()}
-            />
-          )}
-        </div>
         <div className="bg-white min-h-screen">
           <div className="bg-white shadow-sm sticky top-0 z-30" />
 
