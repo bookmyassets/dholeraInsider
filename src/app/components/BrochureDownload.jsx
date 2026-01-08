@@ -495,7 +495,7 @@ const onRecaptchaSuccess = async (token) => {
                   {isLoading
                     ? "Verifying..."
                     : recaptchaLoaded
-                      ? buttonName
+                      ? "Download Now"
                       : "Loading..."}
                 </motion.button>
               </form>

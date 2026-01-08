@@ -18,7 +18,7 @@ export default function App() {
         <Popup
           onClose={() => setpopShowForm(false)}
           title={`Exclusive Deal: Own a plot at ₹9,250/sq. yard — hurry, limited units! –  left`}
-          buttonName="Speak with a Plot Specialist"
+          buttonName="Get A Call Back"
           className="font-medium"
         />
       )}
