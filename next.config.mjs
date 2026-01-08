@@ -25,6 +25,10 @@ const nextConfig = {
       },
     ];
   },
+
+  experimental: {
+    cssChunking: true, // default
+  },
 };
 
 export default nextConfig;
