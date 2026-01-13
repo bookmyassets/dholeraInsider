@@ -60,7 +60,7 @@ const Header = () => {
         {
           name: "WestWyn County",
           href: "/residential-projects-in-dholera/westwyn-county",
-          status: "available",
+          status: "sold-out",
         },
         {
           name: "Paradise",
