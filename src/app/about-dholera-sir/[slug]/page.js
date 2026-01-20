@@ -384,7 +384,7 @@ export default async function BlogDetail({ params }) {
 
     return (
       <div className="bg-white min-h-screen">
-        <title>{post.title}</title>
+        <title>{post.metaTitle}</title>
         <link
           rel="canonical"
           href={`https://www.dholerainsider.com/about-dholera-sir/${post.slug.current}`}

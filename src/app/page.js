@@ -17,7 +17,7 @@ export default function App() {
       {showpopForm && (
         <Popup
           onClose={() => setpopShowForm(false)}
-          title={`Exclusive Deal: Own a plot at ₹9,250/sq. yard — hurry, limited units! –  left`}
+          title={`Exclusive Deal: Own a plot at ₹11,000/sq. yard — hurry, limited units! –  left`}
           buttonName="Get A Call Back"
           className="font-medium"
         />

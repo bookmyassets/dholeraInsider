@@ -459,7 +459,7 @@ export default async function Post({ params }) {
     return (
       <>
         <BlogSchemaMarkup post={post} relatedBlogs={relatedBlogs} />
-
+        <title>{post.metaTitle}</title>
         <div className="bg-white min-h-screen">
           <div className="bg-white shadow-sm sticky top-0 z-30" />
 

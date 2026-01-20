@@ -20,10 +20,7 @@ export default function Hero() {
   };
   return (
     <>
-    <meta
-        name="title"
-        content="Orchid Dholera – Premium Plots near Dholera Activation Area"
-      />
+    <title>Orchid Dholera – Premium Plots near Dholera Activation Area</title>
       <meta
         name="description"
         content="Orchid Dholera plots are located close to Dholera Activation Area offering strong Dholera investment opportunities in smart city Dholera."

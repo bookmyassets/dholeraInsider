@@ -21,10 +21,7 @@ export default function Hero() {
 
   return (
     <>
-    <meta
-        name="title"
-        content="Marina Bay Dholera – Premium Plots in Smart City Gujarat"
-      />
+    <title>Marina Bay Dholera – Premium Plots in Smart City Gujarat</title>
       <meta
     name="description"
     content="Marina Bay Dholera offers luxury Dholera plots with top Dholera Smart City connectivity and smart city Gujarat benefits."

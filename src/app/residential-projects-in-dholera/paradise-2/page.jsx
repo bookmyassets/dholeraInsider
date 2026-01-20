@@ -21,10 +21,7 @@ export default function Hero() {
 
   return (
     <>
-    <meta
-        name="title"
-        content="Paradise 2 Dholera – Affordable Dholera Plots in Smart City Gujarat"
-      />
+    <title>Paradise 2 Dholera – Affordable Dholera Plots in Smart City Gujarat</title>
       <meta
         name="description"
         content="Invest in Paradise 2 Dholera plots located near Dholera airport and expressway—ideal for Dholera investment and growth."

@@ -64,7 +64,7 @@ export default function Hero() {
 
   return (
     <>
-    <meta name="title" content="WestWyn Estate Dholera – Premium Dholera Plots in Smart City Dholera" />
+    <title>WestWyn Estate Dholera – Premium Dholera Plots in Smart City Dholera</title>
       <meta name="description" content="Explore WestWyn Estate Dholera plots in smart city Dholera with strong Dholera investment potential in Gujarat’s Dholera Smart City." />
       <meta name="keywords" content="WestWyn Estate Dholera, Dholera plots, Dholera Smart City, Dholera investment, investment in Dholera" />
       <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/westwyn-estate" />
