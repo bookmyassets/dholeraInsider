@@ -146,6 +146,10 @@ export default function ContactForm({ onClose }) {
         setTimeout(() => {
           if (onClose) onClose();
         }, 2000);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "lead_form",
+        });
       } else {
         throw new Error(data.message || "Error submitting form");
       }

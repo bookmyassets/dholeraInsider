@@ -29,7 +29,7 @@ export default function CommonForm({ title }) {
         script.src = "https://www.google.com/recaptcha/api.js";
         script.async = true;
         script.defer = true;
-  document.body.appendChild(script);
+        document.body.appendChild(script);
         script.onload = () => setRecaptchaLoaded(true);
         script.onerror = () => {
           console.error("Failed to load reCAPTCHA script");
@@ -49,10 +49,10 @@ export default function CommonForm({ title }) {
     // Get submission count from localStorage
     if (typeof window !== "undefined") {
       setSubmissionCount(
-        parseInt(localStorage.getItem("formSubmissionCount") || "0", 10)
+        parseInt(localStorage.getItem("formSubmissionCount") || "0", 10),
       );
       setLastSubmissionTime(
-        parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10)
+        parseInt(localStorage.getItem("lastSubmissionTime") || "0", 10),
       );
     }
 
@@ -107,7 +107,7 @@ export default function CommonForm({ title }) {
       }
     } else if (submissionCount >= 3) {
       setErrorMessage(
-        "You have reached the maximum submission limit. Try again after 24 hours."
+        "You have reached the maximum submission limit. Try again after 24 hours.",
       );
       return false;
     }
@@ -134,7 +134,7 @@ export default function CommonForm({ title }) {
             source: "Dholera Insider Website",
             tags: ["Dholera Investment", "Website Lead"],
           }),
-        }
+        },
       );
 
       const responseText = await response.text();
@@ -150,6 +150,10 @@ export default function CommonForm({ title }) {
           }
           return newCount;
         });
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "lead_form",
+        });
       } else {
         let errorData;
         try {
@@ -162,7 +166,7 @@ export default function CommonForm({ title }) {
     } catch (error) {
       console.error("Form submission error:", error);
       setErrorMessage(
-        error.message || "Error submitting form. Please try again."
+        error.message || "Error submitting form. Please try again.",
       );
     } finally {
       setIsLoading(false);
@@ -204,7 +208,7 @@ export default function CommonForm({ title }) {
               sitekey: siteKey,
               callback: onRecaptchaSuccess,
               theme: "dark",
-            }
+            },
           );
         } else if (recaptchaWidgetId.current !== null) {
           window.grecaptcha.reset(recaptchaWidgetId.current);

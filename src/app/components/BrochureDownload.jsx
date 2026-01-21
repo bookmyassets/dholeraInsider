@@ -177,6 +177,10 @@ const onRecaptchaSuccess = async (token) => {
         localStorage.setItem("lastSubmissionTime", now.toString());
         return newCount;
       });
+      window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "lead_form",
+        });
 
       // Download PDF immediately after successful submission
       downloadPDF();

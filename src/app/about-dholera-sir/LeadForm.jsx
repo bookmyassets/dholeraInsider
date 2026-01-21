@@ -118,9 +118,9 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
               name: formData.fullName,
               phone: formData.phone,
               email: formData.email,
-              source: "Dholera Times",
+              source: "Dholera Insider",
             },
-            source: "Dholera Times Website",
+            source: "Dholera Insider Website",
             tags: ["Dholera Investment", "Website Lead"],
             recaptchaToken: token,
           }),
@@ -144,6 +144,12 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
           setSubmissionCount(submissionCount);
           localStorage.setItem("formSubmissionCount", submissionCount);
           localStorage.setItem("lastSubmissionTime", Date.now().toString());
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "lead_form",
+            page_name:project
+          });
+
         } else {
           console.log("Response Text:", responseText);
           setErrorMessage("Submission received but with unexpected response");

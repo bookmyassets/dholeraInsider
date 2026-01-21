@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect, useRef } from "react";
 import { FaUser, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
@@ -70,7 +70,7 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
       return false;
     }
 
-    if (!/^\d{10,15}$/.test(formData.phone.replace(/\D/g, ''))) {
+    if (!/^\d{10,15}$/.test(formData.phone.replace(/\D/g, ""))) {
       setErrorMessage("Please enter a valid phone number (10-15 digits)");
       return false;
     }
@@ -99,7 +99,9 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
 
       // Restrict submission after 20 attempts
       if (submissionCount >= 3) {
-        setErrorMessage("You have reached the maximum submission limit. Try again after 24 hours.");
+        setErrorMessage(
+          "You have reached the maximum submission limit. Try again after 24 hours.",
+        );
         setIsDisabled(true);
         return;
       }
@@ -118,13 +120,13 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
               name: formData.fullName,
               phone: formData.phone,
               email: formData.email,
-              source: "Dholera Times",
+              source: "Dholera Insider",
             },
-            source: "Dholera Times Website",
+            source: "Dholera Insider Website",
             tags: ["Dholera Investment", "Website Lead"],
             recaptchaToken: token,
           }),
-        }
+        },
       );
 
       // Store response text before parsing
@@ -144,6 +146,10 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
           setSubmissionCount(submissionCount);
           localStorage.setItem("formSubmissionCount", submissionCount);
           localStorage.setItem("lastSubmissionTime", Date.now().toString());
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "lead_form",
+          });
         } else {
           console.log("Response Text:", responseText);
           setErrorMessage("Submission received but with unexpected response");
@@ -157,7 +163,7 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
       setErrorMessage(`Error submitting form: ${error.message}`);
     } finally {
       setIsLoading(false);
-      
+
       // Reset reCAPTCHA
       if (window.grecaptcha && recaptchaRef.current) {
         window.grecaptcha.reset();
@@ -176,7 +182,9 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
     }
 
     if (!recaptchaLoaded || !window.grecaptcha) {
-      setErrorMessage("Security verification not loaded. Please refresh the page.");
+      setErrorMessage(
+        "Security verification not loaded. Please refresh the page.",
+      );
       setIsLoading(false);
       return;
     }
@@ -218,7 +226,8 @@ export default function LeadForm({ title, headline, buttonName, onClose }) {
 
         {isDisabled ? (
           <p className="text-center text-red-500 font-semibold">
-            You have reached the maximum submission limit. Try again after 24 hours.
+            You have reached the maximum submission limit. Try again after 24
+            hours.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">

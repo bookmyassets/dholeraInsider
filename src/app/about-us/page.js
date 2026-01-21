@@ -142,6 +142,12 @@ export default function Aboutus() {
             }
             return newCount;
           });
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "lead_form",
+            page_name:project
+          });
         } else {
           let errorData;
           try {

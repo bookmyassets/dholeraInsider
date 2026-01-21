@@ -188,9 +188,9 @@ export default function Popup({
             fields: {
               name: formData.fullName,
               phone: formData.phone,
-              source: source,
+              source: "Dholera Insider",
             },
-            source: "BookMyAssets Google Ads",
+            source: "Dholera Insider",
             tags: ["Dholera Investment", "Website Lead", "BookMyAssets"],
             recaptchaToken: token,
           }),
@@ -212,8 +212,11 @@ export default function Popup({
         setTimeout(() => {
           setShowThankYou(false);
           handleClose();
-          router.push(`/more-info/thankyou`);
         }, 3000);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "lead_form",
+        });
       } else {
         throw new Error("Error submitting form");
       }
