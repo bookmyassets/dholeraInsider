@@ -1,6 +1,6 @@
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
-import { getPostBySlug, projectInfo } from "@/sanity/lib/api";
+import { getblogs, getPostBySlug, getUpdates, projectInfo } from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import LeadForm from "../LeadForm";
@@ -113,7 +113,7 @@ export default async function BlogDetail({ params }) {
   try {
     const [post, trendingBlogs, getPro] = await Promise.all([
       getPostBySlug(slug, site),
-      projectInfo(),
+      getUpdates(),
     ]);
 
     if (!post) {
@@ -482,7 +482,7 @@ export default async function BlogDetail({ params }) {
                   </div>
                 )}
 
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                   {post.title}
                 </h1>
 
@@ -543,7 +543,7 @@ export default async function BlogDetail({ params }) {
               )}
 
               {/* Content */}
-              <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl pl-8 pr-8 border border-gray-200">
+              <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl p-8 border border-gray-200">
                 <div className="text-xl max-w-none">
                   <PortableText value={post.body} components={components}/>
                 </div>
@@ -582,7 +582,7 @@ export default async function BlogDetail({ params }) {
                 {/* Trending posts */}
                 <div className="bg-[#151f28] rounded-xl shadow-2xl shadow-gray-500 p-6 border border-gray-700">
                   <h3 className="text-xl font-bold mb-4 text-white">
-                    Explore Dholera SIR
+                    Dholera Latest Updates
                   </h3>
                   <div className="">
                     {trendingBlogs && trendingBlogs.length > 0 ? (
@@ -600,6 +600,7 @@ export default async function BlogDetail({ params }) {
                 </div>
               </div>
             </aside>
+            
           </div>
         </main>
       </div>

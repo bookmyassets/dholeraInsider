@@ -24,9 +24,9 @@ const getCachedPost = (slug, site) => {
   )();
 };
 
-const getCachedUpdates = (offset, limit) => {
+const getCachedBlogs = (offset, limit) => {
   return unstable_cache(
-    async () => getUpdates(offset, limit),
+    async () => getblogs(offset, limit),
     [`blog-updates-${offset}-${limit}`],
     {
       tags: ["updates"],
@@ -35,13 +35,13 @@ const getCachedUpdates = (offset, limit) => {
   )();
 };
 
-const getCachedRelatedBlogs = (slug, limit) => {
+const getCachedUpdates = (slug, limit) => {
   return unstable_cache(
-    async () => projectInfo(slug, limit),
+    async () => getUpdates(slug, limit),
     [`related-blogs-${slug}-${limit}`],
     {
       tags: [`related-${slug}`, "related-blogs"],
-      revalidate: 3600, // 1 hour
+      revalidate: 1800, // 1 hour
     }
   )();
 };
@@ -53,12 +53,12 @@ const RightSidebar = ({ trendingBlogs }) => {
       <div className="space-y-6">
         {/* Latest Content Section */}
         <div className="bg-black rounded-xl shadow-2xl shadow-gray-500 p-6 border border-gray-700">
-          <h3 className="text-xl font-bold mb-4 text-white">Latest Updates</h3>
+          <h3 className="text-xl font-bold mb-4 text-white">Latest Blogs</h3>
           <div className="space-y-3">
             {trendingBlogs?.slice(0, 4).map((item) => (
               <Link
                 key={item._id}
-                href={`/dholera-sir-updates/${item.slug.current}`}
+                href={`/dholera-sir-blogs/${item.slug.current}`}
               >
                 <div className="flex gap-3 items-center bg-white hover:bg-gray-50 p-3 border border-gray-200 transition-all hover:shadow-md">
                   {item.mainImage && (
@@ -188,8 +188,8 @@ export default async function Post({ params }) {
     // Use cached functions for parallel data fetching
     const [post, trendingBlogs, relatedBlogs] = await Promise.all([
       getCachedPost(slug, site),
-      getCachedUpdates(0, 6),
-      getCachedRelatedBlogs(slug, 3),
+      getCachedBlogs(0, 6),
+      getCachedUpdates(slug, 3),
     ]);
 
     if (!post) {
@@ -537,7 +537,7 @@ export default async function Post({ params }) {
                     </div>
                   )}
 
-                  <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                  <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                     {post.title}
                   </h1>
                 </div>
@@ -557,7 +557,7 @@ export default async function Post({ params }) {
                 )}
 
                 {/* Article Content */}
-                <div className="bg-white rounded-xl shadow-2xl pl-8 pr-8 border border-gray-200">
+                <div className="bg-white rounded-xl shadow-2xl p-8 border border-gray-200">
                   <div className="text-xl max-w-none">
                     <PortableText value={post.body} components={components} />
                   </div>
