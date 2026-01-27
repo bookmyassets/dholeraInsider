@@ -8,6 +8,7 @@ import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
 import { getPosts, getSub, projectInfo } from "@/sanity/lib/api";
 import { AnimatePresence, motion } from "framer-motion";
 import ContactForm from "@/app/components/Contactform";
+import { MenuIcon } from "lucide-react";
 
 const Header = () => {
   const [header, setHeader] = useState(false);
@@ -49,7 +50,7 @@ const Header = () => {
   // Main navigation items (visible on desktop)
   const mainNavItems = [
     {
-      name: "Dholera Residential",
+      name: "Our Residential Projects",
       key: "dholeraResidential",
       items: [
         {
@@ -104,7 +105,7 @@ const Header = () => {
         { name: "Dholera Updates", href: "/dholera-sir-updates" },
       ],
     },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   // Hamburger menu items
@@ -143,7 +144,7 @@ const Header = () => {
     e?.preventDefault();
     e?.stopPropagation();
     setMobileActiveDropdown(
-      mobileActiveDropdown === dropdownName ? null : dropdownName
+      mobileActiveDropdown === dropdownName ? null : dropdownName,
     );
   };
 
@@ -157,10 +158,10 @@ const Header = () => {
         const processProjects = (data) => {
           const available = data.filter(
             (project) =>
-              !project.categories?.some((cat) => cat.title === "Sold Out")
+              !project.categories?.some((cat) => cat.title === "Sold Out"),
           );
           const soldOut = data.filter((project) =>
-            project.categories?.some((cat) => cat.title === "Sold Out")
+            project.categories?.some((cat) => cat.title === "Sold Out"),
           );
           return [...available, ...soldOut];
         };
@@ -267,12 +268,12 @@ const Header = () => {
               <Image
                 src={logo}
                 alt="Dholera Insider Logo"
-                width={100} 
+                width={100}
                 height={100}
                 className="object-contain relative z-10 drop-shadow-2xl"
                 priority={true}
-                quality={85} 
-                placeholder="blur" 
+                quality={85}
+                placeholder="blur"
               />
             </motion.div>
           </Link>
@@ -363,23 +364,21 @@ const Header = () => {
             ))}
 
             {/* Enhanced Menu Dropdown */}
-            <div className="relative dropdown-container">
+            <div
+              className="relative dropdown-container"
+              onMouseEnter={() => setActiveDropdown("hamburgerMenu")}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="dropdown-trigger group flex items-center px-5 py-3 text-white font-semibold tracking-wide transition-all duration-300 relative"
-                onClick={(e) => toggleDropdown("hamburgerMenu", e)}
+                onHoverStart={(e) => toggleDropdown("hamburgerMenu", e)}
               >
-                <span className="relative z-10 drop-shadow-lg">Menu</span>
-                <motion.div
-                  animate={{
-                    rotate: activeDropdown === "hamburgerMenu" ? 180 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="ml-2 relative z-10"
-                >
-                  <AiOutlineDown className="drop-shadow-lg" />
-                </motion.div>
+                <span className="relative z-10 drop-shadow-lg">
+                  <MenuIcon />
+                </span>
+
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/20 to-teal-500/0 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
               </motion.button>
 
@@ -538,7 +537,7 @@ const Header = () => {
                             setMobileActiveDropdown(
                               mobileActiveDropdown === item.key
                                 ? null
-                                : item.key
+                                : item.key,
                             )
                           }
                         >
@@ -616,7 +615,7 @@ const Header = () => {
                             setMobileActiveDropdown(
                               mobileActiveDropdown === item.key
                                 ? null
-                                : item.key
+                                : item.key,
                             )
                           }
                         >

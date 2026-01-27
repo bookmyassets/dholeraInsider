@@ -11,7 +11,7 @@ export default function Invest() {
         <div className="text-center ">
           <h2 className="text-4xl max-sm:text-3xl font-bold text-white mb-4">
             <span className="text-teal-400">Dholera Smart City : </span>
-            Engine of High Returns
+            India’s First Semiconductor City
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>
         </div>

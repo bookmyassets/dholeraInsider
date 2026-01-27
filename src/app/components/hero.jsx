@@ -8,7 +8,7 @@ const Hero = () => {
   const slides = [
     {
       title: "WestWyn Estate",
-      subtitle: "Get Registry-Ready Plots under ₹10 Lakhs in Dholera",
+      subtitle: "Buy Registry-Ready Plots Under ₹10 Lakh in Dholera",
     }
   ];
 
