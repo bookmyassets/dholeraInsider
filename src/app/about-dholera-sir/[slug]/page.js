@@ -149,7 +149,6 @@ export default async function BlogDetail({ params }) {
         image: ({ value }) => {
           if (!value?.asset) return null;
 
-          // Use the asset URL directly if urlFor is not working
           const imageUrl = value.asset.url || urlFor(value).width(1200).url();
 
           const imageNode = (
@@ -226,6 +225,26 @@ export default async function BlogDetail({ params }) {
           );
         },
 
+        htmlTableBlock: ({ value }) => {
+          if (!value?.html) return null;
+
+          return (
+            <div className="my-8 overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+              <div
+                className="[&_table]:w-full [&_table]:border-collapse [&_table]:bg-white 
+          [&_th]:px-6 [&_th]:py-4 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-700 
+          [&_th]:bg-gray-50 [&_th]:border-b [&_th]:border-gray-200
+          [&_td]:px-6 [&_td]:py-4 [&_td]:text-gray-600 [&_td]:border-b [&_td]:border-gray-200
+          [&_tr:last-child_td]:border-b-0
+          [&_tr:hover]:bg-gray-50/50
+          [&_th:first-child]:rounded-tl-lg [&_th:last-child]:rounded-tr-lg
+          [&_tr:last-child_td:first-child]:rounded-bl-lg [&_tr:last-child_td:last-child]:rounded-br-lg"
+                dangerouslySetInnerHTML={{ __html: value.html }}
+              />
+            </div>
+          );
+        },
+
         code: ({ value }) => (
           <div className="my-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl p-1 shadow-2xl">
             <pre className="bg-gray-900 text-gray-100 p-6 rounded-xl overflow-x-auto">
@@ -287,37 +306,37 @@ export default async function BlogDetail({ params }) {
 
       block: {
         h1: ({ children }) => (
-          <h1 className="text-5xl font-black mb-10 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-4">
+          <h1 className="text-2xl md:text-5xl font-black mt-8 mb-6 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-4">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className="text-4xl font-bold mt-4 mb-8 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-3">
+          <h2 className="text-2xl md:text-3xl font-bold mt-8 mb-8 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-3">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="text-3xl font-bold mt-4 mb-6 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+          <h3 className="text-3xl font-bold mt-12 mb-6 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h3>
         ),
         h4: ({ children }) => (
-          <h4 className="text-2xl font-semibold mt-4 mb-4 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+          <h4 className="text-2xl font-semibold mt-10 mb-4 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h4>
         ),
         h5: ({ children }) => (
-          <h5 className="text-xl font-semibold mt-4 mb-3 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
+          <h5 className="text-xl font-semibold mt-8 mb-3 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-2">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h5>
         ),
         h6: ({ children }) => (
-          <h6 className="text-lg font-semibold mt-4 mb-2 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-1">
+          <h6 className="text-lg font-semibold mt-6 mb-2 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-1">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h6>

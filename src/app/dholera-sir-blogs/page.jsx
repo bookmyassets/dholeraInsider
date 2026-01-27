@@ -71,7 +71,7 @@ export default async function page() {
       />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
-        <div className="relative min-h-[78vh] flex items-center justify-center py-8">
+        <div className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center py-8 sm:py-12">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0 ">
             <Image
@@ -87,19 +87,13 @@ export default async function page() {
 
           {/* Hero Content */}
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-            <div className="mb-6 sm:mb-8 pt-20 sm:pt-24 md:pt-12 flex flex-col justify-center items-center">
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+            <div className="mb-6 sm:mb-8 ">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Dholera SIR
                 <span className="block bg-teal-500 bg-clip-text text-transparent">
                   Investment Blog
                 </span>
               </h1>
-
-              {/* Subtitle */}
-              <p className="text-base  text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-                Uncover market insights, project updates, and early
-                opportunities in India's most ambitious smart city.
-              </p>
             </div>
 
             {/* Form Component - Responsive */}
@@ -113,7 +107,7 @@ export default async function page() {
 
         {/* Blog Posts Section */}
         <div className="relative z-10">
-          <div className=" px-4 py-12">
+          <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16">
             {safePosts.length > 0 ? (
               <>
                 {/* All Posts Grid */}
@@ -122,10 +116,6 @@ export default async function page() {
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                       Latest Investment Insights
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-                      Stay updated with expert analysis and market trends from
-                      Dholera SIR
-                    </p>
                     <div className="mt-2 text-sm text-gray-500">
                       {safePosts.length} Article
                       {safePosts.length !== 1 ? "s" : ""} Available
@@ -133,7 +123,6 @@ export default async function page() {
                   </div>
                   <div className="px-4 ">
                     <div className="flex flex-col max-sm:flex-col-reverse lg:flex-row gap-8">
-
                       {/* Blog Grid */}
                       <div className=" max-w-7xl mx-auto">
                         {safePosts.length > 0 ? (

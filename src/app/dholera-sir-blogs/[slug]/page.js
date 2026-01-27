@@ -370,13 +370,13 @@ export default async function Post({ params }) {
 
       block: {
         h1: ({ children }) => (
-          <h1 className="text-5xl font-black mt-8 mb-10 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-4">
+          <h1 className="text-2xl md:text-5xl font-black mt-8 mb-6 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-4">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className="text-4xl font-bold mt-16 mb-8 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-3">
+          <h2 className="text-2xl md:text-3xl font-bold mt-8 mb-8 text-gray-800 relative border-l-4 border-teal-400 pl-6 bg-gradient-to-r from-teal-400/5 to-transparent py-3">
             <span className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-teal-500 to-teal-400 rounded-full"></span>
             {children}
           </h2>

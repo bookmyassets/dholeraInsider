@@ -12,7 +12,7 @@ export default function WestWyn_Estate() {
         <div className="text-center mb-12">
           <h2 className="text-4xl max-sm:text-3xl font-bold text-teal-400 mb-4">
             WestWyn Estate -{" "}
-            <span className="text-white">Your Gateway to Smart Investment</span>
+            <span className="text-white">Premium Residential Plots 0 km from Dholera SIR</span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-200 max-w-3xl mx-auto">

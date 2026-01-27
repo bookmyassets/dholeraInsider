@@ -30,10 +30,10 @@ export default function FormComponent() {
         <div className=" bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4">
           <div className="text-center sm:text-left">
             <h3 className="text-lg font-semibold text-white mb-1">
-              The Investor’s Guide to Dholera SIR
+              Ready to Invest?
             </h3>
             <p className="text-white/80 text-sm">
-              Get expert guidance & exclusive offer
+              Get expert guidance & exclusive opportunities
             </p>
           </div>
           <div className="flex gap-3">

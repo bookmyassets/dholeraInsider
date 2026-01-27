@@ -77,7 +77,7 @@ const HomePage = ({openForm}) => {
      
       <Invest />
       <WhyDI/>
-      <CommonForm title="Get Plots under ₹10 Lakhs in Dholera's High Growth Corridor"/>
+      <CommonForm title="Invest in Verified Residential Plots in Dholera under ₹10 lakh"/>
       <LatestUpdates/>
       <InvestmentTimeline/>
       <WestWyn_Estate/>
