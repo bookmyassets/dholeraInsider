@@ -260,8 +260,8 @@ const Header = () => {
               whileTap={{ scale: 0.95 }}
               className={`relative transition-all duration-300 ${
                 scrolled
-                  ? "h-24 max-sm:h-16 w-24"
-                  : "h-24 max-sm:h-16 w-24 max-sm:w-16"
+                  ? "h-24 max-sm:h-24 w-24"
+                  : "h-24 max-sm:h-24 w-24 max-sm:w-24"
               }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-teal-400/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
@@ -270,7 +270,7 @@ const Header = () => {
                 alt="Dholera Insider Logo"
                 width={100}
                 height={100}
-                className="object-contain relative z-10 drop-shadow-2xl"
+                className="object-contain relative z-10 drop-shadow-2xl max-sm:pt-4 max-sm:h-20 max-sm:w-20"
                 priority={true}
                 quality={85}
                 placeholder="blur"

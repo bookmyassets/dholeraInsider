@@ -45,9 +45,6 @@ const Hero = () => {
         <div className="container mx-auto px-4 text-center text-white">
           {/* Left Section - Text Content */}
           <div className="max-w-2xl mx-auto">
-            <Link href="tel:+919211820887" className="inline-block mb-6 px-6 py-2 bg-blue-600 rounded-full text-sm font-medium hover:bg-blue-700 transition duration-300">
-              Contact Us
-            </Link>
 
             <h1 className="text-3xl md:text-4xl text-teal-300 font-bold mb-4 animate-fadeIn">
               {slides[currentSlide].title}
@@ -57,6 +54,9 @@ const Hero = () => {
               {slides[currentSlide].subtitle}
             </h2>
 
+            <Link href="tel:+919211820887" className="inline-block mb-6 px-6 py-2 bg-blue-600 rounded-full text-sm font-medium hover:bg-blue-700 transition duration-300">
+              Contact Us
+            </Link>
             {/* <p className="text-lg mb-8 animate-fadeIn">
               {slides[currentSlide].description}
             </p> */}
