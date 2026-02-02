@@ -1,11 +1,14 @@
 import { getblogs, projectInfo } from "@/sanity/lib/api";
 import hero from "@/app/assets/hero/sir.webp";
+import heroM from "@/app/assets/hero/abt-sir-mob.png";
 
 import Image from "next/image";
 import BlogCard from "./BlogCard";
 import TrendingBlogItem from "./TrendingBlog";
 import Link from "next/link";
 import LeadForm from "./LeadForm";
+import tata from "@/app/assets/tata-logo.png"
+
 
 export default async function BlogsPage() {
   // Fetch data and handle potential errors
@@ -69,6 +72,13 @@ export default async function BlogsPage() {
             src={hero}
             alt="Dholera SIR"
             className="h-full w-full object-cover max-sm:hidden pt-16"
+            fill
+            priority
+          />
+          <Image
+            src={heroM}
+            alt="Dholera SIR"
+            className="h-full w-full object-cover md:hidden pt-16"
             fill
             priority
           />
@@ -184,9 +194,6 @@ export default async function BlogsPage() {
                 Infrastructure, Industries & Economic Growth
               </h2>
               <div className="w-24 h-1 bg-teal-700 mx-auto mb-3"></div>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                Infrastructure-First Approach & Long-Term Vision
-              </p>
             </div>
 
             <div className="bg-teal-900 p-4 text-white rounded-xl">
@@ -227,7 +234,11 @@ export default async function BlogsPage() {
               </div>
 
               <div className="bg-white border-2 border-black rounded-lg p-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-3xl mb-3">💻</div>
+                <div className="text-3xl mb-3"><Image
+                  src={tata}
+                  alt="tata"
+                  height="30"
+                /></div>
                 <h4 className="text-lg font-bold mb-2">
                   TATA Electronics Semiconductor Fab
                 </h4>
@@ -297,22 +308,6 @@ export default async function BlogsPage() {
           </section>
 
           {/* Projects Grid Section */}
-          {safePosts.length > 0 && (
-            <section className="mb-8">
-              <div className="text-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
-                  Featured Projects in Dholera
-                </h2>
-                <div className="w-24 h-1 bg-teal-700 mx-auto"></div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {safePosts.map((post) => (
-                  <BlogCard key={post._id} post={post} />
-                ))}
-              </div>
-            </section>
-          )}
 
           {/* Investment Landscape Section */}
           <section id="investment" className="mb-8">
@@ -476,12 +471,28 @@ export default async function BlogsPage() {
                 visits to registry ensure a smooth investment experience and
                 long-term trust in Dholera SIR.
               </p>
-        </div>
+            </div>
           </section>
 
+          <div>
+            {safePosts.length > 0 && (
+              <section className="mb-8">
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
+                    Featured Blogs
+                  </h2>
+                  <div className="w-24 h-1 bg-teal-700 mx-auto"></div>
+                </div>
 
-
-      </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {safePosts.map((post) => (
+                    <BlogCard key={post._id} post={post} />
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
