@@ -46,13 +46,13 @@ const Hero = () => {
           {/* Left Section - Text Content */}
           <div className="max-w-2xl mx-auto">
 
-            <h1 className="text-3xl md:text-4xl text-teal-300 font-bold mb-4 animate-fadeIn">
-              {slides[currentSlide].title}
-            </h1>
-
             <h2 className="text-2xl font-semibold mb-6 animate-fadeIn">
               {slides[currentSlide].subtitle}
             </h2>
+
+            <h1 className="text-3xl md:text-4xl text-teal-300 font-bold mb-4 animate-fadeIn">
+              {slides[currentSlide].title}
+            </h1>
 
             <Link href="tel:+919211820887" className="inline-block mb-6 px-6 py-2 bg-blue-600 rounded-full text-sm font-medium hover:bg-blue-700 transition duration-300">
               Contact Us

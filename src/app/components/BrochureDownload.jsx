@@ -159,7 +159,7 @@ const onRecaptchaSuccess = async (token) => {
           fields: {
             name: formData.fullName,
             phone: formData.phone,
-            source: source,
+            source: "Dholera Insider",
           },
           source: "Dholera Insider",
           tags: ["Dholera Investment", "Website Lead", "Dholera Insider"],
@@ -397,7 +397,7 @@ const onRecaptchaSuccess = async (token) => {
               transition={{ delay: 0.3 }}
               className="text-center mb-6 pt-4"
             >
-              <h2 className="text-3xl font-bold text-white mb-2">{title}</h2>
+              <h2 className="text-xl md:text-3xl font-bold text-white mb-2">{title}</h2>
             </motion.div>
 
             {showPopup ? (

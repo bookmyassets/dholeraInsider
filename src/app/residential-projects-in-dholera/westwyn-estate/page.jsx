@@ -7,6 +7,21 @@ import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 import { AnimatePresence } from "framer-motion";
 import BrochureDownload from "@/app/components/BrochureDownload";
+import PrimeLocationSection from "./PrimeLocations";
+
+const FeatureCard = ({ icon, title, value }) => (
+  <div className="bg-white rounded-xl p-4 border hover:bg-teal-700 group border-gray-200 text-center transition-colors duration-300 ease-in-out">
+    <div className="w-12 h-12 bg-blue-100 group-hover:text-white group-hover:scale-110 rounded-full flex items-center justify-center mx-auto mb-2 transition-all duration-300 ease-in-out">
+      {icon}
+    </div>
+    <h4 className="group-hover:text-white group-hover:scale-110 font-semibold text-gray-900 text-sm mb-1 transition-all duration-300 ease-in-out">
+      {title}
+    </h4>
+    <p className="group-hover:text-white group-hover:scale-110 text-[#151f28] font-bold text-lg transition-all duration-300 ease-in-out">
+      {value}
+    </p>
+  </div>
+);
 
 export default function Hero() {
   const [brochureFormOpen, setIsBrochureFormOpen] = useState(false);
@@ -49,25 +64,43 @@ export default function Hero() {
       title: "Internal Roads",
     },
     {
-      icon: "📹",
-      title: "24/7 Security & CCTV Surveillance",
+      icon: "👵",
+      title: "Senior Citizen Zone",
     },
     {
       icon: "📱",
       title: "App-Based Society Management",
     },
     {
-      icon: "👵",
-      title: "Senior Citizen Zone",
+      icon: "📹",
+      title: "24/7 Security & CCTV Surveillance",
     },
+  ];
+
+  const projectFeatures = [
+    { icon: "🏠", title: "Plot Size", value: "151 and 198 Sq.Yards" },
+    { icon: "💰", title: "Starting Price", value: "₹6,500/Sq.Yd" },
+    { icon: "🏗️", title: "Project Type", value: "Residential Plots" },
+    { icon: "📍", title: "Location", value: "0 KM from Dholera SIR" },
   ];
 
   return (
     <>
-    <title>WestWyn Estate Dholera – Premium Dholera Plots in Smart City Dholera</title>
-      <meta name="description" content="Explore WestWyn Estate Dholera plots in smart city Dholera with strong Dholera investment potential in Gujarat’s Dholera Smart City." />
-      <meta name="keywords" content="WestWyn Estate Dholera, Dholera plots, Dholera Smart City, Dholera investment, investment in Dholera" />
-      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/westwyn-estate" />
+      <title>
+        WestWyn Estate Dholera – Premium Dholera Plots in Smart City Dholera
+      </title>
+      <meta
+        name="description"
+        content="Explore WestWyn Estate Dholera plots in smart city Dholera with strong Dholera investment potential in Gujarat’s Dholera Smart City."
+      />
+      <meta
+        name="keywords"
+        content="WestWyn Estate Dholera, Dholera plots, Dholera Smart City, Dholera investment, investment in Dholera"
+      />
+      <link
+        rel="canonical"
+        href="https://www.dholerainsider.com/residential-projects-in-dholera/westwyn-estate"
+      />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
@@ -78,7 +111,7 @@ export default function Hero() {
         <Image
           src={westwynEstate1M}
           alt="WestWyn Estate in Dholera SIR"
-          className="w-full h-full md:hidden"
+          className="w-full h-full object-cover md:hidden"
           priority
         />
         <div className="absolute bottom-0 left-0 right-0 p-4 hidden md:block">
@@ -94,17 +127,18 @@ export default function Hero() {
                     🔥 Newly Launched
                   </span>
                 </div>
-                <div className="text-3xl font-bold">
-                  ₹6,500
-                  <span className="text-sm ml-1">/Sq.Yd</span>
-                </div>
+                
               </div>
 
               {/* Middle Column - Title & Description */}
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                  WestWyn Estate
+                <h1 className="text-xl md:text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                  <p>Immediate Possession</p>
                 </h1>
+                <div className="text-2xl text-center font-bold">
+                  ₹6,500
+                  <span className="text-sm ml-1">/Sq.Yd</span>
+                </div>
               </div>
 
               {/* Right Column - Contact & Buttons */}
@@ -118,7 +152,7 @@ export default function Hero() {
                   </button>
                 </div>
                 <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
-                  <p>Immediate Possession</p>
+                  
                 </div>
               </div>
             </div>
@@ -146,8 +180,8 @@ export default function Hero() {
 
             {/* Title & Description */}
             <div>
-              <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                WestWyn Estate
+              <h1 className="text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                <p>Immediate Possession</p>
               </h1>
             </div>
 
@@ -161,9 +195,9 @@ export default function Hero() {
                   📄 Download Brochure
                 </button>
               </div>
-              <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
+              {/* <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
                 <p>Immediate Possession</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -182,30 +216,41 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 py-12">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             {/* Heading */}
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              About WestWyn Estate
+            <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
+              WestWyn Estate <br /> <span className="italic">Premium Residential Plots </span> 
             </h1>
-
-            <p className="text-lg text-gray-100 leading-relaxed">
-              We are excited to unveil our next milestone – WestWyn Estate.
-              Backed by investor trust and driven by our commitment to growth,
-              excellence, and reliability, this new project marks the beginning
-              of another promising chapter at a prime location.
-            </p>
-
-            <p className="text-lg text-gray-200 leading-relaxed">
-              Located on Navda Highway, right at the entrance of Dholera SIR (0
-              km) and close to TP 5, WestWyn Estate places you at the center of
-              a rapidly developing smart city corridor. Every plot here is
-              designed as a secure, future-ready investment that grows as
-              Dholera transforms.
-            </p>
+            <div className="max-w-5xl mx-auto">
+              <p className="text-lg text-gray-100 leading-relaxed">
+                WestWyn Estate is a premium residential plotting project in
+                Dholera Smart City, Gujarat, designed for smart living and
+                long-term investment. Strategically located at 0 km from Dholera
+                SIR, close to TP 5, offering excellent connectivity to major
+                mega projects in Dholera Smart City. Overall, it is a secure
+                Investment for those looking to invest in Dholera plots with
+                strong future appreciation.
+              </p>
+              <br />
+              <div></div>
+            </div>
           </div>
         </div>
       </div>
 
+      <div className="bg-gray-100 border-b">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 ">
+            {projectFeatures.map((feature, index) => (
+              <FeatureCard key={index} {...feature} />
+            ))}
+          </div>
+        </div>
+      </div>
+      <div>
+<PrimeLocationSection/>
+
+      </div>
       <div>
         <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
       </div>
@@ -221,27 +266,27 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {/* Why Invest Section */}
             <div className="mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+              <h2 className="text-xl md:text-4xl font-bold text-white mb-8">
                 Why Invest in WestWyn Estate?
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                  <h3 className="text-xl font-semibold text-teal-300 mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
                     Prime Location Advantage
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Navda Highway, 0 km from Dholera
+                    Strategically positioned on Vadhela-Navda Highway, 0 km from Dholera
                     SIR, close to TP 5, and only 15 minutes away from the
                     activation area.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                  <h3 className="text-xl font-semibold text-teal-300 mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
                     Connectivity to Mega Infrastructure
                   </h3>
                   <p className="text-gray-200 text-sm">
@@ -251,7 +296,7 @@ export default function Hero() {
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                  <h3 className="text-xl font-semibold text-teal-300 mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
                     Secure & Approved Investment
                   </h3>
                   <p className="text-gray-200 text-sm">
@@ -260,7 +305,7 @@ export default function Hero() {
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                  <h3 className="text-xl font-semibold text-teal-300 mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
                     High Appreciation Potential
                   </h3>
                   <p className="text-gray-200 text-sm">
@@ -269,7 +314,7 @@ export default function Hero() {
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                  <h3 className="text-xl font-semibold text-teal-300 mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
                     Modern Living & Lifestyle
                   </h3>
                   <p className="text-gray-200 text-sm">
@@ -279,7 +324,7 @@ export default function Hero() {
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 ">
-                  <h3 className="text-xl font-semibold text-teal-300 mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
                     Trusted Developer Legacy
                   </h3>
                   <p className="text-gray-200 text-sm">
@@ -292,7 +337,7 @@ export default function Hero() {
 
             {/* Amenities Section */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+              <h2 className="text-xl md:text-4xl font-bold text-white mb-8">
                 Amenities
               </h2>
 
@@ -302,8 +347,10 @@ export default function Hero() {
                     key={index}
                     className="bg-teal-500/20 backdrop-blur-sm rounded-lg p-4 text-center border border-teal-400/30 hover:bg-teal-500/30 transition-all duration-300"
                   >
-                    <div className="text-2xl mb-2">{amenity.icon}</div>
-                    <p className="text-white font-medium text-sm">
+                    <div className="text-xl md:text-4xl mb-2">
+                      {amenity.icon}
+                    </div>
+                    <p className="text-white font-medium text-lg">
                       {amenity.title}
                     </p>
                   </div>

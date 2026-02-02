@@ -255,7 +255,7 @@ export default function ContactForm({ onClose }) {
           transition={{ delay: 0.3 }}
           className="text-center mb-6"
         >
-          <h2 className="text-3xl font-bold text-white mb-2">
+          <h2 className="text-xl md:text-3xl font-bold text-white mb-2">
             Book A Site Visit
           </h2>
           <p className="text-emerald-100 text-sm">
