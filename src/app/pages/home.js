@@ -12,6 +12,7 @@ import WestWyn_Estate from "../homecomponents/WestWyn_Estate";
 import FAQSection from "../homecomponents/Faq";
 import InvestmentTimeline from "../homecomponents/ROI2";
 import LatestUpdates from "../components/BrowseBlogs";
+import Dholera from "../homecomponents/Dholera";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -76,6 +77,7 @@ const HomePage = ({openForm}) => {
       <Hero/>
      
       <Invest />
+{/*       <Dholera/> */}
       <WhyDI/>
       <CommonForm title="Invest in Verified Residential Plots in Dholera under ₹10 lakh"/>
       <LatestUpdates/>

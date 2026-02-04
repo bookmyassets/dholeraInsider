@@ -10,13 +10,16 @@ export default function WestWyn_Estate() {
       <div className="pt-12 max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl max-sm:text-3xl font-bold text-teal-400 mb-4">
+          <h2 className="text-4xl max-sm:text-xl font-bold text-teal-400 mb-4">
             WestWyn Estate -{" "}
-            <span className="text-white">Premium Residential Plots 0 km from Dholera SIR</span>
+            <span className="text-white">
+              {" "}
+              Invest in Dholera’s Fastest Growing Zone
+            </span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-           Invest Today in Dholera’s Most Promising Landmark Project
+            Invest Today in Dholera’s Most Promising Landmark Project
           </p>
         </div>
 
@@ -24,16 +27,36 @@ export default function WestWyn_Estate() {
         <div className="mb-12">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
             <div className="w-full md:h-[50vh] bg-gradient-to-br from-teal-900 to-gray-900 flex items-center justify-center">
-              <Image src={sample1} alt="WestWyn Estate in Dholera" className="object-cover max-sm:hidden" />
-              <Image src={sample1M} alt="WestWyn Estate in Dholera" className="object-contain md:hidden" />
+              <Image
+                src={sample1}
+                alt="WestWyn Estate in Dholera"
+                className="object-cover max-sm:hidden"
+              />
+              <Image
+                src={sample1M}
+                alt="WestWyn Estate in Dholera"
+                className="object-contain md:hidden"
+              />
             </div>
 
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
             <div className="absolute bottom-6 left-6 text-white">
               <h3 className="text-2xl font-bold mb-2">WestWyn Estate</h3>
-              <p className="text-teal-300">Gateway to Dholera SIR</p>
+              <p className="text-teal-300">0 KM from Dholera SIR</p>
             </div>
           </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          <p className="mb-8 text-white">
+            Westwyn Estate is a well-planned residential project located on the
+            Vadhela-Navda State Highway, offering excellent connectivity and
+            long-term growth potential. Strategically positioned at 0 km from
+            the Dholera SIR boundary. The project is designed for modern living
+            and smart investment, Westwyn Estate offers government-approved
+            residential plots with clear titles, ensuring a safe and reliable
+            investment opportunity in a rapidly developing zone.
+          </p>
         </div>
 
         {/* Two Column Layout */}
@@ -44,8 +67,9 @@ export default function WestWyn_Estate() {
               Strategic Location
             </h3>
             <p className="text-gray-200 mb-4">
-              Located on the Vadhela–Navda Highway, WestWyn Estate is the first
-              project on this stretch and sits at 0 km from the Dholera SIR
+              Located on the Vadhela–Navda State Highway near the Hebatpur
+              Industrial Zone and TP-5, WestWyn Estate is the first project on
+              this stretch and is situated exactly 0 km from the Dholera SIR
               boundary.
             </p>
             <div className="grid gap-3">
@@ -78,12 +102,11 @@ export default function WestWyn_Estate() {
               Unbeatable connectivity in Dholera and future-ready growth
               potential.
             </p>
-            <button className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white mt-4 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
-            <a href="/residential-projects-in-dholera/westwyn-estate">
-
-            Explore Plots under ₹ 10 Lakhs in Dholera
-            </a>
-          </button>
+            <button className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white mt-4 text-[14px] md:text-base font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+              <a href="/residential-projects-in-dholera/westwyn-estate">
+                Explore More About WestWyn Estate
+              </a>
+            </button>
           </div>
 
           {/* Why Invest Section */}

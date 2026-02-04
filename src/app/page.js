@@ -1,19 +1,99 @@
-"use client"
-import { useState } from 'react';
-import HomePage from './pages/home';
-import Popup from './components/Pop';
+"use client";
+import { useState } from "react";
+import HomePage from "./pages/home";
+import Popup from "./components/Pop";
 
 export default function App() {
   const [showpopForm, setpopShowForm] = useState(false);
 
   return (
     <>
-    <title>Dholera Insider – Invest in Dholera Smart City Plots</title>
-    <meta name='description' content='Discover verified NA/NOC-approved Dholera plots in Dholera Smart City. Get expert guidance for investment in Dholera and Dholera real estate.' />
-    <meta name='keywords' content='Dholera, Dholera Smart City, Dholera real estate, Dholera plots, investment in Dholera' />
-    <div>
-      <HomePage openForm={() => setpopShowForm(true)}  />
-    </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Corporation",
+            name: "dholerainsider",
+            alternateName: "DI",
+            url: "https://www.dholerainsider.com/",
+            logo: "https://www.dholerainsider.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.8d300ec5.webp&w=128&q=85",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "620, JMD Megapolis, Sohna Rd, Sector 48,",
+              addressLocality: "Gurgaon",
+              addressRegion: "Haryana",
+              postalCode: "122001",
+              addressCountry: "IN",
+            },
+            sameAs: [
+              "https://www.facebook.com/profile.php?id=61578651603291",
+              "https://www.instagram.com/dholerainsider/",
+              "https://www.youtube.com/@DholeraInsider",
+              "https://x.com/Dholera_Insider",
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            name: "Dholera Insider",
+            url: "https://www.dholerainsider.com/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://www.dholerainsider.com/search?q={search_term_string}{search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "RealEstateAgent",
+            name: "Dholera Insider",
+            url: "https://www.dholerainsider.com",
+            logo: "https://www.dholerainsider.com/assets/images/logo.png",
+            image:
+              "https://www.dholerainsider.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.8d300ec5.webp&w=128&q=85",
+            priceRange: "from ₹10 Lakh",
+            telephone: "+91 92 11 82 08 87",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "620, JMD Megapolis, Sohna Rd, Sector 48,",
+              addressLocality: "Gurgaon",
+              addressRegion: "Haryana",
+              postalCode: "122001",
+              addressCountry: "IN",
+            },
+            areaServed: {
+              "@type": "Place",
+              name: "Dholera Smart City",
+            },
+          }),
+        }}
+      />
+
+      <title>Dholera Insider – Invest in Dholera Smart City Plots</title>
+      <meta
+        name="description"
+        content="Discover verified NA/NOC-approved Dholera plots in Dholera Smart City. Get expert guidance for investment in Dholera and Dholera real estate."
+      />
+      <meta
+        name="keywords"
+        content="Dholera Smart City, Dholera plots, plots in Dholera, Dholera SIR plots, Dholera land investment, Dholera Smart City investment, residential plots in Dholera, industrial plots in Dholera, Dholera real estate, Dholera investment opportunities, dholerainsider, Gujarat smart city plots, DMIC corridor, Investments in Dholera Smart City, dholera latest news, Dholera International Airport, Dholera Solar Park,  Ahmedabad Dholera Expressway, Dholera SIR, Dholera plot prices, Dholera Smart City Projects"
+      />
+      <link rel="canonical" href="https://www.dholerainsider.com" />
+      <div>
+        <HomePage openForm={() => setpopShowForm(true)} />
+      </div>
       {showpopForm && (
         <Popup
           onClose={() => setpopShowForm(false)}

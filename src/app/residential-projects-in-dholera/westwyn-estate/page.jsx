@@ -86,6 +86,21 @@ export default function Hero() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          name: "Dholera Insider",
+          url: "https://dholerainsider.com/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target:
+              "https://dholerainsider.com/residential-projects-in-dholera/westwyn-estate{search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       <title>
         WestWyn Estate Dholera – Premium Dholera Plots in Smart City Dholera
       </title>
@@ -127,7 +142,6 @@ export default function Hero() {
                     🔥 Newly Launched
                   </span>
                 </div>
-                
               </div>
 
               {/* Middle Column - Title & Description */}
@@ -151,9 +165,7 @@ export default function Hero() {
                     📄 Download Brochure
                   </button>
                 </div>
-                <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
-                  
-                </div>
+                <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors"></div>
               </div>
             </div>
           </div>
@@ -219,7 +231,8 @@ export default function Hero() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
-              WestWyn Estate <br /> <span className="italic">Premium Residential Plots </span> 
+              WestWyn Estate <br />{" "}
+              <span className="italic">Premium Residential Plots </span>
             </h1>
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-100 leading-relaxed">
@@ -248,8 +261,7 @@ export default function Hero() {
         </div>
       </div>
       <div>
-<PrimeLocationSection/>
-
+        <PrimeLocationSection />
       </div>
       <div>
         <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
@@ -279,9 +291,9 @@ export default function Hero() {
                     Prime Location Advantage
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Vadhela-Navda Highway, 0 km from Dholera
-                    SIR, close to TP 5, and only 15 minutes away from the
-                    activation area.
+                    Strategically positioned on Vadhela-Navda Highway, 0 km from
+                    Dholera SIR, close to TP 5, and only 15 minutes away from
+                    the activation area.
                   </p>
                 </div>
 

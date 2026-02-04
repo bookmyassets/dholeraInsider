@@ -221,6 +221,22 @@ export default function Aboutus() {
       <meta name="keywords" content="Dholera real estate, smart city consultants, Dholera Smart City, Dholera investment, investment in Dholera." />
       <link rel="canonical" href="https://www.dholerainsider.com/about-us" />
 
+<script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          name: "Dholera Insider",
+          url: "https://dholerainsider.com/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target:
+              "https://dholerainsider.com/about-us{search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
+
       <main className="bg-gradient-to-b from-gray-900 via-emerald-900 to-teal-900 text-white min-h-screen">
       {/* Hero Section */}
       <section className="text-center px-6 py-20 md:py-28 max-w-4xl mx-auto">

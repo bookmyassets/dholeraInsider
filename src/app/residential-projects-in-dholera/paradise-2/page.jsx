@@ -21,6 +21,21 @@ export default function Hero() {
 
   return (
     <>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          name: "Dholera Insider",
+          url: "https://dholerainsider.com/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target:
+              "https://dholerainsider.com/residential-projects-in-dholera/paradise-2{search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
     <title>Paradise 2 Dholera – Affordable Dholera Plots in Smart City Gujarat</title>
       <meta
         name="description"

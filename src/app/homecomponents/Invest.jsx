@@ -19,32 +19,37 @@ export default function Invest() {
         <div className="">
           <div className="flex flex-col md:flex-row px-4 md:px-8 py-12 gap-6 md:gap-12 max-w-7xl mx-auto">
             <div className="w-full md:w-2/5 pl-2 pr-2">
-            <div className="w-full h-full">
-              <Image src={sample1} alt="Dholera Smart City" />
-            </div>
+              <div className="w-full h-full">
+                <Image src={sample1} alt="Dholera Smart City" />
+              </div>
             </div>
 
             {/* Right Section (60%) */}
             <div className="w-full md:w-3/5 pl-2 pr-2 space-y-6">
               <div>
                 <p className="text-gray-100">
-                  Dholera Smart City is India’s first Greenfield Smart City,
-                  built with cutting-edge infrastructure and designed for
-                  exponential growth. This government-backed project offers
-                  unmatched opportunities in the industrial, commercial, and
-                  residential sectors. With rapid development and strategic
-                  advantages, Dholera SIR is the ideal destination for
-                  high-return investments and a sustainable future.
+                  Dholera Smart City is India’s first greenfield smart city,
+                  strategically developed under the Delhi–Mumbai Industrial
+                  Corridor (DMIC) in Gujarat. Designed as a next-generation
+                  smart city, It is home to India’s first semiconductor fab.
+                  Dholera offers world-class infrastructure, plug-and-play
+                  industrial zones, and sustainable urban planning. With
+                  government-approved semiconductor projects, advanced road
+                  networks, smart utilities, and high-speed connectivity, the
+                  city is emerging as a global destination for technology,
+                  manufacturing, and investment.
                 </p>
               </div>
 
               <div>
                 <p className="text-gray-100">
-                  Whether you’re looking for premium investments or planning to
-                  buy plots under 10 lakh in Dholera, Dholera Insider connects
-                  you with secure, NA/NOC-approved, plan-passed, title-cleared
-                  projects that are registry-ready and positioned for long-term
-                  growth.
+                  Moreover, Dholera offers excellent connectivity via
+                  expressways, metro rail, and the upcoming Dholera
+                  International Airport. Rapid industrial growth,
+                  government-backed development, and future-ready amenities make
+                  Dholera an ideal destination for investors, businesses, and
+                  homebuyers. Invest in Dholera Smart City today to be part of
+                  India’s fastest-growing smart urban future.
                 </p>
               </div>
             </div>

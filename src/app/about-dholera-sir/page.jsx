@@ -7,8 +7,7 @@ import BlogCard from "./BlogCard";
 import TrendingBlogItem from "./TrendingBlog";
 import Link from "next/link";
 import LeadForm from "./LeadForm";
-import tata from "@/app/assets/tata-logo.png"
-
+import tata from "@/app/assets/tata-logo.png";
 
 export default async function BlogsPage() {
   // Fetch data and handle potential errors
@@ -130,20 +129,39 @@ export default async function BlogsPage() {
                 <h3 className="text-xl md:text-2xl font-bold mb-4">
                   The Vision Behind Dholera Smart City
                 </h3>
-                <p className="text-white/90 text-base leading-relaxed mb-4">
-                  The vision behind Dholera Smart City is to create a
-                  world-class urban and industrial hub that supports India’s
-                  economic growth for decades. Conceptualized during PM Narendra
-                  Modi’s tenure as Gujarat’s Chief Minister, Dholera follows a
-                  smart, sustainable, and scalable development model. Unlike
-                  unplanned city expansion, Dholera SIR focuses on efficient
-                  land use, advanced infrastructure, and global standards of
-                  living. The goal is to attract global investors, boost
-                  employment, and support industries like semiconductors,
-                  manufacturing, and renewable energy. This long-term vision
-                  makes Dholera SIR a key pillar of India’s smart city and Make
-                  in India initiatives.
-                </p>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-base">
+                      Dholera Smart City is envisioned as a world-class urban
+                      and industrial hub to drive India’s long-term economic
+                      growth.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-base">
+                      The project was conceptualized during PM Narendra Modi’s
+                      tenure as Chief Minister of Gujarat.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-base">
+                      Dholera Smart City follows a smart, sustainable, and
+                      scalable development model with Plug & Play
+                      infrastructure.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-white/90 text-base">
+                      It aims to attract global investment, generate employment,
+                      and support industries like semiconductors, manufacturing,
+                      and renewable energy.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-teal-700 text-white rounded-xl p-6 md:p-7">
@@ -156,28 +174,28 @@ export default async function BlogsPage() {
                 <div className="space-y-2">
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">
+                    <p className="text-white/90 text-base">
                       Direct connectivity to Ahmedabad via the Ahmedabad–Dholera
                       Expressway, reducing travel time significantly
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">
+                    <p className="text-white/90 text-base">
                       Upcoming Dholera International Airport to enhance national
                       and global connectivity
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">
+                    <p className="text-white/90 text-base">
                       Seamless access to major ports and rail networks,
                       supporting trade and logistics
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-white/90 text-sm">
+                    <p className="text-white/90 text-base">
                       Part of the Delhi–Mumbai Industrial Corridor (DMIC),
                       boosting industrial growth
                     </p>
@@ -196,7 +214,7 @@ export default async function BlogsPage() {
               <div className="w-24 h-1 bg-teal-700 mx-auto mb-3"></div>
             </div>
 
-            <div className="bg-teal-900 p-4 text-white rounded-xl">
+            <div className="bg-teal-900 p-4 text-white rounded-xl text-base">
               <p>
                 The idea behind Dholera SIR is to build India’s first fully
                 planned smart city with a strong focus on infrastructure and
@@ -234,11 +252,9 @@ export default async function BlogsPage() {
               </div>
 
               <div className="bg-white border-2 border-black rounded-lg p-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="text-3xl mb-3"><Image
-                  src={tata}
-                  alt="tata"
-                  height="30"
-                /></div>
+                <div className="text-3xl mb-3">
+                  <Image src={tata} alt="tata" height="30" />
+                </div>
                 <h4 className="text-lg font-bold mb-2">
                   TATA Electronics Semiconductor Fab
                 </h4>
@@ -319,12 +335,6 @@ export default async function BlogsPage() {
                 Major Investments in Dholera Smart City
               </h2>
               <div className="w-24 h-1 bg-teal-700 mx-auto mb-3"></div>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                Dholera SIR matters to India as it supports long-term industrial
-                growth, manufacturing self-reliance, and planned urban
-                development. As India’s first greenfield smart city, Dholera
-                plays a key role in national initiatives.
-              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -452,25 +462,55 @@ export default async function BlogsPage() {
             <div className="bg-gradient-to-br from-teal-700 via-teal-600 to-teal-700 rounded-2xl p-8 md:p-12 shadow-2xl">
               {/* Header */}
               <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
+                <h2 className="text-2xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
                   Why Invest in Dholera with Dholera Insiders
                 </h2>
                 <div className="w-32 h-1.5 bg-white/90 mx-auto rounded-full shadow-md"></div>
               </div>
 
               {/* Introduction Text */}
-              <p className="text-lg md:text-xl text-center mb-10 max-w-4xl mx-auto text-white leading-relaxed">
-                Dholera Insiders is a trusted real estate developer in Dholera
-                Smart City, offering legally verified, NA-approved, clear-title,
-                and registry-ready residential plots. With strong local
-                expertise and a transparent approach, we help investors make
-                safe and hassle-free property decisions. Our projects are
-                carefully selected based on location, infrastructure,
-                connectivity, and future development potential. Our clear
-                pricing, ethical practices, and end-to-end support from site
-                visits to registry ensure a smooth investment experience and
-                long-term trust in Dholera SIR.
-              </p>
+              <div className="space-y-2">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-white/90 text-base">
+                    Trusted Local Expertise: Dholera Insiders brings deep
+                    on-ground knowledge of Dholera Smart City, ensuring accurate
+                    guidance and reliable investment insights.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-white/90 text-base">
+                    Government-Approved Projects: We offer access to verified,
+                    government-approved plots with clear titles for safe and
+                    secure investments.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-white/90 text-base">
+                    Strategic Investment Advisory: Our team helps you choose the
+                    right location and project based on growth potential,
+                    budget, and future appreciation.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-white/90 text-base">
+                    End-to-End Support: From site visits and documentation to
+                    registration and post-sales assistance, we provide complete
+                    investment support.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-white/90 text-base">
+                    Proven Growth Focus: With a strong understanding of
+                    Dholera’s infrastructure development and upcoming projects,
+                    we help investors maximize long-term returns.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
