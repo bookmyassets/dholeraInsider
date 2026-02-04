@@ -24,16 +24,18 @@ export default function Hero() {
     <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          "@context": "https://schema.org/",
-          "@type": "WebSite",
-          name: "Dholera Insider",
-          url: "https://dholerainsider.com/",
-          potentialAction: {
-            "@type": "SearchAction",
-            target:
-              "https://dholerainsider.com/residential-projects-in-dholera/pride{search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            name: "Dholera Insider",
+            url: "https://dholerainsider.com/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://dholerainsider.com/residential-projects-in-dholera/pride{search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
         }}
       />
     <title>Pride Dholera – Signature Dholera Plots in Smart City Gujarat</title>

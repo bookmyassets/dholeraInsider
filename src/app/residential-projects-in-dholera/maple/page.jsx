@@ -21,32 +21,40 @@ export default function Hero() {
 
   return (
     <>
-    <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          "@context": "https://schema.org/",
-          "@type": "WebSite",
-          name: "Dholera Insider",
-          url: "https://dholerainsider.com/",
-          potentialAction: {
-            "@type": "SearchAction",
-            target:
-              "https://dholerainsider.com/residential-projects-in-dholera/maple{search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            name: "Dholera Insider",
+            url: "https://dholerainsider.com/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://dholerainsider.com/residential-projects-in-dholera/maple{search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
         }}
       />
-     <title>Maple Dholera – Affordable Dholera Plots in Smart City Gujarat</title>
-    
-    <meta
+
+      <title>
+        Maple Dholera – Affordable Dholera Plots in Smart City Gujarat
+      </title>
+
+      <meta
         name="description"
         content="Maple Dholera brings affordable Dholera plots designed for smart city Gujarat investors focused on Dholera investment growth."
-    />
-    <meta
+      />
+      <meta
         name="keywords"
         content="Maple Dholera, Dholera plots, smart city Gujarat, Dholera investment, Dholera Smart City"
-    />
-      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/maple" />
+      />
+      <link
+        rel="canonical"
+        href="https://www.dholerainsider.com/residential-projects-in-dholera/maple"
+      />
 
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
@@ -82,20 +90,23 @@ export default function Hero() {
 
               {/* Middle Column - Title & Description */}
               <div>
-                  <a href="/residential-projects-in-dholera/westwyn-estate">
-                    <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
-                      <span className="text-base font-bold text-teal-900">
-                        Explore Our Latest Project
-                      </span>{" "}
-                      <br /> WestWyn Estate
-                    </h1>
-                  </a>
-                </div>
+                <a href="/residential-projects-in-dholera/westwyn-estate">
+                  <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                    <span className="text-base font-bold text-teal-900">
+                      Explore Our Latest Project
+                    </span>{" "}
+                    <br /> WestWyn Estate
+                  </h1>
+                </a>
+              </div>
 
               {/* Right Column - Contact & Buttons */}
               <div className="flex flex-col justify-between">
                 <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                  <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button
+                    onClick={openBrochureForm}
+                    className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
+                  >
                     📄 Download Brochure
                   </button>
                 </div>
@@ -136,7 +147,10 @@ export default function Hero() {
             {/* Contact & Buttons */}
             <div className="flex flex-col justify-between">
               <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                <button
+                  onClick={openBrochureForm}
+                  className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
+                >
                   📄 Download Brochure
                 </button>
               </div>

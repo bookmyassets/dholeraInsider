@@ -16,15 +16,18 @@ const DholeraBulkLandPage = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          "@context": "https://schema.org/",
-          "@type": "WebSite",
-          name: "Dholera Insider",
-          url: "https://dholerainsider.com/",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://dholerainsider.com/bulk-land{search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            name: "Dholera Insider",
+            url: "https://dholerainsider.com/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://dholerainsider.com/bulk-land{search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
         }}
       />
       <div className="bg-gray-50 dark:bg-gray-900 ">

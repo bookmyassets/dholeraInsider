@@ -21,31 +21,36 @@ export default function Hero() {
 
   return (
     <>
-    <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          "@context": "https://schema.org/",
-          "@type": "WebSite",
-          name: "Dholera Insider",
-          url: "https://dholerainsider.com/",
-          potentialAction: {
-            "@type": "SearchAction",
-            target:
-              "https://dholerainsider.com/residential-projects-in-dholera/marina-bay{search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "WebSite",
+            name: "Dholera Insider",
+            url: "https://dholerainsider.com/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://dholerainsider.com/residential-projects-in-dholera/marina-bay{search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
         }}
       />
-    <title>Marina Bay Dholera – Premium Plots in Smart City Gujarat</title>
+      <title>Marina Bay Dholera – Premium Plots in Smart City Gujarat</title>
       <meta
-    name="description"
-    content="Marina Bay Dholera offers luxury Dholera plots with top Dholera Smart City connectivity and smart city Gujarat benefits."
-/>
-<meta
-    name="keywords"
-    content="Marina Bay Dholera, Dholera plots, smart city Gujarat, Dholera Smart City, Dholera investment"
-/>
-      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/marina-bay" />
+        name="description"
+        content="Marina Bay Dholera offers luxury Dholera plots with top Dholera Smart City connectivity and smart city Gujarat benefits."
+      />
+      <meta
+        name="keywords"
+        content="Marina Bay Dholera, Dholera plots, smart city Gujarat, Dholera Smart City, Dholera investment"
+      />
+      <link
+        rel="canonical"
+        href="https://www.dholerainsider.com/residential-projects-in-dholera/marina-bay"
+      />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
@@ -88,7 +93,10 @@ export default function Hero() {
               {/* Right Column - Contact & Buttons */}
               <div className="flex flex-col justify-between">
                 <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                  <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button
+                    onClick={openBrochureForm}
+                    className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
+                  >
                     📄 Download Brochure
                   </button>
                 </div>
@@ -121,25 +129,28 @@ export default function Hero() {
 
             {/* Title & Description */}
             <div>
-                  <a href="/residential-projects-in-dholera/westwyn-estate">
-                    <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
-                      <span className="text-base font-bold text-teal-900">
-                        Explore Our Latest Project
-                      </span>{" "}
-                      <br /> WestWyn Estate
-                    </h1>
-                  </a>
-                </div>
+              <a href="/residential-projects-in-dholera/westwyn-estate">
+                <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                  <span className="text-base font-bold text-teal-900">
+                    Explore Our Latest Project
+                  </span>{" "}
+                  <br /> WestWyn Estate
+                </h1>
+              </a>
+            </div>
 
             {/* Contact & Buttons */}
             <div className="flex flex-col justify-between">
               <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                <button onClick={openBrochureForm} className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5">
+                <button
+                  onClick={openBrochureForm}
+                  className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
+                >
                   📄 Download Brochure
                 </button>
               </div>
               <div className="text-teal-900 text-center text-xl font-semibold hover:text-teal-800 transition-colors">
-               <p>Immediate Possession</p>
+                <p>Immediate Possession</p>
               </div>
             </div>
           </div>
