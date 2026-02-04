@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 const InvestmentTimeline = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [counterValues, setCounterValues] = useState({
     initial: 0,
@@ -119,7 +119,6 @@ const InvestmentTimeline = () => {
 
         if (currentStep >= steps) {
           clearInterval(timer);
-          setActiveIndex(0);
         }
       }, interval);
 
@@ -127,14 +126,9 @@ const InvestmentTimeline = () => {
     }
   }, [isVisible]);
 
-  useEffect(() => {
-    if (isVisible && activeIndex < milestones.length - 1) {
-      const timer = setTimeout(() => {
-        setActiveIndex(prev => prev + 1);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [activeIndex, isVisible]);
+  const handleCardClick = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   const formatCurrency = (value) => {
     if (value >= 10000000) {
@@ -155,7 +149,7 @@ const InvestmentTimeline = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Your Path to <span className="text-teal-600">10x Returns</span>
           </h2>
-          <p className=" text-gray-600 max-w-3xl mx-auto">
+          <p className="text-gray-600 max-w-3xl mx-auto">
             Track your investment's journey as Dholera transforms into India's premier smart city
           </p>
         </div>
@@ -175,15 +169,12 @@ const InvestmentTimeline = () => {
                 className={`relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 cursor-pointer overflow-hidden group ${
                   activeIndex === index ? 'border-teal-500 ring-4 ring-teal-100' : 'border-gray-200 hover:border-teal-300'
                 }`}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handleCardClick(index)}
               >
                 {/* Background Gradient Overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent transition-opacity duration-500 ${
                   activeIndex === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
                 }`}></div>
-                
-                {/* Animated Corner Accent */}
-                
 
                 <div className="relative z-10">
                   {/* Header */}
@@ -228,10 +219,10 @@ const InvestmentTimeline = () => {
                 </div>
 
                 {/* Progress Indicator */}
-                <div className="absolute bottom-0 leyd-0 right-0 h-1 bg-gray-100">
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100">
                   <div 
                     className={`h-full bg-gradient-to-r from-teal-500 to-teal-600 transition-all duration-700 ${
-                      activeIndex >= index ? 'w-full' : 'w-0'
+                      activeIndex === index ? 'w-full' : 'w-0'
                     }`}
                   ></div>
                 </div>
@@ -239,7 +230,7 @@ const InvestmentTimeline = () => {
 
               {/* Connection Line for larger screens */}
               {index < milestones.length - 1 && (
-                <div className="hidden lg:block absolute -bottom-8 leyd-1/2 transform -translate-x-1/2">
+                <div className="hidden lg:block absolute -bottom-8 left-1/2 transform -translate-x-1/2">
                   <div className="w-px h-8 bg-gradient-to-b from-teal-500 to-transparent"></div>
                 </div>
               )}
@@ -283,19 +274,6 @@ const InvestmentTimeline = () => {
               <div className="text-sm opacity-75">≈900% growth rate</div>
             </div>
           </div>
-
-          {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-            <div className="flex items-start gap-4">
-              <Zap className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bsemiold text-lg mb-2">Why Dholera?</h4>
-                <p className="opacity-90 leading-relaxed">
-                  India's first smart city with government backing, strategic location, and world-class infrastructure. 
-                  Positioned to become Gujarat's prime investment destination with unparalleled growth potential.
-                </p>
-              </div>
-            </div>
-          </div> */}
 
           <p className="text-xs opacity-75 mt-6 text-center">
             *Projections are estimates based on current development plans. Past performance is not indicative of future results.
