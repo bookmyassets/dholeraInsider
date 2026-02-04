@@ -1,10 +1,57 @@
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
-import { getblogs, getPostBySlug, getUpdates, projectInfo } from "@/sanity/lib/api";
+import {
+  getblogs,
+  getPostBySlug,
+  getUpdates,
+  projectInfo,
+} from "@/sanity/lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import LeadForm from "../LeadForm";
 import BlogSchemaMarkup from "../BlogSchemaMarkup";
+
+
+
+const URLFormatter = (text) => {
+  if (!text) return "";
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+};
+
+const extractHeadings = (body) => {
+  if (!body || !Array.isArray(body)) return [];
+
+  return body
+    .filter((block) => {
+      // Check if it's a valid heading block
+      const isHeading =
+        block.style &&
+        ["h1", "h2", "h3", "h4", "h5", "h6"].includes(block.style);
+
+      // Check if it has valid text content
+      const hasValidText =
+        block.children &&
+        Array.isArray(block.children) &&
+        block.children.length > 0 &&
+        block.children[0]?.text &&
+        block.children[0].text.trim().length > 0;
+
+      return isHeading && hasValidText;
+    })
+    .map((block) => ({
+      ...block,
+      // Ensure we have clean text
+      children: [
+        {
+          ...block.children[0],
+          text: block.children[0].text.trim(),
+        },
+      ],
+    }));
+};
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -80,7 +127,7 @@ const RelatedBlogCard = ({ blog }) => {
                 day: "numeric",
                 month: "short",
                 year: "numeric",
-              }
+              },
             )}
           </div>
           <h3 className="font-bold text-lg mb-2 text-gray-900 line-clamp-2">
@@ -380,9 +427,57 @@ export default async function BlogDetail({ params }) {
       },
     };
 
+        const TableOfContent = ({ headings }) => {
+      // Filter for valid headings with text content
+      const validHeadings =
+        headings?.filter((heading) => {
+          const text = heading.children?.[0]?.text;
+          return text && text.trim().length > 0;
+        }) || [];
+
+      // Filter for only h1 and h2 headings
+      const h1h2Headings = validHeadings.filter((heading) => {
+        return heading.style === "h1" || heading.style === "h2";
+      });
+
+      // Hide TOC if no h1 or h2 headings exist
+      if (h1h2Headings.length === 0) return null;
+
+      return (
+        <div className="my-8 p-6 bg-gradient-to-br from-[#C69C21]/5 to-[#FDB913]/10 rounded-2xl shadow-lg border border-[#C69C21]/20">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            Table of Contents
+          </h2>
+          <ul className="space-y-3">
+            {validHeadings.map((heading, index) => {
+              const text = heading.children[0].text.trim();
+              const level = parseInt(heading.style.replace("h", ""));
+              const indent = (level - 2) * 16;
+
+              return (
+                <li
+                  key={index}
+                  style={{ marginLeft: `${Math.max(0, indent)}px` }}
+                  className="relative"
+                >
+                  <a
+                    href={`#${URLFormatter(text)}`}
+                    className="text-[#C69C21] hover:text-[#FDB913] hover:underline transition-colors duration-200 flex items-start gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-[#C69C21] rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+                    <span className="text-sm leading-relaxed">{text}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    };
+
     // Format date for display
     const formattedDate = new Date(
-      post.publishedAt || post._createdAt
+      post.publishedAt || post._createdAt,
     ).toLocaleDateString("en-US", {
       day: "numeric",
       month: "long",
@@ -398,9 +493,9 @@ export default async function BlogDetail({ params }) {
         />
         <meta name="robots" content="index, dofollow" />
         <meta name="description" content={post.metaDescription} />
-          <meta name="keywords" content={post.keywords} />
-          <meta name="publisher" content="Dholera Insider" />
-          <BlogSchemaMarkup post={post} />
+        <meta name="keywords" content={post.keywords} />
+        <meta name="publisher" content="Dholera Insider" />
+        <BlogSchemaMarkup post={post} />
 
         {/* Sticky Nav Placeholder */}
         <div className="bg-white shadow-sm sticky top-0 z-30" />
@@ -542,10 +637,12 @@ export default async function BlogDetail({ params }) {
                 </div>
               )}
 
+              <TableOfContent headings={extractHeadings(post.body)} />
+
               {/* Content */}
               <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl p-8 border border-gray-200">
                 <div className="text-xl max-w-none">
-                  <PortableText value={post.body} components={components}/>
+                  <PortableText value={post.body} components={components} />
                 </div>
 
                 {/* Tags */}
@@ -600,7 +697,6 @@ export default async function BlogDetail({ params }) {
                 </div>
               </div>
             </aside>
-            
           </div>
         </main>
       </div>

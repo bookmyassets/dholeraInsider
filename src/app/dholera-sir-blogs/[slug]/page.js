@@ -6,45 +6,10 @@ import {
   getUpdates,
   projectInfo,
 } from "@/sanity/lib/api";
-import { unstable_cache } from "next/cache";
 import Link from "next/link";
 import Image from "next/image";
 import BlogSchemaMarkup from "../BlogSchemaMarkup";
 import SlugPageForm from "../../components/SlugPageForm";
-
-// Cached data fetching functions with proper cache keys
-const getCachedPost = (slug, site) => {
-  return unstable_cache(
-    async () => getPostBySlug(slug, site),
-    [`blog-post-${slug}`],
-    {
-      tags: [`post-${slug}`, "posts"],
-      revalidate: 3600, // 1 hour
-    }
-  )();
-};
-
-const getCachedBlogs = (offset, limit) => {
-  return unstable_cache(
-    async () => getblogs(offset, limit),
-    [`blog-updates-${offset}-${limit}`],
-    {
-      tags: ["updates"],
-      revalidate: 1800, // 30 minutes
-    }
-  )();
-};
-
-const getCachedUpdates = (slug, limit) => {
-  return unstable_cache(
-    async () => getUpdates(slug, limit),
-    [`related-blogs-${slug}-${limit}`],
-    {
-      tags: [`related-${slug}`, "related-blogs"],
-      revalidate: 1800, // 1 hour
-    }
-  )();
-};
 
 // Right Sidebar Component
 const RightSidebar = ({ trendingBlogs }) => {
@@ -53,12 +18,12 @@ const RightSidebar = ({ trendingBlogs }) => {
       <div className="space-y-6">
         {/* Latest Content Section */}
         <div className="bg-black rounded-xl shadow-2xl shadow-gray-500 p-6 border border-gray-700">
-          <h3 className="text-xl font-bold mb-4 text-white">Latest Blogs</h3>
+          <h3 className="text-xl font-bold mb-4 text-white">Latest Updates</h3>
           <div className="space-y-3">
             {trendingBlogs?.slice(0, 4).map((item) => (
               <Link
                 key={item._id}
-                href={`/dholera-sir-blogs/${item.slug.current}`}
+                href={`/dholera-sir-updates/${item.slug.current}`}
               >
                 <div className="flex gap-3 items-center bg-white hover:bg-gray-50 p-3 border border-gray-200 transition-all hover:shadow-md">
                   {item.mainImage && (
@@ -110,67 +75,7 @@ const RightSidebar = ({ trendingBlogs }) => {
     </aside>
   );
 };
-
-// Generate static params for static generation
-export async function generateStaticParams() {
-  // Fetch all blog slugs at build time
-  try {
-    const blogs = await getblogs(0, 100); // Adjust limit as needed
-    return blogs.map((blog) => ({
-      slug: blog.slug.current,
-    }));
-  } catch (error) {
-    console.error("Error generating static params:", error);
-    return [];
-  }
-}
-
-// Generate metadata
-export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  const site = "dholera-insider";
-
-  try {
-    const post = await getCachedPost(slug, site);
-
-    if (!post) {
-      return {
-        title: "Blog Post Not Found",
-      };
-    }
-
-    return {
-      title: post.title,
-      description: post.metaDescription,
-      keywords: post.keywords,
-      publisher: "Dholera Insider",
-      alternates: {
-        canonical: `https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`,
-      },
-      openGraph: {
-        title: post.title,
-        description: post.metaDescription,
-        url: `https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`,
-        images: post.mainImage
-          ? [urlFor(post.mainImage).width(1200).height(675).url()]
-          : [],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: post.title,
-        description: post.metaDescription,
-        images: post.mainImage
-          ? [urlFor(post.mainImage).width(1200).height(675).url()]
-          : [],
-      },
-    };
-  } catch (error) {
-    console.error("Error generating metadata:", error);
-    return {
-      title: "Blog Post",
-    };
-  }
-}
+// Trending Blog Item Component (updated)
 
 export default async function Post({ params }) {
   const { slug } = await params;
@@ -185,11 +90,10 @@ export default async function Post({ params }) {
   }
 
   try {
-    // Use cached functions for parallel data fetching
     const [post, trendingBlogs, relatedBlogs] = await Promise.all([
-      getCachedPost(slug, site),
-      getCachedBlogs(0, 6),
-      getCachedUpdates(slug, 3),
+      getPostBySlug(slug, site),
+      getUpdates(0), // Get 6 blogs for sidebar
+      projectInfo(slug, 3),
     ]);
 
     if (!post) {
@@ -458,8 +362,29 @@ export default async function Post({ params }) {
 
     return (
       <>
-        <BlogSchemaMarkup post={post} relatedBlogs={relatedBlogs} />
-        <title>{post.metaTitle}</title>
+        <div>
+          <title>{post.title}</title>
+          <BlogSchemaMarkup post={post} relatedBlogs={relatedBlogs} />
+
+          {/* Additional SEO meta tags */}
+          <link
+            rel="canonical"
+            href={`https://dholerainsider.com/dholera-sir-blogs/${post.slug.current}`}
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content={post.metaDescription} />
+          <meta name="keywords" content={post.keywords} />
+          <meta name="publisher" content="Dholera Insider" />
+
+          {/* Preload critical resources */}
+          {post.mainImage && (
+            <link
+              rel="preload"
+              as="image"
+              href={urlFor(post.mainImage).width(1200).height(675).url()}
+            />
+          )}
+        </div>
         <div className="bg-white min-h-screen">
           <div className="bg-white shadow-sm sticky top-0 z-30" />
 
@@ -537,7 +462,7 @@ export default async function Post({ params }) {
                     </div>
                   )}
 
-                  <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
+                  <h1 className="text-4xl font-bold text-gray-900 mb-4">
                     {post.title}
                   </h1>
                 </div>
@@ -557,7 +482,7 @@ export default async function Post({ params }) {
                 )}
 
                 {/* Article Content */}
-                <div className="bg-white rounded-xl shadow-2xl p-8 border border-gray-200">
+                <div className="bg-white rounded-xl shadow-2xl pl-8 pr-8 border border-gray-200">
                   <div className="text-xl max-w-none">
                     <PortableText value={post.body} components={components} />
                   </div>
