@@ -71,7 +71,7 @@ export default async function page() {
       />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
-        <div className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center py-8 sm:py-12">
+        <div className="relative min-h-[50vh] md:min-h-[55vh] flex items-center justify-center py-8 sm:py-12">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0 ">
             <Image
@@ -88,19 +88,12 @@ export default async function page() {
           {/* Hero Content */}
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
             <div className="mb-6 sm:mb-8 ">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-2xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Dholera SIR
-                <span className="block bg-teal-500 bg-clip-text text-transparent">
+                <span className="block bg-white bg-clip-text text-transparent">
                   Investment Blog
                 </span>
               </h1>
-            </div>
-
-            {/* Form Component - Responsive */}
-            <div className="relative z-10 w-full max-w-4xl mx-auto px-2 sm:px-4">
-              <div className="transform scale-90 sm:scale-95 md:scale-100">
-                <FormComponent />
-              </div>
             </div>
           </div>
         </div>
@@ -113,7 +106,7 @@ export default async function page() {
                 {/* All Posts Grid */}
                 <div>
                   <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                       Latest Investment Insights
                     </h2>
                     <div className="mt-2 text-sm text-gray-500">

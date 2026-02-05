@@ -67,14 +67,14 @@ export default async function Blogs() {
       
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
-        <div className="relative min-h-[78vh] flex items-center justify-center py-8">
+        <div className="relative min-h-[50vh] md:min-h-[55vh] flex items-center justify-center py-8">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
               src={heroD}
               alt="Dholera Latest Updates"
               fill
-              className="object-cover max-sm:hidden"
+              className="object-cover max-sm:hidden md:pt-16"
               priority
             />
             <Image
@@ -91,17 +91,12 @@ export default async function Blogs() {
           {/* Hero Content */}
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
             <div className="mb-6 sm:mb-8 pt-20 sm:pt-24 md:pt-12 flex flex-col justify-center items-center">
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Dholera SIR
-                <span className="block bg-teal-500 bg-clip-text text-transparent">
+                <span className="block bg-white bg-clip-text text-transparent">
                   Latest Updates
                 </span>
               </h1>
-
-              {/* Subtitle */}
-              <p className="text-base text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-                Stay informed with the latest developments, project updates, and news from India's most ambitious smart city.
-              </p>
             </div>
 
             {/* Form Component - Responsive */}
@@ -117,16 +112,9 @@ export default async function Blogs() {
                 {/* All Posts Grid */}
                 <div>
                   <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                       Latest News & Updates
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-                      Stay updated with the latest developments and news from Dholera SIR
-                    </p>
-                    <div className="mt-2 text-sm text-gray-500">
-                      {safeBlogs.length} Update
-                      {safeBlogs.length !== 1 ? "s" : ""} Available
-                    </div>
                   </div>
                   
                   <div className="px-4">
