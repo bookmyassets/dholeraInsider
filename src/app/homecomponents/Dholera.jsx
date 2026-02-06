@@ -27,6 +27,11 @@ export default function Dholera() {
       description:
         "With affordable land prices at present, rapid industrial development, and rising demand for residential and commercial plots, Dholera presents a strong opportunity for long-term real estate investment.",
     },
+    {
+      title: "Single-Window Governance & Faster Approvals",
+      description:
+        "Dholera follows a single-window approval system that simplifies permissions and reduces delays. This makes investing and doing business faster and more transparent than in traditional cities.",
+    },
   ];
 
   return (

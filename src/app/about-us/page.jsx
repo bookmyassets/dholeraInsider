@@ -1,10 +1,40 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import heroD from "../assets/hero/aboutHero.webp";
-import heroM from "../assets/hero/aboutMhero.webp";
 import "./about.css";
+
+const benefits = [
+  {
+    title: "Dholera-Focused Expertise",
+    description:
+      "We work exclusively within Dholera Smart City, allowing us to offer deeper insights into planning zones, growth corridors, and future-ready locations. Our focused approach helps investors make informed, location-driven decisions.",
+  },
+  {
+    title: "Infrastructure-Led Plot Selection",
+    description:
+      "Every plot we offer is evaluated based on infrastructure proximity—including the activation area, expressway connectivity, airport zone, and upcoming industrial clusters. This ensures alignment with Dholera’s long-term development roadmap.",
+  },
+  {
+    title: "Legally Aligned & Verified Listings",
+    description:
+      "We prioritize clarity and compliance. All listed plots are checked for zoning, documentation, and development status to reduce risk and ensure a smooth, transparent buying experience.",
+  },
+  {
+    title: "Market & Policy Insights",
+    description:
+      "As a dedicated Dholera insights platform, we track government announcements, policy updates, and the latest Dholera developments to help investors understand how planning and infrastructure decisions impact future value.",
+  },
+  {
+    title: "Long-Term Investment Approach",
+    description:
+      "Our recommendations are driven by future growth potential, not short-term speculation. We focus on plots positioned to benefit from planned infrastructure, industrial expansion, and sustainable urban development.",
+  },
+  {
+    title: "Dedicated Investor Support",
+    description:
+      "From initial consultation to site visits and documentation guidance, we offer end-to-end support throughout your investment journey—ensuring clarity, confidence, and continued assistance even after booking.",
+  },
+];
 
 export default function Aboutus() {
   const [isLoading, setIsLoading] = useState(false);
@@ -285,73 +315,78 @@ export default function Aboutus() {
           </motion.p>
         </section>
 
-        {/* Mission Section */}
-        <section className="bg-white text-teal-900 py-16 md:py-20 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-5 text-teal-900">
-                Our Mission
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                At <strong>Dholera Insider</strong>, our mission is to empower
-                investors, businesses, and citizens with transparent,
-                data-backed news about the Dholera Smart City project. We focus
-                on accurate updates, infrastructure progress, and opportunities
-                that shape the future of sustainable urban growth in India.
-              </p>
-            </motion.div>
+        <section className="bg-white py-8">
+          <div
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto`}
+          >
+            {/* Left Content */}
+            <div className="space-y-8 flex flex-col">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 flex-1 flex flex-col">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  Our Mission
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-6 flex-1">
+                  At Dholera Insider, our mission is to empower investors,
+                  businesses, and citizens with transparent, data-backed news
+                  about the Dholera Smart City project. We focus on accurate
+                  updates, infrastructure progress, and opportunities that shape
+                  the future of sustainable urban growth in India.
+                </p>
+              </div>
+            </div>
 
-            <motion.div
-              className="flex justify-center"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Image
-                src={heroD}
-                alt="Dholera"
-                className="rounded-2xl shadow-lg w-full max-w-md max-sm:hidden"
-              />
-              <Image
-                src={heroM}
-                alt="Dholera"
-                className="rounded-2xl shadow-lg w-full max-w-md md:hidden"
-              />
-            </motion.div>
+            {/* Right Content */}
+            <div className="space-y-8 flex flex-col">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 flex-1 flex flex-col">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  Our Vision
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-6 flex-1">
+                  We envision a digitally connected, eco-friendly city where
+                  innovation meets sustainability. Our goal is to be the most
+                  reliable media hub for everything happening in Dholera SIR,
+                  from real estate trends to government initiatives and upcoming
+                  investments.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Vision Section */}
-        <section className="py-16 md:py-20 px-6">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold mb-5 text-teal-200"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-            >
-              Our Vision
-            </motion.h2>
-            <motion.p
-              className="text-lg text-teal-100 leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            >
-              We envision a digitally connected, eco-friendly city where
-              innovation meets sustainability. Our goal is to be the most
-              reliable media hub for everything happening in Dholera SIR, from
-              real estate trends to government initiatives and upcoming
-              investments.
-            </motion.p>
+        <section>
+          <div className="bg-gradient-to-br from-gray-900 via-slate-800 to-teal-900">
+            {/* Why Dholera Smart City Section */}
+            <div className="py-16 max-w-7xl mx-auto px-4">
+              {/* Heading */}
+              <div className="text-center mb-12">
+                <h2 className="text-4xl max-sm:text-2xl font-bold text-white mb-4">
+                  Why Choose Us
+                </h2>
+                <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>
+              </div>
+
+              {/* 3 Column Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {benefits.map((benefit, index) => (
+                  <div
+                    key={index}
+                    className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/15 transition-all duration-300 border border-white/20"
+                  >
+                    <h3 className="text-xl font-semibold text-teal-300 mb-3">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-100 text-sm leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Core Values */}
-        <section className="bg-white py-20 px-6">
+        <section className="bg-white py-8 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-teal-900">
               Our Core Values
@@ -382,6 +417,30 @@ export default function Aboutus() {
                   <p className="text-gray-900 leading-relaxed">{value.desc}</p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-8 px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-teal-900">
+              Our Commitment to Clients
+            </h2>
+            <div className="gap-8 text-gray-900 text-lg border-gray-100 border-2 shadow-lg p-4 rounded-xl">
+              <p>
+                Our commitment is built on transparency, accuracy, and
+                reliability. Every update shared on our platform is carefully
+                reviewed to ensure it reflects verified progress related to the
+                Dholera Smart City project.
+              </p>
+              <p>
+                We aim to empower our readers with trustworthy insights into
+                ongoing and upcoming opportunities, supported by factual
+                reporting and long-term vision. By consistently sharing relevant
+                Dholera latest news and development updates, we help individuals
+                and businesses make informed decisions aligned with Dholera’s
+                growth roadmap.
+              </p>
             </div>
           </div>
         </section>

@@ -12,6 +12,7 @@ import WestWyn_Estate from "../homecomponents/WestWyn_Estate";
 import FAQSection from "../homecomponents/Faq";
 import LatestUpdates from "../components/BrowseBlogs";
 import Dholera from "../homecomponents/Dholera";
+import TestimonialPagination from "../homecomponents/Testimonials";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -87,6 +88,7 @@ const HomePage = ({openForm}) => {
       {/* <MegaIndustries/>
       <TestimonialsSection/> */}
       <FAQSection/>
+      <TestimonialPagination/>
       
 
       {showButton && (
