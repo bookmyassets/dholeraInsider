@@ -1,141 +1,139 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import hero from "@/app/assets/gallery/news.webp";
-import sample1 from "@/app/assets/gallery/abcd.webp";
-import sample2 from "@/app/assets/gallery/abcd-internal.webp";
-import sample3 from "@/app/assets/gallery/abcd-internal1.webp";
-import sample4 from "@/app/assets/gallery/activation.webp";
-import sample5 from "@/app/assets/gallery/airport.webp";
-import sample6 from "@/app/assets/gallery/airport1.webp";
-import sample7 from "@/app/assets/gallery/butterfly.webp";
-import sample8 from "@/app/assets/gallery/express.webp";
-import sample9 from "@/app/assets/gallery/Expressway.webp";
-import sample10 from "@/app/assets/gallery/riverfront.webp";
-import sample11 from "@/app/assets/gallery/solar.webp";
-import sample12 from "@/app/assets/gallery/tata&river.webp";
-import sample13 from "@/app/assets/gallery/tata.webp";
-import sample14 from "@/app/assets/gallery/tata1.webp";
-import sample15 from "@/app/assets/gallery/terminal.webp";
-import sample16 from "@/app/assets/gallery/toll.webp";
-import sample17 from "@/app/assets/gallery/ring-road.webp";
-import sample18 from "@/app/assets/gallery/renew.webp";
+/* import hero from "@/app/assets/gallery/news.webp"; */
+// Updated imports (new image names & location)
+import img1 from "@/app/assets/gallery/abcd-building-dholera-insider.webp";
+import img2 from "@/app/assets/gallery/man-made-river-activation-area-dholera-insider.webp";
+import img3 from "@/app/assets/gallery/infrastruction-activation-area-dholera-insider.webp";
+import img4 from "@/app/assets/gallery/silk-route-park-activation-area-dholera-insider.webp";
+import img5 from "@/app/assets/gallery/dholera-international-airport-dholera-insider.webp";
+import img6 from "@/app/assets/gallery/cargo-terminal-dholera-international-airport-dholera-insider.webp";
+import img7 from "@/app/assets/gallery/dholera-ahmedabad-expressway-night-dholera-insider.webp";
+import img8 from "@/app/assets/gallery/adhelai-diamond-circle-dholera-insider.webp";
+import img9 from "@/app/assets/gallery/renew-solar-plant-dholera-insider.webp";
+import img10 from "@/app/assets/gallery/asia-largest-solar-park-dholera-insider.webp";
+import img11 from "@/app/assets/gallery/tata-solar-park-mahadevpura-dholera-insider.webp";
+import img12 from "@/app/assets/gallery/water-reservoir-activation-area-dholera-insider.webp";
+import img13 from "@/app/assets/gallery/water-treatment-plant-dholera-insider.webp";
+import img14 from "@/app/assets/gallery/tata-semiconductor-plant-dholera-insider.webp";
+import img15 from "@/app/assets/gallery/torrent-power-substation-dholera-insider.webp";
+import img16 from "@/app/assets/gallery/dholera-solar-park-dholera-insider.webp";
+import img17 from "@/app/assets/gallery/522-room-tata-hotel-fedra-pipli-state-highway-dholera-insider.webp";
+import img18 from "@/app/assets/gallery/westwyn-estate-residential-plots-dholera-insider.webp";
 
 export default function DholeraProgressPage() {
   const galleryImages = [
     {
       id: 1,
-      src: sample1,
-      alt: "Aerial view of ABCD Building in Dholera SIR",
-      caption: "Aerial view of ABCD Building in Dholera SIR",
+      src: img1,
+      alt: "ABCD Building in Dholera Smart City",
+      caption: "ABCD Building – Administrative hub of Dholera Smart City",
     },
     {
       id: 2,
-      src: sample2,
-      alt: "Artificial river development in Dholera Smart City",
-      caption: "Artificial river development in Dholera Smart City",
+      src: img2,
+      alt: "Man-made river in activation area of Dholera",
+      caption: "Man-made river development in Dholera Activation Area",
     },
     {
       id: 3,
-      src: sample3,
-      alt: "Aerial view of Activation area in Dholera Smart City",
-      caption: "Aerial view of Activation area in Dholera Smart City",
+      src: img3,
+      alt: "Infrastructure activation area development in Dholera",
+      caption: "Infrastructure Activation Area – Dholera Smart City",
     },
     {
       id: 4,
-      src: sample4,
-      alt: "Man-made riverfront in Dholera Smart City",
-      caption: "Man-made riverfront in Dholera Smart City",
+      src: img4,
+      alt: "Silk Route Park in Dholera Activation Area",
+      caption: "Silk Route Park development in Dholera",
     },
     {
       id: 5,
-      src: sample5,
-      alt: "Aerial view of Dholera Smart City roads with canal side walkway",
-      caption:
-        "Aerial view of Dholera Smart City roads with canal side walkway",
+      src: img5,
+      alt: "Dholera International Airport aerial view",
+      caption: "Dholera International Airport development progress",
     },
     {
       id: 6,
-      src: sample6,
-      alt: "Runway terminal of Dholera International Airport",
-      caption: "Runway terminal of Dholera International Airport",
+      src: img6,
+      alt: "Cargo terminal at Dholera International Airport",
+      caption: "Cargo Terminal – Dholera International Airport",
     },
     {
       id: 7,
-      src: sample7,
-      alt: "Aerial view of Ahmedabad Dholera Expressway",
-      caption: "Aerial view of Ahmedabad Dholera Expressway",
+      src: img7,
+      alt: "Ahmedabad–Dholera Expressway night view",
+      caption: "Ahmedabad–Dholera Expressway connectivity",
     },
     {
       id: 8,
-      src: sample8,
-      alt: "Proposed metro rail infrastructure in Dholera Smart City planning",
-      caption:
-        "Proposed metro rail infrastructure in Dholera Smart City planning",
+      src: img8,
+      alt: "Adhelai Diamond Circle infrastructure in Dholera",
+      caption: "Adhelai Diamond Circle – Key road junction in Dholera",
     },
     {
       id: 9,
-      src: sample9,
-      alt: "ReNew solar cell manufacturing plant in Dholera Smart City",
-      caption: "ReNew solar cell manufacturing plant in Dholera Smart City",
+      src: img9,
+      alt: "ReNew Solar Plant in Dholera Smart City",
+      caption: "ReNew Solar Power Plant – Dholera",
     },
     {
       id: 10,
-      src: sample10,
-      alt: "Solar power infrastructure by ReNew power in Dholera Smart Industrial Region",
-      caption:
-        "Solar power infrastructure by ReNew power in Dholera Smart Industrial Region",
+      src: img10,
+      alt: "Asia’s largest solar park in Dholera",
+      caption: "Asia’s Largest Solar Park – Dholera Smart City",
     },
     {
       id: 11,
-      src: sample11,
-      alt: "Tata Power renewable solar energy park in Dholera Smart City",
-      caption: "Tata Power renewable solar energy park in Dholera Smart City",
+      src: img11,
+      alt: "Tata Solar Park Mahadevpura Dholera",
+      caption: "Tata Solar Park – Mahadevpura, Dholera",
     },
     {
       id: 12,
-      src: sample12,
-      alt: "World's largest solar park infrastructure in Dholera Smart City",
-      caption:
-        "World's largest solar park infrastructure in Dholera Smart City",
+      src: img12,
+      alt: "Water reservoir in Dholera Activation Area",
+      caption: "Water Reservoir Infrastructure – Dholera",
     },
     {
       id: 13,
-      src: sample13,
-      alt: "Sustainable development with largest solar park in Dholera",
-      caption: "Sustainable development with largest solar park in Dholera",
+      src: img13,
+      alt: "Water treatment plant in Dholera Smart City",
+      caption: "Water Treatment Plant – Dholera Smart City",
     },
     {
       id: 14,
-      src: sample14,
-      alt: "Aerial view of Sardar Patel Ring Road in Ahmedabad",
-      caption: "Aerial view of Sardar Patel Ring Road in Ahmedabad",
+      src: img14,
+      alt: "Tata Semiconductor Plant Dholera",
+      caption: "Tata Semiconductor Manufacturing Plant – Dholera",
     },
     {
       id: 15,
-      src: sample15,
-      alt: "Dholera Ring Road development promoting regional connectivity",
-      caption: "Dholera Ring Road development promoting regional connectivity",
+      src: img15,
+      alt: "Torrent Power Substation in Dholera",
+      caption: "Torrent Power Electrical Substation – Dholera",
     },
     {
       id: 16,
-      src: sample16,
-      alt: "TATA semiconductor plant construction update in Dholera SIR",
-      caption: "TATA semiconductor plant construction update in Dholera SIR",
+      src: img16,
+      alt: "Dholera Solar Park infrastructure",
+      caption: "Dholera Solar Park renewable energy infrastructure",
     },
     {
-      id: 16,
-      src: sample17,
-      alt: "Sardar Patel Ring Road",
-      caption: "Sardar Patel Ring Road Dholera SIR",
+      id: 17,
+      src: img17,
+      alt: "522-room Tata Hotel on Fedra–Pipli Highway",
+      caption: "522-Room Tata Hotel – Fedra–Pipli State Highway",
     },
     {
-      id: 16,
-      src: sample18,
-      alt: "Renew Solar Plant",
-      caption: "Renew Solar Plant",
+      id: 18,
+      src: img18,
+      alt: "Westwyn Estate residential plots Dholera",
+      caption: "Westwyn Estate – Residential Plots in Dholera",
     },
   ];
+
 
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -219,6 +217,10 @@ export default function DholeraProgressPage() {
                 className="max-h-[90vh] w-auto object-contain"
                 onClick={(e) => e.stopPropagation()}
               />
+              <div className="bg-white p-4 text-center">
+              <h3 className="text-lg font-bold">{selectedImage.alt}</h3>
+              <p className="text-gray-600">{selectedImage.caption}</p>
+            </div>
             </div>
             {/* <div className="bg-white p-4 text-center">
               <h3 className="text-lg font-bold">{selectedImage.alt}</h3>

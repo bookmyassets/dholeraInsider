@@ -13,6 +13,7 @@ import FAQSection from "../homecomponents/Faq";
 import LatestUpdates from "../components/BrowseBlogs";
 import Dholera from "../homecomponents/Dholera";
 import TestimonialPagination from "../homecomponents/Testimonials";
+import Groundzero from "../homecomponents/Groundzero";
 
 const HomePage = ({openForm}) => {
   const [showButton, setShowButton] = useState(false);
@@ -83,6 +84,7 @@ const HomePage = ({openForm}) => {
       <WhyDI/>
       <LatestUpdates/>
       {/* Gallery */}
+      <Groundzero/>
       
       <CTAsection/>
       {/* <MegaIndustries/>
