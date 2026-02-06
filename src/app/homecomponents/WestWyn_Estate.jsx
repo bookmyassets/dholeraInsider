@@ -18,9 +18,6 @@ export default function WestWyn_Estate() {
             </span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-            Invest Today in Dholera’s Most Promising Landmark Project
-          </p>
         </div>
 
         {/* Image Section - Full Width Top */}
