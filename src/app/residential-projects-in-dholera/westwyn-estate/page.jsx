@@ -234,7 +234,7 @@ export default function Hero() {
             {/* Heading */}
             <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
               WestWyn Estate <br />{" "}
-              <span className="italic">Premium Residential Plots </span>
+              <span>Premium Residential Plots </span>
             </h1>
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-100 leading-relaxed">

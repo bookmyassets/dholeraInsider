@@ -9,7 +9,7 @@ export default function Invest() {
       {/* Why Dholera Smart City Section */}
       <div className="pt-8 max-w-6xl mx-auto px-4">
         <div className="text-center ">
-          <h2 className="text-4xl max-sm:text-3xl font-bold text-white mb-4">
+          <h2 className="text-4xl max-sm:text-2xl font-bold text-white mb-4">
             <span className="text-teal-400">Dholera Smart City : </span>
             India’s First Semiconductor City
           </h2>
