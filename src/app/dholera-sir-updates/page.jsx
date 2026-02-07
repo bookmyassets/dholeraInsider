@@ -13,7 +13,7 @@ import BlogCard from "./BlogCard";
 export default async function Blogs() {
   let fetchError = null;
   let trendingBlogs = [];
-  
+
   try {
     const newsData = await projectInfo();
     trendingBlogs = Array.isArray(newsData) ? newsData.slice(0, 3) : [];
@@ -45,9 +45,7 @@ export default async function Blogs() {
 
   return (
     <>
-      <title>
-        Dholera Latest Updates - News & Insights on Dholera SIR
-      </title>
+      <title>Dholera Latest Updates - News & Insights on Dholera SIR</title>
       <meta
         name="title"
         content="Dholera Latest Updates - News & Insights on Dholera SIR"
@@ -64,43 +62,32 @@ export default async function Blogs() {
         rel="canonical"
         href="https://www.dholerainsider.com/dholera-sir-updates"
       />
-      
+
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
-        <div className="relative min-h-[50vh] md:min-h-[55vh] flex items-center justify-center py-8">
-          {/* Background Image with Overlay */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={heroD}
-              alt="Dholera Latest Updates"
-              fill
-              className="object-cover max-sm:hidden md:pt-16"
-              priority
-            />
-            <Image
-              src={heroM}
-              alt="Dholera Latest Updates Mobile"
-              fill
-              className="object-cover sm:hidden"
-              priority
-            />
-            {/* Gradient Overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/40"></div>
-          </div>
+        <div className="bg-white relative">
+          <div className="pt-16 md:pt-20">
+            <div className="relative md:h-[50vh] overflow-hidden shadow-lg">
+              {/* Hero Image */}
+              <Image
+                src={heroD}
+                alt="Dholera SIR Development"
+                className="w-full h-auto md:h-[60vh] object-contain md:object-cover"
+                quality={100}
+                priority
+                sizes="100vw"
+              />
 
-          {/* Hero Content */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-            <div className="mb-6 sm:mb-8 pt-20 sm:pt-24 md:pt-12 flex flex-col justify-center items-center">
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Dholera SIR
-                <span className="block bg-white bg-clip-text text-transparent">
-                  Latest Updates
-                </span>
-              </h1>
+              {/* Black Overlay */}
+              <div className="absolute inset-0 bg-black/60"></div>
+
+              {/* Text Content */}
+              <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center">
+                <h1 className="text-2xl md:text-5xl font-bold text-white leading-tight">
+                  Dholera Latest Updates
+                </h1>
+              </div>
             </div>
-
-            {/* Form Component - Responsive */}
-            
           </div>
         </div>
 
@@ -111,16 +98,10 @@ export default async function Blogs() {
               <>
                 {/* All Posts Grid */}
                 <div>
-                  <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
-                      Latest News & Updates
-                    </h2>
-                  </div>
-                  
+
                   <div className="px-4">
                     <div className="flex flex-col max-sm:flex-col-reverse lg:flex-row gap-8">
                       {/* Trending Section - Left Sidebar */}
-                     
 
                       {/* Blog Grid */}
                       <div className="max-w-7xl mx-auto">
@@ -136,7 +117,8 @@ export default async function Blogs() {
                               No Updates Available
                             </h3>
                             <p className="text-gray-600">
-                              Check back soon for the latest information about Dholera SIR.
+                              Check back soon for the latest information about
+                              Dholera SIR.
                             </p>
                           </div>
                         )}

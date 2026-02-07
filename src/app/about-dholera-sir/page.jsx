@@ -83,6 +83,21 @@ export default async function BlogsPage() {
           />
         </div>
 
+        {/* <div className="bg-white relative">
+          <div className="pt-16 md:pt-16">
+            <div className="relative md:h-[50vh] overflow-hidden shadow-lg"> //yet to be applied 
+              <Image
+                src={hero}
+                alt="Dholera SIR Development"
+                className="w-full h-auto md:h-[60vh] object-contain md:object-cover"
+                quality={100}
+                priority
+                sizes="100vw"
+              />
+            </div>
+          </div>
+        </div> */}
+
         {/* Main Content Section */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Introduction Section */}

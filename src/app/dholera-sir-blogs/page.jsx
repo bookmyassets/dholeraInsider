@@ -71,29 +71,28 @@ export default async function page() {
       />
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
-        <div className="relative min-h-[50vh] md:min-h-[55vh] flex items-center justify-center py-8 sm:py-12">
-          {/* Background Image with Overlay */}
-          <div className="absolute inset-0 z-0 ">
-            <Image
-              src={hero}
-              alt="Dholera SIR Development"
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Gradient Overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/40"></div>
-          </div>
+        <div className="bg-white relative">
+          <div className="pt-16 md:pt-20">
+            <div className="relative md:h-[50vh] overflow-hidden shadow-lg">
+              {/* Hero Image */}
+              <Image
+                src={hero}
+                alt="Dholera SIR Development"
+                className="w-full h-auto md:h-[60vh] object-contain md:object-cover"
+                quality={100}
+                priority
+                sizes="100vw"
+              />
 
-          {/* Hero Content */}
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-            <div className="mb-6 sm:mb-8 ">
-              <h1 className="text-2xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Dholera SIR
-                <span className="block bg-white bg-clip-text text-transparent">
-                  Investment Blog
-                </span>
-              </h1>
+              {/* Black Overlay */}
+              <div className="absolute inset-0 bg-black/60"></div>
+
+              {/* Text Content */}
+              <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center">
+                <h1 className="text-2xl md:text-5xl font-bold text-white leading-tight">
+                  Dholera Smart City Blogs
+                </h1>
+              </div>
             </div>
           </div>
         </div>
@@ -105,15 +104,6 @@ export default async function page() {
               <>
                 {/* All Posts Grid */}
                 <div>
-                  <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
-                      Latest Investment Insights
-                    </h2>
-                    <div className="mt-2 text-sm text-gray-500">
-                      {safePosts.length} Article
-                      {safePosts.length !== 1 ? "s" : ""} Available
-                    </div>
-                  </div>
                   <div className="px-4 ">
                     <div className="flex flex-col max-sm:flex-col-reverse lg:flex-row gap-8">
                       {/* Blog Grid */}
