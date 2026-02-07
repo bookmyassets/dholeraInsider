@@ -10,13 +10,14 @@ const RelatedBlogCard = ({ blog }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
       {/* Image */}
-      <div className="relative w-full h-64">
+      <div className="relative w-full h-36 md:h-48">
         {blog.mainImage ? (
           <Image
             src={urlFor(blog.mainImage).url()}
             alt={blog.title}
             fill
-            className="object-cover"
+            className=""
+            rel="preconnect"
           />
         ) : (
           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
@@ -28,7 +29,7 @@ const RelatedBlogCard = ({ blog }) => {
       {/* Content */}
       <div className="flex flex-col flex-grow p-5">
         {/* Title */}
-        <h3 className="text-xl font-bold mb-3 text-teal-950 line-clamp-2 h-14">
+        <h3 className="text-xl font-semibold mb-3 text-teal-950 line-clamp-2 h-14">
           {blog.title}
         </h3>
 

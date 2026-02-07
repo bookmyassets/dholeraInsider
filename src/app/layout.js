@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* Clarity */}
-        <Script type="text/javascript">
+        <Script type="text/javascript" strategy="afterInteractive">
           {`
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

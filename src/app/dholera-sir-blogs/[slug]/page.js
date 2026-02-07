@@ -480,6 +480,7 @@ export default async function Post({ params }) {
                       height={800}
                       className="w-full h-auto aspect-[3/2]"
                       priority
+                      rel="preconnect"
                     />
                   </div>
                 )}
