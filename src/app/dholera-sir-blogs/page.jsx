@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import FormComponent from "./FormComponent";
-import hero from "@/app/assets/hero/dholerasir.webp";
+import hero from "@/app/assets/dholera-sir-blogs-banner-dholera-insider.webp";
 import LeadForm from "../about-dholera-sir/LeadForm";
 import TrendingBlogItem from "./TrendingBlog";
 
@@ -72,13 +72,13 @@ export default async function page() {
       <div className="min-h-screen bg-white relative overflow-hidden">
         {/* Enhanced Hero Section - Responsive Height */}
         <div className="bg-white relative">
-          <div className="pt-16 md:pt-20">
-            <div className="relative md:h-[50vh] overflow-hidden shadow-lg">
+          <div className="pt-16 md:pt-8">
+            <div className="relative w-full md:h-[60vh] overflow-hidden shadow-lg aspect-[3/1]">
               {/* Hero Image */}
               <Image
                 src={hero}
                 alt="Dholera SIR Development"
-                className="w-full h-auto md:h-[60vh] object-contain md:object-cover"
+                className="w-full h-auto md:h-[60vh] object-contain md:object-cover  aspect-[3/1]"
                 quality={100}
                 priority
                 sizes="100vw"

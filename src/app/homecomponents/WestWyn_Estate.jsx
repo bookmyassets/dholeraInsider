@@ -10,13 +10,13 @@ export default function WestWyn_Estate() {
       <div className="pt-12 max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl max-sm:text-xl font-bold text-teal-400 mb-4">
+          <h3 className="text-4xl max-sm:text-xl font-bold text-teal-400 mb-4">
             WestWyn Estate -{" "}
             <span className="text-white">
               {" "}
               Invest in Dholera’s Fastest Growing Zone
             </span>
-          </h2>
+          </h3>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full mb-6"></div>
         </div>
 

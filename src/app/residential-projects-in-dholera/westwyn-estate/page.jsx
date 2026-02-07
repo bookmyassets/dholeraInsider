@@ -148,9 +148,9 @@ export default function Hero() {
 
               {/* Middle Column - Title & Description */}
               <div>
-                <h1 className="text-xl md:text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                <p className="text-xl md:text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                   <p>Immediate Possession</p>
-                </h1>
+                </p>
                 <div className="text-2xl text-center font-bold">
                   ₹6,500
                   <span className="text-sm ml-1">/Sq.Yd</span>
@@ -194,9 +194,9 @@ export default function Hero() {
 
             {/* Title & Description */}
             <div>
-              <h1 className="text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+              <p className="text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                 <p>Immediate Possession</p>
-              </h1>
+              </p>
             </div>
 
             {/* Contact & Buttons */}

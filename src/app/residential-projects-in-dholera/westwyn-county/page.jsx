@@ -150,9 +150,9 @@ export default function Hero() {
 
               {/* Middle Column - Title & Description */}
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                <p className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                   WestWyn County
-                </h1>
+                </p>
               </div>
 
               {/* Right Column - Contact & Buttons */}
@@ -194,9 +194,9 @@ export default function Hero() {
 
             {/* Title & Description */}
             <div>
-              <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+              <p className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                 WestWyn County
-              </h1>
+              </p>
             </div>
 
             {/* Contact & Buttons */}

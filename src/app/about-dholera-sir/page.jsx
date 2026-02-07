@@ -1,5 +1,5 @@
 import { getblogs, projectInfo } from "@/sanity/lib/api";
-import hero from "@/app/assets/hero/sir.webp";
+import hero from "@/app/assets/about-dholera-sir-banner-dholera-insider.webp";
 import heroM from "@/app/assets/hero/abt-sir-mob.png";
 
 import Image from "next/image";
@@ -66,7 +66,7 @@ export default async function BlogsPage() {
 
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <div className="relative h-[65vh] flex items-center justify-center overflow-hidden bg-cover bg-center">
+        {/* <div className="relative h-[65vh] flex items-center justify-center overflow-hidden bg-cover bg-center">
           <Image
             src={hero}
             alt="Dholera SIR"
@@ -81,31 +81,31 @@ export default async function BlogsPage() {
             fill
             priority
           />
-        </div>
+        </div> */}
 
-        {/* <div className="bg-white relative">
+        <div className="bg-white relative">
           <div className="pt-16 md:pt-16">
-            <div className="relative md:h-[50vh] overflow-hidden shadow-lg"> //yet to be applied 
+            <div className="relative w-full  overflow-hidden shadow-lg aspect-[3/1]"> 
               <Image
                 src={hero}
                 alt="Dholera SIR Development"
-                className="w-full h-auto md:h-[60vh] object-contain md:object-cover"
+                className="w-full h-auto   aspect-[3/1] pt-4"
                 quality={100}
                 priority
                 sizes="100vw"
               />
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* Main Content Section */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Introduction Section */}
           <section className="mb-8">
             <div className="text-center mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
+              <h1 className="text-2xl md:text-3xl font-bold text-black mb-3">
                 What is Dholera SIR?
-              </h2>
+              </h1>
               <div className="w-24 h-1 bg-teal-700 mx-auto"></div>
             </div>
 

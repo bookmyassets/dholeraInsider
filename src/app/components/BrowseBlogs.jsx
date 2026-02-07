@@ -127,10 +127,10 @@ export default function LatestUpdates() {
   return (
     <div className="max-w-7xl mx-auto py-16 px-4 bg-gray-50">
       <div className="w-full px-2 mb-10 text-center">
-        <h1 className="font-bold text-2xl md:text-3xl mb-3 relative inline-block pb-2 text-teal-950">
+        <h3 className="font-bold text-2xl md:text-3xl mb-3 relative inline-block pb-2 text-teal-950">
           Featured Blogs
           <span className="absolute bottom-0 left-1/4 right-1/4 h-1 rounded-full bg-teal-700"></span>
-        </h1>
+        </h3>
         <p className="text-sm md:text-base max-w-2xl mx-auto text-gray-600 mt-4">
           Handpicked reads to stay ahead with Expert views on Dholera
         </p>
