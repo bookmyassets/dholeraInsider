@@ -77,6 +77,7 @@ const TrendingBlogItem = ({ post }) => {
               width={80}
               height={80}
               className="w-full h-full object-cover"
+              rel="preconnect"
             />
           </div>
         )}
@@ -195,6 +196,7 @@ export default async function BlogDetail({ params }) {
               width={1200}
               height={800}
               loading="lazy"
+              rel="preconnect"
             />
           );
 
@@ -636,6 +638,7 @@ export default async function BlogDetail({ params }) {
                     height={800}
                     className="w-full h-auto aspect-[3/2]"
                     priority
+                    rel="preconnect"
                   />
                 </div>
               )}

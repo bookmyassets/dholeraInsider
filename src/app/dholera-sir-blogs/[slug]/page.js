@@ -34,6 +34,7 @@ const RightSidebar = ({ trendingBlogs }) => {
                         width={64}
                         height={64}
                         className="w-full h-full"
+                        rel="preconnect"
                       />
                     </div>
                   )}
@@ -128,6 +129,7 @@ export default async function Post({ params }) {
               width={1200}
               height={800}
               loading="lazy"
+              rel="preconnect"
             />
           );
 
@@ -556,6 +558,7 @@ export default async function Post({ params }) {
                                 width={400}
                                 height={250}
                                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                                rel="preconnect"
                               />
                             ) : (
                               <div className="w-full h-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
