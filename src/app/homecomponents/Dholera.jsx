@@ -51,7 +51,7 @@ export default function Dholera() {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 h-64 hover:bg-white/15 transition-all duration-300 border border-white/20"
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 h-auto md:h-64 hover:bg-white/15 transition-all duration-300 border border-white/20"
             >
               <h3 className="text-xl font-semibold text-teal-300 mb-3">
                 {benefit.title}
