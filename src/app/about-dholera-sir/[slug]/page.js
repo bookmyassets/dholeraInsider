@@ -651,8 +651,8 @@ export default async function BlogDetail({ params }) {
               <TableOfContent headings={extractHeadings(post.body)} />
 
               {/* Content */}
-              <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl pl-8 pr-8 border border-gray-200">
-                <div className="text-xl max-w-none">
+              <div className="bg-white rounded-xl shadow-2xl text-black leading-5 shadow-t-2xl pl-4 md:pl-8 pr-4 md:pr-8 border border-gray-200">
+                <div className=" max-w-none">
                   <PortableText value={post.body} components={components} />
                 </div>
 
