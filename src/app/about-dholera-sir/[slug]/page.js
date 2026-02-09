@@ -185,7 +185,7 @@ export default async function BlogDetail({ params }) {
       );
     }
 
-    const components = {
+     const components = {
       types: {
         image: ({ value }) => {
           if (!value?.asset) return null;
