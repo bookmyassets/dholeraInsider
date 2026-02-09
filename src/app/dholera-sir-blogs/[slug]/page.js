@@ -465,7 +465,7 @@ export default async function Post({ params }) {
     return (
       <>
         <div>
-          <title>{post.title}</title>
+          <title>{post.metaTitle}</title>
           <BlogSchemaMarkup post={post} relatedBlogs={relatedBlogs} />
 
           {/* Additional SEO meta tags */}
