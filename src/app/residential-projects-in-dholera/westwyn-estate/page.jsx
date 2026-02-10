@@ -104,11 +104,11 @@ export default function Hero() {
         }}
       />
       <title>
-        WestWyn Estate Dholera – Premium Dholera Plots in Smart City Dholera
+        WestWyn Estate - Premium Residential plots in Dholera Smart City
       </title>
       <meta
         name="description"
-        content="Explore WestWyn Estate Dholera plots in smart city Dholera with strong Dholera investment potential in Gujarat’s Dholera Smart City."
+        content="Invest in Westwyn Estate Dholera. 100% title-clear & AUDA approved residential plots. Located 0 KM from SIR boundary. Immediate registry and possession available."
       />
       <meta
         name="keywords"

@@ -44,15 +44,11 @@ export default async function BlogsPage() {
   return (
     <>
       <title>
-        About Dholera SIR – Dholera Special Investment Region in Gujarat
+        About Dholera Smart City | Overview, Growth & Future Potential
       </title>
       <meta
-        name="title"
-        content="About Dholera SIR – India's First Smart City"
-      />
-      <meta
         name="description"
-        content="Learn about Dholera SIR and Dholera Special Investment Region—India's smart city Gujarat project offering prime Dholera investment opportunities."
+        content="Learn what makes Dholera Smart City unique its vision, infrastructure, connectivity, and investment potential. Discover why Dholera SIR is a top destination for future growth."
       />
       <meta
         name="keywords"

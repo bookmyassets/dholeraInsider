@@ -588,7 +588,7 @@ export default async function BlogDetail({ params }) {
                 )}
 
                 <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
-                  {post.metaTitle}
+                  {post.title}
                 </h1>
 
                 {/* Publication date */}

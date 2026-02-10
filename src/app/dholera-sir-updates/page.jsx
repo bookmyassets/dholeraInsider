@@ -45,14 +45,10 @@ export default async function Blogs() {
 
   return (
     <>
-      <title>Dholera Latest Updates - News & Insights on Dholera SIR</title>
-      <meta
-        name="title"
-        content="Dholera Latest Updates - News & Insights on Dholera SIR"
-      />
+      <title>Latest Dholera Smart City News 2026 | Updates on Projects & Growth</title>
       <meta
         name="description"
-        content="Stay updated with the latest Dholera news and smart city updates covering Dholera real estate and Dholera investment trends."
+        content="Get the Latest investment updates on Dholera Smart City - infrastructure news, expressway progress, airport updates, and industrial developments that helps to investors and residents."
       />
       <meta
         name="keywords"

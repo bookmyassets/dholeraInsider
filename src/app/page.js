@@ -81,10 +81,10 @@ export default function App() {
         }}
       />
 
-      <title>Dholera Insider – Invest in Dholera Smart City Plots</title>
+      <title>Dholera Smart City Investment: Buy Premium residential plots In Dholera</title>
       <meta
         name="description"
-        content="Discover verified NA/NOC-approved Dholera plots in Dholera Smart City. Get expert guidance for investment in Dholera and Dholera real estate."
+        content="Secure your future in India's first greenfield smart city. Explore verified residential plots in Dholera. Get latest price trends & ROI insights."
       />
       <meta
         name="keywords"

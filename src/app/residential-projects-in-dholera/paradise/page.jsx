@@ -38,10 +38,10 @@ export default function Hero() {
           }),
         }}
       />
-    <title>Paradise Dholera – Residential Dholera Plots in Smart City Gujarat</title>
+    <title>Paradise Residential Plots Dholera | Smart City Investment Project</title>
       <meta
         name="description"
-        content="Paradise Dholera offers affordable Dholera plots for homebuyers and investors in smart city of Dholera."
+        content="Paradise is a planned residential plot project near Dholera Smart City. Well-connected location, clear documentation, and strong future appreciation potential."
       />
       <meta
         name="keywords"
@@ -84,12 +84,12 @@ export default function Hero() {
                 {/* Middle Column - Title & Description */}
                 <div>
                   <a href="/residential-projects-in-dholera/westwyn-estate">
-                    <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                    <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
                       <span className="text-base font-bold text-teal-900">
                         Explore Our Latest Project
                       </span>{" "}
                       <br /> WestWyn Estate
-                    </h1>
+                    </p>
                   </a>
                 </div>
 
@@ -132,9 +132,9 @@ export default function Hero() {
 
               {/* Title & Description */}
               <div>
-                <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                <p className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                   WestWyn Estate
-                </h1>
+                </p>
               </div>
 
               {/* Contact & Buttons */}

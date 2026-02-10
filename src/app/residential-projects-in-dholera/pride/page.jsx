@@ -38,11 +38,11 @@ export default function Hero() {
           }),
         }}
       />
-    <title>Pride Dholera – Signature Dholera Plots in Smart City Gujarat</title>
+    <title>Pride residential Plot Project on Kasindra | Dholera Residential Plots</title>
     
     <meta
         name="description"
-        content="Pride Dholera offers prime plots in the heart of Smart City Gujarat—perfect for long-term investment in Dholera."
+        content="Pride offers well-planned residential plots in Dholera near upcoming Smart City infrastructure with strong long-term growth potential."
     />
     <meta
         name="keywords"

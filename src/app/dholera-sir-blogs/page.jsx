@@ -51,15 +51,11 @@ export default async function page() {
   return (
     <>
       <title>
-        Dholera Insider Blog – News & Insights on Dholera Real Estate
+        Dholera Smart City Insights | Latest Updates and Investment Blogs
       </title>
       <meta
-        name="title"
-        content="Dholera Insider Blog – News & Insights on Dholera Real Estate"
-      />
-      <meta
         name="description"
-        content="Stay updated with the latest Dholera news and smart city updates covering Dholera real estate and Dholera investment trends."
+        content="Stay updated with the latest Dholera Smart City developments, market insights, and key growth trends. Ideal for investors and urban planning enthusiasts looking for future opportunities."
       />
       <meta
         name="keywords"

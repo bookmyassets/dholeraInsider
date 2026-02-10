@@ -344,14 +344,10 @@ const ContactUsPage = () => {
         }}
       />
 
-      <title>Contact Dholera Insider – Get in Touch About Dholera Plots</title>
-      <meta
-        name="title"
-        content="Contact Dholera Insider – Get in Touch About Dholera Plots"
-      />
+      <title>Get in Touch with Dholera Insider – Smart City Experts</title>
       <meta
         name="description"
-        content="Reach out to our smart city consultants for Dholera plots, Dholera investment queries, and site visit assistance in Dholera Smart City."
+        content="Connect with Dholera Insider for the latest Smart City news, project updates, and help with planning your investment in Dholera Smart City. Contact us now!"
       />
       <meta
         name="keywords"

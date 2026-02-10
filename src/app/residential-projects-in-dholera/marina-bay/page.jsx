@@ -38,10 +38,10 @@ export default function Hero() {
           }),
         }}
       />
-      <title>Marina Bay Dholera – Premium Plots in Smart City Gujarat</title>
+      <title>Marina bay residential plots on Navda Highway 0 km from Dholera SIR</title>
       <meta
         name="description"
-        content="Marina Bay Dholera offers luxury Dholera plots with top Dholera Smart City connectivity and smart city Gujarat benefits."
+        content="Marina Bay residential project in Dholera near the Ahmedabad-Dholera Expressway & Dholera International Airport, offering secure residential plots with approvals and modern facilities."
       />
       <meta
         name="keywords"
@@ -85,9 +85,9 @@ export default function Hero() {
 
               {/* Middle Column - Title & Description */}
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+                <p className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                   WestWyn Estate
-                </h1>
+                </p>
               </div>
 
               {/* Right Column - Contact & Buttons */}
@@ -130,12 +130,12 @@ export default function Hero() {
             {/* Title & Description */}
             <div>
               <a href="/residential-projects-in-dholera/westwyn-estate">
-                <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
                   <span className="text-base font-bold text-teal-900">
                     Explore Our Latest Project
                   </span>{" "}
                   <br /> WestWyn Estate
-                </h1>
+                </p>
               </a>
             </div>
 

@@ -91,12 +91,12 @@ export default function Hero() {
               {/* Middle Column - Title & Description */}
               <div>
                 <a href="/residential-projects-in-dholera/westwyn-estate">
-                  <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                  <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
                     <span className="text-base font-bold text-teal-900">
                       Explore Our Latest Project
                     </span>{" "}
                     <br /> WestWyn Estate
-                  </h1>
+                  </p>
                 </a>
               </div>
 
@@ -139,9 +139,9 @@ export default function Hero() {
 
             {/* Title & Description */}
             <div>
-              <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
+              <p className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
                 WestWyn Estate
-              </h1>
+              </p>
             </div>
 
             {/* Contact & Buttons */}

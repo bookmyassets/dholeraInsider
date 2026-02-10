@@ -102,11 +102,11 @@ export default function Hero() {
         }}
       />
       <title>
-        WestWyn County Dholera – Registry-Ready Plots in Dholera Smart City
+        WestWyn County Dholera | Secure Your Residential Plots Near Dholera SIR
       </title>
       <meta
         name="description"
-        content="Discover WestWyn County Dholera plots designed for high Dholera investment value in smart city Gujarat."
+        content="WestWyn County offers approved residential plots near Dholera Smart City. Ideal for homebuyers and investors looking for future growth in Dholera SIR."
       />
       <meta
         name="keywords"
