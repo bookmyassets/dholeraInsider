@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import hero from "@/app/assets/dholera-insider-gallery-banner.webp"
 /* import hero from "@/app/assets/gallery/news.webp"; */
 // Updated imports (new image names & location)
 import img1 from "@/app/assets/gallery/abcd-building-dholera-insider.webp";
@@ -154,17 +155,31 @@ export default function DholeraProgressPage() {
       <meta name="robots" content="index, dofollow" />
 
       {/* Hero Section with Enhanced Overlay */}
-      <div className="relative h-[40vh] overflow-hidden bg-teal-700">
-        <div className="">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center justify-center">
-            <div className="text-center px-6 max-w-4xl">
-              <h1 className="text-3xl md:text-4xl font-bold text-white flex justify-center items-center tracking-tight leading-tight">
-                Dholera SIR Gallery
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="bg-white relative">
+                <div className="pt-16 md:pt-8">
+                  <div className="relative w-full md:h-[60vh] overflow-hidden shadow-lg aspect-[3/1]">
+                    {/* Hero Image */}
+                    <Image
+                      src={hero}
+                      alt="Dholera SIR Development"
+                      className="w-full h-auto md:h-[60vh] object-contain md:object-cover  aspect-[3/1]"
+                      quality={100}
+                      priority
+                      sizes="100vw"
+                    />
+      
+                    {/* Black Overlay */}
+                    <div className="absolute inset-0 bg-black/60"></div>
+      
+                    {/* Text Content */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center">
+                      <h1 className="text-2xl md:text-5xl font-bold text-white leading-tight">
+                        Dholera SIR Gallery
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
       {/* Gallery Section with Enhanced Design */}
       <div className="max-w-7xl mx-auto px-4 py-8">
