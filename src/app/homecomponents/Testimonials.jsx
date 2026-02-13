@@ -151,6 +151,12 @@ const TestimonialPagination = () => {
                     {testimonials[currentMobileIndex].location}
                   </p>
                 </div>
+
+                <div className="px-6 pb-4 relative">
+                    <p className="text-gray-600 italic text-center">
+                      {testimonials[currentMobileIndex].quote}
+                    </p>
+                  </div>
               </div>
 
               {/* Navigation Buttons for Mobile */}
@@ -233,6 +239,13 @@ const TestimonialPagination = () => {
                     </h3>
                     <p className="text-sm text-teal-700 font-medium mb-4">
                       {testimonial.location}
+                    </p>
+                  </div>
+
+                  {/* Quote */}
+                  <div className="px-6 pb-4 relative">
+                    <p className="text-gray-600 italic text-center">
+                      {testimonial.quote}
                     </p>
                   </div>
                 </motion.div>
