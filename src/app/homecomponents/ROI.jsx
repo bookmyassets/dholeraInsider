@@ -303,7 +303,7 @@ const InvestmentTimeline = () => {
   return (
     <div className="w-full max-w-7xl mx-auto p-6" id="timeline-container">
       <div className="text-center mb-6">
-        <h2 className={`text-[28px] font-bold text-[#151f28] mb-4 transition-all duration-1000 ${
+        <h2 className={`text-4xl max-sm:text-xl font-bold text-[#151f28] mb-4 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
         }`}>
           Investment Growth Timeline

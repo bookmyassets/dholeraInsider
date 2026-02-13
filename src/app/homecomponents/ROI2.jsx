@@ -146,7 +146,7 @@ const InvestmentTimeline = () => {
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
         }`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl max-sm:text-xl font-bold text-gray-900 mb-4">
             Your Path to <span className="text-teal-600">10x Returns</span>
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">

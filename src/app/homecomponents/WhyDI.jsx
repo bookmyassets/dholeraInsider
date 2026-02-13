@@ -9,7 +9,7 @@ export default function WhyDI() {
       {/* Why Dholera Smart City Section */}
       <div className="pt-8 max-w-6xl mx-auto px-4">
         <div className="text-center ">
-          <h2 className="text-4xl max-sm:text-3xl font-bold text-white mb-4">
+          <h2 className="text-4xl max-sm:text-xl font-bold text-white mb-4">
             Why Investors Trust <span className="text-teal-400">Dholera Insider?</span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>

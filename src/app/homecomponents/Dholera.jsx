@@ -40,7 +40,7 @@ export default function Dholera() {
       <div className="py-16 max-w-7xl mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl max-sm:text-2xl font-bold text-white mb-4">
+          <h2 className="text-4xl max-sm:text-xl font-bold text-white mb-4">
             What Makes Dholera Smart City Different from Other Cities in India
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>

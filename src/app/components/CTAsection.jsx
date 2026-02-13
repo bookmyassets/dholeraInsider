@@ -42,7 +42,7 @@ export default function CTAsection() {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+            <h2 className="text-xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
               Expert Guidance for Smart Investor
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>
@@ -53,7 +53,7 @@ export default function CTAsection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-300 mb-12 leading-relaxed"
+            className="text-sm text-gray-300 mb-12 leading-relaxed"
           >
             Have questions about Dholera investments? Our team is here to guide
             you every step of the way.

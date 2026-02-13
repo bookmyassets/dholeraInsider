@@ -151,19 +151,6 @@ const TestimonialPagination = () => {
                     {testimonials[currentMobileIndex].location}
                   </p>
                 </div>
-
-                {/* Quote */}
-                <div className="relative">
-                  <div className="absolute -top-6 left-0 text-5xl text-teal-700 opacity-20">
-                    “
-                  </div>
-                  <p className="text-gray-600 italic text-center px-2">
-                    {testimonials[currentMobileIndex].quote}
-                  </p>
-                  <div className="absolute -bottom-6 right-0 text-5xl text-teal-700 opacity-20">
-                    ”
-                  </div>
-                </div>
               </div>
 
               {/* Navigation Buttons for Mobile */}
@@ -247,19 +234,6 @@ const TestimonialPagination = () => {
                     <p className="text-sm text-teal-700 font-medium mb-4">
                       {testimonial.location}
                     </p>
-                  </div>
-
-                  {/* Quote */}
-                  <div className="px-6 pb-4 relative">
-                    <div className="absolute top-0 left-6 text-5xl text-teal-700 opacity-10">
-                      “
-                    </div>
-                    <p className="text-gray-600 italic text-center">
-                      {testimonial.quote}
-                    </p>
-                    <div className="absolute bottom-0 right-6 text-5xl text-teal-700 opacity-10">
-                      ”
-                    </div>
                   </div>
                 </motion.div>
               ))}
