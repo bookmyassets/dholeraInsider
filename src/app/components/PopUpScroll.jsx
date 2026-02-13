@@ -246,12 +246,8 @@ export default function PopupScroll({title, subtitle}) {
                   >
                     ×
                   </button>
-                  <h1 className="text-xl md:text-3xl font-bold text-white mb-2">{title}</h1>
+                  <h2 className="text-xl md:text-2xl font-bold text-white mb-2">{title}</h2>
                   
-                  {/* Section 2: Sub-heading CTA */}
-                  <p className="text-lg text-white font-semibold">
-                   {subtitle}
-                  </p>
                 </div>
 
                 {/* Section 3: Form Fields */}

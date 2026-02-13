@@ -270,11 +270,10 @@ export default function SlugPageForm() {
                     >
                       ×
                     </button>
-                    <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-2">Dholera Insider</h1>
                     
                     {/* Section 2: Sub-heading CTA */}
-                    <p className="text-lg text-gray-700 font-semibold">
-                      Secure Your Future with AUDA-Approved Plots in Dholera Smart City
+                    <p className="text-xl md:text-2xl text-gray-700 font-semibold">
+                      Buy Residential Plots in Dholera Just 0 Km from SIR
                     </p>
                   </div>
 

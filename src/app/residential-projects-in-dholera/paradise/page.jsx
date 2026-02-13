@@ -188,7 +188,7 @@ export default function Hero() {
       </div>
 
       <div>
-        <CommonForm title="Registry Ready Plots Under ₹10 Lakhs" />
+        <CommonForm title="Registry Ready Plots Under ₹10 Lakh" />
       </div>
 
       <div className="relative">
@@ -275,7 +275,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
+      <PopupScroll title="Invest in Verified Plots in Dholera Under ₹10 Lakh" />
       <AnimatePresence>
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">

@@ -409,13 +409,9 @@ export default function Popup({
               {/* Content Section */}
               <div className="text-center">
 
-                <h2 className="text-xl md:text-3xl font-bold mb-1 leading-tight text-amber-200">
-                  Dholera Insider
+                <h2 className="text-xl md:text-2xl font-bold mb-1 leading-tight text-amber-200">
+                 Start Your Dholera Investment Under ₹10 Lakh
                 </h2>
-
-                <p className="text-white/90 text-lg">
-                  Your Front-Row Seat to India's Smart Future
-                </p>
 
                 {titleInfo.timeLeft && (
                   <div className="bg-amber-200 text-black px-4 py-2 rounded-lg inline-flex items-center gap-2 font-bold mb-6">

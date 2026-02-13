@@ -261,7 +261,7 @@ export default function Hero() {
       </div>
 
       <div>
-        <CommonForm title="Invest in Premium Dholera Plots in the City’s Most Connected Zone" />
+        <CommonForm title="Invest in Premium Residential Plots in Dholera Smart City" />
       </div>
 
       <div className="relative">
@@ -381,7 +381,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Registry Ready Plots Under ₹10 Lakhs" />
+      <PopupScroll title="Invest in Verified Plots in Dholera Under ₹10 Lakh" />
       <AnimatePresence>
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">

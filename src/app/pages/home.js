@@ -80,7 +80,7 @@ const HomePage = ({openForm}) => {
       <Invest />
       <Dholera/>
       <WestWyn_Estate/>
-      <CommonForm title="Invest in Verified Residential Plots in Dholera under ₹10 lakh"/>
+      <CommonForm title="Own a Govt Approved Plot in Dholera under ₹10 lakh"/>
       <WhyDI/>
       <LatestUpdates/>
       {/* Gallery */}
