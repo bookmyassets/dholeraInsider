@@ -37,32 +37,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-P4MC4RPF');
            `}
         </Script>
-        {/* GTM */}
-        <Script
-          strategy="lazyOnload"
-          src="https://www.googletagmanager.com/gtag/js?id=G-XFRYX35W0G"
-        />
-
-        {/* Analytics */}
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-                      window.dataLayer = window.dataLayer || []; 
-                      function gtag(){ dataLayer.push(arguments); }
-                      gtag('js', new Date());
-                      gtag('config', 'G-XFRYX35W0G'); 
-                    `,
-          }}
-        />
       </head>
 
       <body className={poppins.className}>
         {/* tag manager */}
         <noscript
           dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CXXQ9DJ"
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4MC4RPF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
           }}
         />

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ const Hero = () => {
     {
       title: "WestWyn Estate",
       subtitle: "Buy Registry-Ready Plots Under ₹10 Lakh in Dholera",
-    }
+    },
   ];
 
   // Auto slide effect
@@ -26,15 +26,16 @@ const Hero = () => {
       {/* Background Image - You should add your image here */}
       <div className="absolute inset-0">
         <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover z-0"
-          >
-               <source src="/video/video2.mp4" type="video/mp4" />
-          </video>
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+         /*  poster="/hero-poster.webp" */
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/video/video2.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Dark overlay for better text readability */}
@@ -45,7 +46,6 @@ const Hero = () => {
         <div className="container mx-auto px-4 text-center text-white">
           {/* Left Section - Text Content */}
           <div className="max-w-3xl mx-auto">
-
             <h1 className="text-2xl md:text-3xl font-semibold mb-6 animate-fadeIn">
               {slides[currentSlide].subtitle}
             </h1>
@@ -54,7 +54,10 @@ const Hero = () => {
               {slides[currentSlide].title}
             </h2>
 
-            <Link href="tel:+919211820887" className="inline-block mb-6 px-6 py-2 bg-blue-600 rounded-full text-sm font-medium hover:bg-blue-700 transition duration-300">
+            <Link
+              href="tel:+919211820887"
+              className="inline-block mb-6 px-6 py-2 bg-blue-600 rounded-full text-sm font-medium hover:bg-blue-700 transition duration-300"
+            >
               Contact Us
             </Link>
             {/* <p className="text-lg mb-8 animate-fadeIn">
@@ -62,7 +65,7 @@ const Hero = () => {
             </p> */}
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   );
 };

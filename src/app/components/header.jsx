@@ -274,6 +274,7 @@ const Header = () => {
                 priority={true}
                 quality={85}
                 placeholder="blur"
+                fetchPriority="high" 
               />
             </motion.div>
           </Link>
