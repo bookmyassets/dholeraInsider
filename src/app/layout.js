@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {/* Clarity */}
-        <Script type="text/javascript" strategy="afterInteractive">
+        <Script type="text/javascript" strategy="lazyOnload">
           {`
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
