@@ -21,7 +21,7 @@ export default function Hero() {
 
   return (
     <>
-    <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -38,27 +38,32 @@ export default function Hero() {
           }),
         }}
       />
-    <title>Pride residential Plot Project on Kasindra | Dholera Residential Plots</title>
-    
-    <meta
+      <title>
+        Pride residential Plot Project on Kasindra | Dholera Residential Plots
+      </title>
+
+      <meta
         name="description"
         content="Pride offers well-planned residential plots in Dholera near upcoming Smart City infrastructure with strong long-term growth potential."
-    />
-    <meta
+      />
+      <meta
         name="keywords"
         content="Pride Dholera, Dholera plots, smart city Gujarat, Dholera investment, Dholera Smart City"
-    />
-      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/pride" />
+      />
+      <link
+        rel="canonical"
+        href="https://www.dholerainsider.com/residential-projects-in-dholera/pride"
+      />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
-          alt="Pride Dholera City Project"
-          className="w-full h-full max-sm:hidden max-sm:object-cover"
+          alt="Maple Township in Dholera"
+          className="w-full h-full max-sm:hidden"
           priority
         />
         <Image
           src={westwynEstate1M}
-          alt="Pride Dholera City Project"
+          alt="Maple Township in Dholera"
           className="w-full h-full md:hidden"
           priority
         />
@@ -69,10 +74,7 @@ export default function Hero() {
               <div>
                 <div className="flex items-center gap-2 flex-wrap mb-3">
                   <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    Residential
-                  </span>
-                  <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    🔥 Newly Launched
+                    Residential Projects
                   </span>
                 </div>
                 <div className="text-3xl font-bold">
@@ -84,12 +86,12 @@ export default function Hero() {
               {/* Middle Column - Title & Description */}
               <div>
                 <a href="/residential-projects-in-dholera/westwyn-estate">
-                  <h1 className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                  <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
                     <span className="text-base font-bold text-teal-900">
                       Explore Our Latest Project
                     </span>{" "}
                     <br /> WestWyn Estate
-                  </h1>
+                  </p>
                 </a>
               </div>
 
@@ -120,9 +122,6 @@ export default function Hero() {
                 <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
                   Residential
                 </span>
-                <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                  🔥 Newly Launched
-                </span>
               </div>
               <div className="text-3xl font-bold text-teal-900">
                 ₹6,500
@@ -132,9 +131,14 @@ export default function Hero() {
 
             {/* Title & Description */}
             <div>
-              <h1 className="text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                WestWyn Estate
-              </h1>
+              <a href="/residential-projects-in-dholera/westwyn-estate">
+                <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                  <span className="text-base font-bold text-teal-900">
+                    Explore Our Latest Project
+                  </span>{" "}
+                  <br /> WestWyn Estate
+                </p>
+              </a>
             </div>
 
             {/* Contact & Buttons */}
@@ -147,8 +151,8 @@ export default function Hero() {
                   📄 Download Brochure
                 </button>
               </div>
-              <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
-                <p>Registry Ready Plot under ₹10 Lakhs</p>
+              <div className="text-teal-900 text-center text-xl font-semibold hover:text-teal-800 transition-colors">
+                <p>Immediate Possession</p>
               </div>
             </div>
           </div>

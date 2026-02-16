@@ -20,7 +20,7 @@ export default function Hero() {
   };
   return (
     <>
-    <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -37,7 +37,9 @@ export default function Hero() {
           }),
         }}
       />
-    <title>Orchid Residential Plots in Dholera | Smart City Plot Investment</title>
+      <title>
+        Orchid Residential Plots in Dholera | Smart City Plot Investment
+      </title>
       <meta
         name="description"
         content="Orchid offers planned residential plots in Dholera near Smart City infrastructure. Strategically located along the DMIC corridor, ideal for long-term investment"
@@ -46,17 +48,20 @@ export default function Hero() {
         name="keywords"
         content="Orchid Dholera, Dholera Activation Area, Dholera plots, Dholera investment, smart city Dholera"
       />
-      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/orchid" />
-      <div className="relative">
+      <link
+        rel="canonical"
+        href="https://www.dholerainsider.com/residential-projects-in-dholera/orchid"
+      />
+      <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
-          alt="Orchid Dholera Residential Project"
+          alt="Maple Township in Dholera"
           className="w-full h-full max-sm:hidden"
           priority
         />
         <Image
           src={westwynEstate1M}
-          alt="Orchid Dholera Residential Project"
+          alt="Maple Township in Dholera"
           className="w-full h-full md:hidden"
           priority
         />
@@ -67,10 +72,7 @@ export default function Hero() {
               <div>
                 <div className="flex items-center gap-2 flex-wrap mb-3">
                   <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    Residential
-                  </span>
-                  <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    🔥 Newly Launched
+                    Residential Projects
                   </span>
                 </div>
                 <div className="text-3xl font-bold">
@@ -81,9 +83,14 @@ export default function Hero() {
 
               {/* Middle Column - Title & Description */}
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                  WestWyn Estate
-                </p>
+                <a href="/residential-projects-in-dholera/westwyn-estate">
+                  <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                    <span className="text-base font-bold text-teal-900">
+                      Explore Our Latest Project
+                    </span>{" "}
+                    <br /> WestWyn Estate
+                  </p>
+                </a>
               </div>
 
               {/* Right Column - Contact & Buttons */}
@@ -112,9 +119,6 @@ export default function Hero() {
               <div className="flex items-center gap-2 flex-wrap mb-3">
                 <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
                   Residential
-                </span>
-                <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                  🔥 Newly Launched
                 </span>
               </div>
               <div className="text-3xl font-bold text-teal-900">

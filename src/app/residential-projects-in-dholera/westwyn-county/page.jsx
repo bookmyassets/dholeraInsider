@@ -138,9 +138,6 @@ export default function Hero() {
                   <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
                     Residential
                   </span>
-                  <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    🔥 Newly Launched
-                  </span>
                 </div>
                 <div className="text-3xl font-bold">
                   ₹11,000
@@ -181,9 +178,6 @@ export default function Hero() {
               <div className="flex items-center gap-2 flex-wrap mb-3">
                 <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
                   Residential
-                </span>
-                <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                  🔥 Newly Launched
                 </span>
               </div>
               <div className="text-3xl font-bold text-teal-900">

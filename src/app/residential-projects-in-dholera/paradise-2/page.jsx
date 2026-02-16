@@ -21,7 +21,7 @@ export default function Hero() {
 
   return (
     <>
-    <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -38,7 +38,10 @@ export default function Hero() {
           }),
         }}
       />
-    <title>Paradise-2 Project Dholera SIR | Residential Plots Near Upcoming Infrastructure</title>
+      <title>
+        Paradise-2 Project Dholera SIR | Residential Plots Near Upcoming
+        Infrastructure
+      </title>
       <meta
         name="description"
         content="Explore Paradise-2 residential plots in Dholera Smart City. A suitable option for secure land investment close to major smart city developments."
@@ -47,17 +50,20 @@ export default function Hero() {
         name="keywords"
         content="Paradise 2 Dholera, Dholera plots, smart city Gujarat, Dholera investment, investment in Dholera"
       />
-      <link rel="canonical" href="https://www.dholerainsider.com/residential-projects-in-dholera/paradise-2" />
+      <link
+        rel="canonical"
+        href="https://www.dholerainsider.com/residential-projects-in-dholera/paradise-2"
+      />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
-          alt="Paradise in Dholera SIR Project"
+          alt="Maple Township in Dholera"
           className="w-full h-full max-sm:hidden"
           priority
         />
         <Image
           src={westwynEstate1M}
-          alt="Paradise in Dholera SIR Project"
+          alt="Maple Township in Dholera"
           className="w-full h-full md:hidden"
           priority
         />
@@ -68,10 +74,7 @@ export default function Hero() {
               <div>
                 <div className="flex items-center gap-2 flex-wrap mb-3">
                   <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    Residential
-                  </span>
-                  <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    🔥 Newly Launched
+                    Residential Projects
                   </span>
                 </div>
                 <div className="text-3xl font-bold">
@@ -82,9 +85,14 @@ export default function Hero() {
 
               {/* Middle Column - Title & Description */}
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                  WestWyn Estate
-                </p>
+                <a href="/residential-projects-in-dholera/westwyn-estate">
+                  <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
+                    <span className="text-base font-bold text-teal-900">
+                      Explore Our Latest Project
+                    </span>{" "}
+                    <br /> WestWyn Estate
+                  </p>
+                </a>
               </div>
 
               {/* Right Column - Contact & Buttons */}
@@ -113,9 +121,6 @@ export default function Hero() {
               <div className="flex items-center gap-2 flex-wrap mb-3">
                 <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
                   Residential
-                </span>
-                <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                  🔥 Newly Launched
                 </span>
               </div>
               <div className="text-3xl font-bold text-teal-900">
@@ -146,7 +151,7 @@ export default function Hero() {
                   📄 Download Brochure
                 </button>
               </div>
-              <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
+              <div className="text-teal-900 text-center text-xl font-semibold hover:text-teal-800 transition-colors">
                 <p>Immediate Possession</p>
               </div>
             </div>
