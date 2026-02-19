@@ -149,7 +149,7 @@ export default function Hero() {
               {/* Middle Column - Title & Description */}
               <div>
                 <p className="text-xl md:text-2xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                  <p>Immediate Possession</p>
+                  Immediate Possession
                 </p>
                 <div className="text-2xl text-center font-bold">
                   ₹6,500
@@ -195,7 +195,7 @@ export default function Hero() {
             {/* Title & Description */}
             <div>
               <p className="text-3xl font-bold text-teal-900 mb-2 leading-tight hover:text-teal-800 transition-colors">
-                <p>Immediate Possession</p>
+                Immediate Possession
               </p>
             </div>
 
@@ -233,8 +233,7 @@ export default function Hero() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
-              WestWyn Estate <br />{" "}
-              <span>Premium Residential Plots </span>
+              WestWyn Estate <br /> <span>Premium Residential Plots </span>
             </h1>
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-100 leading-relaxed">
@@ -247,7 +246,6 @@ export default function Hero() {
                 strong future appreciation.
               </p>
               <br />
-              <div></div>
             </div>
           </div>
         </div>
