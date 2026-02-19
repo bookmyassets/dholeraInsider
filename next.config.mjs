@@ -23,6 +23,17 @@ const nextConfig = {
         destination: "/about-dholera-sir/why-abcd-building-makes-dholera-sir-smartest-investment-destination",
         permanent: true,
       },
+       {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "dholerainsider.com",
+          },
+        ],
+        destination: "https://www.dholerainsider.com/:path*",
+        permanent: true,
+      },
     ];
   },
 
