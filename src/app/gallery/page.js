@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import hero from "@/app/assets/dholera-insider-gallery-banner.webp"
+import hero from "@/app/assets/dholera-insider-gallery-banner.webp";
 /* import hero from "@/app/assets/gallery/news.webp"; */
 // Updated imports (new image names & location)
 import img1 from "@/app/assets/gallery/abcd-building-dholera-insider.webp";
@@ -34,7 +34,7 @@ export default function DholeraProgressPage() {
     {
       id: 2,
       src: img2,
-      alt: "Man-made river in activation area of Dholera",
+      alt: "Man-made river in Activation Area of Dholera",
       caption: "Man-made river development in Dholera Activation Area",
     },
     {
@@ -52,25 +52,25 @@ export default function DholeraProgressPage() {
     {
       id: 5,
       src: img5,
-      alt: "Dholera International Airport aerial view",
+      alt: "Dholera International Airport Runway",
       caption: "Dholera International Airport development progress",
     },
     {
       id: 6,
       src: img6,
-      alt: "Cargo terminal at Dholera International Airport",
+      alt: "Dholera Airport Cargo Terminal",
       caption: "Cargo Terminal – Dholera International Airport",
     },
     {
       id: 7,
       src: img7,
-      alt: "Ahmedabad–Dholera Expressway night view",
+      alt: "Dholera Expressway Night View",
       caption: "Ahmedabad–Dholera Expressway connectivity",
     },
     {
       id: 8,
       src: img8,
-      alt: "Adhelai Diamond Circle infrastructure in Dholera",
+      alt: "Adhelai Diamond Circle in Dholera",
       caption: "Adhelai Diamond Circle – Key road junction in Dholera",
     },
     {
@@ -82,25 +82,25 @@ export default function DholeraProgressPage() {
     {
       id: 10,
       src: img10,
-      alt: "Asia’s largest solar park in Dholera",
+      alt: "Asia’s Largest Solar Park in Dholera",
       caption: "Asia’s Largest Solar Park – Dholera Smart City",
     },
     {
       id: 11,
       src: img11,
-      alt: "Tata Solar Park Mahadevpura Dholera",
+      alt: "Tata Solar Park Dholera",
       caption: "Tata Solar Park – Mahadevpura, Dholera",
     },
     {
       id: 12,
       src: img12,
-      alt: "Water reservoir in Dholera Activation Area",
+      alt: "Water Reservoir in Dholera",
       caption: "Water Reservoir Infrastructure – Dholera",
     },
     {
       id: 13,
       src: img13,
-      alt: "Water treatment plant in Dholera Smart City",
+      alt: "Water Treatment Plant in Dholera",
       caption: "Water Treatment Plant – Dholera Smart City",
     },
     {
@@ -118,23 +118,22 @@ export default function DholeraProgressPage() {
     {
       id: 16,
       src: img16,
-      alt: "Dholera Solar Park infrastructure",
+      alt: "Dholera Solar Park Infrastructure",
       caption: "Dholera Solar Park renewable energy infrastructure",
     },
     {
       id: 17,
       src: img17,
-      alt: "522-room Tata Hotel on Fedra–Pipli Highway",
+      alt: "Tata Hotel on Fedra–Pipli Highway",
       caption: "522-Room Tata Hotel – Fedra–Pipli State Highway",
     },
     {
       id: 18,
       src: img18,
-      alt: "Westwyn Estate residential plots Dholera",
+      alt: "Residential Plots in Dholera",
       caption: "Westwyn Estate – Residential Plots in Dholera",
     },
   ];
-
 
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -148,38 +147,35 @@ export default function DholeraProgressPage() {
 
   return (
     <div className="min-h-screen ">
-      <link
-        rel="canonical"
-        href="https://www.dholerainsider.com/gallery"
-      />
+      <link rel="canonical" href="https://www.dholerainsider.com/gallery" />
       <meta name="robots" content="index, dofollow" />
 
       {/* Hero Section with Enhanced Overlay */}
       <div className="bg-white relative">
-                <div className="pt-16 md:pt-8">
-                  <div className="relative w-full md:h-[60vh] overflow-hidden shadow-lg aspect-[3/1]">
-                    {/* Hero Image */}
-                    <Image
-                      src={hero}
-                      alt="Dholera SIR Development"
-                      className="w-full h-auto md:h-[60vh] object-contain md:object-cover  aspect-[3/1]"
-                      quality={100}
-                      priority
-                      sizes="100vw"
-                    />
-      
-                    {/* Black Overlay */}
-                    <div className="absolute inset-0 bg-black/60"></div>
-      
-                    {/* Text Content */}
-                    <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center">
-                      <h1 className="text-2xl md:text-5xl font-bold text-white leading-tight">
-                        Dholera SIR Gallery
-                      </h1>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div className="pt-16 md:pt-8">
+          <div className="relative w-full md:h-[60vh] overflow-hidden shadow-lg aspect-[3/1]">
+            {/* Hero Image */}
+            <Image
+              src={hero}
+              alt="Dholera SIR Development"
+              className="w-full h-auto md:h-[60vh] object-contain md:object-cover  aspect-[3/1]"
+              quality={100}
+              priority
+              sizes="100vw"
+            />
+
+            {/* Black Overlay */}
+            <div className="absolute inset-0 bg-black/60"></div>
+
+            {/* Text Content */}
+            <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center">
+              <h1 className="text-2xl md:text-5xl font-bold text-white leading-tight">
+                Dholera SIR Gallery
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Gallery Section with Enhanced Design */}
       <div className="max-w-7xl mx-auto px-4 py-8">
@@ -188,26 +184,30 @@ export default function DholeraProgressPage() {
           {galleryImages.map((image) => (
             <div
               key={image.id}
-              className="group relative overflow-hidden rounded-xl transition-all duration-300 shadow-2xl h-80 cursor-pointer"
+              className="group relative overflow-hidden rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer bg-white"
               onClick={() => openPopup(image)}
             >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover"
-              />
+              {/* Image Container */}
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+
+              {/* Caption */}
+              <div className="p-4 text-center">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                  {image.alt}
+                </h3>
+              </div>
             </div>
           ))}
         </div>
-
-        {/* Navigation with Category Tags */}
-        {/* <div className="mt-16 flex flex-wrap justify-center gap-3">
-          <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full cursor-pointer hover:bg-blue-200 transition-colors font-medium">All Images</span>
-          <span className="bg-gray-100 text-gray-800 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition-colors font-medium">Infrastructure</span>
-          <span className="bg-gray-100 text-gray-800 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition-colors font-medium">Transportation</span>
-          <span className="bg-gray-100 text-gray-800 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition-colors font-medium">Urban Planning</span>
-        </div> */}
       </div>
 
       {/* Image Popup */}
@@ -232,15 +232,12 @@ export default function DholeraProgressPage() {
                 className="max-h-[90vh] w-auto object-contain"
                 onClick={(e) => e.stopPropagation()}
               />
-              <div className="bg-white p-4 text-center">
+            </div>
+            <div className="bg-white p-4 text-center">
               <h3 className="text-lg font-bold">{selectedImage.alt}</h3>
               <p className="text-gray-600">{selectedImage.caption}</p>
+
             </div>
-            </div>
-            {/* <div className="bg-white p-4 text-center">
-              <h3 className="text-lg font-bold">{selectedImage.alt}</h3>
-              <p className="text-gray-600">{selectedImage.caption}</p>
-            </div> */}
           </div>
         </div>
       )}
