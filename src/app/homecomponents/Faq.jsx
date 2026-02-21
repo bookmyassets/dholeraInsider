@@ -46,7 +46,7 @@ export default function FAQSection() {
               Frequently Asked Questions
             </h2>
             <p className="text-gray-600 mb-2">
-              More Questions about Dholera Smart City?
+              More Questions about Dholera Smart City Project?
             </p>
             <div className="pt-4">
               <a className="px-2 py-3 bg-gradient-to-r from-teal-400 to-teal-600 text-white rounded-md" href="tel:+919211820887">Give Us A Missed Call</a>

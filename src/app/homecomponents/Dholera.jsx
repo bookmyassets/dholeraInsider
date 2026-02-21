@@ -5,7 +5,7 @@ export default function Dholera() {
     {
       title: "India's First Greenfield Smart City",
       description:
-        "Dholera Smart City is one of India's most ambitious government-backed projects, strategically developed under the Delhi–Mumbai Industrial Corridor (DMIC) in Gujarat. Planned as a next-generation smart city, Dholera is designed for sustainable urban living, advanced infrastructure, and large-scale industrial growth.",
+        "Dholera Smart City Project is one of India's most ambitious government-backed projects, strategically developed under the Delhi–Mumbai Industrial Corridor (DMIC) in Gujarat. Planned as a next-generation smart city, Dholera is designed for sustainable urban living, advanced infrastructure, and large-scale industrial growth.",
     },
     {
       title: "Strong Government & Corporate Support",

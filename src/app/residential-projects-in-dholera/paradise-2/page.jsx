@@ -179,7 +179,7 @@ export default function Hero() {
 
             <p className="text-lg text-gray-100 leading-relaxed">
               Paradise 2, located in Village Shela, Tehsil Dholera, District
-              Ahmedabad, is part of the fast-growing Dholera Smart City (Dholera
+              Ahmedabad, is part of the fast-growing Dholera Smart City Project (Dholera
               SIR). Designed with futuristic planning and secure legal
               approvals, it enjoys excellent proximity to the Ahmedabad-Dholera
               Expressway and the upcoming Dholera International Airport, making

@@ -84,7 +84,7 @@ export default function Hero() {
 
   return (
     <>
-    <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -233,8 +233,8 @@ export default function Hero() {
             <p className="text-lg text-gray-100 leading-relaxed">
               WestWyn County brings a secure and future-ready investment
               opportunity in Dholera SIR, offering 100% government-approved,
-              clear-title plots. Backed by the vision of Dholera Smart City, the
-              project caters to both Indian and NRI investors with
+              clear-title plots. Backed by the vision of Dholera Smart City
+              Project, it caters to both Indian and NRI investors with
               registry-ready documentation, flexible payment plans, resale
               support, and buy-back assistance*. It’s a hassle-free way to own a
               piece of India’s most ambitious greenfield smart city.
@@ -332,7 +332,7 @@ export default function Hero() {
                     Backed by Smart City Infrastructure
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    As part of Dholera Smart City, WestWyn County benefits from
+                    As part of Dholera Smart City Project, WestWyn County benefits from
                     state and central government-led development. With
                     industrial parks, residential clusters, and mega
                     infrastructure projects underway, the area is primed for

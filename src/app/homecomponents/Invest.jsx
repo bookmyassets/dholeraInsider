@@ -20,7 +20,7 @@ export default function Invest() {
           <div className="flex flex-col md:flex-row px-4 md:px-8 py-12 gap-6 md:gap-12 max-w-7xl mx-auto">
             <div className="w-full md:w-2/5 pl-2 pr-2">
               <div className="w-full h-full">
-                <Image src={sample1} alt="Dholera Smart City" />
+                <Image src={sample1} alt="Dholera Smart City Project" />
               </div>
             </div>
 
@@ -28,7 +28,7 @@ export default function Invest() {
             <div className="w-full md:w-3/5 pl-2 pr-2 space-y-6">
               <div>
                 <p className="text-gray-100">
-                  Dholera Smart City is India’s first greenfield smart city,
+                  Dholera Smart City Project is India’s first greenfield smart city,
                   strategically developed under the Delhi–Mumbai Industrial
                   Corridor (DMIC) in Gujarat. Designed as a next-generation
                   smart city, It is home to India’s first semiconductor fab.
@@ -48,7 +48,7 @@ export default function Invest() {
                   International Airport. Rapid industrial growth,
                   government-backed development, and future-ready amenities make
                   Dholera an ideal destination for investors, businesses, and
-                  homebuyers. Invest in Dholera Smart City today to be part of
+                  homebuyers. Invest in Dholera Smart City Project today to be part of
                   India’s fastest-growing smart urban future.
                 </p>
               </div>

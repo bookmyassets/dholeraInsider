@@ -33,7 +33,7 @@ export default function WhyDI() {
               <div>
                 <p className="text-gray-100">
                   With strong networks across developers and an on-ground
-                  presence in Dholera Smart City, we help investors make
+                  presence in Dholera Smart City Project, we help investors make
                   informed decisions with confidence. Choose Dholera Insider as
                   your trusted partner in building wealth in India’s most
                   ambitious Dholera SIR investment corridor.

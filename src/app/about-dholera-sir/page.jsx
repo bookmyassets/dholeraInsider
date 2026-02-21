@@ -114,7 +114,7 @@ export default async function BlogsPage() {
                   <strong>Delhi–Mumbai Industrial Corridor (DMIC)</strong>.
                   Spread over{" "}
                   <strong className="text-teal-700">922.5 km²</strong>, Dholera
-                  Smart City is designed with an infrastructure-first approach,
+                  Smart City Project is designed with an infrastructure-first approach,
                   where roads, utilities, zoning, and governance are planned
                   before population growth.
                 </p>
@@ -159,7 +159,7 @@ export default async function BlogsPage() {
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-white/90 text-base">
-                      Dholera Smart City follows a smart, sustainable, and
+                      Dholera Smart City Project follows a smart, sustainable, and
                       scalable development model with Plug & Play
                       infrastructure.
                     </p>
@@ -485,7 +485,7 @@ export default async function BlogsPage() {
                   <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-white/90 text-base">
                     Trusted Local Expertise: Dholera Insiders brings deep
-                    on-ground knowledge of Dholera Smart City, ensuring accurate
+                    on-ground knowledge of Dholera Smart City Project, ensuring accurate
                     guidance and reliable investment insights.
                   </p>
                 </div>

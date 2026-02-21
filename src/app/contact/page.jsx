@@ -308,9 +308,9 @@ const ContactUsPage = () => {
         "Dholera Special Investment Region (SIR) is India's first greenfield smart city being developed as part of the Delhi-Mumbai Industrial Corridor (DMIC).",
     },
     {
-      question: "Why invest in Dholera?",
+      question: "Why invest in Dholera Smart City Project?",
       answer:
-        "Dholera offers massive infrastructure development, connectivity to major cities, government backing, and significant appreciation potential.",
+        "Dholera Smart City Project offers massive infrastructure development, connectivity to major cities, government backing, and significant appreciation potential.",
     },
     {
       question: "Do you provide site visits?",
