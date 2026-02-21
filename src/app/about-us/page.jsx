@@ -395,7 +395,7 @@ export default function Aboutus() {
               {[
                 {
                   title: "Transparency",
-                  desc: "We ensure that every report, insight, and update we publish is backed by verified data - empowering investors with factual information to make confident and strategic investment choices in Dholera Smart City.",
+                  desc: "We ensure that every report, insight, and update we publish is backed by verified data - empowering investors with factual information to make confident and strategic investment choices in Dholera Smart City Project.",
                 },
                 {
                   title: "Expertise",

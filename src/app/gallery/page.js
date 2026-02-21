@@ -170,7 +170,7 @@ export default function DholeraProgressPage() {
             {/* Text Content */}
             <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center">
               <h1 className="text-2xl md:text-5xl font-bold text-white leading-tight">
-                Dholera SIR Gallery
+                Dholera Smart City Project Gallery
               </h1>
             </div>
           </div>
