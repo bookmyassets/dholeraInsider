@@ -7,6 +7,24 @@ import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 import { AnimatePresence } from "framer-motion";
 import BrochureDownload from "@/app/components/BrochureDownload";
+import { PhoneIcon } from "lucide-react";
+
+const DocIconTeal = () => (
+  <svg
+    width="15"
+    height="15"
+    fill="none"
+    stroke="#134e4a"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+    />
+  </svg>
+);
 
 export default function Hero() {
   const [brochureFormOpen, setIsBrochureFormOpen] = useState(false);
@@ -67,45 +85,72 @@ export default function Hero() {
         />
         <div className="absolute bottom-0 left-0 right-0 p-4 hidden md:block">
           <div className="bg-white/95 backdrop-blur-md rounded-t-2xl shadow-2xl border border-white/30 max-w-6xl mx-auto w-full">
-            <div className="grid md:grid-cols-3 gap-6 p-6">
-              {/* Left Column - Categories & Price */}
-              <div>
-                <div className="flex items-center gap-2 flex-wrap mb-3">
-                  <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                    Residential Projects
+            <div className="flex items-center gap-5 px-6 py-4">
+              {/* Status */}
+              <div className="flex items-center gap-2 shrink-0">
+                <span
+                  className="relative flex"
+                  style={{ width: 10, height: 10 }}
+                >
+                  <span className="animate-ping absolute inline-flex rounded-full bg-teal-400 w-full h-full opacity-75" />
+                  <span className="relative inline-flex rounded-full bg-teal-500 w-[10px] h-[10px]" />
+                </span>
+                <span className="text-teal-800 text-[11px] font-bold tracking-widest uppercase">
+                  Ongoing
+                </span>
+              </div>
+
+              <div className="w-px h-9 bg-teal-900/10 shrink-0" />
+
+              {/* Title + Subtitle */}
+              <div className="shrink-0">
+                <a href="/residential-projects-in-dholera/westwyn-estate">
+                  <h2 className="text-teal-900 text-2xl font-bold leading-tight m-0 hover:text-teal-800 transition-colors">
+                    WestWyn Estate
+                  </h2>
+                </a>
+                <div className="text-teal-700/70 text-xs mt-1">
+                  Registry Ready Plot under ₹10 Lakh
+                </div>
+              </div>
+
+              <div className="w-px h-12 bg-teal-900/10 shrink-0" />
+
+              {/* Price */}
+              <div className="shrink-0">
+                <div className="text-teal-900 text-[26px] font-extrabold leading-none">
+                  ₹6,500{" "}
+                  <span className="text-teal-900/40 text-xs font-normal">
+                    /Sq.Yd
                   </span>
                 </div>
-                <div className="text-3xl font-bold">
-                  ₹6,500
-                  <span className="text-sm ml-1">/Sq.Yd</span>
+                <div className="text-teal-900/40 text-[10px] tracking-widest uppercase mt-0.5">
+                  Starting Price
                 </div>
               </div>
 
-              {/* Middle Column - Title & Description */}
-              <div>
-                <a href="/residential-projects-in-dholera/westwyn-estate">
-                  <p className="text-2xl font-bold text-teal-900 hover:text-teal-800 mb-2 leading-tight">
-                    <span className="text-base font-bold text-teal-900">
-                      Explore Our Latest Project
-                    </span>{" "}
-                    <br /> WestWyn Estate
-                  </p>
+              {/* Spacer */}
+              <div className="flex-1" />
+
+              <div className="w-px h-12 bg-teal-900/10 shrink-0" />
+
+              {/* CTAs */}
+              <div className="flex items-center gap-3 shrink-0">
+                <a
+                  href="tel:+919958993549"
+                  className="flex items-center gap-2 bg-teal-900 hover:bg-teal-800 text-white px-5 py-2.5 rounded-lg text-[13px] font-bold transition-all duration-200 hover:-translate-y-0.5"
+                >
+                  <PhoneIcon />
+                  Site Visit
                 </a>
-              </div>
 
-              {/* Right Column - Contact & Buttons */}
-              <div className="flex flex-col justify-between">
-                <div className="flex items-center gap-2 text-gray-700 text-base mb-4">
-                  <button
-                    onClick={openBrochureForm}
-                    className="flex-1 bg-teal-900 text-white hover:bg-teal-800 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5"
-                  >
-                    📄 Download Brochure
-                  </button>
-                </div>
-                <div className="text-teal-900 text-xl text-center font-semibold hover:text-teal-800 transition-colors">
-                  <p>Immediate Possession</p>
-                </div>
+                <button
+                  onClick={openBrochureForm}
+                  className="flex items-center gap-2 bg-white hover:bg-teal-50 border border-teal-900/20 hover:border-teal-800 text-teal-900 px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <DocIconTeal />
+                  Brochure
+                </button>
               </div>
             </div>
           </div>
