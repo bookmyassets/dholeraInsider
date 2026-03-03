@@ -231,9 +231,6 @@ export default function Hero() {
                 <span className="px-3 py-1.5 text-white bg-teal-900 rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
                   Residential
                 </span>
-                <span className="px-3 py-1.5 bg-teal-900 text-white rounded-full text-sm font-medium hover:bg-teal-800 transition-colors">
-                  🔥 Newly Launched
-                </span>
               </div>
               <div className="text-3xl font-bold text-teal-900">
                 ₹6,500
