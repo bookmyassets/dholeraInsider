@@ -170,7 +170,7 @@ export default function Hero() {
               <div className="shrink-0">
                 <a href="/residential-projects-in-dholera/westwyn-estate">
                   <h2 className="text-teal-900 text-2xl font-bold leading-tight m-0 hover:text-teal-800 transition-colors">
-                    WestWyn Estate
+                    WestWyn Estates
                   </h2>
                 </a>
                 <div className="text-teal-700/70 text-xs mt-1">

@@ -122,15 +122,15 @@ export default function Hero() {
         }}
       />
       <title>
-        WestWyn Estate - Premium Residential plots in Dholera Smart City
+        WestWyn Estates - Premium Residential plots in Dholera Smart City
       </title>
       <meta
         name="description"
-        content="Invest in Westwyn Estate Dholera. 100% title-clear & AUDA approved residential plots. Located 0 KM from SIR boundary. Immediate registry and possession available."
+        content="Invest in WestWyn Estates Dholera. 100% title-clear & AUDA approved residential plots. Located 0 KM from SIR boundary. Immediate registry and possession available."
       />
       <meta
         name="keywords"
-        content="WestWyn Estate Dholera, Dholera plots, Dholera Smart City, Dholera investment, investment in Dholera"
+        content="WestWyn Estates Dholera, Dholera plots, Dholera Smart City, Dholera investment, investment in Dholera"
       />
       <link
         rel="canonical"
@@ -139,13 +139,13 @@ export default function Hero() {
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
           src={westwynEstate1}
-          alt="WestWyn Estate in Dholera SIR"
+          alt="WestWyn Estates in Dholera SIR"
           className="w-full h-full max-sm:hidden"
           priority
         />
         <Image
           src={westwynEstate1M}
-          alt="WestWyn Estate in Dholera SIR"
+          alt="WestWyn Estates in Dholera SIR"
           className="w-full h-full object-cover md:hidden"
           priority
         />
@@ -172,7 +172,7 @@ export default function Hero() {
               <div className="shrink-0">
                 <a href="/residential-projects-in-dholera/westwyn-estate">
                   <h2 className="text-teal-900 text-2xl font-bold leading-tight m-0 hover:text-teal-800 transition-colors">
-                    WestWyn Estate
+                    WestWyn Estates
                   </h2>
                 </a>
                 <div className="text-teal-700/70 text-xs mt-1">
@@ -268,7 +268,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
-            alt="WestWyn Estate"
+            alt="WestWyn Estates"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
@@ -279,11 +279,11 @@ export default function Hero() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
-              WestWyn Estate <br /> <span>Premium Residential Plots </span>
+              WestWyn Estates <br /> <span>Premium Residential Plots </span>
             </h1>
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-100 leading-relaxed">
-                WestWyn Estate is a premium residential plotting project in
+                WestWyn Estates is a premium residential plotting project in
                 Dholera Smart City, Gujarat, designed for smart living and
                 long-term investment. Strategically located at 0 km from Dholera
                 SIR, close to TP 5, offering excellent connectivity to major
@@ -318,7 +318,7 @@ export default function Hero() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920"
-            alt="WestWyn Estate"
+            alt="WestWyn Estates"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
@@ -328,7 +328,7 @@ export default function Hero() {
             {/* Why Invest Section */}
             <div className="mb-12">
               <h2 className="text-xl md:text-4xl font-bold text-white mb-8">
-                Why Invest in WestWyn Estate?
+                Why Invest in WestWyn Estates?
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -423,7 +423,7 @@ export default function Hero() {
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
             <BrochureDownload
-              title="Get WestWyn Estate Brochure"
+              title="Get WestWyn Estates Brochure"
               buttonName="Download Brochure"
               onClose={() => closeBrochureForm()}
               link="https://cdn.sanity.io/files/c3e1h345/projects/c9471499567c096befb9416aa99c7f0077900d11.pdf"

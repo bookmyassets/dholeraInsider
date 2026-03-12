@@ -108,7 +108,7 @@ export default function Hero() {
               <div className="shrink-0">
                 <a href="/residential-projects-in-dholera/westwyn-estate">
                   <h2 className="text-teal-900 text-2xl font-bold leading-tight m-0 hover:text-teal-800 transition-colors">
-                    WestWyn Estate
+                    WestWyn Estates
                   </h2>
                 </a>
                 <div className="text-teal-700/70 text-xs mt-1">
@@ -181,7 +181,7 @@ export default function Hero() {
                   <span className="text-base font-bold text-teal-900">
                     Explore Our Latest Project
                   </span>{" "}
-                  <br /> WestWyn Estate
+                  <br /> WestWyn Estates
                 </p>
               </a>
             </div>
@@ -328,7 +328,7 @@ export default function Hero() {
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
             <BrochureDownload
-              title="Get WestWyn Estate Brochure"
+              title="Get WestWyn Estates Brochure"
               buttonName="Download Brochure"
               onClose={() => closeBrochureForm()}
               link="https://cdn.sanity.io/files/c3e1h345/projects/c9471499567c096befb9416aa99c7f0077900d11.pdf"
