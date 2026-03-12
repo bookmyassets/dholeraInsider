@@ -1,5 +1,5 @@
 import React from "react";
-import sample1 from "@/app/assets/home/estate1.webp";
+import sample1 from "@/app/assets/residential/estates.webp";
 import sample1M from "@/app/assets/home/estate.webp";
 import Image from "next/image";
 
@@ -11,7 +11,7 @@ export default function WestWyn_Estate() {
         {/* Header */}
         <div className="text-center mb-12">
           <h3 className="text-4xl max-sm:text-xl font-bold text-teal-400 mb-4">
-            WestWyn Estate -{" "}
+            WestWyn Estates -{" "}
             <span className="text-white">
               {" "}
               Invest in Dholera’s Fastest Growing Zone
@@ -38,8 +38,8 @@ export default function WestWyn_Estate() {
 
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
             <div className="absolute bottom-6 left-6 text-white">
-              <h3 className="text-2xl font-bold mb-2">WestWyn Estate</h3>
-              <p className="text-teal-300">0 KM from Dholera SIR</p>
+              <h3 className="text-2xl font-bold mb-2">WestWyn Estates</h3>
+              <p className="text-teal-300">Direct Entry from State Highway 117</p>
             </div>
           </div>
         </div>
@@ -64,8 +64,7 @@ export default function WestWyn_Estate() {
               Strategic Location
             </h3>
             <p className="text-gray-200 mb-4">
-              Located on the Vadhela–Navda State Highway near the Hebatpur
-              Industrial Zone and TP-5, WestWyn Estate is the first project on
+              Located on the State Highway 117, WestWyn Estates is the first project on
               this stretch and is situated exactly 0 km from the Dholera SIR
               boundary.
             </p>
@@ -101,7 +100,7 @@ export default function WestWyn_Estate() {
             </p>
             <button className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white mt-4 text-[14px] md:text-base font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
               <a href="/residential-projects-in-dholera/westwyn-estate">
-                Explore More About WestWyn Estate
+                Explore More About WestWyn Estates
               </a>
             </button>
           </div>
@@ -109,7 +108,7 @@ export default function WestWyn_Estate() {
           {/* Why Invest Section */}
           <div className="bg-gray-800/50 rounded-xl p-6">
             <h3 className="text-2xl font-bold text-white mb-6">
-              Why Invest in WestWyn Estate?
+              Why Invest in WestWyn Estates?
             </h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">

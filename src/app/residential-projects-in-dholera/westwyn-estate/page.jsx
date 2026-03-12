@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import westwynEstate1 from "@/app/assets/estate.webp";
+import westwynEstate1 from "@/app/assets/residential/estates.webp";
 import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
@@ -140,7 +140,7 @@ export default function Hero() {
         <Image
           src={westwynEstate1}
           alt="WestWyn Estates in Dholera SIR"
-          className="w-full h-full max-sm:hidden"
+          className="w-full h-full object-cover max-sm:hidden"
           priority
         />
         <Image
