@@ -50,55 +50,58 @@ const FixedNavigation = ({ currentPage = "home" }) => (
 );
 
 export default async function VideosPage() {
-  
   const videos = [
-  {
-    id: "xPYA-To8_YQ",
-    title: "Dholera International Airport",
-    duration: "3:37",
-  },
-  {
-    id: "tFbTJfNe3y8",
-    title: "Ahmedabad to Dholera in 45 Mins!",
-    duration: "1:08",
-  },
-  {
-    id: "1g_2cNYiDHA",
-    title: "Dholera Water Treatment Plant",
-    duration: "0:51",
-  },
-  {
-    id: "_AN2VE8BiBs",
-    title: "TATA’s ₹91,000 Cr. Semiconductor Revolution Begins!",
-    duration: "1:11",
-  },
-  {
-    id: "5jlnciMfwmk",
-    title: "Dholera Now: WestWyn County",
-    duration: "0:52",
-  },
-  {
-    id: "ha3BffU4gHo",
-    title: "Dholera Activation Area",
-    duration: "0:48",
-  },
-  {
-    id: "o5rSdgmnHyQ",
-    title: "ABCD Building",
-    duration: "unknown",
-  },
-  {
-    id: "byMMCQNP4eo",
-    title: "ReNew Solar Plant",
-    duration: "unknown",
-  },
-  {
-    id: "so6bg_0OAWA",
-    title: "WestWyn Estate",
-    duration: "unknown",
-  }
-];
-
+    {
+      id: "EeSbguufLXE",
+      title: "WestWyn County",
+      duration: "unknown",
+    },
+    {
+      id: "qETGd9oznLI",
+      title: "ReNew Solar Plant",
+      duration: "unknown",
+    },
+    {
+      id: "xUJPpxQLX5g",
+      title: "Dholera International Airport",
+      duration: "unknown",
+    },
+    {
+      id: "oaaJToJaISE",
+      title: "India's First Smart City",
+      duration: "unknown",
+    },
+    {
+      id: "8DF-ydDgbJE",
+      title: "Tata's Hotel",
+      duration: "unknown",
+    },
+    {
+      id: "tE9WOGod2Z8",
+      title: "Ahmedabad–Dholera Expressway",
+      duration: "unknown",
+    },
+    {
+      id: "svganExcrRE",
+      title: "ABCD Building",
+      duration: "unknown",
+    },
+    {
+      id: "BKvLy1cmmJc",
+      title: "Water Treatment Plant",
+      duration: "unknown",
+    },
+    {
+      id: "Z_ei9WDMNU8",
+      title: "Tata Semiconductor",
+      duration: "unknown",
+    },
+    {
+      id: "kIq9WqH4vFY",
+      title: "Dholera Solar Park",
+      duration: "unknown",
+    },
+  ];
 
   if (videos.length === 0) {
     return (
@@ -128,17 +131,17 @@ export default async function VideosPage() {
     <div
       className="min-h-[87vh] bg-gradient-to-b from-blue-50 to-gray-100 py-16 pt-32 px-4 sm:px-6 lg:px-8"
       style={{
-       
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <meta name="robots" content="noindex, dofollow"/>
-<link rel="canonical" href="https://www.dholeratimes.com/infopack/videos" />
+      <meta name="robots" content="noindex, dofollow" />
+      <link
+        rel="canonical"
+        href="https://www.dholeratimes.com/infopack/videos"
+      />
       <div className="max-w-7xl mx-auto">
-       
-
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 lg:gap-8 pt-16">
           {videos.map((video, index) => (
             <div
@@ -152,7 +155,7 @@ export default async function VideosPage() {
                     src={`https://www.youtube.com/embed/${video.id}`}
                     title={video.title || `YouTube Video ${index + 1}`}
                     frameBorder="0"
-                     referrerPolicy="strict-origin-when-cross-origin"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
@@ -185,7 +188,7 @@ export default async function VideosPage() {
           </p>
         </div>
       </div>
-      <FixedNavigation currentPage="videos"/>
+      <FixedNavigation currentPage="videos" />
     </div>
   );
 }
