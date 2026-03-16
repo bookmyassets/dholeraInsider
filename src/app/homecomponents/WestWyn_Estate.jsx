@@ -39,20 +39,23 @@ export default function WestWyn_Estate() {
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
             <div className="absolute bottom-6 left-6 text-white">
               <h3 className="text-2xl font-bold mb-2">WestWyn Estates</h3>
-              <p className="text-teal-300">Direct Entry from State Highway 117</p>
+              <p className="text-teal-300">
+                Direct Entry from State Highway 117
+              </p>
             </div>
           </div>
         </div>
 
         <div className="max-w-5xl mx-auto">
           <p className="mb-8 text-white">
-            Westwyn Estate is a well-planned residential project located on the
-            Vadhela-Navda State Highway, offering excellent connectivity and
-            long-term growth potential. Strategically positioned at 0 km from
-            the Dholera SIR boundary. The project is designed for modern living
-            and smart investment, Westwyn Estate offers government-approved
-            residential plots with clear titles, ensuring a safe and reliable
-            investment opportunity in a rapidly developing zone.
+            WestWyn Estates a premium residential plotting project in Polarpur, 
+            Dholera, Gujarat, designed for smart living and long-term
+            investment. The project offers direct entry from State Highway-117
+            and is located just minutes from Bhimnath Railway Station, ensuring
+            convenient connectivity. It also provides good access to major
+            infrastructure and mega developments in the region. Overall, WestWyn
+            Estates is a suitable choice for those exploring Dholera plots with
+            strong future appreciation potential.
           </p>
         </div>
 
@@ -64,9 +67,9 @@ export default function WestWyn_Estate() {
               Strategic Location
             </h3>
             <p className="text-gray-200 mb-4">
-              Located on the State Highway 117, WestWyn Estates is the first project on
-              this stretch and is situated exactly 0 km from the Dholera SIR
-              boundary.
+              Located on the State Highway 117, WestWyn Estates is the first
+              project on this stretch and is situated exactly 0 km from the
+              Dholera SIR boundary.
             </p>
             <div className="grid gap-3">
               <div className="flex items-center space-x-2">

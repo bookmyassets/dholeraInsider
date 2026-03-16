@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import BrochureDownload from "@/app/components/BrochureDownload";
 import PrimeLocationSection from "./PrimeLocations";
 import { PhoneIcon } from "lucide-react";
+import FAQSection from "./FAQs";
 
 const DocIconTeal = () => (
   <svg
@@ -279,17 +280,20 @@ export default function Hero() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
-              WestWyn Estates <br /> <span>Premium Residential Plots </span>
+              WestWyn Estates
+              <br /> <span>Premium Residential Plots at Dholera SIR</span>
             </h1>
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-100 leading-relaxed">
                 WestWyn Estates is a premium residential plotting project in
                 Dholera Smart City, Gujarat, designed for smart living and
-                long-term investment. Strategically located at 0 km from Dholera
-                SIR, close to TP 5, offering excellent connectivity to major
-                mega projects in Dholera Smart City. Overall, it is a secure
-                Investment for those looking to invest in Dholera plots with
-                strong future appreciation.
+                long-term investment. The project offers direct entry from State
+                Highway-117 and is located just minutes from Bhimnath Railway
+                Station, ensuring convenient connectivity. It also provides good
+                access to major infrastructure and mega developments in the
+                region. Overall, WestWyn Estates is a suitable choice for those
+                exploring Dholera plots with strong future appreciation
+                potential.
               </p>
               <br />
             </div>
@@ -323,7 +327,7 @@ export default function Hero() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-emerald-900/95 to-teal-900/95"></div>
         </div>
-        <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
+        <div className="relative z-10 container mx-auto px-4 py-4 md:py-8">
           <div className="max-w-6xl mx-auto">
             {/* Why Invest Section */}
             <div className="mb-12">
@@ -334,60 +338,67 @@ export default function Hero() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
-                    Prime Location Advantage
+                    Dholera Investment Hub
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Strategically positioned on Vadhela-Navda Highway, 0 km from
-                    Dholera SIR, close to TP 5, and only 15 minutes away from
-                    the activation area.
+                    Dholera Smart City is attracting ₹3+ lakh crore planned
+                    investments from government and global companies such as
+                    Tata Electronics, Tokyo Electron, and Tillman Global
+                    Holdings.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
-                    Connectivity to Mega Infrastructure
+                    Strategic Location
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Minutes from the upcoming Dholera International Airport,
-                    Ahmedabad–Dholera Expressway, and proposed monorail.
+                    Direct entry from State Highway-117 with Bhimnath Railway
+                    Station just minutes away, providing convenient regional
+                    connectivity.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
-                    Secure & Approved Investment
+                    Nearby Industrial Zones
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    NA/NOC cleared, AUDA-registered, and title-clear plots.
+                    Only 45 minutes from the Tata semiconductor plant and Renew
+                    energy projects in Dholera SIR, and 45 minutes from Hebatpur
+                    Industrial Area, supporting strong industrial growth.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
-                    High Appreciation Potential
+                    High-Speed Connectivity
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Early investors benefit from rapid value growth.
+                    40 minutes from the Ahmedabad–Dholera Expressway, 40 minutes
+                    from proposed metro/monorail connectivity, and about 50
+                    minutes from Dholera International Airport.
                   </p>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
-                    Modern Living & Lifestyle
+                    High Growth Potential
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Gated community with green landscapes, wide roads, and
-                    amenities for comfort, security, and sustainability.
+                    Early-stage entry in the Dholera region positions investors
+                    ahead of large-scale infrastructure and industrial
+                    development.
                   </p>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 ">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                   <h3 className="text-lg md:text-xl font-semibold text-teal-300 mb-3">
-                    Trusted Developer Legacy
+                    Planned Public Facilities
                   </h3>
                   <p className="text-gray-200 text-sm">
-                    Six projects successfully sold out, reflecting investor
-                    trust.
+                    Provision for schools, parks, hospitals, food courts, and
+                    daily-use amenities within the development.
                   </p>
                 </div>
               </div>
@@ -414,6 +425,10 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div>
+              <FAQSection/>
             </div>
           </div>
         </div>
