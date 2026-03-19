@@ -48,7 +48,7 @@ export default function WestWyn_Estate() {
 
         <div className="max-w-5xl mx-auto">
           <p className="mb-8 text-white">
-            WestWyn Estates a premium residential plotting project in Polarpur, 
+            WestWyn Estates a premium residential plotting project in Polarpur,
             Dholera, Gujarat, designed for smart living and long-term
             investment. The project offers direct entry from State Highway-117
             and is located just minutes from Bhimnath Railway Station, ensuring
@@ -66,34 +66,47 @@ export default function WestWyn_Estate() {
             <h3 className="text-2xl font-bold text-white mb-6">
               Strategic Location
             </h3>
-            <p className="text-gray-200 mb-4">
-              Located on the State Highway 117, WestWyn Estates is the first
-              project on this stretch and is situated exactly 0 km from the
-              Dholera SIR boundary.
-            </p>
             <div className="grid gap-3">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
                 <span className="text-gray-100">
-                  5 minutes to Ahmedabad–Dholera Expressway
+                  Premium residential plots in Polarpur, Dholera
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
                 <span className="text-gray-100">
-                  15 minutes to Activation Area
+                  5 Minutes from Bhimnath Railway Junction
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
                 <span className="text-gray-100">
-                  25 minutes to Tata Semiconductor Plant
+                  15 Minutes from Dholera SIR boundary
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
                 <span className="text-gray-100">
-                  30 minutes to Dholera International Airport
+                  15 Minutes from RMS Multi-Specialty Hospital
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+                <span className="text-gray-100">
+                  17 Minutes from Ahmedabad Dholera Expressway
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+                <span className="text-gray-100">
+                  30 Minutes from Tata Semiconductor Plant
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+                <span className="text-gray-100">
+                  45 Minutes from Dholera International Airport
                 </span>
               </div>
             </div>
@@ -123,7 +136,9 @@ export default function WestWyn_Estate() {
                     Prime Location
                   </h4>
                   <p className="text-gray-200">
-                    At the entrance of Dholera SIR, near TP 5.
+                    Close proximity to Public Facilities and Transport: Bus
+                    stand, school, hospital, shopping complex, park, food
+                    courts.
                   </p>
                 </div>
               </div>
@@ -133,10 +148,10 @@ export default function WestWyn_Estate() {
                 </div>
                 <div>
                   <h4 className="text-teal-300 font-semibold">
-                    Strong Connectivity
+                   Industrial proximity
                   </h4>
                   <p className="text-gray-200">
-                    Expressway, airport & proposed metro at your doorstep.
+                    Seamless connectivity to TATA Semiconductor Plant & ReNew Solar Plant. 25 minutes to Hebatpur Industrial Area
                   </p>
                 </div>
               </div>
