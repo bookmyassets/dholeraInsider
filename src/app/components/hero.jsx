@@ -23,13 +23,13 @@ const Hero = () => {
 
       <div className="relative z-10 flex h-full items-center justify-center">
         <div className="container mx-auto px-4 text-center text-white">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <h1 className="text-2xl md:text-3xl font-semibold mb-6">
-              Buy Registry-Ready Plots Under ₹10 Lakh in Dholera
+              Buy Registry-Ready Plots Starting From ₹10 Lakh in Dholera
             </h1>
 
             <h2 className="text-3xl md:text-4xl text-teal-300 font-bold mb-4">
-              WestWyn Estate
+              WestWyn Estates
             </h2>
 
             <Link
