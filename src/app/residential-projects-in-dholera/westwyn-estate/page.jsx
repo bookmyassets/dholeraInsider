@@ -97,10 +97,10 @@ export default function Hero() {
   ];
 
   const projectFeatures = [
-    { icon: "🏠", title: "Plot Size", value: "151 and 198 Sq.Yards" },
-    { icon: "💰", title: "Starting Price", value: "₹6,500/Sq.Yd" },
+    { icon: "🏠", title: "Plot Size", value: "152 and 200 Sq.Yards" },
+    { icon: "💰", title: "Starting Price", value: "₹6,700/Sq.Yd" },
     { icon: "🏗️", title: "Project Type", value: "Residential Plots" },
-    { icon: "📍", title: "Location", value: "0 KM from Dholera SIR" },
+    { icon: "📍", title: "Location", value: "Located on State Highway 117" },
   ];
 
   return (
@@ -177,7 +177,7 @@ export default function Hero() {
                   </h2>
                 </a>
                 <div className="text-teal-700/70 text-xs mt-1">
-                  Registry Ready Plot under ₹10 Lakh
+                  Registry Ready Plot Starting From ₹10 Lakh
                 </div>
               </div>
 
@@ -186,7 +186,7 @@ export default function Hero() {
               {/* Price */}
               <div className="shrink-0">
                 <div className="text-teal-900 text-[26px] font-extrabold leading-none">
-                  ₹6,500{" "}
+                  ₹6,700{" "}
                   <span className="text-teal-900/40 text-xs font-normal">
                     /Sq.Yd
                   </span>
@@ -234,7 +234,7 @@ export default function Hero() {
                 </span>
               </div>
               <div className="text-3xl font-bold text-teal-900">
-                ₹6,500
+                ₹6,700
                 <span className="text-sm text-gray-600 ml-1">/Sq.Yd</span>
               </div>
             </div>

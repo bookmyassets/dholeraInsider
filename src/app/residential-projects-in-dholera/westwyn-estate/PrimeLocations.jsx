@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Route, Building2, Factory, Plane } from 'lucide-react';
+import { MapPin, Route,Plane, RailSymbol } from 'lucide-react';
+import { FaHospitalAlt, FaIndustry } from 'react-icons/fa';
 
 const LocationCard = ({ icon, distance, title, description, time }) => (
   <div className="bg-teal-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out group hover:-translate-y-1">
@@ -24,29 +25,43 @@ const LocationCard = ({ icon, distance, title, description, time }) => (
 const PrimeLocationSection = () => {
   const locations = [
     {
-      icon: <MapPin size={28} />,
-      distance: "0 km",
-      title: "Dholera SIR",
-      description: "Located at the entrance of India's Smart City",
-      time: null
-    },
-    {
-      icon: <Route size={28} />,
+      icon: <RailSymbol size={28} />,
       distance: "5 minutes",
-      title: "Ahmedabad–Dholera Expressway",
+      title: "Bhimnath Railway Junction",
       description: "Fast & seamless road connectivity",
       time: "15 min"
     },
     {
-      icon: <Building2 size={28} />,
+      icon: <Route size={28} />,
       distance: "15 minutes",
-      title: "Activation Area",
+      title: "Dholera SIR boundary",
       description: "High-growth development zone",
       time: "30 min"
     },
     {
-      icon: <Plane size={28} />,
+      icon: <FaHospitalAlt size={28} />,
+      distance: "15 minutes",
+      title: "RMS Multi-Specialty Hospital",
+      description: "High-growth development zone",
+      time: "30 min"
+    },
+    {
+      icon: <MapPin size={28} />,
+      distance: "17 Minutes",
+      title: "Ahmedabad Dholera Expressway",
+      description: "Located at the entrance of India's Smart City",
+      time: null
+    },
+    {
+      icon: <FaIndustry size={28} />,
       distance: "30 minutes",
+      title: "Tata Semiconductor Plant",
+      description: "Global connectivity advantage",
+      time: "57 min"
+    },
+    {
+      icon: <Plane size={28} />,
+      distance: "45 minutes",
       title: "Dholera International Airport",
       description: "Global connectivity advantage",
       time: "57 min"
@@ -75,7 +90,6 @@ const PrimeLocationSection = () => {
               icon={location.icon}
               distance={location.distance}
               title={location.title}
-              description={location.description}
               time={location.time}
             />
           ))}
