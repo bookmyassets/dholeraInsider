@@ -21,7 +21,7 @@ const LocationCard = ({ icon, distance, title, description, time }) => (
     </div>
   </div>
 );
-
+  
 const PrimeLocationSection = () => {
   const locations = [
     {
