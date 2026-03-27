@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import westwynEstate1 from "@/app/assets/residential/estates.webp";
-import westwynEstate1M from "@/app/assets/residential/estate1M.webp";
+import westwynEstate1 from "@/app/assets/residential/westwyn-residency-dholera-project-section.webp";
+import westwynEstate1M from "@/app/assets/residential/westwyn-residency-dholera-project-section-mobile.webp";
 import CommonForm from "@/app/components/CommonForm";
 import PopupScroll from "@/app/components/PopUpScroll";
 import { AnimatePresence } from "framer-motion";
