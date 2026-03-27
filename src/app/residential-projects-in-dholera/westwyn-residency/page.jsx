@@ -128,26 +128,26 @@ export default function Hero() {
             potentialAction: {
               "@type": "SearchAction",
               target:
-                "https://dholerainsider.com/residential-projects-in-dholera/westwyn-estate{search_term_string}",
+                "https://dholerainsider.com/residential-projects-in-dholera/westwyn-residency{search_term_string}",
               "query-input": "required name=search_term_string",
             },
           }),
         }}
       />
       <title>
-        WestWyn Estates - Premium Residential plots in Dholera Smart City
+        WestWyn Residency - Premium Residential plots in Dholera Smart City
       </title>
       <meta
         name="description"
-        content="Invest in WestWyn Estates Dholera. 100% title-clear & AUDA approved residential plots. Located 0 KM from SIR boundary. Immediate registry and possession available."
+        content="Invest in WestWyn Residency Dholera. 100% title-clear & AUDA approved residential plots. Located 0 KM from SIR boundary. Immediate registry and possession available."
       />
       <meta
         name="keywords"
-        content="WestWyn Estates Dholera, Dholera plots, Dholera Smart City, Dholera investment, investment in Dholera"
+        content="WestWyn Residency Dholera, Dholera plots, Dholera Smart City, Dholera investment, investment in Dholera"
       />
       <link
         rel="canonical"
-        href="https://www.dholerainsider.com/residential-projects-in-dholera/westwyn-estate"
+        href="https://www.dholerainsider.com/residential-projects-in-dholera/westwyn-residency"
       />
       <div className="relative w-full h-[80vh] max-sm:h-[50vh]">
         <Image
