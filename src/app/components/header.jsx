@@ -54,6 +54,11 @@ const Header = () => {
       key: "dholeraResidential",
       items: [
         {
+          name: "WestWyn Residency",
+          href: "/residential-projects-in-dholera/westwyn-residency",
+          status: "available",
+        },
+        {
           name: "WestWyn Estates",
           href: "/residential-projects-in-dholera/westwyn-estate",
           status: "available",
