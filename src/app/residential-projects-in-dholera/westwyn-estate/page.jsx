@@ -94,6 +94,14 @@ export default function Hero() {
       icon: "📹",
       title: "24/7 Security & CCTV Surveillance",
     },
+    {
+      icon: "🚿",
+      title: "Drainage System",
+    },
+    {
+      icon: "🏡",
+      title: "Clubhouse Lite",
+    },
   ];
 
   const projectFeatures = [
@@ -428,7 +436,7 @@ export default function Hero() {
             </div>
 
             <div>
-              <FAQSection/>
+              <FAQSection />
             </div>
           </div>
         </div>
