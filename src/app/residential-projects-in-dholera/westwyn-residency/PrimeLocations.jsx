@@ -25,14 +25,14 @@ const PrimeLocationSection = () => {
   const locations = [
     {
       icon: <RailSymbol size={28} />,
-      distance: "2 minutes",
+      distance: "2 Minutes",
       title: "Railway Connectivity",
       description: "Fast & seamless road connectivity",
       time: "15 min",
     },
     {
       icon: <Fence size={28} />,
-      distance: "5 minutes",
+      distance: "5 Minutes",
       title: "Dholera SIR boundary",
       description: "High-growth development zone",
       time: "30 min",
@@ -47,14 +47,14 @@ const PrimeLocationSection = () => {
 
     {
       icon: <FaHospitalAlt size={28} />,
-      distance: "17 minutes",
+      distance: "17 Minutes",
       title: "RMS Multi-Specialty Hospital",
       description: "High-growth development zone",
       time: "30 min",
     },
     {
       icon: <FaIndustry size={28} />,
-      distance: "22 minutes",
+      distance: "22 Minutes",
       title: "Tata Semiconductor Plant",
       description: "Global connectivity advantage",
       time: "57 min",
@@ -62,7 +62,7 @@ const PrimeLocationSection = () => {
 
     {
       icon: <Plane size={28} />,
-      distance: "30 minutes",
+      distance: "30 Minutes",
       title: "Dholera International Airport",
       description: "Global connectivity advantage",
       time: "57 min",

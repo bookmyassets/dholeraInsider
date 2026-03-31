@@ -105,8 +105,8 @@ export default function Hero() {
   ];
 
   const projectFeatures = [
-    { icon: "🏠", title: "Plot Sizes", value: "154, 179 and 202 Sq.Yards" },
-    { icon: "💰", title: "Starting Price", value: "₹6,000/Sq.Yd" },
+    { icon: "🏠", title: "Plot Sizes", value: "124, 154 and 187 Sq.Yards" },
+    { icon: "💰", title: "Price", value: "₹6,000/Sq.Yd" },
     { icon: "🏗️", title: "Project Type", value: "Residential Plots" },
     {
       icon: "📍",
@@ -189,7 +189,7 @@ export default function Hero() {
                   </h2>
                 </a>
                 <div className="text-teal-700/70 text-xs mt-1">
-                  Registry Ready Plot Starting From ₹10 Lakh
+                  Govt Approved Plot Starting From ₹7.5 Lakh
                 </div>
               </div>
 
@@ -203,9 +203,7 @@ export default function Hero() {
                     /Sq.Yd
                   </span>
                 </div>
-                <div className="text-teal-900/40 text-[10px] tracking-widest uppercase mt-0.5">
-                  Starting Price
-                </div>
+                
               </div>
 
               {/* Spacer */}
