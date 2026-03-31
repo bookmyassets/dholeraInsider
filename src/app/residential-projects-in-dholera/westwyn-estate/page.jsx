@@ -106,7 +106,7 @@ export default function Hero() {
 
   const projectFeatures = [
     { icon: "🏠", title: "Plot Size", value: "152 and 200 Sq.Yards" },
-    { icon: "💰", title: "Starting Price", value: "₹6,700/Sq.Yd" },
+    { icon: "💰", title: "Price", value: "₹6,700/Sq.Yd" },
     { icon: "🏗️", title: "Project Type", value: "Residential Plots" },
     { icon: "📍", title: "Location", value: "Located on State Highway 117" },
   ];
@@ -200,7 +200,7 @@ export default function Hero() {
                   </span>
                 </div>
                 <div className="text-teal-900/40 text-[10px] tracking-widest uppercase mt-0.5">
-                  Starting Price
+                  Price
                 </div>
               </div>
 
@@ -322,7 +322,7 @@ export default function Hero() {
         <PrimeLocationSection />
       </div>
       <div>
-        <CommonForm title="Own a Registry Ready Plot in Dholera Under ₹10 Lakh" />
+        <CommonForm title="Own a Registry Ready Plot in Dholera Starting From ₹10 Lakh" />
       </div>
 
       <div className="relative">
@@ -441,7 +441,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Invest in Verified Plots in Dholera Under ₹10 Lakh" />
+      <PopupScroll title="Invest in Verified Plots in Dholera Starting From ₹10 Lakh" />
       <AnimatePresence>
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">

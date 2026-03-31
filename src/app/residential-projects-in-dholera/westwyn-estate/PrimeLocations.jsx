@@ -26,21 +26,21 @@ const PrimeLocationSection = () => {
   const locations = [
     {
       icon: <RailSymbol size={28} />,
-      distance: "5 minutes",
+      distance: "5 Minutes",
       title: "Bhimnath Railway Junction",
       description: "Fast & seamless road connectivity",
       time: "15 min"
     },
     {
       icon: <Route size={28} />,
-      distance: "15 minutes",
+      distance: "15 Minutes",
       title: "Dholera SIR boundary",
       description: "High-growth development zone",
       time: "30 min"
     },
     {
       icon: <FaHospitalAlt size={28} />,
-      distance: "15 minutes",
+      distance: "15 Minutes",
       title: "RMS Multi-Specialty Hospital",
       description: "High-growth development zone",
       time: "30 min"
@@ -54,14 +54,14 @@ const PrimeLocationSection = () => {
     },
     {
       icon: <FaIndustry size={28} />,
-      distance: "30 minutes",
+      distance: "30 Minutes",
       title: "Tata Semiconductor Plant",
       description: "Global connectivity advantage",
       time: "57 min"
     },
     {
       icon: <Plane size={28} />,
-      distance: "45 minutes",
+      distance: "45 Minutes",
       title: "Dholera International Airport",
       description: "Global connectivity advantage",
       time: "57 min"
