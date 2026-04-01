@@ -273,7 +273,7 @@ export default function SlugPageForm() {
                     
                     {/* Section 2: Sub-heading CTA */}
                     <p className="text-xl md:text-2xl text-gray-700 font-semibold">
-                      Buy Residential Plots in Dholera Just 0 Km from SIR
+                      Own Premium Residential Plots in Dholera
                     </p>
                   </div>
 

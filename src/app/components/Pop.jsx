@@ -410,7 +410,7 @@ export default function Popup({
               <div className="text-center">
 
                 <h2 className="text-xl md:text-2xl font-bold mb-1 leading-tight text-amber-200">
-                 Start Your Dholera Investment Under ₹10 Lakh
+                 Start Your Dholera Investment From ₹8 Lakh
                 </h2>
 
                 {titleInfo.timeLeft && (

@@ -189,7 +189,7 @@ export default function Hero() {
                   </h2>
                 </a>
                 <div className="text-teal-700/70 text-xs mt-1">
-                  Govt Approved Plot Starting From ₹7.5 Lakh
+                  Govt Approved Plot Starting From ₹8 Lakh
                 </div>
               </div>
 
@@ -203,7 +203,6 @@ export default function Hero() {
                     /Sq.Yd
                   </span>
                 </div>
-                
               </div>
 
               {/* Spacer */}
@@ -290,11 +289,7 @@ export default function Hero() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
-              WestWyn Residency
-              <br />{" "}
-              <span className="text-lg md:xtext-xl">
-                Govt Approved Plots at Dholera SIR
-              </span>
+              WestWyn Residency - Govt Approved Plots in Dholera
             </h1>
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-100 leading-relaxed">
@@ -448,7 +443,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Invest in Verified Plots in Dholera Under ₹10 Lakh" />
+      <PopupScroll title="Get Registry Ready Plots in Dholera Starting from ₹8 Lakh" />
       <AnimatePresence>
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">

@@ -683,7 +683,7 @@ export default async function BlogDetail({ params }) {
               <div className="sticky space-y-4 top-24">
                 <div className="pt-4 max-w-xl mx-auto">
                   <LeadForm
-                    title="Planning to Invest in Dholera Smart City?"
+                    title="Explore Premium Residential Plots in Dholera"
                     buttonName="Know More"
                   />
                 </div>

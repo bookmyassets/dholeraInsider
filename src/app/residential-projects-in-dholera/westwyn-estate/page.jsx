@@ -108,7 +108,7 @@ export default function Hero() {
     { icon: "🏠", title: "Plot Size", value: "152 and 200 Sq.Yards" },
     { icon: "💰", title: "Price", value: "₹6,700/Sq.Yd" },
     { icon: "🏗️", title: "Project Type", value: "Residential Plots" },
-    { icon: "📍", title: "Location", value: "Located on State Highway 117" },
+    { icon: "📍", title: "Location", value: "Polarpur, Dholera" },
   ];
 
   return (
@@ -216,7 +216,7 @@ export default function Hero() {
                   className="flex items-center gap-2 bg-teal-900 hover:bg-teal-800 text-white px-5 py-2.5 rounded-lg text-[13px] font-bold transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <PhoneIcon />
-                  Site Visit
+                  Call Now
                 </a>
 
                 <button
@@ -288,13 +288,13 @@ export default function Hero() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <h1 className="text-2xl md:text-4xl md:text-center font-bold text-white mb-6">
-              WestWyn Estates
-              <br /> <span>Premium Residential Plots at Dholera SIR</span>
+              WestWyn Estates -{" "}
+              <span>Premium Residential Plots in Dholera</span>
             </h1>
             <div className="max-w-5xl mx-auto">
               <p className="text-lg text-gray-100 leading-relaxed">
                 WestWyn Estates is a premium residential plotting project in
-                Dholera Smart City, Gujarat, designed for smart living and
+                Polarpur, Dholera, Gujarat, designed for smart living and
                 long-term investment. The project offers direct entry from State
                 Highway-117 and is located just minutes from Bhimnath Railway
                 Station, ensuring convenient connectivity. It also provides good
@@ -441,7 +441,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <PopupScroll title="Invest in Verified Plots in Dholera Starting From ₹10 Lakh" />
+      <PopupScroll title="Get Registry Ready Plots in Dholera Starting From ₹10 Lakh" />
       <AnimatePresence>
         {brochureFormOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
